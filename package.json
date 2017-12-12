@@ -1,19 +1,43 @@
 {
-  "name": "kuker",
+  "name": "stent-dev-tools",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Chrome extension to monitor state machines created by Stent library",
+  "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "browserify ./src/index.jsx -o ./build/app.js -t babelify",
+    "watch": "watchify ./src/index.jsx -o ./build/app.js -t babelify -v"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/krasimir/kuker.git"
+    "url": "git+https://github.com/krasimir/stent-dev-tools.git"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "stent",
+    "state",
+    "machine",
+    "dev",
+    "tools",
+    "chrome"
+  ],
+  "author": "Krasimir Tsonev",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/krasimir/kuker/issues"
+    "url": "https://github.com/krasimir/stent-dev-tools/issues"
   },
-  "homepage": "https://github.com/krasimir/kuker#readme"
+  "homepage": "https://github.com/krasimir/stent-dev-tools",
+  "dependencies": {
+    "babel-eslint": "^8.0.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0",
+    "eslint": "^4.12.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-json-tree": "^0.11.0",
+    "react-virtualized": "^9.13.0",
+    "stent": "4.1.0",
+    "watchify": "^3.9.0"
+  }
 }

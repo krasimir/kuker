@@ -1,0 +1,236 @@
+body, html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+.cf::after, .cf::before {
+  clear: both;
+  content: ' ';
+  display: block;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.relative {
+  position: relative;
+}
+.ml1 {
+  margin-left: 1em;
+}
+.ml05 {
+  margin-left: 0.5em;
+}
+.mr1 {
+  margin-right: 1em;
+}
+.mb05 {
+  margin-bottom: 0.5em;
+}
+.mr05 {
+  margin-right: 0.5em;
+}
+.try2 {
+  transform: translateY(2px);
+}
+.block {
+  display: block;
+}
+
+/* log */
+.dashboard {
+  height: 100%;
+}
+.dashboard::after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.logNav {
+  padding: 0.5em;
+  background: #c9c9c9;
+  border-bottom: solid 1px #999;
+  border-top: solid 1px #fff;
+  height: 35px;
+  overflow: hidden;
+}
+.logNav::after {
+  display: table;
+  content: " ";
+  clear: both;
+}
+.logNav .filter {
+  display: inline-block;
+  margin-left: 0.5em;
+}
+.logNav a {
+  display: inline-block;
+  cursor: pointer;
+}
+.logNav.fullHeight {
+  padding: 0;
+}
+.logNav.fullHeight a {
+  padding: 0.5em 1em 0.5em 1em;
+  background: #e4e4e4;
+  height: 33px;
+  margin-right: 0;
+  border-left: solid 1px rgb(156, 156, 156);
+  border-right: solid 1px rgb(156, 156, 156);
+  border-bottom: solid 3px #e4e4e4;
+}
+.logNav.fullHeight a:hover {
+  background: #fff;
+  border-bottom: solid 3px #fff;
+}
+.logNav.fullHeight a.selected {
+  border-bottom: solid 3px rgb(71, 71, 71);
+}
+@media all and (max-width: 780px) {
+  .logLeft .logNav a, .logLeft .logNav input[type="text"] {
+    display: none;
+  }
+}
+.logLeft {
+  width: 60%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-y: hidden;
+}
+@media all and (max-width: 620px) {
+  .logLeft {
+    width: 100%;
+    height: 50%;
+    position: relative;
+  }
+}
+.logRight {
+  width: 40%;
+  height: 100%;
+  overflow-y: scroll;
+  position: absolute;
+  top: 0;
+  left: 60%;
+  background: #e6e6e6;
+}
+@media all and (max-width: 620px) {
+  .logRight {
+    width: 100%;
+    height: 50%;
+    position: relative;
+    left: 0;
+  }
+}
+.logTree {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.log {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-y: hidden;
+  height: calc(100% - 35px);
+}
+.log li {
+  padding: 0.4em 1em;
+  border-top: solid 1px rgb(121, 121, 121);
+}
+.log .fa {
+  margin-right: 0.5em;
+  font-size: 1em;
+  color: rgb(0, 0, 0);
+  transition: transform 200ms ease;
+}
+.log strong {
+  display: inline-block;
+  font-weight: bold;
+}
+.timeDiff {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  padding: 0.5em;
+}
+.timeDiff .gradient {
+  width: 20px;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: -20px;
+}
+.actionRow {
+  font-size: 1em;
+  cursor: pointer;
+  transition: opacity 200ms ease, transform 200ms ease;
+  transform: scale(1);
+}
+.actionRow:hover .fa:first-child {
+  transform: scale(0.6);
+}
+.actionRowContent {
+  width: 1000px;
+  overflow: hidden;
+}
+.withMarker::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #F00;
+}
+.pinned {
+  background: #000 !important;
+  color: #FFF !important;
+}
+.pinned .timeDiff {
+  display: none;
+}
+.pinned .fa {
+  color: #FFF !important;
+}
+.sagaParentEffect {
+  font-size: 0.7em;
+  border: solid 2px #999;
+  margin-left: 0.3em;
+  transform: translateY(-1px);
+  display: inline-block;
+  padding: 0 0.2em;
+  opacity: 0.5;
+}
+
+/* Log settings */
+.settings {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: rgba(255, 255, 255, 0.98);
+  width: 100%;
+  height: calc(100% - 35px);
+  padding: 1em;
+  overflow-y: scroll;
+}
+.settings .close {
+  position: absolute;
+  top: 0.2em;
+  right: 0.5em;
+  cursor: pointer;
+  font-size: 1.6em;
+}

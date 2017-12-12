@@ -1,0 +1,2 @@
+* run only in dev mode (if window is defined + register variable via content script)
+* empty page + just disable the controls when there's no events (do not hide everything)
