@@ -1,14 +1,12 @@
-# Stent Dev Tools
+# Kuker
 
-Chrome extension to monitor state machines created by [Stent](https://github.com/krasimir/stent) library and not only.
+Chrome extension to debug your apps
 
 ### Posting a message to the extension
 
 ```js
 window.top.postMessage({
-  source: 'stent',
   time: (new Date()).getTime(),
-  uid: 'foo',
   state: { bank: { money: 0 } },
   label: 'Take my money',
   icon: 'fa-money'
