@@ -41627,7 +41627,7 @@ var initialState = function initialState() {
     autoscroll: true
   };
 };
-var MAX_EVENTS = 500;
+var MAX_EVENTS = 400;
 
 var machine = _stent.Machine.create('DevTools', {
   state: initialState(),
@@ -41654,9 +41654,8 @@ var machine = _stent.Machine.create('DevTools', {
         if (eventsToAdd.length === 0) return undefined;
 
         events = events.concat(eventsToAdd);
-
         if (events.length > MAX_EVENTS) {
-          events.splice(0, MAX_EVENTS - events.length);
+          events.splice(0, events.length - MAX_EVENTS);
         }
 
         if (autoscroll) {

@@ -9,7 +9,7 @@ const initialState = () => ({
   pinnedEvent: null,
   autoscroll: true
 });
-const MAX_EVENTS = 500;
+const MAX_EVENTS = 400;
 
 const machine = Machine.create('DevTools', {
   state: initialState(),
@@ -29,9 +29,8 @@ const machine = Machine.create('DevTools', {
         if (eventsToAdd.length === 0) return undefined;
 
         events = events.concat(eventsToAdd);
-
         if (events.length > MAX_EVENTS) {
-          events.splice(0, MAX_EVENTS - events.length);
+          events.splice(0, events.length - MAX_EVENTS);
         }
 
         if (autoscroll) {
