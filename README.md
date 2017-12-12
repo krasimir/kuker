@@ -1,6 +1,6 @@
 # Kuker
 
-![kuker](./img/kuker_banner.jpg)
+![kuker](./_logo/kuker_banner.jpg)
 
 Chrome extension to debug your apps.
 
