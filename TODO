@@ -1,1 +1,2 @@
 * empty page + just disable the controls when there's no events (do not hide everything)
+* raw state and raw event

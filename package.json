@@ -4,8 +4,8 @@
   "description": "Debug like a boss",
   "main": "",
   "scripts": {
-    "build": "browserify ./src/index.jsx -o ./build/app.js -t babelify",
-    "watch": "watchify ./src/index.jsx -o ./build/app.js -t babelify -v"
+    "build": "browserify ./src/index.jsx -o ./lib/app.js -t babelify && node ./scripts/zipExtension.js",
+    "watch": "watchify ./src/index.jsx -o ./lib/app.js -t babelify -v"
   },
   "repository": {
     "type": "git",
@@ -39,5 +39,8 @@
     "react-virtualized": "^9.13.0",
     "stent": "4.1.0",
     "watchify": "^3.9.0"
+  },
+  "devDependencies": {
+    "zip-folder": "^1.0.0"
   }
 }
