@@ -1,7 +1,7 @@
 {
-  "name": "stent-dev-tools",
-  "version": "0.1.0",
-  "description": "Chrome extension to monitor state machines created by Stent library",
+  "name": "kuker",
+  "version": "1.0.0",
+  "description": "Debug like a boss",
   "main": "",
   "scripts": {
     "build": "browserify ./src/index.jsx -o ./build/app.js -t babelify",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/krasimir/stent-dev-tools.git"
+    "url": "git+https://github.com/krasimir/kuker.git"
   },
   "keywords": [
     "stent",
@@ -22,9 +22,9 @@
   "author": "Krasimir Tsonev",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/krasimir/stent-dev-tools/issues"
+    "url": "https://github.com/krasimir/kuker/issues"
   },
-  "homepage": "https://github.com/krasimir/stent-dev-tools",
+  "homepage": "https://github.com/krasimir/kuker",
   "dependencies": {
     "babel-eslint": "^8.0.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",

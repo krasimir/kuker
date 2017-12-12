@@ -1,5 +1,5 @@
 chrome.devtools.panels.create(
-	"Stent",
+	"Kuker",
 	"img/icon16.png",
 	"index.html",
 	function(panel) {
