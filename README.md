@@ -21,7 +21,7 @@ The extension answers on these two questions. We have two panels. The one on the
 
 ![redux saga extension](./img/redux_screenshot_1280x800.jpg)
 
-*(The screenshot is made of the [this Codepen](https://codepen.io/krasimir/pen/vpYrqw))*
+*(The screenshot is made of [this Codepen](https://codepen.io/krasimir/pen/vpYrqw))*
 
 ## Instrumentation
 
