@@ -4,6 +4,8 @@
 
 Chrome extension to debug your apps.
 
+Install it from here [chrome.google.com/webstore/detail/glgnienmpgmf...](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn).
+
 ## Philosophy
 
 If you write code you probably know that debugging what you just wrote is really important. Without seeing how your code behaves on a lower level you can't really implement properly. Finding and fixing bugs is also important. And without a proper tool it becomes difficult and time consuming. *Kuker* is here to improve your workflow.
