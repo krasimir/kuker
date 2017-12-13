@@ -36,7 +36,7 @@ To make the extension work you have to *instrument* your application. You have t
 Of course you don't have to use any of these libraries to enjoy [Kuker](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn). You may send a message on your own using the [`postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) API:
 
 ```js
-window.top.postMessage({
+window.postMessage({
   type: 'adding money to my account',
   label: 'hello',
   time: (new Date()).getTime(),
