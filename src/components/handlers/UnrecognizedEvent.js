@@ -8,7 +8,7 @@ import TimeDiff from '../TimeDiff.jsx';
 export default function UnrecognizedEvent({ event, onClick, className }) {
   const icon = event.icon || 'fa-angle-double-right';
   const label = event.label && event.label.replace(/ /g, '') !== event.type ?
-    <div style={{ marginLeft: '1.6em' }}>{ event.label }</div> : '';
+    <span style={{ marginLeft: '0.6em' }}>{ event.label }</span> : '';
   const style = calculateRowStyles(event, { color: 'rgb(230, 230, 230)' });
 
   return (

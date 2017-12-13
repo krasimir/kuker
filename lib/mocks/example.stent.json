@@ -8782,6 +8782,13 @@
       "origin": "http://localhost:3000/",
       "timeDiff": "+ 0:00:002",
       "id": 224
+    },
+    {
+      "type": "my-custom-type",
+      "label": "hello",
+      "time": 1513028752963,
+      "state": { "bank": { "money": 0 } },
+      "icon": "fa-money"
     }
   ],
   "autoscroll": true,

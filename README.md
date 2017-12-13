@@ -21,20 +21,34 @@ The extension answers on these two questions. We have two panels. The one on the
 
 ![redux saga extension](./img/redux_screenshot_1280x800.jpg)
 
-*(The screenshot is made of the [this Codepen](https://codepen.io/krasimir/pen/vpYrqw))
+*(The screenshot is made of the [this Codepen](https://codepen.io/krasimir/pen/vpYrqw))*
 
-### Posting a message to the extension
+## Instrumentation
+
+To make the extension show something you have to *instrument* your application. This happens by adding an [_emitter_](https://github.com/krasimir/kuker-emitters) which listens for actions/events and sends them to [Kuker](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn). Here are the available emitters so far:
+
+* [Redux emitter](https://github.com/krasimir/kuker-emitters#integration-with-redux)
+* [redux-saga emitter](https://github.com/krasimir/kuker-emitters#integration-with-redux-saga)
+* [Stent emitter](https://github.com/krasimir/kuker-emitters#integration-with-stent)
+
+Of course you don't have to use any of these libraries to enjoy [Kuker](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn). You may send a message on your own using the [`postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) API:
 
 ```js
 window.top.postMessage({
+  type: 'adding money to my account',
+  label: 'hello',
   time: (new Date()).getTime(),
-  state: { bank: { money: 0 } },
-  label: 'Take my money',
-  icon: 'fa-money'
+  state: { bank: { money: 100 } },
+  icon: 'fa-money',
+  color: '#bada55'
 }, '*');
 ```
 
-*`icon` is one of the FontAwesome icons. Check out [here](http://fontawesome.io/icons/).*
+The result of this `postMessage` call is as follows:
+
+![custom event](./img/screenshot_custom_event.jpg)
+
+The only one required property is `type`. You may skip the others if you want. `icon` is one of the [FontAwesome](http://fontawesome.io/icons/) icons.
 
 ## Misc
 
