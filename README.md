@@ -25,11 +25,13 @@ The extension answers on these two questions. We have two panels. The one on the
 
 ## Instrumentation
 
-To make the extension show something you have to *instrument* your application. This happens by adding an [_emitter_](https://github.com/krasimir/kuker-emitters) which listens for actions/events and sends them to [Kuker](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn). Here are the available emitters so far:
+To make the extension work you have to *instrument* your application. You have to add an [_emitter_](https://github.com/krasimir/kuker-emitters) which listens for actions/events on your side and sends them to [Kuker](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn). Here are some of the ready ones:
 
 * [Redux emitter](https://github.com/krasimir/kuker-emitters#integration-with-redux)
 * [redux-saga emitter](https://github.com/krasimir/kuker-emitters#integration-with-redux-saga)
 * [Stent emitter](https://github.com/krasimir/kuker-emitters#integration-with-stent)
+
+## Writing your own Emitter
 
 Of course you don't have to use any of these libraries to enjoy [Kuker](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn). You may send a message on your own using the [`postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) API:
 
@@ -49,6 +51,12 @@ The result of this `postMessage` call is as follows:
 ![custom event](./img/screenshot_custom_event.jpg)
 
 The only one required property is `type`. You may skip the others if you want. `icon` is one of the [FontAwesome](http://fontawesome.io/icons/) icons.
+
+I'll be more then happy to see you contributing to [kuker-emitters](https://github.com/krasimir/kuker-emitters). There're also utility functions for calling `postMessage` or the so called `guard` function that protects the emitter calls in production.
+
+## In production
+
+Don't worry about shipping instrumented application. If you use some of the [predefined emitters](https://github.com/krasimir/kuker-emitters) they have a `guard` function which checks if the Kuker extension is installed. If not they do nothing. Also there is a check for the `window` object so you don't get weird errors if you server-side-render your code.
 
 ## Misc
 
