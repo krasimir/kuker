@@ -52,7 +52,15 @@ The result of this `postMessage` call is as follows:
 
 The only one required property is `type`. You may skip the others if you want. `icon` is one of the [FontAwesome](http://fontawesome.io/icons/) icons.
 
-I'll be more then happy to see you contributing to [kuker-emitters](https://github.com/krasimir/kuker-emitters). There're also utility functions for calling `postMessage` or the so called `guard` function that protects the emitter calls in production.
+The problem of doing it alone is that you have to take care for a couple of things:
+
+* Your state may contain stuff which are not easily serializable.
+* You have to check if `window.postMessage` is available (does not exist in node environment).
+* You don't want to dispatch events on your production servers. So you have to implement a guarding code.
+
+All these three issues are solved by using the [BaseEmitter](https://github.com/krasimir/kuker-emitters#baseemitter). All the predefined emitters at [github.com/krasimir/kuker-emitters](https://github.com/krasimir/kuker-emitters) send events only if the extension is installed. Otherwise they are just dummy functions with no effect.
+
+*I'll be more then happy to see you contributing to [kuker-emitters](https://github.com/krasimir/kuker-emitters). There're also utility functions for calling `postMessage` or the so called `guard` function that protects the emitter calls in production.*
 
 ## In production
 
