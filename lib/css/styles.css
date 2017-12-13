@@ -234,3 +234,25 @@ p {
   cursor: pointer;
   font-size: 1.6em;
 }
+
+/* no events */
+.noEvents {
+  background: #e6e6e6;
+  height: 100%;
+  text-align: center;
+  padding: 3em;
+}
+.noEvents img {
+  margin: 0 auto;
+  max-width: 350px;
+  display: block;
+}
+.noEvents p {
+  font-size: 1.4em;
+}
+.noEvents a {
+  color: #000;
+}
+.noEvents a:hover {
+  color: #999;
+}

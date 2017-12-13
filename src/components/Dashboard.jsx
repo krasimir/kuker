@@ -19,6 +19,8 @@ import SagaEffectCanceled from './handlers/SagaEffectCanceled';
 import SagaEffectRejected from './handlers/SagaEffectRejected';
 import ReduxAction from './handlers/ReduxAction';
 // eslint-disable-next-line no-unused-vars
+import NoEvents from './NoEvents.jsx';
+// eslint-disable-next-line no-unused-vars
 import Settings from './Settings.jsx';
 // eslint-disable-next-line no-unused-vars
 import { AutoSizer, List } from 'react-virtualized';
@@ -113,7 +115,7 @@ class Dashboard extends React.Component {
     } = this.props;
 
     if (events.length === 0) {
-      return <p style={{ margin: '0.2em 0 0 0' }}>Waiting for events ...</p>;
+      return <NoEvents />;
     }
 
     const eventsToRender = events.filter(({ type }) => {
