@@ -1,5 +1,6 @@
 import readFromPath from '../helpers/readFromPath';
 
+const HEALTHY_CHECK_INTERVAL = 4000;
 const listeners = [];
 const bridge = {
   on: function (callback) {
@@ -7,6 +8,22 @@ const bridge = {
   }
 };
 const notify = message => listeners.forEach(f => f(message));
+const healthyCheck = () => {
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    if (!tabs || tabs.length === 0) {
+      setTimeout(healthyCheck, HEALTHY_CHECK_INTERVAL);
+      return;
+    }
+    chrome.tabs.sendMessage(tabs[0].id, { healthyCheck: true }, function (response) {
+      if (response && response.healthy === true) {
+        notify([{ healthy: { status: true } }]);
+      } else {
+        notify([{ healthy: { status: false } }]);
+      }
+      setTimeout(healthyCheck, HEALTHY_CHECK_INTERVAL);
+    });
+  });
+};
 const wire = () => {
   if (!chrome || !chrome.runtime || !chrome.runtime.onMessage) return;
 
@@ -15,6 +32,12 @@ const wire = () => {
       notify(message);
     }
   });
+  chrome.tabs.onUpdated.addListener(function (tabId) {
+    if (readFromPath(chrome, 'devtools.inspectedWindow.tabId') === tabId) {
+      notify([{ pageRefresh: true }]);
+    }
+  });
+  healthyCheck();
 };
 
 wire();

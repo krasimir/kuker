@@ -7,7 +7,8 @@ const initialState = () => ({
   page: PAGES.DASHBOARD,
   events: [],
   pinnedEvent: null,
-  autoscroll: true
+  autoscroll: true,
+  healthy: false
 });
 const MAX_EVENTS = 400;
 
@@ -15,7 +16,13 @@ const DevTools = Machine.create('DevTools', {
   state: initialState(),
   transitions: {
     'working': {
-      'action received': function ({ events, autoscroll, pinnedEvent, ...rest }, newEvents) {
+      'action received': function ({ events, autoscroll, pinnedEvent, healthy, ...rest }, newEvents) {
+        if (newEvents.length === 1 && newEvents[0].pageRefresh === true) {
+          this.flushEvents(); return undefined;
+        }
+        if (newEvents.length === 1 && newEvents[0].healthy === true) {
+          return { events, autoscroll, pinnedEvent, healthy: newEvents[0].healthy.status, ...rest };
+        }
         if (newEvents.length === 1 && newEvents[0].pageRefresh === true) {
           this.flushEvents(); return undefined;
         }
@@ -41,6 +48,7 @@ const DevTools = Machine.create('DevTools', {
           events,
           autoscroll,
           pinnedEvent,
+          healthy,
           ...rest
         };
       },

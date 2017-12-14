@@ -158,6 +158,11 @@ p {
   padding: 0.5em;
   font-family: inherit;
 }
+.healthy {
+  margin-top: 0.7em;
+  margin-right: 0.6em;
+  color: rgb(92, 92, 92);
+}
 
 .log {
   margin: 0;
