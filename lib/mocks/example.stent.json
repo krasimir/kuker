@@ -8789,6 +8789,12 @@
       "time": 1513028752963,
       "state": { "bank": { "money": 0 } },
       "icon": "fa-money"
+    },
+    {
+      "type": "just a type"
+    },
+    {
+      "foo": "bar"
     }
   ],
   "autoscroll": true,

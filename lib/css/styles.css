@@ -126,6 +126,7 @@ p {
   top: 0;
   left: 60%;
   background: #e6e6e6;
+  border-left: solid 1px #999;
 }
 @media all and (max-width: 620px) {
   .logRight {
@@ -146,14 +147,11 @@ p {
   top: 3.6em;
   right: 0.4em;
   font-size: 0.8em;
-  border: solid 1px rgb(182, 182, 182);
-  border-radius: 0.3em;
   padding: 0.3em 0.4em;
   color: #999;
 }
 .treeFormat:hover {
   color: #000;
-  border: solid 1px #000;
 }
 .rawFormat {
   margin: 0;

@@ -19,7 +19,7 @@ I'm working with React and Redux last years and they seem to have pretty active 
 
 The extension answers on these two questions. We have two panels. The one on the left shows a list of all the actions/events in your application while the one on the right displays the state after each one of them.
 
-![redux saga extension](./img/redux_screenshot_1280x800.jpg)
+![redux saga extension](./img/screenshot_instructions.jpg)
 
 *(The screenshot is made of [this Codepen](https://codepen.io/krasimir/pen/vpYrqw))*
 
