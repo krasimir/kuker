@@ -3,7 +3,7 @@ import React from 'react';
 
 import calculateRowStyles from './helpers/calculateRowStyles';
 // eslint-disable-next-line no-unused-vars
-import TimeDiff from '../TimeDiff.jsx';
+import TimeDiff from '../../TimeDiff';
 
 export default function UnrecognizedEvent({ event, onClick, className }) {
   const icon = event.icon || 'fa-angle-double-right';

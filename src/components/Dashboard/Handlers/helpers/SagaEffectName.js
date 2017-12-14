@@ -1,6 +1,6 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react';
-import readFromPath from '../../../helpers/readFromPath';
+import readFromPath from '../../../../helpers/readFromPath';
+import PropTypes from 'prop-types';
 
 const readFN = function (effectName, effect) {
   return readFromPath(effect, `${ effectName }.fn.__func`);
@@ -48,4 +48,8 @@ export default function SagaEffectName({ effect }) {
     return <span>...</span>;
   }
   return null;
+};
+
+SagaEffectName.propTypes = {
+  effect: PropTypes.object
 };

@@ -33,6 +33,8 @@
     "babelify": "^7.3.0",
     "browserify": "^14.4.0",
     "eslint": "^4.12.1",
+    "eslint-plugin-react": "^7.5.1",
+    "prop-types": "^15.6.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-json-tree": "^0.11.0",

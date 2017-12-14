@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import getMachineName from '../../helpers/getMachineName';
+import getMachineName from '../../../helpers/getMachineName';
 
 import calculateRowStyles from './helpers/calculateRowStyles';
 // eslint-disable-next-line no-unused-vars
-import TimeDiff from '../TimeDiff.jsx';
+import TimeDiff from '../../TimeDiff';
 
 export default function onMachineCreated({ event, timeDiff, onClick, className }) {
   const { machine } = event;

@@ -1,12 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
-import getMachineName from '../../helpers/getMachineName';
-import shortenJSON from '../../helpers/shortenJSON';
+import getMachineName from '../../../helpers/getMachineName';
+import shortenJSON from '../../../helpers/shortenJSON';
 
 import calculateRowStyles from './helpers/calculateRowStyles';
 // eslint-disable-next-line no-unused-vars
-import TimeDiff from '../TimeDiff.jsx';
+import TimeDiff from '../../TimeDiff';
 
 export default function onGeneratorStep({ event, onClick, className }) {
   const { yielded, timeDiff } = event;

@@ -1,2 +1,6 @@
-* empty page + just disable the controls when there's no events (do not hide everything)
 * raw state and raw event
+* xstate emitter
+* MobX, cycle.js, RxJS emitters
+* Analysis (show how the state changes on every event)
+* web sockets in `message` so we can see the server-side-renderd
+* React component emitter

@@ -11,7 +11,7 @@ const initialState = () => ({
 });
 const MAX_EVENTS = 400;
 
-const machine = Machine.create('DevTools', {
+const DevTools = Machine.create('DevTools', {
   state: initialState(),
   transitions: {
     'working': {
@@ -71,48 +71,4 @@ const machine = Machine.create('DevTools', {
   }
 });
 
-// Extension navigation
-Machine.create('Nav', {
-  state: { name: 'state' },
-  transitions: {
-    'state': {
-      'view event': 'event',
-      'view analysis': 'analysis'
-    },
-    'event': {
-      'view state': 'state',
-      'view analysis': 'analysis'
-    },
-    'analysis': {
-      'view state': 'state',
-      'view event': 'event'
-    }
-  }
-});
-
-// shortcuts
-Mousetrap.bind('ctrl+`', function (e) {
-  console.log(JSON.stringify(machine.state, null, 2));
-});
-
-// development goodies
-if (typeof window !== 'undefined' && window.location && window.location.href) {
-  if (window.location.href.indexOf('populate=') > 0) {
-    let s;
-
-    if (window.location.href.indexOf('populate=1') > 0) {
-      s = './mocks/example.stent.json';
-    } else if (window.location.href.indexOf('populate=2') > 0) {
-      s = './mocks/example.redux.json';
-    } else if (window.location.href.indexOf('populate=3') > 0) {
-      s = './mocks/example.saga.json';
-    }
-
-    fetch(s).then(response => {
-      response.json().then(({ events }) => {
-        console.log('About to inject ' + events.length + ' actions');
-        machine.actionReceived(events);
-      });
-    });
-  };
-}
+export default DevTools;

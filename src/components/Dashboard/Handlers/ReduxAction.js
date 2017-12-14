@@ -1,13 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import isDefined from '../../helpers/isDefined';
+import isDefined from '../../../helpers/isDefined';
 // eslint-disable-next-line no-unused-vars
 import SagaEffectName from './helpers/SagaEffectName';
-import renderJSONPreview from '../../helpers/renderJSONPreview';
+import renderJSONPreview from '../../../helpers/renderJSONPreview';
 
 import calculateRowStyles from './helpers/calculateRowStyles';
 // eslint-disable-next-line no-unused-vars
-import TimeDiff from '../TimeDiff.jsx';
+import TimeDiff from '../../TimeDiff';
 
 export default function ReduxAction({ event, onClick, className }) {
   var label = '';

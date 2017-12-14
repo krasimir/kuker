@@ -1,7 +1,7 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react';
-import readFromPath from '../../../helpers/readFromPath';
-import isDefined from '../../../helpers/isDefined';
+import readFromPath from '../../../../helpers/readFromPath';
+import isDefined from '../../../../helpers/isDefined';
+import PropTypes from 'prop-types';
 
 export default function SagaEffectIds({ event }) {
   const effectId = readFromPath(event, 'effectId', false);
@@ -15,4 +15,8 @@ export default function SagaEffectIds({ event }) {
       </strong> }
     </span>
   );
+};
+
+SagaEffectIds.propTypes = {
+  event: PropTypes.object
 };

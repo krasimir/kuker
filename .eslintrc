@@ -19,13 +19,18 @@
       "expect": true,
       "sinon": true,
       "chrome": true,
-      "Mousetrap": true
+      "Mousetrap": true,
+      "React": true
     },
   
     "parser": "babel-eslint",
   
     "plugins": [
       
+    ],
+
+    "extends": [
+      "plugin:react/recommended"
     ],
   
     "rules": {

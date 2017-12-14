@@ -139,6 +139,29 @@ p {
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
+.treeFormat {
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  top: 0.5em;
+  right: 0;
+  font-size: 0.8em;
+  border: solid 1px rgb(182, 182, 182);
+  border-radius: 0.3em;
+  padding: 0.3em 0.4em;
+}
+.treeFormat:hover {
+  background: #000;
+  color: #fff;
+  border: none;
+  border: solid 1px #000;
+}
+.rawFormat {
+  margin: 0;
+  padding: 0.5em;
+  font-family: inherit;
+}
+
 .log {
   margin: 0;
   padding: 0;

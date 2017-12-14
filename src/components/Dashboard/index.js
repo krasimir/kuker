@@ -1,92 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'stent/lib/react';
-import { renderMachinesAsTree, renderEventAsTree, renderStateAsTree } from '../helpers/renderAsTree';
-import onMachineCreated from './handlers/onMachineCreated';
-import onMachineConnected from './handlers/onMachineConnected';
-import onMachineDisconnected from './handlers/onMachineDisconnected';
-import onActionDispatched from './handlers/onActionDispatched';
-import onActionProcessed from './handlers/onActionProcessed';
-import onGeneratorStep from './handlers/onGeneratorStep';
-import onGeneratorEnd from './handlers/onGeneratorEnd';
-import onGeneratorResumed from './handlers/onGeneratorResumed';
-import onStateChanged from './handlers/onStateChanged';
-import onStateWillChange from './handlers/onStateWillChange';
-import UnrecognizedEvent from './handlers/UnrecognizedEvent';
-import SagaEffectTriggered from './handlers/SagaEffectTriggered';
-import SagaEffectResolved from './handlers/SagaEffectResolved';
-import SagaEffectActionDispatched from './handlers/SagaEffectActionDispatched';
-import SagaEffectCanceled from './handlers/SagaEffectCanceled';
-import SagaEffectRejected from './handlers/SagaEffectRejected';
-import ReduxAction from './handlers/ReduxAction';
-// eslint-disable-next-line no-unused-vars
-import NoEvents from './NoEvents.jsx';
-// eslint-disable-next-line no-unused-vars
-import Settings from './Settings.jsx';
-// eslint-disable-next-line no-unused-vars
+import NoEvents from './NoEvents';
+import Settings from './Settings';
 import { AutoSizer, List } from 'react-virtualized';
-
-const StentHandlers = {
-  onMachineCreated,
-  onMachineConnected,
-  onMachineDisconnected,
-  onActionDispatched,
-  onActionProcessed,
-  onGeneratorStep,
-  onGeneratorEnd,
-  onGeneratorResumed,
-  onStateChanged,
-  onStateWillChange
-};
-const Handlers = {
-  '@saga_effectTriggered': SagaEffectTriggered,
-  '@saga_effectResolved': SagaEffectResolved,
-  '@saga_actionDispatched': SagaEffectActionDispatched,
-  '@saga_effectCancelled': SagaEffectCanceled,
-  '@saga_effectRejected': SagaEffectRejected,
-  '@redux_ACTION': ReduxAction
-};
+import EventListRow from './EventListRow';
+import Event from './Event';
+import State from './State';
 
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
 
-    this._renderEvent = this._renderEvent.bind(this);
     this._rowRenderer = this._rowRenderer.bind(this);
     this.state = {
       filterByTypes: null,
       settingsVisibility: false
     };
-  }
-  _renderEvent(event) {
-    const { pinnedEvent, pin } = this.props;
-    const { type, withMarker } = event;
-    // eslint-disable-next-line no-unused-vars
-    const Component = StentHandlers[type] || Handlers[type] || UnrecognizedEvent;
-    const isPinned = (pinnedEvent || {})['id'] === event.id;
-
-    const className =
-      (type ? type : '') +
-      ' actionRow relative' +
-      (withMarker ? ' withMarker' : '') +
-      (isPinned ? ' pinned' : '');
-
-    return (
-      <Component
-        key={ event.id }
-        className={ className }
-        onClick={ () => pin(event.id) }
-        event={ event }
-      />
-    );
-  }
-  _renderState() {
-    const { pinnedEvent } = this.props;
-
-    if (!pinnedEvent) return null;
-    if (pinnedEvent.type in StentHandlers) {
-      return renderMachinesAsTree(pinnedEvent.state);
-    }
-    return renderStateAsTree(pinnedEvent.state);
   }
   _changeSettingsVisibility(eventsToRender) {
     this.setState({ settingsVisibility: !this.state.settingsVisibility });
@@ -95,9 +25,15 @@ class Dashboard extends React.Component {
     }
   }
   _rowRenderer(eventsToRender, { index, isScrolling, isVisible, key, parent, style }) {
+    const { pinnedEvent, pin } = this.props;
+
     return (
       <div key={ key } style={style} >
-        { this._renderEvent(eventsToRender[index]) }
+        <EventListRow
+          event={ eventsToRender[index] }
+          pinnedEvent={ pinnedEvent }
+          pin={ pin }
+        />
       </div>
     );
   }
@@ -175,14 +111,26 @@ class Dashboard extends React.Component {
               <i className='fa fa-bar-chart-o mr05'></i>Analysis</a>
           </div>
           <div className='logTree' key='content'>
-            { navState === 'state' ? this._renderState() : null }
-            { navState === 'event' ? renderEventAsTree(pinnedEvent) : null }
+            { navState === 'state' ? <State event={ pinnedEvent } /> : null }
+            { navState === 'event' ? <Event event={ pinnedEvent } /> : null }
             { navState === 'analysis' ? 'Work in progress ...' : null }
           </div>
         </div>
       </div>
     );
   }
+};
+
+Dashboard.propTypes = {
+  pin: PropTypes.func,
+  clear: PropTypes.func,
+  marker: PropTypes.func,
+  pinnedEvent: PropTypes.object,
+  events: PropTypes.array,
+  navViewState: PropTypes.func,
+  navViewEvent: PropTypes.func,
+  navViewAnalysis: PropTypes.func,
+  navState: PropTypes.string
 };
 
 export default connect(
@@ -197,7 +145,7 @@ export default connect(
         events: state.events
       };
     })
-).with('Nav').map(n => {
+).with('TreeNav').map(n => {
   return {
     navViewState: n.viewState,
     navViewEvent: n.viewEvent,

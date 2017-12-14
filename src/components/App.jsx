@@ -1,10 +1,8 @@
-/* eslint-disable no-unused-vars */
-
 import React from 'react';
-import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import { PAGES } from '../constants';
 import { connect } from 'stent/lib/react';
-import Dashboard from './Dashboard.jsx';
+import Dashboard from './Dashboard';
 
 class App extends React.Component {
   _renderPage() {
@@ -27,3 +25,7 @@ class App extends React.Component {
 export default connect(App)
   .with('DevTools')
   .map(({ state }) => ({ page: state.page }));
+
+App.propTypes = {
+  page: PropTypes.string
+};

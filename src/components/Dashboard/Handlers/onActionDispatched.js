@@ -1,10 +1,9 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react';
-import getMachineName from '../../helpers/getMachineName';
+import PropTypes from 'prop-types';
+import getMachineName from '../../../helpers/getMachineName';
 
 import calculateRowStyles from './helpers/calculateRowStyles';
-// eslint-disable-next-line no-unused-vars
-import TimeDiff from '../TimeDiff.jsx';
+import TimeDiff from '../../TimeDiff';
 
 export default function onActionDispatched({ event, timeDiff, onClick, className }) {
   const { actionName, machine } = event;
@@ -22,3 +21,10 @@ export default function onActionDispatched({ event, timeDiff, onClick, className
     </li>
   );
 }
+
+onActionDispatched.propTypes = {
+  event: PropTypes.object,
+  timeDiff: PropTypes.string,
+  onClick: PropTypes.func,
+  className: PropTypes.string
+};
