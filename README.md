@@ -70,7 +70,7 @@ Don't worry about shipping instrumented application. If you use some of the [pre
 
 ## How it works
 
-The extension has a [content script](https://developer.chrome.com/extensions/content_scripts) that injects a variable in the global space `__kuker__is_here__`. If that variable is there the integrated emitters start calling `window.postMessage`. These calls gets picked up by the extension and we see some content in the dev tools.
+The extension has a [content script](https://developer.chrome.com/extensions/content_scripts) that injects a variable in the global space `__kuker__is_here__`. If that variable is there the integrated emitters start calling `window.postMessage`. These calls gets picked up by the extension and we see some content in the dev tools. Which means that if you don't have the extension the emitters are doing nothing.
 
 ## Misc
 
