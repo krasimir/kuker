@@ -68,6 +68,10 @@ All these three issues are solved by using the [BaseEmitter](https://github.com/
 
 Don't worry about shipping instrumented application. If you use some of the [predefined emitters](https://github.com/krasimir/kuker-emitters) they have a `guard` function which checks if the Kuker extension is installed. If not they do nothing. Also there is a check for the `window` object so you don't get weird errors if you server-side-render your code.
 
+## How it works
+
+The extension has a [content script](https://developer.chrome.com/extensions/content_scripts) that injects a variable in the global space `__kuker__is_here__`. If that variable is there the integrated emitters start calling `window.postMessage`. These calls gets picked up by the extension and we see some content in the dev tools.
+
 ## Misc
 
 * Inspired by [Redux-DevTools](https://github.com/zalmoxisus/redux-devtools-extension)
