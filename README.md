@@ -27,9 +27,11 @@ The extension answers on these two questions. We have two panels. The one on the
 
 To make the extension work you have to *instrument* your application. You have to add an [_emitter_](https://github.com/krasimir/kuker-emitters) which listens for actions/events on your side and sends them to [Kuker](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn). Here are some of the ready ones:
 
-* [Redux emitter](https://github.com/krasimir/kuker-emitters#integration-with-redux)
-* [redux-saga emitter](https://github.com/krasimir/kuker-emitters#integration-with-redux-saga)
-* [Stent emitter](https://github.com/krasimir/kuker-emitters#integration-with-stent)
+* [Base emitter](https://github.com/krasimir/kuker-emitters)
+* [Redux emitter](https://github.com/krasimir/kuker-emitters)
+* [redux-saga emitter](https://github.com/krasimir/kuker-emitters)
+* [Stent emitter](https://github.com/krasimir/kuker-emitters)
+* [Machina.js emitter](https://github.com/krasimir/kuker-emitters)
 
 ## Writing your own Emitter
 
