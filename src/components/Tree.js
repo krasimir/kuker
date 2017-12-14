@@ -27,11 +27,10 @@ export default class Tree extends React.Component {
     const tree = (renderer || renderStateAsTree)(data);
 
     return (
-      <div className="relative">
-        <div>
-          { this.machine.isRaw() ? <pre className="rawFormat">{ JSON.stringify(data, null, 2) }</pre> : tree }
-        </div>
+      <div>
+        { this.machine.isRaw() ? <pre className="rawFormat">{ JSON.stringify(data, null, 2) }</pre> : tree }
         <a onClick={ () => this._changeFormat() } className='treeFormat'>
+          <i className='fa fa-tv' style={{ marginRight: '0.2em' }}></i>
           { this.machine.isRaw() ? 'tree' : 'raw' }
         </a>
       </div>

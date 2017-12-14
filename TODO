@@ -1,4 +1,3 @@
-* raw state and raw event
 * xstate emitter
 * MobX, cycle.js, RxJS emitters
 * Analysis (show how the state changes on every event)
