@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
+import PropTypes from 'prop-types';
 import UnrecognizedEvent from './handlers/UnrecognizedEvent';
 import { Handlers, StentHandlers } from './Handlers';
 
@@ -13,7 +14,8 @@ export default function EventListRow({ event, pinnedEvent, pin }) {
     (type ? type : '') +
     ' actionRow relative' +
     (withMarker ? ' withMarker' : '') +
-    (isPinned ? ' pinned' : '');
+    (isPinned ? ' pinned' : '') +
+    (event.stateMutation ? ' mutatingState' : '');
 
   return (
     <Component
@@ -23,4 +25,10 @@ export default function EventListRow({ event, pinnedEvent, pin }) {
       event={ event }
     />
   );
+};
+
+EventListRow.propTypes = {
+  event: PropTypes.object,
+  pinnedEvent: PropTypes.object,
+  pin: PropTypes.func
 };

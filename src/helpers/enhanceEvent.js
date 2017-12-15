@@ -1,4 +1,5 @@
 import formatMilliseconds from './formatMilliseconds';
+import diff from 'deep-diff';
 
 var INDEX = 0;
 var timeOfLastReceivedEvent = null;
@@ -19,7 +20,7 @@ function hexToRgb(hex) {
   return hex;
 }
 
-export function normalizeEvent(event) {
+export function enhanceEvent(event, previousState) {
   if (timeOfLastReceivedEvent) {
     let diff = event.time - timeOfLastReceivedEvent;
 
@@ -34,6 +35,10 @@ export function normalizeEvent(event) {
   }
   if (event.color && event.color.indexOf('#') === 0) {
     event.color = hexToRgb(event.color);
+  }
+
+  if (event.state && previousState) {
+    event.stateMutation = diff(previousState, event.state);
   }
 
   return event;

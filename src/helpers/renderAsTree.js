@@ -2,7 +2,7 @@
 import getMachineName from './getMachineName';
 import renderJSON from './renderJSON';
 
-export function renderMachinesAsTree(machines = []) {
+export function renderMachinesAsTree(machines = [], onItemClick = null) {
   var unnamed = 1;
 
   return renderJSON(machines.reduce((tree, machine) => {
@@ -11,14 +11,14 @@ export function renderMachinesAsTree(machines = []) {
     if (machineName === '<unnamed>') machineName = `<unnamed(${ ++unnamed })>`;
     tree[machineName] = machine.state;
     return tree;
-  }, {}), 'Machines');
+  }, {}), 'Machines', onItemClick);
 };
 
-export function renderStateAsTree(state = {}) {
-  return renderJSON(state, 'State');
+export function renderStateAsTree(state = {}, onItemClick = null) {
+  return renderJSON(state, 'State', onItemClick);
 };
 
-export function renderEventAsTree(event) {
+export function renderEventAsTree(event, onItemClick = null) {
   const {
     state,
     origin,
@@ -29,7 +29,5 @@ export function renderEventAsTree(event) {
     ...rest
   } = event || {};
 
-  return renderJSON({
-    ...rest
-  }, 'Event');
+  return renderJSON({ ...rest }, 'Event', onItemClick);
 };

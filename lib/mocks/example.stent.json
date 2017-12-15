@@ -8627,6 +8627,19 @@
       "id": 223
     },
     {
+      "type": "my-custom-type",
+      "label": "hello",
+      "time": 1513028752963,
+      "state": { "bank": { "money": 0 } },
+      "icon": "fa-money"
+    },
+    {
+      "type": "just a type"
+    },
+    {
+      "foo": "bar"
+    },
+    {
       "time": 1513028763508,
       "uid": "emitter",
       "state": [
@@ -8782,19 +8795,6 @@
       "origin": "http://localhost:3000/",
       "timeDiff": "+ 0:00:002",
       "id": 224
-    },
-    {
-      "type": "my-custom-type",
-      "label": "hello",
-      "time": 1513028752963,
-      "state": { "bank": { "money": 0 } },
-      "icon": "fa-money"
-    },
-    {
-      "type": "just a type"
-    },
-    {
-      "foo": "bar"
     }
   ],
   "autoscroll": true,

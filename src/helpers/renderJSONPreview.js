@@ -13,9 +13,9 @@ function previewObject(object) {
       }
       return `${ key }: { ... }`;
     } else if (typeof object[key] === 'string') {
-      return `${ key }: "${ object[key].toString() }"`;
+      return `${ key }: "${ String(object[key]) }"`;
     }
-    return `${ key }: ${ object[key].toString() }`;
+    return `${ key }: ${ String(object[key]) }`;
   });
 
   return `{ ${ objectInternals.join(', ') } }`;

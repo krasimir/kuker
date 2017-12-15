@@ -136,6 +136,12 @@ p {
     left: 0;
   }
 }
+.logRight  hr {
+  margin: 1em 0;
+  padding: 0;
+  border-top: none;
+  border-bottom: solid 4px #999;
+}
 .logTree {
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -162,6 +168,42 @@ p {
   margin-top: 0.7em;
   margin-right: 0.6em;
   color: rgb(92, 92, 92);
+}
+.viewMutationIcon {
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 200ms ease;
+}
+.viewMutationIcon:hover {
+  opacity: 1;
+}
+.stateMutation {
+  color: rgb(71, 71, 71);
+}
+.stateMutation p {
+  margin: 0;
+}
+.stateMutation p .fa {
+  margin-right: 0.3em;
+}
+.stateMutation p .E {
+  color: rgb(43, 126, 171)
+}
+.stateMutation p .D {
+  color: rgb(154, 62, 80)
+}
+.stateMutation p .A {
+  color: rgb(41, 41, 41)
+}
+.stateMutation p .N {
+  color: rgb(98, 120, 30)
+}
+.mutationLine {
+  display: inline-block;
+  width: 200px;
+  height: 3px;
+  background: rgb(187, 187, 187);
+  transform: translateY(-3px);
 }
 
 .log {
@@ -231,6 +273,9 @@ p {
 .pinned .fa {
   color: #FFF !important;
 }
+.mutatingState {
+  border-right: solid 4px #fff;
+}
 .sagaParentEffect {
   font-size: 0.7em;
   border: solid 2px #999;
@@ -266,17 +311,19 @@ p {
   height: 100%;
   text-align: center;
   padding: 3em;
+  color: rgb(119, 119, 119);
 }
 .noEvents img {
   margin: 0 auto;
   max-width: 350px;
   display: block;
+  opacity: 0.3;
 }
 .noEvents p {
   font-size: 1.4em;
 }
 .noEvents a {
-  color: #000;
+  color: rgb(119, 119, 119);
 }
 .noEvents a:hover {
   color: #999;

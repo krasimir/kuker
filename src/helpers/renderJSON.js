@@ -40,7 +40,7 @@ const treeTheme = {
 };
 
 function labelRenderer(what) {
-  return (key, parentKey, expanded, rootKey) => {
+  return function labelRenderer(key, parentKey, expanded, rootKey) {
     if (key[0] === 'root' && parentKey === 'Object' && rootKey === true) {
       return what;
     }
@@ -55,18 +55,28 @@ function valueRenderer(raw) {
   return <em>{ raw }</em>;
 }
 
-function getItemString(type, data, itemType, itemString) {
-  if (data !== null && data !== undefined) {
-    return <span>{ renderJSONPreview(data) }</span>;
-  }
-  return null;
+function getItemString(onItemClick) {
+  return function getItemString(type, data, itemType, itemString) {
+    const viewMutation = (event) => {
+      event.stopPropagation();
+      onItemClick(data);
+    };
+    const clickMeIcon = onItemClick !== null ?
+      <a onClick={ viewMutation }> <i className='fa fa-eye viewMutationIcon'></i></a> :
+      null;
+
+    if (data !== null && data !== undefined) {
+      return <span>{ renderJSONPreview(data) }{ clickMeIcon }</span>;
+    }
+    return null;
+  };
 }
 
-const renderJSON = function (json, what = 'root') {
+const renderJSON = function (json, what = 'root', onItemClick = null) {
   return <JSONTree
     data={ json }
     theme={ treeTheme }
-    getItemString={ getItemString }
+    getItemString={ getItemString(onItemClick) }
     labelRenderer={ labelRenderer(what) }
     shouldExpandNode={ shouldExpandNode }
     valueRenderer={ valueRenderer }
