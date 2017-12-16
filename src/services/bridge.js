@@ -1,6 +1,5 @@
 import readFromPath from '../helpers/readFromPath';
 
-const HEALTHY_CHECK_INTERVAL = 4000;
 const listeners = [];
 const bridge = {
   on: function (callback) {
@@ -10,42 +9,39 @@ const bridge = {
 const notify = function (message) {
   listeners.forEach(f => f(message));
 };
-const sendMessageToCurrentTag = function (data, callback) {
+const getActiveTabId = function (callback) {
   try {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       if (!tabs || tabs.length === 0) {
         callback(); return;
       }
-      chrome.tabs.sendMessage(tabs[0].id, data, callback);
+      callback(tabs[0].id);
     });
   } catch (error) {
     console.log(error);
+    callback();
   }
+};
+const sendMessageToCurrentTag = function (data, callback) {
+  getActiveTabId(function (id) {
+    chrome.tabs.sendMessage(id, data, callback);
+  });
 };
 const wire = () => {
   if (!chrome || !chrome.runtime || !chrome.runtime.onMessage) return;
 
   // receiving events
   chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-    if (readFromPath(chrome, 'devtools.inspectedWindow.tabId') === readFromPath(sender, 'tab.id')) {
-      notify(message);
-      sendResponse('received');
-    } else {
-      console.log('Different sender');
-    }
-  });
-
-  // healthy check
-  (function healthyCheck() {
-    sendMessageToCurrentTag({ isHealthy: true }, response => {
-      if (response && response.healthy === true) {
-        notify([{ healthy: { status: true } }]);
+    getActiveTabId(function (id) {
+      if (id === readFromPath(sender, 'tab.id')) {
+        notify(message);
+        sendResponse('received');
       } else {
-        notify([{ healthy: { status: false } }]);
+        console.log('Different sender', message);
+        sendResponse('nope different sender');
       }
-      setTimeout(healthyCheck, HEALTHY_CHECK_INTERVAL);
     });
-  })();
+  });
 };
 
 wire();

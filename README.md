@@ -66,11 +66,11 @@ All these three issues are solved by using the [BaseEmitter](https://github.com/
 
 ## In production
 
-Don't worry about shipping instrumented application. If you use some of the [predefined emitters](https://github.com/krasimir/kuker-emitters) they have a `guard` function which checks if the Kuker extension is installed. If not they do nothing. Also there is a check for the `window` object so you don't get weird errors if you server-side-render your code.
+In the beginning there was a guard in the emitters that makes sure that events are sent only if the extension is installed. However, this technique involves the [content script](https://developer.chrome.com/extensions/content_scripts) of the extension to inject some stuff on the page which was fragile and buggy. I decided to kill that feature until I find a better way to handle it. So, for the time being you have to guard the emitters manually.
 
 ## How it works
 
-The extension has a [content script](https://developer.chrome.com/extensions/content_scripts) that injects a variable in the global space `__kuker__is_here__`. If that variable is there the integrated emitters start calling `window.postMessage`. These calls gets picked up by the extension and we see some content in the dev tools. Which means that if you don't have the extension the emitters are doing nothing.
+Once you load the app the integrated emitters start calling `window.postMessage`. The [content script](https://developer.chrome.com/extensions/content_scripts) is listening for this messages and via the `chrome.runtime` API sends them to the DevTools panel. The rest is just a small React app that displays them.
 
 ## Misc
 

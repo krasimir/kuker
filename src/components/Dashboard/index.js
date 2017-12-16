@@ -47,16 +47,11 @@ class Dashboard extends React.Component {
       navViewAnalysis,
       navState,
       events,
-      pinnedEvent,
-      healthy
+      pinnedEvent
     } = this.props;
 
-    const healthyComponent = healthy ?
-      <i className='fa fa-frown-o'></i> :
-      <i className='fa fa-smile-o'></i>;
-
     if (events.length === 0) {
-      return <NoEvents healthyComponent={ healthyComponent } />;
+      return <NoEvents />;
     }
 
     const eventsToRender = events.filter(({ type }) => {
@@ -114,7 +109,6 @@ class Dashboard extends React.Component {
               <i className='fa fa-dot-circle-o mr05'></i>Event</a>
             <a onClick={ navViewAnalysis } className={ navState === 'analysis' ? 'selected' : null }>
               <i className='fa fa-bar-chart-o mr05'></i>Analysis</a>
-            <div className='right healthy'>{ healthyComponent }</div>
           </div>
           <div className='logTree' key='content'>
             { navState === 'state' ? <State event={ pinnedEvent } /> : null }
@@ -149,8 +143,7 @@ export default connect(
         marker: () => addMarker(),
         pin: id => pin(id),
         pinnedEvent: state.pinnedEvent,
-        events: state.events,
-        healthy: state.healthy
+        events: state.events
       };
     })
 ).with('TreeNav').map(n => {

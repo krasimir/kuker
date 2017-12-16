@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export default function NoEvents({ healthyComponent }) {
+export default function NoEvents() {
   return (
     <div className='noEvents'>
       <img src='./img/kuker.png' />
@@ -10,7 +10,6 @@ export default function NoEvents({ healthyComponent }) {
         <small>Or maybe there's nothing wired to your application?<br />
         Learn about Kuker's emitters <a href='https://github.com/krasimir/kuker#instrumentation' target='_blank'>here</a>.</small>
       </p>
-      { healthyComponent }
     </div>
   );
 };

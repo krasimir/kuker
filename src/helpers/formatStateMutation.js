@@ -53,8 +53,8 @@ function formatItem(mutation, indent = 0) {
         { mutation.kind === 'A' && formatItem(mutation.item, indent + 1) }
       </p>
       <div style={{ marginLeft: '1.2em' }}>
-        { isDefined(mutation.lhs) && <span>{ formatSide(mutation.lhs) } <i className='fa fa-long-arrow-right'></i> </span> }
-        { isDefined(mutation.rhs) && formatSide(mutation.rhs) }
+        { isDefined(mutation.lhs) && formatSide(mutation.lhs) }
+        { isDefined(mutation.rhs) && <span><i className='fa fa-long-arrow-right'></i> { formatSide(mutation.rhs) }</span> }
       </div>
     </div>
   );
@@ -62,7 +62,7 @@ function formatItem(mutation, indent = 0) {
 
 export default function formatStateMutation(mutations) {
   if (!mutations) return null;
-  console.log(mutations);
+
   return (
     <div className='stateMutation'>
       <hr />
