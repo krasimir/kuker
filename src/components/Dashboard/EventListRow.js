@@ -15,7 +15,8 @@ export default function EventListRow({ event, pinnedEvent, pin }) {
     ' actionRow relative' +
     (withMarker ? ' withMarker' : '') +
     (isPinned ? ' pinned' : '') +
-    (event.stateMutation ? ' mutatingState' : '');
+    (event.stateMutation ? ' mutatingState' : '') +
+    (event.mutationExplorer ? ' mutationExplorer' : '');
 
   return (
     <Component

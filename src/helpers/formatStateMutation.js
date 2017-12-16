@@ -1,3 +1,4 @@
+/* eslint-ignore max-len */
 import React from 'react';
 import PropTypes from 'prop-types';
 import renderJSONPreview from './renderJSONPreview';
@@ -54,7 +55,7 @@ function formatItem(mutation, indent = 0) {
       </p>
       <div style={{ marginLeft: '1.2em' }}>
         { isDefined(mutation.lhs) && formatSide(mutation.lhs) }
-        { isDefined(mutation.rhs) && <span><i className='fa fa-long-arrow-right'></i> { formatSide(mutation.rhs) }</span> }
+        { isDefined(mutation.rhs) && <span> <i className='fa fa-long-arrow-right'></i> { formatSide(mutation.rhs) }</span> }
       </div>
     </div>
   );
@@ -75,4 +76,12 @@ export default function formatStateMutation(mutations) {
 
 formatStateMutation.PropTypes = {
   mutations: PropTypes.object
+};
+
+export function extractMutatedPaths(mutation) {
+  return mutation.map(({ path, item }) => {
+    if (path) return path.join('.');
+    if (item) return extractMutatedPaths([ item ]);
+    return '';
+  });
 };

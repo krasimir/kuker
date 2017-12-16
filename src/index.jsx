@@ -19,12 +19,14 @@ if (typeof window !== 'undefined' && window.location && window.location.href) {
   if (window.location.href.indexOf('populate=') > 0) {
     let s;
 
-    if (window.location.href.indexOf('populate=1') > 0) {
+    if (window.location.href.indexOf('populate=stent') > 0) {
       s = './mocks/example.stent.json';
-    } else if (window.location.href.indexOf('populate=2') > 0) {
+    } else if (window.location.href.indexOf('populate=redux') > 0) {
       s = './mocks/example.redux.json';
-    } else if (window.location.href.indexOf('populate=3') > 0) {
+    } else if (window.location.href.indexOf('populate=saga') > 0) {
       s = './mocks/example.saga.json';
+    } else if (window.location.href.indexOf('populate=mutations') > 0) {
+      s = './mocks/example.mutations.json';
     }
 
     fetch(s).then(response => {

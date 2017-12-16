@@ -1,13 +1,15 @@
 import { Machine } from 'stent';
 import { PAGES } from '../constants';
 import { enhanceEvent } from '../helpers/enhanceEvent';
+import { extractMutatedPaths } from '../helpers/formatStateMutation';
 
 const initialState = () => ({
   name: 'working',
   page: PAGES.DASHBOARD,
   events: [],
   pinnedEvent: null,
-  autoscroll: true
+  autoscroll: true,
+  mutationExplorerPath: null
 });
 const MAX_EVENTS = 400;
 
@@ -75,8 +77,20 @@ const DevTools = Machine.create('DevTools', {
           events
         };
       },
-      'show mutation': function (state, object) {
+      'show mutation': function ({ events, ...rest }, mutationExplorerPath) {
+        events
+          .filter(event => event.stateMutation)
+          .map(event => ({
+            mutations: extractMutatedPaths(event.stateMutation),
+            event
+          }))
+          .forEach(({ event, mutations }) => {
+            event.mutationExplorer = mutations
+              .filter(mPath => mPath.toString().indexOf(mutationExplorerPath.toString()) === 0)
+              .length > 0;
+          });
 
+        return { events, mutationExplorerPath, ...rest };
       }
     }
   },

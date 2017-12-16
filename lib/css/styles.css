@@ -271,6 +271,9 @@ p {
 .mutatingState {
   border-right: solid 4px #fff;
 }
+.mutationExplorer {
+  border-right: solid 10px #f00;
+}
 .sagaParentEffect {
   font-size: 0.7em;
   border: solid 2px #999;

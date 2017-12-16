@@ -27,20 +27,22 @@ const sendMessageToCurrentTag = function (data, callback) {
     chrome.tabs.sendMessage(id, data, callback);
   });
 };
+const activeTabConsoleLog = function (...data) {
+  sendMessageToCurrentTag({ type: 'console.log', data });
+};
 const wire = () => {
   if (!chrome || !chrome.runtime || !chrome.runtime.onMessage) return;
 
   // receiving events
   chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-    getActiveTabId(function (id) {
-      if (id === readFromPath(sender, 'tab.id')) {
-        notify(message);
-        sendResponse('received');
-      } else {
-        console.log('Different sender', message);
-        sendResponse('nope different sender');
-      }
-    });
+    // console.log(chrome.devtools.inspectedWindow.tabId, readFromPath(sender, 'tab.id'));
+    if (chrome.devtools.inspectedWindow.tabId === readFromPath(sender, 'tab.id')) {
+      notify(message);
+      sendResponse('received');
+    } else {
+      console.log('Different sender', message);
+      sendResponse('nope different sender');
+    }
   });
 };
 

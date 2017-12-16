@@ -3,15 +3,15 @@ import getMachineName from './getMachineName';
 import renderJSON from './renderJSON';
 
 export function renderMachinesAsTree(machines = [], onItemClick = null) {
-  var unnamed = 1;
+  // var unnamed = 1;
+  return renderJSON(machines, 'Machines', onItemClick);
+  // return renderJSON(machines.reduce((tree, machine) => {
+  //   var machineName = getMachineName(machine);
 
-  return renderJSON(machines.reduce((tree, machine) => {
-    var machineName = getMachineName(machine);
-
-    if (machineName === '<unnamed>') machineName = `<unnamed(${ ++unnamed })>`;
-    tree[machineName] = machine.state;
-    return tree;
-  }, {}), 'Machines', onItemClick);
+  //   if (machineName === '<unnamed>') machineName = `<unnamed(${ ++unnamed })>`;
+  //   tree[machineName] = machine.state;
+  //   return tree;
+  // }, {}), 'Machines', onItemClick);
 };
 
 export function renderStateAsTree(state = {}, onItemClick = null) {

@@ -39,12 +39,25 @@ const treeTheme = {
   })
 };
 
-function labelRenderer(what) {
+function labelRenderer(what, onItemClick) {
+  const viewMutation = (event, data) => {
+    event.stopPropagation();
+    if (data) {
+      onItemClick(data.slice(0, data.length - 1).reverse().join('.'));
+    }
+  };
+
   return function labelRenderer(key, parentKey, expanded, rootKey) {
+    const clickMeIcon = onItemClick !== null ?
+      (<a onClick={ event => viewMutation(event, key) } style={{ marginLeft: '0.5em' }}>
+        <i className='fa fa-eye viewMutationIcon'></i>
+      </a>) :
+      null;
+
     if (key[0] === 'root' && parentKey === 'Object' && rootKey === true) {
       return what;
     }
-    return <strong>{ key[0] }</strong>;
+    return <span><strong>{ key[0] }</strong>{ clickMeIcon }</span>;
   };
 }
 function shouldExpandNode(keyName, data, level) {
@@ -55,29 +68,19 @@ function valueRenderer(raw) {
   return <em>{ raw }</em>;
 }
 
-function getItemString(onItemClick) {
-  return function getItemString(type, data, itemType, itemString) {
-    const viewMutation = (event) => {
-      event.stopPropagation();
-      onItemClick(data);
-    };
-    const clickMeIcon = onItemClick !== null ?
-      <a onClick={ viewMutation }> <i className='fa fa-eye viewMutationIcon'></i></a> :
-      null;
-
-    if (data !== null && data !== undefined) {
-      return <span>{ renderJSONPreview(data) }{ clickMeIcon }</span>;
-    }
-    return null;
-  };
-}
+function getItemString(type, data, itemType, itemString) {
+  if (data !== null && data !== undefined) {
+    return <span>{ renderJSONPreview(data) }</span>;
+  }
+  return null;
+};
 
 const renderJSON = function (json, what = 'root', onItemClick = null) {
   return <JSONTree
     data={ json }
     theme={ treeTheme }
-    getItemString={ getItemString(onItemClick) }
-    labelRenderer={ labelRenderer(what) }
+    getItemString={ getItemString }
+    labelRenderer={ labelRenderer(what, onItemClick) }
     shouldExpandNode={ shouldExpandNode }
     valueRenderer={ valueRenderer }
     hideRoot={ false }
