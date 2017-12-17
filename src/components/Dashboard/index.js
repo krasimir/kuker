@@ -104,24 +104,26 @@ class Dashboard extends React.Component {
           ) }
         </div>
         <div className='logRight'>
-          <div className='logNav fullHeight' key='nav'>
-            <a onClick={ navViewState } className={ navState === 'state' ? 'selected' : null }>
-              <i className='fa fa-heart mr05'></i>State</a>
-            <a onClick={ navViewEvent } className={ navState === 'event' ? 'selected' : null }>
-              <i className='fa fa-dot-circle-o mr05'></i>Event</a>
-            <a onClick={ navViewAnalysis } className={ navState === 'analysis' ? 'selected' : null }>
-              <i className='fa fa-bar-chart-o mr05'></i>Analysis</a>
+          <div className='relative'>
+            <div className='logNav fullHeight' key='nav'>
+              <a onClick={ navViewState } className={ navState === 'state' ? 'selected' : null }>
+                <i className='fa fa-heart mr05'></i>State</a>
+              <a onClick={ navViewEvent } className={ navState === 'event' ? 'selected' : null }>
+                <i className='fa fa-dot-circle-o mr05'></i>Event</a>
+              <a onClick={ navViewAnalysis } className={ navState === 'analysis' ? 'selected' : null }>
+                <i className='fa fa-bar-chart-o mr05'></i>Analysis</a>
+            </div>
+            <div className='logTree' key='content'>
+              { navState === 'state' ? <State event={ pinnedEvent } /> : null }
+              { navState === 'event' ? <Event event={ pinnedEvent } /> : null }
+              { navState === 'analysis' ? 'Work in progress ...' : null }
+            </div>
+            { mutationExplorerPath !== null && <div className='mutationContainer'>
+              <a onClick={ clearMutation }>
+                <i className='fa fa-times'></i> { mutationExplorerPath }.* <i className='fa fa-eye'></i>
+              </a>
+            </div> }
           </div>
-          <div className='logTree' key='content'>
-            { navState === 'state' ? <State event={ pinnedEvent } /> : null }
-            { navState === 'event' ? <Event event={ pinnedEvent } /> : null }
-            { navState === 'analysis' ? 'Work in progress ...' : null }
-          </div>
-          { mutationExplorerPath !== null && <div className='mutationContainer'>
-            <a onClick={ clearMutation }>
-              <i className='fa fa-times'></i> { mutationExplorerPath }.* <i className='fa fa-eye'></i>
-            </a>
-          </div> }
         </div>
       </div>
     );

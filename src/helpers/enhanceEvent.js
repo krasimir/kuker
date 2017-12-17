@@ -1,4 +1,6 @@
 import formatMilliseconds from './formatMilliseconds';
+import { extractMutatedPaths } from './formatStateMutation';
+import calculateMutationExplorer from './calculateMutationExplorer';
 import diff from 'deep-diff';
 
 var INDEX = 0;
@@ -20,7 +22,7 @@ function hexToRgb(hex) {
   return hex;
 }
 
-export function enhanceEvent(event, previousState) {
+export function enhanceEvent(event, previousState, mutationExplorerPath) {
   if (timeOfLastReceivedEvent) {
     let diff = event.time - timeOfLastReceivedEvent;
 
@@ -38,7 +40,13 @@ export function enhanceEvent(event, previousState) {
   }
 
   if (event.state && previousState) {
-    event.stateMutation = diff(previousState, event.state);
+    const stateMutation = diff(previousState, event.state);
+
+    if (stateMutation) {
+      event.stateMutation = stateMutation;
+      event.mutationPaths = extractMutatedPaths(stateMutation);
+      calculateMutationExplorer(event, mutationExplorerPath);
+    }
   }
 
   return event;

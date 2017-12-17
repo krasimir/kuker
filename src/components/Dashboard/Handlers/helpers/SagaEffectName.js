@@ -51,5 +51,5 @@ export default function SagaEffectName({ effect }) {
 };
 
 SagaEffectName.propTypes = {
-  effect: PropTypes.object
+  effect: PropTypes.any
 };

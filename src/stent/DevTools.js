@@ -1,7 +1,7 @@
 import { Machine } from 'stent';
 import { PAGES } from '../constants';
 import { enhanceEvent } from '../helpers/enhanceEvent';
-import { extractMutatedPaths } from '../helpers/formatStateMutation';
+import calculateMutationExplorer from '../helpers/calculateMutationExplorer';
 
 const initialState = () => ({
   name: 'working',
@@ -36,7 +36,7 @@ const DevTools = Machine.create('DevTools', {
             lastKnownState = newEvents[i - 1].state;
           }
 
-          return enhanceEvent(newEvent, lastKnownState);
+          return enhanceEvent(newEvent, lastKnownState, rest.mutationExplorerPath);
         }).filter(newEvent => newEvent);
 
         if (eventsToAdd.length === 0) return undefined;
@@ -78,17 +78,8 @@ const DevTools = Machine.create('DevTools', {
         };
       },
       'show mutation': function ({ events, ...rest }, mutationExplorerPath) {
-        events
-          .filter(event => event.stateMutation)
-          .map(event => ({
-            mutations: extractMutatedPaths(event.stateMutation),
-            event
-          }))
-          .forEach(({ event, mutations }) => {
-            event.mutationExplorer = mutations
-              .filter(mPath => mPath.toString().indexOf(mutationExplorerPath.toString()) === 0)
-              .length > 0;
-          });
+        events.forEach(event => calculateMutationExplorer(event, mutationExplorerPath));
+
         return { events, ...rest, mutationExplorerPath };
       },
       'clear mutation': function ({ events, mutationExplorerPath, ...rest}) {

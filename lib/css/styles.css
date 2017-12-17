@@ -145,6 +145,7 @@ p {
 .logTree {
   padding-left: 0.5em;
   padding-right: 0.5em;
+  padding-bottom: 2em;
 }
 .treeFormat {
   display: block;
@@ -201,9 +202,8 @@ p {
   transform: translateY(-3px);
 }
 .mutationContainer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  left: 0;
   padding: 0.3em;
   background: #e6e6e6;
   width: 100%;
