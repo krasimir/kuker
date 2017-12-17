@@ -89,8 +89,11 @@ const DevTools = Machine.create('DevTools', {
               .filter(mPath => mPath.toString().indexOf(mutationExplorerPath.toString()) === 0)
               .length > 0;
           });
-
-        return { events, mutationExplorerPath, ...rest };
+        return { events, ...rest, mutationExplorerPath };
+      },
+      'clear mutation': function ({ events, mutationExplorerPath, ...rest}) {
+        events.forEach(event => (event.mutationExplorer = false));
+        return { events, ...rest, mutationExplorerPath: null };
       }
     }
   },

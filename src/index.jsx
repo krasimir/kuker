@@ -4,6 +4,8 @@ import bridge from './services/bridge';
 import App from './components/App.jsx';
 import devToolsMachine from './stent/DevTools';
 import './stent/TreeNav';
+import { Machine } from 'stent';
+import StentEmitter from 'kuker-emitters/lib/StentEmitter';
 
 bridge.on(action => devToolsMachine.actionReceived(action));
 
@@ -37,3 +39,6 @@ if (typeof window !== 'undefined' && window.location && window.location.href) {
     });
   };
 }
+
+// misc
+// Machine.addMiddleware(StentEmitter);

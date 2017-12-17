@@ -200,6 +200,24 @@ p {
   background: rgb(187, 187, 187);
   transform: translateY(-3px);
 }
+.mutationContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0.3em;
+  background: #e6e6e6;
+  width: 100%;
+  font-size: 0.8em;
+  border-top: 1px solid #999;
+  color: #F00;
+}
+.mutationContainer a {
+  display: block;
+  cursor: pointer;
+}
+.mutationContainer a:hover {
+  color: #9f0000;
+}
 
 .log {
   margin: 0;

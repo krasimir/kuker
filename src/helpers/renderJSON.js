@@ -49,7 +49,7 @@ function labelRenderer(what, onItemClick) {
 
   return function labelRenderer(key, parentKey, expanded, rootKey) {
     const clickMeIcon = onItemClick !== null ?
-      (<a onClick={ event => viewMutation(event, key) } style={{ marginLeft: '0.5em' }}>
+      (<a onClick={ event => viewMutation(event, key) } style={{ marginLeft: '0.5em', textIndent: 0 }}>
         <i className='fa fa-eye viewMutationIcon'></i>
       </a>) :
       null;

@@ -35,6 +35,7 @@
     "deep-diff": "^0.3.8",
     "eslint": "^4.12.1",
     "eslint-plugin-react": "^7.5.1",
+    "kuker-emitters": "^4.0.0",
     "prop-types": "^15.6.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

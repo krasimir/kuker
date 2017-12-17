@@ -47,7 +47,9 @@ class Dashboard extends React.Component {
       navViewAnalysis,
       navState,
       events,
-      pinnedEvent
+      pinnedEvent,
+      mutationExplorerPath,
+      clearMutation
     } = this.props;
 
     if (events.length === 0) {
@@ -115,6 +117,11 @@ class Dashboard extends React.Component {
             { navState === 'event' ? <Event event={ pinnedEvent } /> : null }
             { navState === 'analysis' ? 'Work in progress ...' : null }
           </div>
+          { mutationExplorerPath !== null && <div className='mutationContainer'>
+            <a onClick={ clearMutation }>
+              <i className='fa fa-times'></i> { mutationExplorerPath }.* <i className='fa fa-eye'></i>
+            </a>
+          </div> }
         </div>
       </div>
     );
@@ -130,20 +137,24 @@ Dashboard.propTypes = {
   navViewState: PropTypes.func,
   navViewEvent: PropTypes.func,
   navViewAnalysis: PropTypes.func,
+  clearMutation: PropTypes.func,
   navState: PropTypes.string,
+  mutationExplorerPath: PropTypes.string,
   healthy: PropTypes.bool
 };
 
 export default connect(
   connect(Dashboard)
     .with('DevTools')
-    .map(({ state, flushEvents, addMarker, pin }) => {
+    .map(({ state, flushEvents, addMarker, pin, mutationExplorerPath, clearMutation }) => {
       return {
         clear: () => flushEvents(),
         marker: () => addMarker(),
         pin: id => pin(id),
         pinnedEvent: state.pinnedEvent,
-        events: state.events
+        events: state.events,
+        mutationExplorerPath: state.mutationExplorerPath,
+        clearMutation
       };
     })
 ).with('TreeNav').map(n => {

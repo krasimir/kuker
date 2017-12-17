@@ -2148,6 +2148,10 @@ kind-of@^4.0.0:
   dependencies:
     is-buffer "^1.1.5"
 
+kuker-emitters:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/kuker-emitters/-/kuker-emitters-4.0.0.tgz#3af6eedd471feb308b24ca3066e9f1b7f7dfe2cd"
+
 labeled-stream-splicer@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/labeled-stream-splicer/-/labeled-stream-splicer-2.0.0.tgz#a52e1d138024c00b86b1c0c91f677918b8ae0a59"
