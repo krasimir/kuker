@@ -39,7 +39,9 @@ Of course you don't have to use any of these libraries to enjoy [Kuker](https://
 
 ```js
 window.postMessage({
+  kuker: true,
   type: 'adding money to my account',
+  origin: 'something',
   label: 'hello',
   time: (new Date()).getTime(),
   state: { bank: { money: 100 } },
@@ -52,7 +54,7 @@ The result of this `postMessage` call is as follows:
 
 ![custom event](./img/screenshot_custom_event.jpg)
 
-The only one required property is `type`. You may skip the others if you want. `icon` is one of the [FontAwesome](http://fontawesome.io/icons/) icons.
+The only required properties are `type` and `kuker: true`. You may skip the others if you want. `icon` is one of the [FontAwesome](http://fontawesome.io/icons/) icons.
 
 The problem of doing it alone is that you have to take care for a couple of things:
 
