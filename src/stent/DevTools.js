@@ -50,7 +50,7 @@ const initialState = () => ({
   filterTypes: getFilterTypes(),
   sources: getSources()
 });
-const MAX_EVENTS = 400;
+const MAX_EVENTS = 500;
 
 const DevTools = Machine.create('DevTools', {
   state: initialState(),

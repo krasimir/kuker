@@ -1,6 +1,4 @@
-* restore from an error (pass an object for label)
-* xstate emitter
+* web sockets in `message` so we can see the server-side-renderd
 * MobX, cycle.js, RxJS emitters
 * Analysis (show how the state changes on every event)
-* web sockets in `message` so we can see the server-side-renderd
 * React component emitter
