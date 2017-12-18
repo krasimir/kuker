@@ -56,11 +56,10 @@ The result of this `postMessage` call is as follows:
 
 The only required properties are `type` and `kuker: true`. You may skip the others if you want. `icon` is one of the [FontAwesome](http://fontawesome.io/icons/) icons.
 
-The problem of doing it alone is that you have to take care for a couple of things:
+The problem of doing it alone is that you have to take care for a two things:
 
 * Your state may contain stuff which are not easily serializable.
 * You have to check if `window.postMessage` is available (does not exist in node environment).
-* You don't want to dispatch events on your production servers. So you have to implement a guarding code.
 
 All these three issues are solved by using the [BaseEmitter](https://github.com/krasimir/kuker-emitters#baseemitter). All the predefined emitters at [github.com/krasimir/kuker-emitters](https://github.com/krasimir/kuker-emitters) send events only if the extension is installed. Otherwise they are just dummy functions with no effect.
 
