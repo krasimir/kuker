@@ -98,11 +98,6 @@ p {
 .logNav.fullHeight a.selected {
   border-bottom: solid 3px rgb(71, 71, 71);
 }
-@media all and (max-width: 780px) {
-  .logLeft .logNav a, .logLeft .logNav input[type="text"] {
-    display: none;
-  }
-}
 .logLeft {
   width: 60%;
   height: 100%;
@@ -315,6 +310,12 @@ p {
   height: calc(100% - 35px);
   padding: 1em;
   overflow-y: scroll;
+  word-break: break-all;
+}
+.settings::after {
+  content: " ";
+  display: table;
+  clear: both;
 }
 .settings .close {
   position: absolute;
@@ -327,6 +328,15 @@ p {
   border-top: none;
   border-bottom: solid 1px rgb(192, 192, 192);
   margin: 1em 0;
+}
+.settings .events {
+  width: 50%;
+  float: left;
+}
+.settings .sources {
+  width: 50%;
+  float: right;
+  padding-left: 1em;
 }
 
 /* no events */
@@ -354,7 +364,9 @@ p {
 }
 
 /* new session */
-.newSession {
+.log li.newSession {
   background: #fff;
-  text-align: center;
+  font-size: 0.8em;
+  color: #999;
+  padding-top: 0.6em;
 }

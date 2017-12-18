@@ -7,6 +7,7 @@ class Settings extends React.Component {
     super(props);
 
     const allAvailableTypes = this._extractTypes();
+    const allAvailableSources = this._extractSources();
 
     if (props.types !== null) {
       Object.keys(allAvailableTypes).forEach(typeKey => {
@@ -15,8 +16,18 @@ class Settings extends React.Component {
         }
       });
     }
+    if (props.sources !== null) {
+      Object.keys(allAvailableSources).forEach(sourceKey => {
+        if (typeof props.sources[sourceKey] !== 'undefined') {
+          allAvailableSources[sourceKey] = props.sources[sourceKey];
+        }
+      });
+    }
 
-    this.state = { types: allAvailableTypes };
+    this.state = {
+      types: allAvailableTypes,
+      sources: allAvailableSources
+    };
   }
   _extractTypes() {
     return this.props.events.reduce((result, event) => {
@@ -26,12 +37,27 @@ class Settings extends React.Component {
       return result;
     }, {});
   }
-  _onChange(type) {
+  _extractSources() {
+    return this.props.events.reduce((result, event) => {
+      if (typeof event.origin !== 'undefined') {
+        result[event.origin] = true;
+      }
+      return result;
+    }, {});
+  }
+  _onChangeTypes(type) {
     const { types } = this.state;
 
     types[type] = !types[type];
     this.setState({ types });
-    this.props.onChange({ [type]: types[type] });
+    this.props.onChange({ filterTypes: { [type]: types[type] } });
+  }
+  _onChangeSource(source) {
+    const { sources } = this.state;
+
+    sources[source] = !sources[source];
+    this.setState({ sources });
+    this.props.onChange({ sources: { [source]: sources[source] } });
   }
   _none() {
     const newTypes = Object.keys(this.state.types).reduce((result, type) => {
@@ -40,7 +66,7 @@ class Settings extends React.Component {
     }, {});
 
     this.setState({ types: newTypes });
-    this.props.onChange(newTypes);
+    this.props.onChange({ filterTypes: newTypes });
   }
   _all() {
     const newTypes = Object.keys(this.state.types).reduce((result, type) => {
@@ -49,7 +75,7 @@ class Settings extends React.Component {
     }, {});
 
     this.setState({ types: newTypes });
-    this.props.onChange(newTypes);
+    this.props.onChange({ filterTypes: newTypes });
   }
   _areAllUnselected() {
     return Object.keys(this.state.types).reduce((result, type) => {
@@ -65,17 +91,17 @@ class Settings extends React.Component {
   }
   render() {
     const { onClose } = this.props;
-    const { types } = this.state;
+    const { types, sources } = this.state;
 
     return (
       <div className='settings'>
         <a className='close' onClick={ onClose }><i className='fa fa-times'></i></a>
-        <p><strong>Events:</strong></p>
-        <div>
+        <div className='events'>
+          <p><strong>Events:</strong></p>
           { Object.keys(types).map((type, i) => {
             return (
-              <label key={ i } className='block mb05'>
-                <input type='checkbox' checked={ types[type] } onChange={ event => this._onChange(type) }/>
+              <label key={ 'type' + i } className='block mb05'>
+                <input type='checkbox' checked={ types[type] } onChange={ event => this._onChangeTypes(type) }/>
                 { type }
               </label>
             );
@@ -90,6 +116,17 @@ class Settings extends React.Component {
             All
           </label>
         </div>
+        <div className='sources'>
+          <p><strong>Sources:</strong></p>
+          { Object.keys(sources).map((source, i) => {
+            return (
+              <label key={ 'source' + i } className='block mb05'>
+                <input type='checkbox' checked={ sources[source] } onChange={ event => this._onChangeSource(source) }/>
+                { source }
+              </label>
+            );
+          }) }
+        </div>
       </div>
     );
   }
@@ -97,6 +134,7 @@ class Settings extends React.Component {
 
 Settings.propTypes = {
   types: PropTypes.object,
+  sources: PropTypes.object,
   events: PropTypes.array,
   onChange: PropTypes.func,
   onClose: PropTypes.func
@@ -106,6 +144,7 @@ export default connect(Settings)
   .with('DevTools')
   .map(devTools => ({
     events: devTools.state.events,
-    onChange: devTools.updateFilterTypes,
-    types: devTools.state.filterTypes
+    onChange: devTools.updateFilters,
+    types: devTools.state.filterTypes,
+    sources: devTools.state.sources
   }));

@@ -4,15 +4,42 @@ import { enhanceEvent } from '../helpers/enhanceEvent';
 import calculateMutationExplorer from '../helpers/calculateMutationExplorer';
 
 const getFilterTypes = function () {
-  const types = localStorage.getItem('filterTypes');
+  const types = localStorage.getItem('kuker_filterTypes');
 
   if (types !== null) {
-    return JSON.parse(types);
+    try {
+      return JSON.parse(types);
+    } catch (error) {
+      return null;
+    }
+  }
+  return null;
+};
+const getSources = function () {
+  const sources = localStorage.getItem('kuker_sources');
+
+  if (sources !== null) {
+    try {
+      return JSON.parse(sources);
+    } catch (error) {
+      return null;
+    }
   }
   return null;
 };
 const setFilterTypes = function (types) {
-  return localStorage.setItem('filterTypes', JSON.stringify(types));
+  try {
+    return localStorage.setItem('kuker_filterTypes', JSON.stringify(types));
+  } catch (error) {
+    return {};
+  }
+};
+const setSources = function (sources) {
+  try {
+    return localStorage.setItem('kuker_sources', JSON.stringify(sources));
+  } catch (error) {
+    return {};
+  }
 };
 
 const initialState = () => ({
@@ -20,7 +47,8 @@ const initialState = () => ({
   page: PAGES.DASHBOARD,
   events: [],
   mutationExplorerPath: null,
-  filterTypes: getFilterTypes()
+  filterTypes: getFilterTypes(),
+  sources: getSources()
 });
 const MAX_EVENTS = 400;
 
@@ -66,27 +94,37 @@ const DevTools = Machine.create('DevTools', {
         events.forEach(event => (event.mutationExplorer = false));
         return { events, ...rest, mutationExplorerPath: null };
       },
-      'update filter types': function ({ filterTypes, events, ...rest }, update) {
-        const newFilterTypes = Object.assign({}, filterTypes, update);
+      'update filters': function (state, { filterTypes, sources }) {
+        const newFilterTypes = Object.assign({}, state.filterTypes, filterTypes);
+        const newSources = Object.assign({}, state.sources, sources);
 
         setFilterTypes(newFilterTypes);
+        setSources(newSources);
         return {
-          ...rest,
-          events: events, newFilterTypes,
-          filterTypes: newFilterTypes
+          ...state,
+          filterTypes: newFilterTypes,
+          sources: newSources
         };
       }
     }
   },
   getFilteredEvents() {
     const filterTypes = this.state.filterTypes;
+    const sources = this.state.sources;
 
-    return this.state.events.filter(({ type }) => {
-      if (filterTypes !== null && typeof filterTypes[type] !== 'undefined') {
-        return filterTypes[type];
-      }
-      return true;
-    });
+    return this.state.events
+      .filter(({ type }) => {
+        if (filterTypes !== null && typeof filterTypes[type] !== 'undefined') {
+          return filterTypes[type];
+        }
+        return true;
+      })
+      .filter(({ origin }) => {
+        if (sources !== null && typeof sources[origin] !== 'undefined') {
+          return sources[origin];
+        }
+        return true;
+      });
   }
 });
 

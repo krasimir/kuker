@@ -7941,7 +7941,8 @@
       "id": 217
     },
     {
-      "type": "NEW_SESSION"
+      "type": "NEW_SESSION",
+      "origin": "http://local.antidote.me/match/prescreener/novartis-qaw"
     },
     {
       "time": 1513028763500,
@@ -8634,10 +8635,12 @@
       "label": "hello",
       "time": 1513028752963,
       "state": { "bank": { "money": 0 } },
-      "icon": "fa-money"
+      "icon": "fa-money",
+      "origin": "my-custom-type"
     },
     {
-      "type": "just a type"
+      "type": "just a type",
+      "origin": "just a type"
     },
     {
       "foo": "bar"
