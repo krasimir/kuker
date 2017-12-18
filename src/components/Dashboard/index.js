@@ -14,15 +14,11 @@ class Dashboard extends React.Component {
 
     this._rowRenderer = this._rowRenderer.bind(this);
     this.state = {
-      filterByTypes: null,
       settingsVisibility: false
     };
   }
-  _changeSettingsVisibility(eventsToRender) {
+  _changeSettingsVisibility() {
     this.setState({ settingsVisibility: !this.state.settingsVisibility });
-    if (eventsToRender.length > 0) {
-      this.props.pin(eventsToRender[eventsToRender.length - 1].id);
-    }
   }
   _rowRenderer(eventsToRender, { index, isScrolling, isVisible, key, parent, style }) {
     const { pinnedEvent, pin } = this.props;
@@ -38,7 +34,6 @@ class Dashboard extends React.Component {
     );
   }
   render() {
-    const { filterByTypes } = this.state;
     const {
       clear,
       marker,
@@ -47,63 +42,50 @@ class Dashboard extends React.Component {
       navViewAnalysis,
       navState,
       events,
+      filteredEvents,
       pinnedEvent,
       mutationExplorerPath,
       clearMutation
     } = this.props;
-
-    if (events.length === 0) {
-      return <NoEvents />;
-    }
-
-    const eventsToRender = events.filter(({ type }) => {
-      // filter by type
-      if (filterByTypes !== null && (type && filterByTypes.indexOf(type) < 0)) {
-        return false;
-      }
-      return true;
-    });
+    const hasEvents = filteredEvents.length > 0;
 
     return (
       <div className='dashboard'>
-        <div className='logLeft'>
+        <div className={ 'logLeft' + (!hasEvents ? ' fullWidth' : '') }>
           <div className='logNav'>
-            <a onClick={ () => marker() } key='marker' className='ml05 mr1 try2'>
+            { hasEvents && <a onClick={ () => marker() } key='marker' className='ml05 mr1 try2'>
               <i className='fa fa-bookmark'></i>
-            </a>
-            <a onClick={ () => clear() } key='clear' className='mr1 try2'>
+            </a> }
+            { hasEvents && <a onClick={ () => clear() } key='clear' className='mr1 try2'>
               <i className='fa fa-ban'></i>
-            </a>
-            <a onClick={ () => this._changeSettingsVisibility(eventsToRender) }
+            </a> }
+            { events.length > 0 && <a onClick={ () => this._changeSettingsVisibility() }
               key='s'
               className='right mr05 try2'>
               <i className='fa fa-gear'></i>
-            </a>
+            </a> }
           </div>
-          <ul className='log'>
-            { /* events.map(this._renderEvent) */ }
+          { hasEvents && <ul className='log'>
             <AutoSizer>
               {({ height, width }) => (
                 <List
                   ref={ l => (this.list = l) }
-                  rowRenderer={ (...args) => this._rowRenderer(eventsToRender, ...args) }
+                  rowRenderer={ (...args) => this._rowRenderer(filteredEvents, ...args) }
                   height={ height }
-                  rowCount={ eventsToRender.length }
+                  rowCount={ filteredEvents.length }
                   rowHeight={ 28 }
                   width={ width }
-                  scrollToIndex={ !pinnedEvent ? -1 : eventsToRender.findIndex(e => e.id === pinnedEvent.id) }/>
+                  scrollToIndex={ !pinnedEvent ? -1 : filteredEvents.findIndex(e => e.id === pinnedEvent.id) }/>
               )}
             </AutoSizer>
           </ul>
+          }
+          { !hasEvents && <NoEvents /> }
           { this.state.settingsVisibility && (
-            <Settings
-              onClose={ () => this._changeSettingsVisibility(eventsToRender) }
-              onChange={ types => this.setState({ filterByTypes: types }) }
-              events={ events }
-              types={ this.state.filterByTypes } />
+            <Settings onClose={ () => this._changeSettingsVisibility() } />
           ) }
         </div>
-        <div className='logRight'>
+        { hasEvents && <div className='logRight'>
           <div className='relative'>
             <div className='logNav fullHeight' key='nav'>
               <a onClick={ navViewState } className={ navState === 'state' ? 'selected' : null }>
@@ -124,7 +106,7 @@ class Dashboard extends React.Component {
               </a>
             </div> }
           </div>
-        </div>
+        </div> }
       </div>
     );
   }
@@ -136,34 +118,33 @@ Dashboard.propTypes = {
   marker: PropTypes.func,
   pinnedEvent: PropTypes.object,
   events: PropTypes.array,
+  filteredEvents: PropTypes.array,
   navViewState: PropTypes.func,
   navViewEvent: PropTypes.func,
   navViewAnalysis: PropTypes.func,
   clearMutation: PropTypes.func,
+  updateFilterTypes: PropTypes.func,
   navState: PropTypes.string,
   mutationExplorerPath: PropTypes.string,
   healthy: PropTypes.bool
 };
 
-export default connect(
-  connect(Dashboard)
-    .with('DevTools')
-    .map(({ state, flushEvents, addMarker, pin, mutationExplorerPath, clearMutation }) => {
-      return {
-        clear: () => flushEvents(),
-        marker: () => addMarker(),
-        pin: id => pin(id),
-        pinnedEvent: state.pinnedEvent,
-        events: state.events,
-        mutationExplorerPath: state.mutationExplorerPath,
-        clearMutation
-      };
-    })
-).with('TreeNav').map(n => {
-  return {
-    navViewState: n.viewState,
-    navViewEvent: n.viewEvent,
-    navViewAnalysis: n.viewAnalysis,
-    navState: n.state.name
-  };
-});
+export default connect(Dashboard)
+  .with('DevTools', 'TreeNav', 'Pinned')
+  .map((devTools, treeNav, pinned) => ({
+    // devtools
+    events: devTools.state.events,
+    filteredEvents: devTools.getFilteredEvents(),
+    clear: () => devTools.flushEvents(),
+    marker: () => pinned.addMarker(),
+    mutationExplorerPath: devTools.state.mutationExplorerPath,
+    clearMutation: devTools.clearMutation,
+    // tree nav
+    navViewState: treeNav.viewState,
+    navViewEvent: treeNav.viewEvent,
+    navViewAnalysis: treeNav.viewAnalysis,
+    navState: treeNav.state.name,
+    // pinned
+    pin: id => pinned.pin(id),
+    pinnedEvent: pinned.state.pinnedEvent
+  }));

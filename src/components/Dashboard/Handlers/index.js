@@ -4,6 +4,7 @@ import SagaEffectActionDispatched from './SagaEffectActionDispatched';
 import SagaEffectCanceled from './SagaEffectCanceled';
 import SagaEffectRejected from './SagaEffectRejected';
 import ReduxAction from './ReduxAction';
+import NewSession from './NewSession';
 
 import onMachineCreated from './onMachineCreated';
 import onMachineConnected from './onMachineConnected';
@@ -22,7 +23,8 @@ export const Handlers = {
   '@saga_actionDispatched': SagaEffectActionDispatched,
   '@saga_effectCancelled': SagaEffectCanceled,
   '@saga_effectRejected': SagaEffectRejected,
-  '@redux_ACTION': ReduxAction
+  '@redux_ACTION': ReduxAction,
+  'NEW_SESSION': NewSession
 };
 
 export const StentHandlers = {

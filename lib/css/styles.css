@@ -111,6 +111,9 @@ p {
   left: 0;
   overflow-y: hidden;
 }
+.logLeft.fullWidth {
+  width: 100%;
+}
 @media all and (max-width: 620px) {
   .logLeft {
     width: 100%;
@@ -343,4 +346,10 @@ p {
 }
 .noEvents a:hover {
   color: #999;
+}
+
+/* new session */
+.newSession {
+  background: #fff;
+  text-align: center;
 }

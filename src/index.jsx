@@ -4,8 +4,7 @@ import bridge from './services/bridge';
 import App from './components/App.jsx';
 import devToolsMachine from './stent/DevTools';
 import './stent/TreeNav';
-import { Machine } from 'stent';
-import StentEmitter from 'kuker-emitters/lib/StentEmitter';
+import './stent/Pinned';
 
 bridge.on(action => devToolsMachine.actionReceived(action));
 

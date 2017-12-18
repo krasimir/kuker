@@ -3,13 +3,24 @@ import { PAGES } from '../constants';
 import { enhanceEvent } from '../helpers/enhanceEvent';
 import calculateMutationExplorer from '../helpers/calculateMutationExplorer';
 
+const getFilterTypes = function () {
+  const types = localStorage.getItem('filterTypes');
+
+  if (types !== null) {
+    return JSON.parse(types);
+  }
+  return null;
+};
+const setFilterTypes = function (types) {
+  return localStorage.setItem('filterTypes', JSON.stringify(types));
+};
+
 const initialState = () => ({
   name: 'working',
   page: PAGES.DASHBOARD,
   events: [],
-  pinnedEvent: null,
-  autoscroll: true,
-  mutationExplorerPath: null
+  mutationExplorerPath: null,
+  filterTypes: getFilterTypes()
 });
 const MAX_EVENTS = 400;
 
@@ -17,26 +28,18 @@ const DevTools = Machine.create('DevTools', {
   state: initialState(),
   transitions: {
     'working': {
-      'action received': function ({ events, autoscroll, pinnedEvent, ...rest }, newEvents) {
-
-        // clear events
-        if (newEvents.length === 1 && newEvents[0].pageRefresh === true) {
-          this.flushEvents(); return undefined;
-        }
-
+      'action received': function ({ events, ...rest }, newEvents) {
         const eventsToAdd = newEvents.map((newEvent, i) => {
-          var lastKnownState;
-
           if (typeof newEvent.type === 'undefined') {
             return false;
           }
-          if (i === 0) {
-            lastKnownState = events.length > 0 ? events[events.length - 1].state : undefined;
-          } else {
-            lastKnownState = newEvents[i - 1].state;
+          const enhancedEvent = enhanceEvent(newEvent, this.lastKnownState, rest.mutationExplorerPath);
+
+          if (newEvent.state) {
+            this.lastKnownState = newEvent.state;
           }
 
-          return enhanceEvent(newEvent, lastKnownState, rest.mutationExplorerPath);
+          return enhancedEvent;
         }).filter(newEvent => newEvent);
 
         if (eventsToAdd.length === 0) return undefined;
@@ -46,36 +49,13 @@ const DevTools = Machine.create('DevTools', {
           events.splice(0, events.length - MAX_EVENTS);
         }
 
-        if (autoscroll) {
-          pinnedEvent = events[events.length - 1];
-        }
-
         return {
-          events,
-          autoscroll,
-          pinnedEvent,
+          events: events,
           ...rest
         };
       },
       'flush events': function () {
         return initialState();
-      },
-      'add marker': function (state) {
-        if (state.pinnedEvent) {
-          state.pinnedEvent.withMarker = true;
-        }
-        return state;
-      },
-      'pin': function ({ events, pinnedEvent: currentPinnedEvent, ...rest }, id) {
-        const event = this.getEventById(id);
-        const autoscroll = event.id === events[events.length - 1].id;
-
-        return {
-          ...rest,
-          autoscroll,
-          pinnedEvent: event ? event : currentPinnedEvent,
-          events
-        };
       },
       'show mutation': function ({ events, ...rest }, mutationExplorerPath) {
         events.forEach(event => calculateMutationExplorer(event, mutationExplorerPath));
@@ -85,11 +65,28 @@ const DevTools = Machine.create('DevTools', {
       'clear mutation': function ({ events, mutationExplorerPath, ...rest}) {
         events.forEach(event => (event.mutationExplorer = false));
         return { events, ...rest, mutationExplorerPath: null };
+      },
+      'update filter types': function ({ filterTypes, events, ...rest }, update) {
+        const newFilterTypes = Object.assign({}, filterTypes, update);
+
+        setFilterTypes(newFilterTypes);
+        return {
+          ...rest,
+          events: events, newFilterTypes,
+          filterTypes: newFilterTypes
+        };
       }
     }
   },
-  getEventById(eventId) {
-    return this.state.events.find(({ id }) => id === eventId);
+  getFilteredEvents() {
+    const filterTypes = this.state.filterTypes;
+
+    return this.state.events.filter(({ type }) => {
+      if (filterTypes !== null && typeof filterTypes[type] !== 'undefined') {
+        return filterTypes[type];
+      }
+      return true;
+    });
   }
 });
 

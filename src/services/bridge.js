@@ -1,4 +1,4 @@
-import readFromPath from '../helpers/readFromPath';
+// import readFromPath from '../helpers/readFromPath';
 
 const listeners = [];
 const bridge = {
@@ -35,14 +35,9 @@ const wire = () => {
 
   // receiving events
   chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-    // console.log(chrome.devtools.inspectedWindow.tabId, readFromPath(sender, 'tab.id'));
-    if (chrome.devtools.inspectedWindow.tabId === readFromPath(sender, 'tab.id')) {
-      notify(message);
-      sendResponse('received');
-    } else {
-      console.log('Different sender', message);
-      sendResponse('nope different sender');
-    }
+    // if (chrome.devtools.inspectedWindow.tabId === readFromPath(sender, 'tab.id')) {
+    notify(message);
+    sendResponse('received');
   });
 };
 

@@ -7941,6 +7941,9 @@
       "id": 217
     },
     {
+      "type": "NEW_SESSION"
+    },
+    {
       "time": 1513028763500,
       "uid": "emitter",
       "state": [

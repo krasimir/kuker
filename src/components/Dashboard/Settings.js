@@ -1,25 +1,27 @@
+import PropTypes from 'prop-types';
 import React from 'react';
+import { connect } from 'stent/lib/react';
 
-export default class Settings extends React.Component {
+class Settings extends React.Component {
   constructor(props) {
     super(props);
 
-    const types = this._extractTypes();
+    const allAvailableTypes = this._extractTypes();
 
     if (props.types !== null) {
-      Object.keys(types).forEach(type => {
-        types[type] = props.types.indexOf(type) >= 0;
+      Object.keys(allAvailableTypes).forEach(typeKey => {
+        if (typeof props.types[typeKey] !== 'undefined') {
+          allAvailableTypes[typeKey] = props.types[typeKey];
+        }
       });
     }
 
-    this.state = { types };
+    this.state = { types: allAvailableTypes };
   }
   _extractTypes() {
     return this.props.events.reduce((result, event) => {
       if (typeof event.type !== 'undefined') {
         result[event.type] = true;
-      } else if (typeof event.label !== 'undefined') {
-        result[event.label] = true;
       }
       return result;
     }, {});
@@ -29,7 +31,7 @@ export default class Settings extends React.Component {
 
     types[type] = !types[type];
     this.setState({ types });
-    this.props.onChange(Object.keys(types).filter(type => types[type]));
+    this.props.onChange({ [type]: types[type] });
   }
   render() {
     const { onClose } = this.props;
@@ -53,3 +55,18 @@ export default class Settings extends React.Component {
     );
   }
 }
+
+Settings.propTypes = {
+  types: PropTypes.object,
+  events: PropTypes.array,
+  onChange: PropTypes.func,
+  onClose: PropTypes.func
+};
+
+export default connect(Settings)
+  .with('DevTools')
+  .map(devTools => ({
+    events: devTools.state.events,
+    onChange: devTools.updateFilterTypes,
+    types: devTools.state.filterTypes
+  }));
