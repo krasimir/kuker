@@ -323,6 +323,11 @@ p {
   cursor: pointer;
   font-size: 1.6em;
 }
+.settings hr {
+  border-top: none;
+  border-bottom: solid 1px rgb(192, 192, 192);
+  margin: 1em 0;
+}
 
 /* no events */
 .noEvents {

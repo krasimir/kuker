@@ -33,6 +33,36 @@ class Settings extends React.Component {
     this.setState({ types });
     this.props.onChange({ [type]: types[type] });
   }
+  _none() {
+    const newTypes = Object.keys(this.state.types).reduce((result, type) => {
+      result[type] = false;
+      return result;
+    }, {});
+
+    this.setState({ types: newTypes });
+    this.props.onChange(newTypes);
+  }
+  _all() {
+    const newTypes = Object.keys(this.state.types).reduce((result, type) => {
+      result[type] = true;
+      return result;
+    }, {});
+
+    this.setState({ types: newTypes });
+    this.props.onChange(newTypes);
+  }
+  _areAllUnselected() {
+    return Object.keys(this.state.types).reduce((result, type) => {
+      if (!result || this.state.types[type]) return false;
+      return result;
+    }, true);
+  }
+  _areAllSelected() {
+    return Object.keys(this.state.types).reduce((result, type) => {
+      if (!result || !this.state.types[type]) return false;
+      return result;
+    }, true);
+  }
   render() {
     const { onClose } = this.props;
     const { types } = this.state;
@@ -50,6 +80,15 @@ class Settings extends React.Component {
               </label>
             );
           }) }
+          <hr />
+          <label key='none' className='block mb05'>
+            <input type='checkbox' checked={ this._areAllUnselected() } onChange={ event => this._none() }/>
+            None
+          </label>
+          <label key='all' className='block mb05'>
+            <input type='checkbox' checked={ this._areAllSelected() } onChange={ event => this._all() }/>
+            All
+          </label>
         </div>
       </div>
     );
