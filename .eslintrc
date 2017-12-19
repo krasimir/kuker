@@ -20,7 +20,8 @@
       "sinon": true,
       "chrome": true,
       "Mousetrap": true,
-      "React": true
+      "React": true,
+      "io": true
     },
   
     "parser": "babel-eslint",

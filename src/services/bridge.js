@@ -1,4 +1,4 @@
-// import readFromPath from '../helpers/readFromPath';
+import { KUKER_EMITTER_SOCKET_PORT, KUKER_EVENT } from '../constants';
 
 const listeners = [];
 const bridge = {
@@ -30,7 +30,7 @@ const sendMessageToCurrentTag = function (data, callback) {
 const activeTabConsoleLog = function (...data) {
   sendMessageToCurrentTag({ type: 'console.log', data });
 };
-const wire = () => {
+const wire = function () {
   if (!chrome || !chrome.runtime || !chrome.runtime.onMessage) return;
 
   // receiving events
@@ -40,7 +40,17 @@ const wire = () => {
     sendResponse('received');
   });
 };
+const wireWithSockets = function () {
+  const URL = `http://localhost:${ KUKER_EMITTER_SOCKET_PORT }`;
+  const socket = io(URL);
+
+  socket.on(KUKER_EVENT, function (message) {
+    notify(message);
+    socket.emit('received');
+  });
+};
 
 wire();
+wireWithSockets();
 
 export default bridge;

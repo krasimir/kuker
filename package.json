@@ -4,8 +4,8 @@
   "description": "Debug like a boss",
   "main": "",
   "scripts": {
-    "build": "browserify ./src/index.jsx -o ./lib/app.js -t babelify && rm ./build/* && node ./scripts/zipExtension.js",
-    "watch": "watchify ./src/index.jsx -o ./lib/app.js -t babelify -v"
+    "build": "browserify ./src/inde.jsx -o ./lib/app.js -t babelify && rm ./build/* && node ./scripts/zipExtension.js",
+    "watch": "watchify ./src/index.js -o ./lib/app.js -t babelify -v"
   },
   "repository": {
     "type": "git",
