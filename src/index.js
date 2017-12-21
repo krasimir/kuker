@@ -21,13 +21,15 @@ if (typeof window !== 'undefined' && window.location && window.location.href) {
     let s;
 
     if (window.location.href.indexOf('populate=stent') > 0) {
-      s = './mocks/example.stent.json';
+      s = '../_mocks/example.stent.json';
     } else if (window.location.href.indexOf('populate=redux') > 0) {
-      s = './mocks/example.redux.json';
+      s = '../_mocks/example.redux.json';
     } else if (window.location.href.indexOf('populate=saga') > 0) {
-      s = './mocks/example.saga.json';
+      s = '../_mocks/example.saga.json';
     } else if (window.location.href.indexOf('populate=mutations') > 0) {
-      s = './mocks/example.mutations.json';
+      s = '../_mocks/example.mutations.json';
+    } else if (window.location.href.indexOf('populate=ssr') > 0) {
+      s = '../_mocks/example.saga.ssr.json';
     }
 
     fetch(s).then(response => {

@@ -21,7 +21,7 @@ class Dashboard extends React.Component {
     this.setState({ settingsVisibility: !this.state.settingsVisibility });
   }
   _rowRenderer(eventsToRender, { index, isScrolling, isVisible, key, parent, style }) {
-    const { pinnedEvent, pin } = this.props;
+    const { pinnedEvent, pin, sources } = this.props;
 
     return (
       <div key={ key } style={style} >
@@ -29,6 +29,7 @@ class Dashboard extends React.Component {
           event={ eventsToRender[index] }
           pinnedEvent={ pinnedEvent }
           pin={ pin }
+          sources={ sources }
         />
       </div>
     );
@@ -119,6 +120,7 @@ Dashboard.propTypes = {
   pinnedEvent: PropTypes.object,
   events: PropTypes.array,
   filteredEvents: PropTypes.array,
+  sources: PropTypes.object,
   navViewState: PropTypes.func,
   navViewEvent: PropTypes.func,
   navViewAnalysis: PropTypes.func,
@@ -139,6 +141,7 @@ export default connect(Dashboard)
     marker: () => pinned.addMarker(),
     mutationExplorerPath: devTools.state.mutationExplorerPath,
     clearMutation: devTools.clearMutation,
+    sources: devTools.state.sources,
     // tree nav
     navViewState: treeNav.viewState,
     navViewEvent: treeNav.viewEvent,

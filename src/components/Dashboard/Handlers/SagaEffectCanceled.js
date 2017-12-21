@@ -15,13 +15,13 @@ export default function SagaEffectCanceled({ event, onClick, className }) {
   const { timeDiff } = event;
 
   return (
-    <li style={ style } onClick={ onClick } className={ className }>
+    <div style={ style } onClick={ onClick } className={ className }>
       <TimeDiff timeDiff={ timeDiff } parentStyle={ style } />
       <div className='actionRowContent'>
         <i className='fa fa-times-rectangle-o'></i>
         <SagaEffectIds event={ event } />
         { label }
       </div>
-    </li>
+    </div>
   );
 }

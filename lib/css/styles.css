@@ -224,7 +224,7 @@ p {
   overflow-y: hidden;
   height: calc(100% - 35px);
 }
-.log li {
+.log li > div {
   padding: 0.4em 1em;
   border-top: solid 1px rgb(121, 121, 121);
 }
@@ -364,9 +364,9 @@ p {
 }
 
 /* new session */
-.log li.newSession {
+.log div.newSession {
   background: #fff;
   font-size: 0.8em;
   color: #999;
-  padding-top: 0.6em;
+  padding: 0.7em 1em;
 }

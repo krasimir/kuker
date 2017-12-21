@@ -11,12 +11,12 @@ export default function onMachineCreated({ event, timeDiff, onClick, className }
   const style = calculateRowStyles(event, { color: 'rgb(200, 212, 201)' });
 
   return (
-    <li style={ style } onClick={ onClick } className={ className }>
+    <div style={ style } onClick={ onClick } className={ className }>
       <TimeDiff timeDiff={ timeDiff } parentStyle={ style } />
       <div className='actionRowContent'>
         <i className='fa fa-plus'></i>
         <strong>{ getMachineName(machine) }</strong> machine created
       </div>
-    </li>
+    </div>
   );
 };

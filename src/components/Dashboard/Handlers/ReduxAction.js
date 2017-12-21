@@ -25,12 +25,12 @@ export default function ReduxAction({ event, onClick, className }) {
   }
 
   return (
-    <li style={ style } onClick={ onClick } className={ className }>
+    <div style={ style } onClick={ onClick } className={ className }>
       <TimeDiff timeDiff={ timeDiff } parentStyle={ style } />
       <div className='actionRowContent'>
         <i className='fa fa-dot-circle-o'></i>
         { label }
       </div>
-    </li>
+    </div>
   );
 }

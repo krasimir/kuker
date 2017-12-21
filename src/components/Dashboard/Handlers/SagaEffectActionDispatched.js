@@ -18,12 +18,12 @@ export default function SagaEffectActionDispatched({ event, onClick, className }
   }
 
   return (
-    <li style={ style } onClick={ onClick } className={ className }>
+    <div style={ style } onClick={ onClick } className={ className }>
       <TimeDiff timeDiff={ timeDiff } parentStyle={ style } />
       <div className='actionRowContent'>
         <i className='fa fa-toggle-right'></i>
         { label }
       </div>
-    </li>
+    </div>
   );
 }

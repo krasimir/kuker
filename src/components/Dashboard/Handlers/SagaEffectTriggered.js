@@ -31,7 +31,7 @@ export default function SagaEffectTriggered({ event, onClick, className }) {
   }
 
   return (
-    <li
+    <div
       style={ style }
       onClick={ onClick }
       className={ className }
@@ -44,6 +44,6 @@ export default function SagaEffectTriggered({ event, onClick, className }) {
         <SagaEffectIds event={ event } />
         { label }
       </div>
-    </li>
+    </div>
   );
 }

@@ -1,4 +1,5 @@
 import { KUKER_EMITTER_SOCKET_PORT, KUKER_EVENT } from '../constants';
+import isInDevTools from '../helpers/isInDevTools';
 
 const listeners = [];
 const bridge = {
@@ -31,7 +32,7 @@ const activeTabConsoleLog = function (...data) {
   sendMessageToCurrentTag({ type: 'console.log', data });
 };
 const wire = function () {
-  if (!chrome || !chrome.runtime || !chrome.runtime.onMessage) return;
+  if (!isInDevTools()) return;
 
   // receiving events
   chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
@@ -41,13 +42,29 @@ const wire = function () {
   });
 };
 const wireWithSockets = function () {
-  const URL = `http://localhost:${ KUKER_EMITTER_SOCKET_PORT }`;
-  const socket = io(URL);
+  function listen(serverURL) {
+    const URL = serverURL + ':' + KUKER_EMITTER_SOCKET_PORT;
+    const socket = io(URL);
+    var messagesToAdd = [];
+    var requestAnimationFrameRequest = null;
 
-  socket.on(KUKER_EVENT, function (message) {
-    notify(message);
-    socket.emit('received');
-  });
+    socket.on(KUKER_EVENT, function (message) {
+      message = message.map(m => { m.serverURL = serverURL; return m; });
+      messagesToAdd = messagesToAdd.concat(message);
+      cancelAnimationFrame(requestAnimationFrameRequest);
+      requestAnimationFrame(function () {
+        notify(messagesToAdd);
+        messagesToAdd = [];
+      });
+      socket.emit('received');
+    });
+  }
+
+  if (isInDevTools()) {
+    sendMessageToCurrentTag({ type: 'get-page-url' }, listen);
+  } else {
+    listen('http://localhost');
+  }
 };
 
 wire();

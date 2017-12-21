@@ -13,12 +13,12 @@ export default function onMachineDisconnected({ event, onClick, className }) {
   const component = meta.component ? <strong>{ `<${ meta.component }>` }</strong> : null;
 
   return (
-    <li style={ style } onClick={ onClick } className={ className }>
+    <div style={ style } onClick={ onClick } className={ className }>
       <TimeDiff timeDiff={ timeDiff } parentStyle={ style } />
       <div className='actionRowContent'>
         <i className='fa fa-unlink'></i>
         { component } disconnected from <strong>{ machinesConnectedTo }</strong>
       </div>
-    </li>
+    </div>
   );
 }

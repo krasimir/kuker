@@ -3,10 +3,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 export default function NewSession({ event }) {
+  const origin = event.origin ? ` by ${ event.origin }` : '';
+  const atServer = event.serverURL ? ` at ${ event.serverURL }` : '';
+
   return (
-    <li className='newSession'>
-      new session initialized { event.origin ? `by ${ event.origin }` : ''}
-    </li>
+    <div className='newSession'>
+      New session initialized{ origin }{ atServer }
+    </div>
   );
 }
 

@@ -14,12 +14,12 @@ export default function onGeneratorResumed({ event, onClick, className }) {
   const short = value ? `with ${ shortenJSON(value) }` : '';
 
   return (
-    <li style={ style } onClick={ onClick } className={ className }>
+    <div style={ style } onClick={ onClick } className={ className }>
       <TimeDiff timeDiff={ timeDiff } parentStyle={ style } />
       <div className='actionRowContent'>
         <i className='fa fa-arrow-circle-right'></i>
         generator <strong>resumed</strong> { short }
       </div>
-    </li>
+    </div>
   );
 }

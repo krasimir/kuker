@@ -13,12 +13,12 @@ export default function onMachineConnected({ event, onClick, className }) {
   const component = meta.component ? <strong>{ `<${ meta.component }>` }</strong> : null;
 
   return (
-    <li style={ style } onClick={ onClick } className={ className }>
+    <div style={ style } onClick={ onClick } className={ className }>
       <TimeDiff timeDiff={ timeDiff } parentStyle={ style } />
       <div className='actionRowContent'>
         <i className='fa fa-link'></i>
         { component } connected to <strong>{ machinesConnectedTo }</strong>
       </div>
-    </li>
+    </div>
   );
 }

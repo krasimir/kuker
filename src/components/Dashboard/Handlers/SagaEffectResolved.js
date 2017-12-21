@@ -50,13 +50,13 @@ export default function SagaEffectResolved({ event, onClick, className }) {
   }
 
   return (
-    <li style={ style } onClick={ onClick } className={ className }>
+    <div style={ style } onClick={ onClick } className={ className }>
       <TimeDiff timeDiff={ timeDiff } parentStyle={ style } />
       <div className='actionRowContent'>
         <i className='fa fa-check-square-o'></i>
         <SagaEffectIds event={ event } />
         { label }
       </div>
-    </li>
+    </div>
   );
 }

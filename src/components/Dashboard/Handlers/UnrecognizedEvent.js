@@ -12,13 +12,13 @@ export default function UnrecognizedEvent({ event, onClick, className }) {
   const style = calculateRowStyles(event, { color: 'rgb(230, 230, 230)' });
 
   return (
-    <li style={ style } onClick={ onClick } className={ className }>
+    <div style={ style } onClick={ onClick } className={ className }>
       <TimeDiff timeDiff={ event.timeDiff } parentStyle={ style } />
       <div className='actionRowContent'>
         <i className={ 'fa ' + icon } style={{ marginRight: '0.5em' }}></i>
         <strong>{ event.type }</strong>
         { label }
       </div>
-    </li>
+    </div>
   );
 };

@@ -11,12 +11,12 @@ export default function onStateChanged({ event, onClick, className }) {
   const style = calculateRowStyles(event, { color: 'rgb(201, 172, 186)' });
 
   return (
-    <li style={ style } onClick={ onClick } className={ className }>
+    <div style={ style } onClick={ onClick } className={ className }>
       <TimeDiff timeDiff={ timeDiff } parentStyle={ style } />
       <div className='actionRowContent'>
         <i className='fa fa-heart'></i>
         <strong>{ getMachineName(machine) }</strong>'s state changed to <strong>{ machine.state.name }</strong>
       </div>
-    </li>
+    </div>
   );
 }
