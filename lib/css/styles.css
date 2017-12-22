@@ -364,7 +364,7 @@ p {
 }
 
 /* new session */
-.log div.newSession {
+.log div.newSession, .log div.NewEmitter {
   background: #fff;
   font-size: 0.8em;
   color: #999;

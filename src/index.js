@@ -30,6 +30,8 @@ if (typeof window !== 'undefined' && window.location && window.location.href) {
       s = '../_mocks/example.mutations.json';
     } else if (window.location.href.indexOf('populate=ssr') > 0) {
       s = '../_mocks/example.saga.ssr.json';
+    } else if (window.location.href.indexOf('populate=mobx') > 0) {
+      s = '../_mocks/example.mobx.json';
     }
 
     fetch(s).then(response => {

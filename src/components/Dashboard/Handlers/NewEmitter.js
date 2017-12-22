@@ -2,17 +2,19 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export default function NewSession({ event }) {
+export default function NewEmitter({ event }) {
   const origin = event.origin ? ` by ${ event.origin }` : '';
   const atServer = event.serverURL ? ` at ${ event.serverURL }` : '';
 
   return (
-    <div className='newSession'>
-      <i className='fa fa-sun-o'></i> New session initialized{ origin }{ atServer }
+    <div className='NewEmitter'>
+      <i className='fa fa-sun-o'></i>
+      <span> New emitter initialized { event.emitterName ? `(${ event.emitterName })` : ''}</span>
+      <span>{ origin }{ atServer }</span>
     </div>
   );
 }
 
-NewSession.propTypes = {
+NewEmitter.propTypes = {
   event: PropTypes.object
 };

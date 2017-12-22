@@ -1,5 +1,5 @@
 import { Machine } from 'stent';
-import { PAGES } from '../constants';
+import { PAGES, DEFAULT_FILTER_TYPES } from '../constants';
 import { enhanceEvent } from '../helpers/enhanceEvent';
 import calculateMutationExplorer from '../helpers/calculateMutationExplorer';
 
@@ -10,10 +10,10 @@ const getFilterTypes = function () {
     try {
       return JSON.parse(types);
     } catch (error) {
-      return null;
+      return DEFAULT_FILTER_TYPES;
     }
   }
-  return null;
+  return DEFAULT_FILTER_TYPES;
 };
 const getSources = function () {
   const sources = localStorage.getItem('kuker_sources');
@@ -78,7 +78,7 @@ const DevTools = Machine.create('DevTools', {
         }
 
         return {
-          events: events,
+          events,
           ...rest
         };
       },

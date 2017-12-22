@@ -32,6 +32,7 @@ To make the extension work you have to *instrument* your application. You have t
 * [redux-saga emitter](https://github.com/krasimir/kuker-emitters)
 * [Stent emitter](https://github.com/krasimir/kuker-emitters)
 * [Machina.js emitter](https://github.com/krasimir/kuker-emitters)
+* [MobX emitter](https://github.com/krasimir/kuker-emitters)
 
 ## Writing your own Emitter
 

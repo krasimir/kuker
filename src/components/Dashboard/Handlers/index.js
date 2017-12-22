@@ -5,6 +5,7 @@ import SagaEffectCanceled from './SagaEffectCanceled';
 import SagaEffectRejected from './SagaEffectRejected';
 import ReduxAction from './ReduxAction';
 import NewSession from './NewSession';
+import NewEmitter from './NewEmitter';
 
 import onMachineCreated from './onMachineCreated';
 import onMachineConnected from './onMachineConnected';
@@ -16,6 +17,7 @@ import onGeneratorEnd from './onGeneratorEnd';
 import onGeneratorResumed from './onGeneratorResumed';
 import onStateChanged from './onStateChanged';
 import onStateWillChange from './onStateWillChange';
+import MobX from './Mobx';
 
 export const Handlers = {
   '@saga_effectTriggered': SagaEffectTriggered,
@@ -24,7 +26,9 @@ export const Handlers = {
   '@saga_effectCancelled': SagaEffectCanceled,
   '@saga_effectRejected': SagaEffectRejected,
   '@redux_ACTION': ReduxAction,
-  'NEW_SESSION': NewSession
+  'NEW_SESSION': NewSession,
+  'NEW_EMITTER': NewEmitter,
+  '@mobx': MobX
 };
 
 export const StentHandlers = {

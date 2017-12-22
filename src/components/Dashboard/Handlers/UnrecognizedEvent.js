@@ -1,4 +1,5 @@
 // eslint-disable-next-line no-unused-vars
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import calculateRowStyles from './helpers/calculateRowStyles';
@@ -16,9 +17,14 @@ export default function UnrecognizedEvent({ event, onClick, className }) {
       <TimeDiff timeDiff={ event.timeDiff } parentStyle={ style } />
       <div className='actionRowContent'>
         <i className={ 'fa ' + icon } style={{ marginRight: '0.5em' }}></i>
-        <strong>{ event.type }</strong>
-        { label }
+        <strong>{ label || event.type }</strong>
       </div>
     </div>
   );
+};
+
+UnrecognizedEvent.propTypes = {
+  event: PropTypes.object,
+  onClick: PropTypes.func,
+  className: PropTypes.string
 };

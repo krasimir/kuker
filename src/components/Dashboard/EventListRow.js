@@ -23,7 +23,8 @@ const getBorder = function (source) {
 export default function EventListRow({ event, pinnedEvent, pin, sources }) {
   const { type, withMarker } = event;
   // eslint-disable-next-line no-unused-vars
-  const Component = StentHandlers[type] || Handlers[type] || UnrecognizedEvent;
+  const shortType = type.split('_')[0];
+  const Component = StentHandlers[type] || Handlers[type] || Handlers[shortType] || UnrecognizedEvent;
   const isPinned = (pinnedEvent || {})['id'] === event.id;
 
   const className =
@@ -34,7 +35,7 @@ export default function EventListRow({ event, pinnedEvent, pin, sources }) {
     (event.stateMutation ? ' mutatingState' : '') +
     (event.mutationExplorer ? ' mutationExplorer' : '');
 
-  const style = Object.keys(sources).length === 0 ? {} : {
+  const style = sources && Object.keys(sources).length === 0 ? {} : {
     borderLeft: getBorder(event.origin)
   };
 
