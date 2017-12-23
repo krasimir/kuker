@@ -1,0 +1,3 @@
+[submodule "src/vendor/react-devtools"]
+	path = src/vendor/react-devtools
+	url = https://github.com/facebook/react-devtools.git
