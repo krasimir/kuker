@@ -4,10 +4,12 @@
   "description": "Debug like a boss",
   "main": "",
   "scripts": {
-    "build-content-script": "browserify ./lib/content.src.js -o ./lib/content.js -t babelify ",
-    "build": "git submodule update -f && npm run build-content-script && browserify ./src/index.js -o ./lib/app.js -t babelify && rm ./build/* && node ./scripts/zipExtension.js",
-    "watch": "watchify ./src/index.js -o ./lib/app.js -t babelify -v",
-    "watch-content-script": "watchify ./lib/content.src.js -o ./lib/content.js -t babelify -v"
+    "build-react-devtools-helpers": "browserify ./lib/react.devtools.helpers.src.js -o ./lib/react.devtools.helpers.js -t babelify",
+    "build-content-script": "browserify ./lib/content.src.js -o ./lib/content.js -t babelify",
+    "build": "git submodule update -f && npm run build-react-devtools-helpers && npm run build-content-script && browserify ./src/index.js -o ./lib/app.js -t babelify && rm ./build/* && node ./scripts/zipExtension.js",
+    "watch-react-devtools-helpers": "watchify ./lib/react.devtools.helpers.src.js -o ./lib/react.devtools.helpers.js -t babelify -s reactDevToolsConnector -v",
+    "watch-content-script": "watchify ./lib/content.src.js -o ./lib/content.js -t babelify -t brfs -v",
+    "watch": "watchify ./src/index.js -o ./lib/app.js -t babelify -v"
   },
   "repository": {
     "type": "git",
@@ -34,6 +36,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babelify": "^7.3.0",
+    "brfs": "^1.4.3",
     "browserify": "^14.4.0",
     "deep-diff": "^0.3.8",
     "eslint": "^4.12.1",
