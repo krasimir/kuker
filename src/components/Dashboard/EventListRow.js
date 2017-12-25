@@ -25,6 +25,7 @@ export default function EventListRow({ event, pinnedEvent, pin, sources }) {
   // eslint-disable-next-line no-unused-vars
   const shortType = type.split('_')[0];
   const Component = StentHandlers[type] || Handlers[type] || Handlers[shortType] || UnrecognizedEvent;
+
   const isPinned = (pinnedEvent || {})['id'] === event.id;
 
   const className =

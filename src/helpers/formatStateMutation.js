@@ -36,9 +36,13 @@ function formatSide(side) {
 }
 function formatPath(mutation) {
   const index = mutation.kind === 'A' ? `[ ${ mutation.index } ] ` : null;
+  const path = mutation.path;
 
-  if (mutation.path) {
-    return <strong>{ index }{ mutation.path.join('.') }</strong>;
+  if (path) {
+    if (path.length > 4) {
+      return <strong>{ index } ...{ path.slice(path.length - 4, path.length).join('.') }</strong>;
+    }
+    return <strong>{ index }{ path.join('.') }</strong>;
   } else if (mutation.kind === 'A') {
     return <strong>{ index }</strong>;
   }

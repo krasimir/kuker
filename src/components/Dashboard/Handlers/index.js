@@ -18,6 +18,7 @@ import onGeneratorResumed from './onGeneratorResumed';
 import onStateChanged from './onStateChanged';
 import onStateWillChange from './onStateWillChange';
 import MobX from './Mobx';
+import React from './React';
 
 export const Handlers = {
   '@saga_effectTriggered': SagaEffectTriggered,
@@ -28,7 +29,8 @@ export const Handlers = {
   '@redux_ACTION': ReduxAction,
   'NEW_SESSION': NewSession,
   'NEW_EMITTER': NewEmitter,
-  '@mobx': MobX
+  '@mobx': MobX,
+  '@@react': React
 };
 
 export const StentHandlers = {
