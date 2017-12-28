@@ -1,36 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Tree from '../Tree';
 import HTMLTree from '../HTMLTree';
-import { StentHandlers } from './Handlers';
-import { renderMachinesAsTree } from '../../helpers/renderAsTree';
-import formatStateMutation from '../../helpers/formatStateMutation';
-import { connect } from 'stent/lib/react';
+import JSONTree from '../JSONTree';
 import ReactEvent from './Handlers/React';
 
-function State({ pinnedEvent, showMutation }) {
-  const renderer = event && event.type in StentHandlers ? renderMachinesAsTree : null;
-
+export default function State({ pinnedEvent }) {
   if (ReactEvent.isReactEvent(pinnedEvent)) {
     return <HTMLTree />;
   }
-
-  return (
-    <div>
-      <Tree
-        data={ pinnedEvent.state }
-        renderer={ renderer }
-        onItemClick={ showMutation } />
-      { formatStateMutation(pinnedEvent.stateMutation) }
-    </div>
-  );
+  return <JSONTree />;
 }
 
 State.propTypes = {
-  pinnedEvent: PropTypes.object,
-  showMutation: PropTypes.func
+  pinnedEvent: PropTypes.object
 };
-
-export default connect(State).with('DevTools').map(({ showMutation }) => ({
-  showMutation
-}));

@@ -113,7 +113,7 @@ p {
   border-bottom: solid 3px rgb(71, 71, 71);
 }
 .logLeft {
-  width: 60%;
+  width: 50%;
   height: 100%;
   position: absolute;
   top: 0;
@@ -128,11 +128,11 @@ p {
   }
 }
 .logRight {
-  width: 40%;
+  width: 50%;
   height: 100%;
   position: absolute;
   top: 0;
-  left: 60%;
+  left: 50%;
   background: #e6e6e6;
   border-left: solid 1px #999;
 }
@@ -144,22 +144,41 @@ p {
     left: 0;
   }
 }
-.logRight  hr {
+.logRight hr {
   margin: 1em 0;
   padding: 0;
   border-top: none;
   border-bottom: solid 4px #999;
 }
+.logRightContentWrapper {
+  width: 100%;
+  height: calc(100% - 35px);
+}
 .logTree {
   padding: 0 0.5em 0.5em 0.5em;
-  height: calc(100% - 35px);
   overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+}
+.withDetails .logTree {
+  height: 70%;
+}
+.logDetails {
+  display: none;
+  padding: 0.2em 0.5em 0.5em 0.5em;
+  overflow-y: scroll;
+  width: 100%;
+  height: 30%;
+  border-top: solid 1px #999;
+}
+.withDetails .logDetails {
+  display: block;
 }
 .treeFormat {
   display: block;
   cursor: pointer;
   position: absolute;
-  top: 3.6em;
+  top: 0.5em;
   right: 1.7em;
   font-size: 0.8em;
   padding: 0.3em 0.4em;
@@ -209,19 +228,9 @@ p {
   background: rgb(187, 187, 187);
   transform: translateY(-3px);
 }
-.mutationContainer {
-  position: fixed;
-  bottom: 0;
-  padding: 0.3em;
-  background: #e6e6e6;
-  width: 100%;
-  font-size: 0.8em;
-  border-top: 1px solid #999;
-  color: #F00;
-}
 .mutationContainer a {
-  display: block;
   cursor: pointer;
+  color: #F00;
 }
 .mutationContainer a:hover {
   color: #9f0000;
@@ -384,17 +393,15 @@ p {
 /* HTMLTree */
 .HTMLTree {
   padding: 0.3em;
-  position: relative;
-  height: 100%;
 }
 .HTMLTree a {
   display: block;
   cursor: pointer;
 }
-.HTMLTree .attrName {
+.HTMLTree .attrName, .HTMLPin .attrName {
   color: rgb(4, 121, 156);
 }
-.HTMLTree .attrValue {
+.HTMLTree .attrValue, .HTMLPin .attrValue {
   color: rgb(4, 156, 80);
 }
 .HTMLTree .over > a > strong, 
@@ -402,9 +409,10 @@ p {
 .HTMLTree .over > span > strong {
   background: #fff;
 }
-.HTMLTree .mouseOverComponent {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: #e6e6e6;
+.HTMLPin {
+  font-size: 0.9em;  
+}
+.HTMLPin p {
+  margin: 0;
+  padding: 0;
 }

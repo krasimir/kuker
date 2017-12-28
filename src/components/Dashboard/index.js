@@ -44,9 +44,7 @@ class Dashboard extends React.Component {
       navState,
       events,
       filteredEvents,
-      pinnedEvent,
-      mutationExplorerPath,
-      clearMutation
+      pinnedEvent
     } = this.props;
     const hasEvents = filteredEvents.length > 0;
 
@@ -95,16 +93,9 @@ class Dashboard extends React.Component {
             <a onClick={ navViewAnalysis } className={ navState === 'analysis' ? 'selected' : null }>
               <i className='fa fa-bar-chart-o mr05'></i>Analysis</a>
           </div>
-          <div className='logTree' key='content'>
-            { navState === 'state' ? <State pinnedEvent={ pinnedEvent } /> : null }
-            { navState === 'event' ? <Event event={ pinnedEvent } /> : null }
-            { navState === 'analysis' ? 'Work in progress ...' : null }
-          </div>
-          { mutationExplorerPath !== null && <div className='mutationContainer'>
-            <a onClick={ clearMutation }>
-              <i className='fa fa-times'></i> { mutationExplorerPath }.* <i className='fa fa-eye'></i>
-            </a>
-          </div> }
+          { navState === 'state' ? <State pinnedEvent={ pinnedEvent } /> : null }
+          { navState === 'event' ? <Event event={ pinnedEvent } /> : null }
+          { navState === 'analysis' ? 'Work in progress ...' : null }
         </div> }
       </div>
     );
@@ -137,8 +128,6 @@ export default connect(Dashboard)
     filteredEvents: devTools.getFilteredEvents(),
     clear: () => devTools.flushEvents(),
     marker: () => pinned.addMarker(),
-    mutationExplorerPath: devTools.state.mutationExplorerPath,
-    clearMutation: devTools.clearMutation,
     sources: devTools.state.sources,
     // tree nav
     navViewState: treeNav.viewState,

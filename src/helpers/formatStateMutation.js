@@ -52,11 +52,11 @@ function formatItem(mutation, indent = 0) {
   if (!mutation) return null;
   return (
     <div style={{ marginLeft: (indent * 1.5) + 'em' }}>
-      <p>
+      <div>
         { formatKind(mutation.kind) }
         { formatPath(mutation) }
         { mutation.kind === 'A' && formatItem(mutation.item, indent + 1) }
-      </p>
+      </div>
       <div style={{ marginLeft: '1.2em' }}>
         { isDefined(mutation.lhs) && formatSide(mutation.lhs) }
         { isDefined(mutation.rhs) && <span> <i className='fa fa-long-arrow-right'></i> { formatSide(mutation.rhs) }</span> }
