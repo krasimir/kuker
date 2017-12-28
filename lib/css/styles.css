@@ -27,6 +27,14 @@ p {
 .relative {
   position: relative;
 }
+.fixed {
+  position: fixed;
+  top: 0;
+}
+.absolute {
+  position: absolute;
+  top: 0;
+}
 .ml1 {
   margin-left: 1em;
 }
@@ -47,6 +55,12 @@ p {
 }
 .block {
   display: block;
+}
+.fullHeight {
+  height: 100%;
+}
+.fullWidth {
+  width: 100%;
 }
 
 /* log */
@@ -79,10 +93,10 @@ p {
   display: inline-block;
   cursor: pointer;
 }
-.logNav.fullHeight {
+.logRight .logNav {
   padding: 0;
 }
-.logNav.fullHeight a {
+.logRight .logNav a {
   padding: 0.5em 1em 0.5em 1em;
   background: #e4e4e4;
   height: 33px;
@@ -91,11 +105,11 @@ p {
   border-right: solid 1px rgb(156, 156, 156);
   border-bottom: solid 3px #e4e4e4;
 }
-.logNav.fullHeight a:hover {
+.logRight .logNav a:hover {
   background: #fff;
   border-bottom: solid 3px #fff;
 }
-.logNav.fullHeight a.selected {
+.logRight .logNav a.selected {
   border-bottom: solid 3px rgb(71, 71, 71);
 }
 .logLeft {
@@ -105,9 +119,6 @@ p {
   top: 0;
   left: 0;
   overflow-y: hidden;
-}
-.logLeft.fullWidth {
-  width: 100%;
 }
 @media all and (max-width: 620px) {
   .logLeft {
@@ -119,7 +130,6 @@ p {
 .logRight {
   width: 40%;
   height: 100%;
-  overflow-y: scroll;
   position: absolute;
   top: 0;
   left: 60%;
@@ -141,16 +151,16 @@ p {
   border-bottom: solid 4px #999;
 }
 .logTree {
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  padding-bottom: 2em;
+  padding: 0 0.5em 0.5em 0.5em;
+  height: calc(100% - 35px);
+  overflow-y: scroll;
 }
 .treeFormat {
   display: block;
   cursor: pointer;
   position: absolute;
   top: 3.6em;
-  right: 0.4em;
+  right: 1.7em;
   font-size: 0.8em;
   padding: 0.3em 0.4em;
   color: #999;
@@ -369,4 +379,32 @@ p {
   font-size: 0.8em;
   color: #999;
   padding: 0.7em 1em;
+}
+
+/* HTMLTree */
+.HTMLTree {
+  padding: 0.3em;
+  position: relative;
+  height: 100%;
+}
+.HTMLTree a {
+  display: block;
+  cursor: pointer;
+}
+.HTMLTree .attrName {
+  color: rgb(4, 121, 156);
+}
+.HTMLTree .attrValue {
+  color: rgb(4, 156, 80);
+}
+.HTMLTree .over > a > strong, 
+.HTMLTree .over > a > span > strong, 
+.HTMLTree .over > span > strong {
+  background: #fff;
+}
+.HTMLTree .mouseOverComponent {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #e6e6e6;
 }

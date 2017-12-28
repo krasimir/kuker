@@ -8,10 +8,10 @@ function pin({ name, events, pinnedEvent: currentPinnedEvent }, eventId) {
 
   if (isDefined(eventId)) {
     pinnedEvent = events.find(({ id }) => id === eventId);
-    newState = pinnedEvent.id === events[events.length - 1].id ? 'auto' : 'fixed';
+    newState = pinnedEvent && pinnedEvent.id === events[events.length - 1].id ? 'auto' : 'fixed';
   } else {
     pinnedEvent = name === 'auto' ? events[events.length - 1] : currentPinnedEvent;
-    if (name === 'fixed' && !events.find(({ id }) => id === pinnedEvent.id)) {
+    if (name === 'fixed' && (!pinnedEvent || !events.find(({ id }) => id === pinnedEvent.id))) {
       pinnedEvent = events[events.length - 1];
       name = 'auto';
     }

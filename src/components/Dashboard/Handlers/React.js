@@ -52,3 +52,5 @@ ReactEvent.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string
 };
+
+ReactEvent.isReactEvent = (({ type }) => type.split('_')[0] === '@@react');
