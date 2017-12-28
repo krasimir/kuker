@@ -4,17 +4,18 @@ import PropTypes from 'prop-types';
 import { connect } from 'stent/lib/react';
 import formatPropValue from '../helpers/formatPropValue';
 import HTMLPin from './Dashboard/HTMLPin';
+import formatStateMutation from '../helpers/formatStateMutation';
+
+var HTMLTreeState = { mouseOver: '' };
 
 class HTMLTree extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      mouseOver: ''
-    };
+    this.state = HTMLTreeState;
   }
   _onComponentClick(key, component) {
-    this.setState({
+    this.setState(HTMLTreeState = {
       ...this.state,
       [key]: !this.state[key],
       htmlPin: { key, component }
@@ -83,6 +84,7 @@ class HTMLTree extends React.Component {
       <div className={ 'logRightContentWrapper' + (this.state.htmlPin ? ' withDetails' : '') }>
         <div className='logTree HTMLTree'>
           { pinnedEvent && this._renderTag(pinnedEvent.state) }
+          { formatStateMutation(pinnedEvent.stateMutation) }
         </div>
         <div className='logDetails'>
           { this.state.htmlPin && <HTMLPin component={ this.state.htmlPin.component } /> }

@@ -61,10 +61,14 @@ const DevTools = Machine.create('DevTools', {
           if (typeof newEvent.type === 'undefined') {
             return false;
           }
-          const enhancedEvent = enhanceEvent(newEvent, this.lastKnownState, rest.mutationExplorerPath);
+          const enhancedEvent = enhanceEvent(
+            newEvent,
+            this.lastKnownState[newEvent.emitter],
+            rest.mutationExplorerPath
+          );
 
           if (newEvent.state) {
-            this.lastKnownState = newEvent.state;
+            this.lastKnownState[newEvent.emitter] = newEvent.state;
           }
 
           return enhancedEvent;
@@ -125,7 +129,8 @@ const DevTools = Machine.create('DevTools', {
         }
         return true;
       });
-  }
+  },
+  lastKnownState: {}
 });
 
 export default DevTools;

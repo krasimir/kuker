@@ -5,21 +5,25 @@ import { connect } from 'stent/lib/react';
 import formatStateMutation from '../helpers/formatStateMutation';
 import MutationPin from './Dashboard/MutationPin';
 
-function JSONTree({ mutationExplorerPath, pinnedEvent, showMutation }) {
-  return (
-    <div className={ 'logRightContentWrapper' + (mutationExplorerPath ? ' withDetails' : '') }>
-      <div className='logTree'>
-        <Tree
-          data={ pinnedEvent.state }
-          onItemClick={ showMutation } />
-        { formatStateMutation(pinnedEvent.stateMutation) }
+class JSONTree extends React.Component {
+  render() {
+    const { mutationExplorerPath, pinnedEvent, showMutation } = this.props;
+
+    return (
+      <div className={ 'logRightContentWrapper' + (mutationExplorerPath ? ' withDetails' : '') }>
+        <div className='logTree'>
+          <Tree
+            data={ pinnedEvent.state }
+            onItemClick={ showMutation } />
+          { formatStateMutation(pinnedEvent.stateMutation) }
+        </div>
+        <div className='logDetails'>
+          <MutationPin />
+        </div>
       </div>
-      <div className='logDetails'>
-        <MutationPin />
-      </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 JSONTree.propTypes = {
   pinnedEvent: PropTypes.object,

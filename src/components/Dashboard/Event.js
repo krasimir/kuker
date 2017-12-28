@@ -10,6 +10,7 @@ export default function Event({ event }) {
     time,
     stateMutation,
     mutationPaths,
+    emitter,
     ...rest
   } = event;
 

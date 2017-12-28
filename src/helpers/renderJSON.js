@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import JSONTree from 'react-json-tree';
+// import JSONTree from 'react-json-tree';
+import JSONTree from '../vendor/react-json-tree/lib';
 import renderJSONPreview from './renderJSONPreview';
 
 const treeTheme = {
@@ -38,6 +39,7 @@ const treeTheme = {
     }
   })
 };
+const treeNodesState = {};
 
 function labelRenderer(what, onItemClick) {
   const viewMutation = (event, data) => {
@@ -61,6 +63,7 @@ function labelRenderer(what, onItemClick) {
   };
 }
 function shouldExpandNode(keyName, data, level) {
+  if (treeNodesState[keyName.join('.')]) return true;
   if (level < 1) return true;
   return false;
 }
@@ -84,6 +87,8 @@ const renderJSON = function (json, what = 'root', onItemClick = null) {
     shouldExpandNode={ shouldExpandNode }
     valueRenderer={ valueRenderer }
     hideRoot={ false }
+    onItemCollapsed={ keyPath => (delete treeNodesState[keyPath.join('.')]) }
+    onItemExpanded={ keyPath => (treeNodesState[keyPath.join('.')] = true) }
   />;
 };
 

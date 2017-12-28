@@ -57,10 +57,10 @@ p {
   display: block;
 }
 .fullHeight {
-  height: 100%;
+  height: 100% !important;
 }
 .fullWidth {
-  width: 100%;
+  width: 100% !important;
 }
 
 /* log */
@@ -203,22 +203,22 @@ p {
 .stateMutation {
   color: rgb(71, 71, 71);
 }
-.stateMutation p {
+.stateMutation div {
   margin: 0;
 }
-.stateMutation p .fa {
+.stateMutation div .fa {
   margin-right: 0.3em;
 }
-.stateMutation p .E {
+.stateMutation div .E {
   color: rgb(43, 126, 171)
 }
-.stateMutation p .D {
+.stateMutation div .D {
   color: rgb(154, 62, 80)
 }
-.stateMutation p .A {
+.stateMutation div .A {
   color: rgb(41, 41, 41)
 }
-.stateMutation p .N {
+.stateMutation div .N {
   color: rgb(98, 120, 30)
 }
 .mutationLine {
