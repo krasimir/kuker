@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'stent/lib/react';
 import formatPropValue from '../helpers/formatPropValue';
 import HTMLPin from './Dashboard/HTMLPin';
-import formatStateMutation from '../helpers/formatStateMutation';
+import formatHTMLMutation from '../helpers/formatHTMLMutation';
 
 var HTMLTreeState = { mouseOver: '' };
 
@@ -48,7 +48,7 @@ class HTMLTree extends React.Component {
         );
       });
     const wrapperStyle = {
-      marginLeft: `${ indent * 3 }px`
+      marginLeft: '8px'
     };
 
     if (this.state.htmlPin && expandedKey === this.state.htmlPin.key) {
@@ -84,7 +84,7 @@ class HTMLTree extends React.Component {
       <div className={ 'logRightContentWrapper' + (this.state.htmlPin ? ' withDetails' : '') }>
         <div className='logTree HTMLTree'>
           { pinnedEvent && this._renderTag(pinnedEvent.state) }
-          { formatStateMutation(pinnedEvent.stateMutation) }
+          { formatHTMLMutation(pinnedEvent) }
         </div>
         <div className='logDetails'>
           { this.state.htmlPin && <HTMLPin component={ this.state.htmlPin.component } /> }
