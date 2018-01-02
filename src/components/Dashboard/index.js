@@ -90,8 +90,9 @@ class Dashboard extends React.Component {
               <i className='fa fa-heart mr05'></i>State</a>
             <a onClick={ navViewEvent } className={ navState === 'event' ? 'selected' : null }>
               <i className='fa fa-dot-circle-o mr05'></i>Event</a>
-            <a onClick={ navViewAnalysis } className={ navState === 'analysis' ? 'selected' : null }>
-              <i className='fa fa-bar-chart-o mr05'></i>Analysis</a>
+            { // <a onClick={ navViewAnalysis } className={ navState === 'analysis' ? 'selected' : null }>
+              // <i className='fa fa-bar-chart-o mr05'></i>Analysis</a>
+            }
           </div>
           { navState === 'state' ? <State pinnedEvent={ pinnedEvent } /> : null }
           { navState === 'event' ? <Event event={ pinnedEvent } /> : null }

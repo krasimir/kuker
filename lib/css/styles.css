@@ -155,6 +155,7 @@ p {
   height: calc(100% - 35px);
 }
 .logTree {
+  position: relative;
   padding: 0 0.5em 0.5em 0.5em;
   overflow-y: scroll;
   width: 100%;
@@ -234,6 +235,44 @@ p {
 }
 .mutationContainer a:hover {
   color: #9f0000;
+}
+
+/* diff */
+.diff {
+  margin: 0.6em 0 !important;
+  position: relative;
+  border-top: solid 2px #999;
+}
+.diff::after {
+  content: "diff";
+  display: block;
+  position: absolute;
+  top: -8px;
+  right: 0;
+  background: #e6e6e6;
+  font-size: 1em;
+  padding: 0 0.5em;
+}
+
+/* tree filter */
+.treeFilter {
+  padding: 0.2em;
+  position: relative;
+  margin-bottom: 0.5em;
+}
+.treeFilter i {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+}
+.treeFilter input {
+  width: 100%;
+  padding: 0.2em 0.4em 0.2em 1.7em;
+  border-radius: 2px;
+  font-size: 0.9em;
+  border: none;
+  outline: none;
+  background: #fff;
 }
 
 .log {

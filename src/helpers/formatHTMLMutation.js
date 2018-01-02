@@ -101,7 +101,7 @@ export default function formatHTMLMutation(pinnedEvent) {
 
   return (
     <div className='stateMutation'>
-      <hr />
+      <div className='diff'></div>
       {
         mutations.map((mutation, i) => <div key={i}>{ formatItem(mutation, 0, pinnedEvent.state) }</div>)
       }

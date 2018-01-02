@@ -70,7 +70,7 @@ export default function formatJSONMutation(mutations) {
 
   return (
     <div className='stateMutation'>
-      <hr />
+      <div className='diff'></div>
       {
         mutations.map((mutation, i) => <div key={i}>{ formatItem(mutation) }</div>)
       }

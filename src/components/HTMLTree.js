@@ -83,6 +83,10 @@ class HTMLTree extends React.Component {
     return (
       <div className={ 'logRightContentWrapper' + (this.state.htmlPin ? ' withDetails' : '') }>
         <div className='logTree HTMLTree'>
+          <div className='treeFilter'>
+            <i className='fa fa-filter'></i>
+            <input type='text' placeholder='filter'/>
+          </div>
           { pinnedEvent && this._renderTag(pinnedEvent.state) }
           { formatHTMLMutation(pinnedEvent) }
         </div>
