@@ -152,7 +152,7 @@ p {
 }
 .logRightContentWrapper {
   width: 100%;
-  height: calc(100% - 35px);
+  height: calc(100% - 75px);
 }
 .logTree {
   position: relative;
@@ -255,24 +255,29 @@ p {
 }
 
 /* tree filter */
-.treeFilter {
-  padding: 0.2em;
+.filter {
   position: relative;
-  margin-bottom: 0.5em;
+  border-bottom: solid 1px #999;
 }
-.treeFilter i {
+.filter i {
   position: absolute;
-  top: 6px;
+  top: 8px;
   left: 8px;
+  color: #999;
 }
-.treeFilter input {
+.filter input {
   width: 100%;
-  padding: 0.2em 0.4em 0.2em 1.7em;
+  padding: 0.6em 0.6em 0.6em 2em;
   border-radius: 2px;
   font-size: 0.9em;
   border: none;
   outline: none;
-  background: #fff;
+  background: #f1f1f1;
+}
+.filteredTreeResult:nth-child(n+2) {
+  border-top: dotted 1px #999;
+  margin-top: 0.3em;
+  padding-top: 0.3em;
 }
 
 .log {
@@ -280,7 +285,7 @@ p {
   padding: 0;
   list-style: none;
   overflow-y: hidden;
-  height: calc(100% - 35px);
+  height: calc(100% - 65px);
 }
 .log li > div {
   padding: 0.4em 1em;

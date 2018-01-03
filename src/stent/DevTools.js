@@ -48,7 +48,8 @@ const initialState = () => ({
   events: [],
   mutationExplorerPath: null,
   filterTypes: getFilterTypes(),
-  sources: getSources()
+  sources: getSources(),
+  quickFilters: { left: '', right: '' }
 });
 const MAX_EVENTS = 500;
 
@@ -109,6 +110,9 @@ const DevTools = Machine.create('DevTools', {
           filterTypes: newFilterTypes,
           sources: newSources
         };
+      },
+      'update quick filters': function ({ quickFilters, ...rest }, whichOne, value) {
+        return { ...rest, quickFilters: { ...quickFilters, [whichOne]: value } };
       }
     }
   },

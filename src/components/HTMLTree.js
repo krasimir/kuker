@@ -7,6 +7,20 @@ import HTMLPin from './Dashboard/HTMLPin';
 import formatHTMLMutation from '../helpers/formatHTMLMutation';
 
 var HTMLTreeState = { mouseOver: '' };
+var filteredTreesCache = {};
+
+const extractFilteredTrees = function (root, filter, result = []) {
+  if (root.name && root.name.match(filter)) {
+    result.push(root);
+  }
+  if (root.children && root.children.length > 0) {
+    result = root.children.reduce((soFar, child) => {
+      soFar = soFar.concat(extractFilteredTrees(child, filter));
+      return soFar;
+    }, result);
+  }
+  return result;
+};
 
 class HTMLTree extends React.Component {
   constructor(props) {
@@ -78,16 +92,31 @@ class HTMLTree extends React.Component {
     );
   };
   render() {
-    const { pinnedEvent } = this.props;
+    const { pinnedEvent, filter } = this.props;
+    var trees = [];
+
+    if (pinnedEvent) {
+      if (filter !== '') {
+        const cacheId = filter + pinnedEvent.id;
+
+        if (!filteredTreesCache[cacheId]) {
+          filteredTreesCache = {
+            [cacheId]: extractFilteredTrees(pinnedEvent.state, new RegExp(`^${ filter }`, 'ig'))
+          };
+        }
+        trees = filteredTreesCache[cacheId];
+      } else {
+        trees = [ pinnedEvent.state ];
+      }
+    }
 
     return (
       <div className={ 'logRightContentWrapper' + (this.state.htmlPin ? ' withDetails' : '') }>
         <div className='logTree HTMLTree'>
-          <div className='treeFilter'>
-            <i className='fa fa-filter'></i>
-            <input type='text' placeholder='filter'/>
-          </div>
-          { pinnedEvent && this._renderTag(pinnedEvent.state) }
+          {
+            trees.map((tree, i) =>
+              <div key={ i } className='filteredTreeResult'>{ this._renderTag(tree, 0, i + 'a') }</div>)
+          }
           { formatHTMLMutation(pinnedEvent) }
         </div>
         <div className='logDetails'>
@@ -99,11 +128,13 @@ class HTMLTree extends React.Component {
 };
 
 HTMLTree.propTypes = {
-  pinnedEvent: PropTypes.object
+  pinnedEvent: PropTypes.object,
+  filter: PropTypes.string
 };
 
 export default connect(HTMLTree)
-  .with('Pinned')
-  .map(({ state }) => ({
-    pinnedEvent: state.pinnedEvent
+  .with('Pinned', 'DevTools')
+  .map(({ state }, devtools) => ({
+    pinnedEvent: state.pinnedEvent,
+    filter: devtools.state.quickFilters.right
   }));

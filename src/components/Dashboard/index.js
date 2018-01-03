@@ -7,6 +7,7 @@ import { AutoSizer, List } from 'react-virtualized';
 import EventListRow from './EventListRow';
 import Event from './Event';
 import State from './State';
+import QuickFilter from './QuickFilter';
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -64,6 +65,7 @@ class Dashboard extends React.Component {
               <i className='fa fa-gear'></i>
             </a> }
           </div>
+          { hasEvents && <QuickFilter whichOne='left' /> }
           { hasEvents && <ul className='log'>
             <AutoSizer>
               {({ height, width }) => (
@@ -94,6 +96,7 @@ class Dashboard extends React.Component {
               // <i className='fa fa-bar-chart-o mr05'></i>Analysis</a>
             }
           </div>
+          <QuickFilter whichOne='right' />
           { navState === 'state' ? <State pinnedEvent={ pinnedEvent } /> : null }
           { navState === 'event' ? <Event event={ pinnedEvent } /> : null }
           { navState === 'analysis' ? 'Work in progress ...' : null }

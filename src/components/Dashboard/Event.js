@@ -14,7 +14,7 @@ export default function Event({ event }) {
     ...rest
   } = event;
 
-  return <Tree data={ rest } />;
+  return <div style={{ padding: '0 0.4em' }}><Tree data={ rest } /></div>;
 };
 
 Event.propTypes = {
