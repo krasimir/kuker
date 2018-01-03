@@ -259,7 +259,7 @@ p {
   position: relative;
   border-bottom: solid 1px #999;
 }
-.filter i {
+.filter .fa-filter {
   position: absolute;
   top: 8px;
   left: 8px;
@@ -273,6 +273,19 @@ p {
   border: none;
   outline: none;
   background: #f1f1f1;
+}
+.filterClear {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 0.85em;
+  color: #999;
+}
+.filterClear:hover {
+  color: #000;
 }
 .filteredTreeResult:nth-child(n+2) {
   border-top: dotted 1px #999;
