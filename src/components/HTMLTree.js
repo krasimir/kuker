@@ -41,7 +41,9 @@ class HTMLTree extends React.Component {
     this.setState({ mouseOver: expandKey });
   }
   _renderTag(component, indent = 0, index = 1) {
-    const { name, props, children } = component;
+    const name = component.name;
+    const props = component.props || {};
+    const children = component.children;
     const expandedKey = index.toString();
     const renderChildren = this.state[expandedKey];
     const numOfProps = Object.keys(props).length;
