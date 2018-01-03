@@ -119,8 +119,9 @@ const DevTools = Machine.create('DevTools', {
   getFilteredEvents() {
     const filterTypes = this.state.filterTypes;
     const sources = this.state.sources;
+    const filterRegExp = this.state.quickFilters.left !== '' ? new RegExp(this.state.quickFilters.left, 'gi') : false;
 
-    return this.state.events
+    const filteredByTypeAndSource = this.state.events
       .filter(({ type }) => {
         if (filterTypes !== null && typeof filterTypes[type] !== 'undefined') {
           return filterTypes[type];
@@ -133,6 +134,17 @@ const DevTools = Machine.create('DevTools', {
         }
         return true;
       });
+
+    if (filterRegExp) {
+      return filteredByTypeAndSource.filter(({ state, ...rest }) => {
+        try {
+          return JSON.stringify(rest).match(filterRegExp);
+        } catch (error) {
+          return false;
+        }
+      });
+    }
+    return filteredByTypeAndSource;
   },
   lastKnownState: {}
 });

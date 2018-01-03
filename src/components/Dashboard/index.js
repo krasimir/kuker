@@ -45,9 +45,10 @@ class Dashboard extends React.Component {
       navState,
       events,
       filteredEvents,
-      pinnedEvent
+      pinnedEvent,
+      quickLeftFilter
     } = this.props;
-    const hasEvents = filteredEvents.length > 0;
+    const hasEvents = quickLeftFilter !== '' || filteredEvents.length > 0;
 
     return (
       <div className='dashboard'>
@@ -121,6 +122,7 @@ Dashboard.propTypes = {
   updateFilterTypes: PropTypes.func,
   navState: PropTypes.string,
   mutationExplorerPath: PropTypes.string,
+  quickLeftFilter: PropTypes.string,
   healthy: PropTypes.bool
 };
 
@@ -133,6 +135,7 @@ export default connect(Dashboard)
     clear: () => devTools.flushEvents(),
     marker: () => pinned.addMarker(),
     sources: devTools.state.sources,
+    quickLeftFilter: devTools.state.quickFilters.left,
     // tree nav
     navViewState: treeNav.viewState,
     navViewEvent: treeNav.viewEvent,
