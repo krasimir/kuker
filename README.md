@@ -4,7 +4,10 @@
 
 Chrome extension to debug your apps.
 
-Install it from here [chrome.google.com/webstore/detail/glgnienmpgmf...](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn).
+## How to use it
+
+* Install the extension from [Chrome Web Store](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn).
+* [Instrument your app](https://github.com/krasimir/kuker#instrumentation) so it sends messages
 
 ## Features
 
