@@ -50,6 +50,14 @@ To make the extension work you have to *instrument* your application. You have t
 * [Machina.js emitter](https://github.com/krasimir/kuker-emitters)
 * [MobX emitter](https://github.com/krasimir/kuker-emitters)
 
+Here is a simple integration for React apps:
+
+```js
+import { ReactEmitter } from 'kuker-emitters';
+
+ReactEmitter();
+```
+
 ## Writing your own Emitter
 
 Of course you don't have to use any of these libraries to enjoy [Kuker](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn). You may send a message on your own using the [`postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) API:
