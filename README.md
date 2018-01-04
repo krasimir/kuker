@@ -17,7 +17,7 @@ Chrome extension to debug your apps.
 * Filtering of events/actions and focusing on specific portion of the application state
 * Monitoring for changes in a specific portion of the state
 * Filtering of event sources
-* Clearing all the events or adding a red flag so you know which are the new events
+* Clearing all the events or adding a red flag so you know which are the new ones
 
 ## Philosophy
 
@@ -36,7 +36,7 @@ The extension answers on these two questions. We have two panels. The one on the
 
 ![Kuker](./img/screenshot_reactredux2.jpg)
 
-*(The screenshots are made of [this TodoMVC example](http://work.krasimirtsonev.com/git/redux-react-todomvc/))*
+*(The screenshots are made of [this TodoMVC example](http://work.krasimirtsonev.com/git/redux-react-todomvc/). If you install the extension and open the app you'll see a similar result.)*
 
 ## Instrumentation
 
