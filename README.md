@@ -19,7 +19,7 @@ I'm working with React, Redux and redux-saga last years and they seem to have pr
 
 The extension answers on these two questions. We have two panels. The one on the left shows a list of all the actions/events in your application while the one on the right displays the state after each one of them.
 
-![Kuker](./img/screenshots_reactreadux1.jpg)
+![Kuker](./img/screenshot_reactredux1.jpg)
 
 *(The screenshot is made of [this Codepen](https://codepen.io/krasimir/pen/vpYrqw))*
 
