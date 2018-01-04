@@ -21,7 +21,9 @@ The extension answers on these two questions. We have two panels. The one on the
 
 ![Kuker](./img/screenshot_reactredux1.jpg)
 
-*(The screenshot is made of [this TodoMVC example](http://work.krasimirtsonev.com/git/redux-react-todomvc/))*
+![Kuker](./img/screenshot_reactredux2.jpg)
+
+*(The screenshots are made of [this TodoMVC example](http://work.krasimirtsonev.com/git/redux-react-todomvc/))*
 
 ## Instrumentation
 
@@ -63,13 +65,13 @@ The problem of doing it alone is that you have to take care for a two things:
 * Your state may contain stuff which are not easily serializable.
 * You have to check if `window.postMessage` is available (does not exist in node environment).
 
-All these three issues are solved by using the [BaseEmitter](https://github.com/krasimir/kuker-emitters#baseemitter). All the predefined emitters at [github.com/krasimir/kuker-emitters](https://github.com/krasimir/kuker-emitters) send events only if the extension is installed. Otherwise they are just dummy functions with no effect.
+All these three issues are solved by using the [BaseEmitter](https://github.com/krasimir/kuker-emitters#baseemitter).
 
-*I'll be more then happy to see you contributing to [kuker-emitters](https://github.com/krasimir/kuker-emitters). There're also utility functions for calling `postMessage` or the so called `guard` function that protects the emitter calls in production.*
+*I'll be more then happy to see you contributing to [kuker-emitters](https://github.com/krasimir/kuker-emitters). There're also utility functions for calling `postMessage`.
 
 ## In production
 
-In the beginning there was a guard in the emitters that makes sure that events are sent only if the extension is installed. However, this technique involves the [content script](https://developer.chrome.com/extensions/content_scripts) of the extension to inject some stuff on the page which was fragile and buggy. I decided to kill that feature until I find a better way to handle it. So, for the time being you have to guard the emitters manually.
+In the beginning there was a guard in the emitters that makes sure that events are sent only if the extension is installed. However, this technique involves the [content script](https://developer.chrome.com/extensions/content_scripts) of the extension to inject some stuff on the page which was fragile and buggy. I decided to kill that feature until I find a better way to handle it. So, for the time being you have to guard the emitters.
 
 ## How it works
 
