@@ -419,24 +419,35 @@ p {
 .noEvents {
   background: #e6e6e6;
   height: 100%;
-  text-align: center;
-  padding: 3em;
-  color: rgb(119, 119, 119);
+  color: rgb(87, 87, 87);
+  line-height: 1.6em;
 }
 .noEvents img {
-  margin: 0 auto;
-  max-width: 350px;
   display: block;
-  opacity: 0.3;
+  float: left;
+  max-width: 200px;
+  opacity: 0.4;
 }
 .noEvents p {
-  font-size: 1.4em;
+  float: left;
+  padding: 1.6em 2em 0 0;
 }
 .noEvents a {
-  color: rgb(119, 119, 119);
+  font-weight: bold;
+  color: rgb(83, 83, 83);
 }
 .noEvents a:hover {
-  color: #999;
+  color: #000;
+}
+.noEvents ul {
+  margin: 0.4em 0 0 1.2em;
+  padding: 0;
+  display: block;
+}
+.noEvents hr {
+  border-top: none;
+  border-bottom: 2px dotted #999;
+  margin: 1em 0;
 }
 
 /* new session */
