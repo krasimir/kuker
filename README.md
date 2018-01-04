@@ -32,6 +32,8 @@ I'm working with React, Redux and redux-saga last years and they seem to have pr
 
 The extension answers on these two questions. We have two panels. The one on the left shows a list of all the actions/events in your application while the one on the right displays the state after each one of them.
 
+The following screenshot demonstrate how the extension works with [React emitter](https://github.com/krasimir/kuker-emitters) and [Redux emitter](https://github.com/krasimir/kuker-emitters) plugged in:
+
 ![Kuker](./img/screenshot_reactredux1.jpg)
 
 ![Kuker](./img/screenshot_reactredux2.jpg)
