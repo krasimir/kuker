@@ -37,6 +37,7 @@ const wire = function () {
   // receiving events
   chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     // if (chrome.devtools.inspectedWindow.tabId === readFromPath(sender, 'tab.id')) {
+    // console.log('Message arrived: ', message);
     notify(message);
     sendResponse('received');
   });

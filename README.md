@@ -12,14 +12,14 @@ If you build software you probably know that debugging what you just wrote is re
 
 ---
 
-I'm working with React and Redux last years and they seem to have pretty active community. Community that built awesome tools which improve the developer experience. One of these tools is [Redux-DevTools](https://github.com/zalmoxisus/redux-devtools-extension). I got lots of ideas from there and my goal in the beginning was to write (for fun) a clone with a little bit more features. Stuff which I wanted to see. However, later I realized that this may be used out of Redux context and basically support every library or framework. It is just answering of two important questions.
+I'm working with React, Redux and redux-saga last years and they seem to have pretty active community. Community that built awesome tools which improve the developer experience. One of these tools is [Redux-DevTools](https://github.com/zalmoxisus/redux-devtools-extension). I got lots of ideas from there and my goal in the beginning was to write (for fun) a clone with a little bit more features. Stuff which I wanted to see. However, later I realized that this may be used out of Redux context and basically support every library or framework. It answers of two important questions.
 
-* What is going on in my application? In Redux this is pretty much the actions tha fly around. But in your app this may be events or streams or whatever. It is just a **thing** happening in specific point of time. Think about a timeline with bunch of points inside.
-* How my application changes based on actions/events happening in my application? It is all about state right. Seeing how your app state mutates based on actions is priceless. You are able to spot bugs and see what is causing them.
+* What is going on in my application? In Redux this is pretty much the actions which fly around. But in your app this may be events or streams. It is just an **action** that happened at specific point of time. Think about a timeline with bunch keyframes.
+* How my application state changes based on these actions/events? Seeing how your app state mutates based on actions is priceless. You are able to spot bugs and see what is causing them. What state means depends on the context. For Redux this is the store, for React this is the React tree.
 
 The extension answers on these two questions. We have two panels. The one on the left shows a list of all the actions/events in your application while the one on the right displays the state after each one of them.
 
-![Kuker](./img/screenshots_instructions.jpg)
+![Kuker](./img/screenshots_reactreadux1.jpg)
 
 *(The screenshot is made of [this Codepen](https://codepen.io/krasimir/pen/vpYrqw))*
 
