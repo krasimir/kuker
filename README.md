@@ -90,7 +90,7 @@ The problem of doing it alone is that you have to take care for a two things:
 
 All these three issues are solved by using the [BaseEmitter](https://github.com/krasimir/kuker-emitters#baseemitter).
 
-*I'll be more then happy to see you contributing to [kuker-emitters](https://github.com/krasimir/kuker-emitters). There're also utility functions for calling `postMessage`.
+*I'll be more then happy to see you contributing to [kuker-emitters](https://github.com/krasimir/kuker-emitters). There're also utility functions for calling `postMessage`.*
 
 ## In production
 
