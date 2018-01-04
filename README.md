@@ -21,13 +21,14 @@ The extension answers on these two questions. We have two panels. The one on the
 
 ![Kuker](./img/screenshot_reactredux1.jpg)
 
-*(The screenshot is made of [this Codepen](https://codepen.io/krasimir/pen/vpYrqw))*
+*(The screenshot is made of [this TodoMVC example](http://work.krasimirtsonev.com/git/redux-react-todomvc/))*
 
 ## Instrumentation
 
 To make the extension work you have to *instrument* your application. You have to add an [_emitter_](https://github.com/krasimir/kuker-emitters) which listens for actions/events on your side and sends them to [Kuker](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn). Here are some of the ready ones:
 
 * [Base emitter](https://github.com/krasimir/kuker-emitters)
+* [React emitter](https://github.com/krasimir/kuker-emitters)
 * [Redux emitter](https://github.com/krasimir/kuker-emitters)
 * [redux-saga emitter](https://github.com/krasimir/kuker-emitters)
 * [Stent emitter](https://github.com/krasimir/kuker-emitters)
