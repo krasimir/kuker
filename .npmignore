@@ -1,5 +1,7 @@
+_mocks
+build
 img
 lib
-build
 node_modules
-_mocks
+scripts
+src
