@@ -6,6 +6,16 @@ Chrome extension to debug your apps.
 
 Install it from here [chrome.google.com/webstore/detail/glgnienmpgmf...](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn).
 
+## Features
+
+* Tracking of events/actions in your app
+* Tracking of application state and its mutations
+* Monitoring of server-side rendering (via Socket.io)
+* Filtering of events/actions and focusing on specific portion of the application state
+* Monitoring for changes in a specific portion of the state
+* Filtering of event sources
+* Clearing all the events or adding a red flag so you know which are the new events
+
 ## Philosophy
 
 If you build software you probably know that debugging what you just wrote is really important. Without seeing how your code works on a lower level you can't say that something is done. Finding and fixing bugs is also important. And without a proper tool it becomes difficult and time consuming. [Kuker](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn) is here to help by improving your workflow.
