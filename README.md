@@ -58,7 +58,7 @@ To make the extension work you have to *instrument* your application. You have t
 
 `yarn add kuker-emitters` or `npm install kuker-emitters`. There're also standalone versions in [here](./standalone). You may grab the file, include it in your page and you'll a global like `ReduxEmitter`, `ReduxSagaEmitter` or `ReactEmitter`.
 
-## BaseEmitter
+### BaseEmitter
 
 ```js
 import { BaseEmitter } from 'kuker-emitters';
@@ -78,7 +78,7 @@ emit({
 
 ![screenshot base emitter](./img/kuker-emitters/screenshot_baseemitter.jpg)
 
-## Integration with [React](https://reactjs.org/)
+### Integration with [React](https://reactjs.org/)
 
 ```js
 import { ReactEmitter } from 'kuker-emitters';
@@ -90,7 +90,7 @@ ReactEmitter();
 
 ![screenshot react emitter](./img/kuker-emitters/screenshot_reactemitter.jpg)
 
-## Integration with [Redux](https://redux.js.org/)
+### Integration with [Redux](https://redux.js.org/)
 
 ```js
 import { createStore, applyMiddleware } from 'redux';
@@ -106,7 +106,7 @@ const store = createStore(<reducer>, applyMiddleware(middleware));
 
 ![screenshot redux emitter](./img/kuker-emitters/screenshot_redux.jpg)
 
-## Integration with [redux-saga](https://redux-saga.js.org/)
+### Integration with [redux-saga](https://redux-saga.js.org/)
 
 ```js
 import { createStore, applyMiddleware } from 'redux';
@@ -130,7 +130,7 @@ sagaMiddleware.run(rootSaga)
 
 ![screenshot redux-saga](./img/kuker-emitters/screenshot_reduxsaga.jpg)
 
-## Integration with [Stent](https://github.com/krasimir/stent)
+### Integration with [Stent](https://github.com/krasimir/stent)
 
 ```js
 import { Machine } from 'stent';
@@ -143,7 +143,7 @@ Machine.addMiddleware(StentEmitter());
 
 ![screenshot stent](./img/kuker-emitters/screenshot_stent.jpg)
 
-## Integration with [Machina.js](http://machina-js.org/)
+### Integration with [Machina.js](http://machina-js.org/)
 
 ```js
 import machina from 'machina';
@@ -158,7 +158,7 @@ MachinaEmitter(machine);
 
 ![screenshot machina](./img/kuker-emitters/screenshot_machina.jpg)
 
-## Integration with [MobX](https://mobx.js.org/)
+### Integration with [MobX](https://mobx.js.org/)
 
 ```js
 import { MobXEmitter } from 'kuker-emitters';
@@ -180,7 +180,7 @@ MobXEmitter(spy, [ person ]);
 
 ![screenshot mobx](./img/kuker-emitters/screenshot_mobx.jpg)
 
-## Writing your own Emitter
+### Writing your own Emitter
 
 Of course you don't have to use any of these emitters to enjoy [Kuker](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn). You may send a message on your own using the [`postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) API:
 
