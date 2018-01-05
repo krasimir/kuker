@@ -42,17 +42,43 @@ The following screenshot demonstrate how the extension works with [React emitter
 
 ## Instrumentation
 
-To make the extension work you have to *instrument* your application. You have to add an [_emitter_](https://github.com/krasimir/kuker-emitters) which listens for actions/events on your side and sends them to [Kuker](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn). Here are some of the ready ones:
+To make the extension work you have to *instrument* your application. You have to add an [_emitter_](https://github.com/krasimir/kuker-emitters) which listens for actions/events on your side and sends them to [Kuker](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn).
 
-* [Base emitter](https://github.com/krasimir/kuker-emitters)
-* [React emitter](https://github.com/krasimir/kuker-emitters)
-* [Redux emitter](https://github.com/krasimir/kuker-emitters)
-* [redux-saga emitter](https://github.com/krasimir/kuker-emitters)
-* [Stent emitter](https://github.com/krasimir/kuker-emitters)
-* [Machina.js emitter](https://github.com/krasimir/kuker-emitters)
-* [MobX emitter](https://github.com/krasimir/kuker-emitters)
+## Emitters
 
-Here is a simple integration for React apps:
+* [Base emitter](#baseemitter)
+* [React](#integration-with-react)
+* [Redux](#integration-with-redux)
+* [redux-saga](#integration-with-redux-saga)
+* [Stent](#integration-with-stent)
+* [Machina.js](#integration-with-machinajs)
+* [MobX](#integration-with-mobx)
+
+### Installing emitters
+
+`yarn add kuker-emitters` or `npm install kuker-emitters`. There're also standalone versions in [here](./standalone). You may grab the file, include it in your page and you'll a global like `ReduxEmitter`, `ReduxSagaEmitter` or `ReactEmitter`.
+
+## BaseEmitter
+
+```js
+import { BaseEmitter } from 'kuker-emitters';
+
+const emit = BaseEmitter();
+
+emit({
+  type: 'adding money to my account',
+  label: 'hello',
+  state: { bank: { money: 100 } },
+  icon: 'fa-money',
+  color: '#bada55'
+});
+```
+
+[Codepen example](https://codepen.io/krasimir/pen/ypNVVm)
+
+![screenshot base emitter](./img/kuker-emitters/screenshot_baseemitter.jpg)
+
+## Integration with [React](https://reactjs.org/)
 
 ```js
 import { ReactEmitter } from 'kuker-emitters';
@@ -60,9 +86,103 @@ import { ReactEmitter } from 'kuker-emitters';
 ReactEmitter();
 ```
 
+[TodoMVC example](http://work.krasimirtsonev.com/git/redux-react-todomvc/)
+
+![screenshot react emitter](./img/kuker-emitters/screenshot_reactemitter.jpg)
+
+## Integration with [Redux](https://redux.js.org/)
+
+```js
+import { createStore, applyMiddleware } from 'redux';
+import { ReduxEmitter } from 'kuker-emitters';
+
+const middleware = ReduxEmitter();
+
+const store = createStore(<reducer>, applyMiddleware(middleware));
+```
+
+* [Codepen example](https://codepen.io/krasimir/pen/vpYrqw)
+* [TodoMVC example](http://work.krasimirtsonev.com/git/redux-react-todomvc/)
+
+![screenshot redux emitter](./img/kuker-emitters/screenshot_redux.jpg)
+
+## Integration with [redux-saga](https://redux-saga.js.org/)
+
+```js
+import { createStore, applyMiddleware } from 'redux';
+import { ReduxSagaEmitter } from 'kuker-emitters';
+import createSagaMiddleware from 'redux-saga';
+
+const emitter = ReduxSagaEmitter();
+const sagaMiddleware = createSagaMiddleware({ sagaMonitor: emitter.sagaMonitor });
+
+const store = createStore(<reducer>, applyMiddleware(sagaMiddleware));
+
+// This bit is really important.
+// Without it you won't get the current state of the app with every event.
+emitter.setStore(store);
+
+sagaMiddleware.run(rootSaga)
+```
+
+* [Codepen example](https://codepen.io/krasimir/pen/vpYrqw)
+* [jsFiddle example](http://jsfiddle.net/726o9zp2/1/)
+
+![screenshot redux-saga](./img/kuker-emitters/screenshot_reduxsaga.jpg)
+
+## Integration with [Stent](https://github.com/krasimir/stent)
+
+```js
+import { Machine } from 'stent';
+import { StentEmitter } from 'kuker-emitters';
+
+Machine.addMiddleware(StentEmitter());
+```
+
+[Codepen example](https://codepen.io/krasimir/pen/YEjYvR)
+
+![screenshot stent](./img/kuker-emitters/screenshot_stent.jpg)
+
+## Integration with [Machina.js](http://machina-js.org/)
+
+```js
+import machina from 'machina';
+import { MachinaEmitter } from 'kuker-emitters';
+
+const machine = new machina.Fsm({...});
+
+MachinaEmitter(machine);
+```
+
+[Codepen example](https://codepen.io/krasimir/pen/aEOpvE)
+
+![screenshot machina](./img/kuker-emitters/screenshot_machina.jpg)
+
+## Integration with [MobX](https://mobx.js.org/)
+
+```js
+import { MobXEmitter } from 'kuker-emitters';
+import { spy, observable, action } from 'mobx';
+
+class Person {
+  @observable age = 33;
+  @action newYear() {
+    this.age += 1;
+  }
+}
+
+const person = new Person();
+
+MobXEmitter(spy, [ person ]);
+```
+
+[Codepen example](https://codepen.io/krasimir/pen/LeRqRg)
+
+![screenshot mobx](./img/kuker-emitters/screenshot_mobx.jpg)
+
 ## Writing your own Emitter
 
-Of course you don't have to use any of these libraries to enjoy [Kuker](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn). You may send a message on your own using the [`postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) API:
+Of course you don't have to use any of these emitters to enjoy [Kuker](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn). You may send a message on your own using the [`postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) API:
 
 ```js
 window.postMessage({
@@ -88,7 +208,7 @@ The problem of doing it alone is that you have to take care for a two things:
 * Your state may contain stuff which are not easily serializable.
 * You have to check if `window.postMessage` is available (does not exist in node environment).
 
-All these three issues are solved by using the [BaseEmitter](https://github.com/krasimir/kuker-emitters#baseemitter).
+All these three issues are solved by using the [BaseEmitter](#baseemitter).
 
 *I'll be more then happy to see you contributing to [kuker-emitters](https://github.com/krasimir/kuker-emitters). There're also utility functions for calling `postMessage`.*
 
