@@ -1,35 +1,4 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.reactDevToolsConnector = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-'use strict';
-
-/* eslint-disable vars-on-top */
-var installGlobalHook = require('../src/vendor/react-devtools/backend/installGlobalHook');
-var Backend = require('../src/vendor/react-devtools/backend/backend');
-var getData = require('../src/vendor/react-devtools/backend/getData');
-var getData012 = require('../src/vendor/react-devtools/backend/getData012');
-var getDataFiber = require('../src/vendor/react-devtools/backend/getDataFiber');
-var getDisplayName = require('../src/vendor/react-devtools/backend/getDisplayName');
-
-installGlobalHook(window);
-
-var interval = null;
-var tries = 10;
-
-(function isReactReady() {
-  if (window.__REACT_DEVTOOLS_GLOBAL_HOOK__ && window.__REACT_DEVTOOLS_GLOBAL_HOOK__._renderers && Object.keys(window.__REACT_DEVTOOLS_GLOBAL_HOOK__._renderers).length > 0) {
-    window.__REACT_DEVTOOLS_GLOBAL_HOOK__.__helpers = {
-      getData: getData, getData012: getData012, getDataFiber: getDataFiber, getDisplayName: getDisplayName
-    };
-    Backend(window.__REACT_DEVTOOLS_GLOBAL_HOOK__);
-  } else {
-    if (tries >= 0) {
-      tries -= 1;
-      clearTimeout(interval);
-      interval = setTimeout(isReactReady, 300);
-    }
-  }
-})();
-
-},{"../src/vendor/react-devtools/backend/backend":7,"../src/vendor/react-devtools/backend/getData":9,"../src/vendor/react-devtools/backend/getData012":10,"../src/vendor/react-devtools/backend/getDataFiber":11,"../src/vendor/react-devtools/backend/getDisplayName":12,"../src/vendor/react-devtools/backend/installGlobalHook":13}],2:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -85,7 +54,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 
 module.exports = invariant;
 }).call(this,require('_process'))
-},{"_process":3}],3:[function(require,module,exports){
+},{"_process":2}],2:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -271,7 +240,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],4:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -300,7 +269,7 @@ module.exports = {
   Fragment: 10
 };
 
-},{}],5:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -522,7 +491,7 @@ function restoreMany(source, olds) {
 
 module.exports = attachRenderer;
 
-},{"./attachRendererFiber":6,"./getData":9,"./getData012":10}],6:[function(require,module,exports){
+},{"./attachRendererFiber":5,"./getData":8,"./getData012":9}],5:[function(require,module,exports){
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -806,7 +775,7 @@ function attachRendererFiber(hook, rid, renderer) {
 
 module.exports = attachRendererFiber;
 
-},{"./ReactTypeOfWork":4,"./getDataFiber":11}],7:[function(require,module,exports){
+},{"./ReactTypeOfWork":3,"./getDataFiber":10}],6:[function(require,module,exports){
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -864,7 +833,7 @@ module.exports = function setupBackend(hook) {
   return true;
 };
 
-},{"./attachRenderer":5}],8:[function(require,module,exports){
+},{"./attachRenderer":4}],7:[function(require,module,exports){
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -896,7 +865,7 @@ function copyWithSet(obj, path, value) {
 
 module.exports = copyWithSet;
 
-},{}],9:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -1110,7 +1079,7 @@ function childrenList(children) {
 
 module.exports = getData;
 
-},{"./copyWithSet":8,"./getDisplayName":12,"./traverseAllChildrenImpl":14}],10:[function(require,module,exports){
+},{"./copyWithSet":7,"./getDisplayName":11,"./traverseAllChildrenImpl":13}],9:[function(require,module,exports){
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -1250,7 +1219,7 @@ function childrenList(children) {
 
 module.exports = getData012;
 
-},{"./copyWithSet":8}],11:[function(require,module,exports){
+},{"./copyWithSet":7}],10:[function(require,module,exports){
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -1432,7 +1401,7 @@ function setIn(obj, path, value) {
 
 module.exports = getDataFiber;
 
-},{"./ReactTypeOfWork":4,"./copyWithSet":8,"./getDisplayName":12}],12:[function(require,module,exports){
+},{"./ReactTypeOfWork":3,"./copyWithSet":7,"./getDisplayName":11}],11:[function(require,module,exports){
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -1485,7 +1454,7 @@ function getDisplayName(type) {
 
 module.exports = getDisplayName;
 
-},{}],13:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -1719,7 +1688,7 @@ function installGlobalHook(window) {
 
 module.exports = installGlobalHook;
 
-},{}],14:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -1845,5 +1814,36 @@ function traverseAllChildrenImpl(children, nameSoFar, callback, traverseContext)
 
 module.exports = traverseAllChildrenImpl;
 
-},{"fbjs/lib/invariant":2}]},{},[1])(1)
+},{"fbjs/lib/invariant":1}],14:[function(require,module,exports){
+'use strict';
+
+/* eslint-disable vars-on-top */
+var installGlobalHook = require('./react-devtools/backend/installGlobalHook');
+var Backend = require('./react-devtools/backend/backend');
+var getData = require('./react-devtools/backend/getData');
+var getData012 = require('./react-devtools/backend/getData012');
+var getDataFiber = require('./react-devtools/backend/getDataFiber');
+var getDisplayName = require('./react-devtools/backend/getDisplayName');
+
+installGlobalHook(window);
+
+var interval = null;
+var tries = 10;
+
+(function isReactReady() {
+  if (window.__REACT_DEVTOOLS_GLOBAL_HOOK__ && window.__REACT_DEVTOOLS_GLOBAL_HOOK__._renderers && Object.keys(window.__REACT_DEVTOOLS_GLOBAL_HOOK__._renderers).length > 0) {
+    window.__REACT_DEVTOOLS_GLOBAL_HOOK__.__helpers = {
+      getData: getData, getData012: getData012, getDataFiber: getDataFiber, getDisplayName: getDisplayName
+    };
+    Backend(window.__REACT_DEVTOOLS_GLOBAL_HOOK__);
+  } else {
+    if (tries >= 0) {
+      tries -= 1;
+      clearTimeout(interval);
+      interval = setTimeout(isReactReady, 300);
+    }
+  }
+})();
+
+},{"./react-devtools/backend/backend":6,"./react-devtools/backend/getData":8,"./react-devtools/backend/getData012":9,"./react-devtools/backend/getDataFiber":10,"./react-devtools/backend/getDisplayName":11,"./react-devtools/backend/installGlobalHook":12}]},{},[14])(14)
 });

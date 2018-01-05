@@ -1,0 +1,486 @@
+body, html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px; dd
+}
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+.cf::after, .cf::before {
+  clear: both;
+  content: ' ';
+  display: block;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.relative {
+  position: relative;
+}
+.fixed {
+  position: fixed;
+  top: 0;
+}
+.absolute {
+  position: absolute;
+  top: 0;
+}
+.ml1 {
+  margin-left: 1em;
+}
+.ml05 {
+  margin-left: 0.5em;
+}
+.mr1 {
+  margin-right: 1em;
+}
+.mb05 {
+  margin-bottom: 0.5em;
+}
+.mr05 {
+  margin-right: 0.5em;
+}
+.try2 {
+  transform: translateY(2px);
+}
+.block {
+  display: block;
+}
+.fullHeight {
+  height: 100% !important;
+}
+.fullWidth {
+  width: 100% !important;
+}
+
+/* log */
+.dashboard {
+  height: 100%;
+}
+.dashboard::after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.logNav {
+  padding: 0.5em;
+  background: #c9c9c9;
+  border-bottom: solid 1px #999;
+  border-top: solid 1px #fff;
+  height: 35px;
+  overflow: hidden;
+}
+.logNav::after {
+  display: table;
+  content: " ";
+  clear: both;
+}
+.logNav .filter {
+  display: inline-block;
+  margin-left: 0.5em;
+}
+.logNav a {
+  display: inline-block;
+  cursor: pointer;
+}
+.logRight .logNav {
+  padding: 0;
+}
+.logRight .logNav a {
+  padding: 0.5em 1em 0.5em 1em;
+  background: #e4e4e4;
+  height: 33px;
+  margin-right: 0;
+  border-left: solid 1px rgb(156, 156, 156);
+  border-right: solid 1px rgb(156, 156, 156);
+  border-bottom: solid 3px #e4e4e4;
+}
+.logRight .logNav a:hover {
+  background: #fff;
+  border-bottom: solid 3px #fff;
+}
+.logRight .logNav a.selected {
+  border-bottom: solid 3px rgb(71, 71, 71);
+}
+.logLeft {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-y: hidden;
+}
+@media all and (max-width: 620px) {
+  .logLeft {
+    width: 100%;
+    height: 50%;
+    position: relative;
+  }
+}
+.logRight {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background: #e6e6e6;
+  border-left: solid 1px #999;
+}
+@media all and (max-width: 620px) {
+  .logRight {
+    width: 100%;
+    height: 50%;
+    position: relative;
+    left: 0;
+  }
+}
+.logRight hr {
+  margin: 1em 0;
+  padding: 0;
+  border-top: none;
+  border-bottom: solid 4px #999;
+}
+.logRightContentWrapper {
+  width: 100%;
+  height: calc(100% - 75px);
+}
+.logTree {
+  position: relative;
+  padding: 0 0.5em 0.5em 0.5em;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+}
+.withDetails .logTree {
+  height: 70%;
+}
+.logDetails {
+  display: none;
+  padding: 0.2em 0.5em 0.5em 0.5em;
+  overflow-y: scroll;
+  width: 100%;
+  height: 30%;
+  border-top: solid 1px #999;
+}
+.withDetails .logDetails {
+  display: block;
+}
+.treeFormat {
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  top: 0.5em;
+  right: 1.7em;
+  font-size: 0.8em;
+  padding: 0.3em 0.4em;
+  color: #999;
+}
+.treeFormat:hover {
+  color: #000;
+}
+.rawFormat {
+  margin: 0;
+  padding: 0.5em;
+  font-family: inherit;
+}
+.viewMutationIcon {
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 200ms ease;
+}
+.viewMutationIcon:hover {
+  opacity: 1;
+}
+.stateMutation {
+  color: rgb(71, 71, 71);
+}
+.stateMutation div {
+  margin: 0;
+}
+.stateMutation div .fa {
+  margin-right: 0.3em;
+}
+.stateMutation div .E {
+  color: rgb(43, 126, 171)
+}
+.stateMutation div .D {
+  color: rgb(154, 62, 80)
+}
+.stateMutation div .A {
+  color: rgb(41, 41, 41)
+}
+.stateMutation div .N {
+  color: rgb(98, 120, 30)
+}
+.mutationLine {
+  display: inline-block;
+  width: 200px;
+  height: 3px;
+  background: rgb(187, 187, 187);
+  transform: translateY(-3px);
+}
+.mutationContainer a {
+  cursor: pointer;
+  color: #F00;
+}
+.mutationContainer a:hover {
+  color: #9f0000;
+}
+
+/* diff */
+.diff {
+  margin: 0.6em 0 !important;
+  position: relative;
+  border-top: solid 2px #999;
+}
+.diff::after {
+  content: "diff";
+  display: block;
+  position: absolute;
+  top: -8px;
+  right: 0;
+  background: #e6e6e6;
+  font-size: 1em;
+  padding: 0 0.5em;
+}
+
+/* tree filter */
+.filter {
+  position: relative;
+  border-bottom: solid 1px #999;
+}
+.filter .fa-filter {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  color: #999;
+}
+.filter input {
+  width: 100%;
+  padding: 0.6em 0.6em 0.6em 2em;
+  border-radius: 2px;
+  font-size: 0.9em;
+  border: none;
+  outline: none;
+  background: #f1f1f1;
+}
+.filterClear {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 0.85em;
+  color: #999;
+}
+.filterClear:hover {
+  color: #000;
+}
+.filteredTreeResult:nth-child(n+2) {
+  border-top: dotted 1px #999;
+  margin-top: 0.3em;
+  padding-top: 0.3em;
+}
+
+.log {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-y: hidden;
+  height: calc(100% - 65px);
+}
+.log li > div {
+  padding: 0.4em 1em;
+  border-top: solid 1px rgb(121, 121, 121);
+}
+.log .fa {
+  margin-right: 0.5em;
+  font-size: 1em;
+  color: rgb(0, 0, 0);
+  transition: transform 200ms ease;
+}
+.log strong {
+  display: inline-block;
+  font-weight: bold;
+}
+.timeDiff {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  padding: 0.5em;
+}
+.timeDiff .gradient {
+  width: 20px;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: -20px;
+}
+.actionRow {
+  font-size: 1em;
+  cursor: pointer;
+  transition: opacity 200ms ease, transform 200ms ease;
+  transform: scale(1);
+}
+.actionRow:hover .fa:first-child {
+  transform: scale(0.6);
+}
+.actionRowContent {
+  width: 1000px;
+  overflow: hidden;
+}
+.withMarker::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #F00;
+}
+.pinned {
+  background: #000 !important;
+  color: #FFF !important;
+}
+.pinned .timeDiff {
+  display: none;
+}
+.pinned .fa {
+  color: #FFF !important;
+}
+.mutatingState {
+  border-right: solid 4px #fff;
+}
+.mutationExplorer {
+  border-right: solid 10px #f00;
+}
+.sagaParentEffect {
+  font-size: 0.7em;
+  border: solid 2px #999;
+  margin-left: 0.3em;
+  transform: translateY(-1px);
+  display: inline-block;
+  padding: 0 0.2em;
+  opacity: 0.5;
+}
+
+/* Log settings */
+.settings {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: rgba(255, 255, 255, 0.98);
+  width: 100%;
+  height: calc(100% - 35px);
+  padding: 1em;
+  overflow-y: scroll;
+  word-break: break-all;
+}
+.settings::after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.settings .close {
+  position: absolute;
+  top: 0.2em;
+  right: 0.5em;
+  cursor: pointer;
+  font-size: 1.6em;
+}
+.settings hr {
+  border-top: none;
+  border-bottom: solid 1px rgb(192, 192, 192);
+  margin: 1em 0;
+}
+.settings .events {
+  width: 50%;
+  float: left;
+}
+.settings .sources {
+  width: 50%;
+  float: right;
+  padding-left: 1em;
+}
+
+/* no events */
+.noEvents {
+  background: #e6e6e6;
+  height: 100%;
+  color: rgb(87, 87, 87);
+  line-height: 1.6em;
+}
+.noEvents img {
+  display: block;
+  float: left;
+  max-width: 200px;
+  opacity: 0.4;
+}
+.noEvents .text {
+  float: left;
+  padding: 1.6em 2em 0 0;
+}
+.noEvents a {
+  font-weight: bold;
+  color: rgb(83, 83, 83);
+}
+.noEvents a:hover {
+  color: #000;
+}
+.noEvents ul {
+  margin: 0.4em 0 0 1.2em;
+  padding: 0;
+  display: block;
+}
+.noEvents hr {
+  border-top: none;
+  border-bottom: 2px dotted #999;
+  margin: 1em 0;
+}
+
+/* new session */
+.log div.newSession, .log div.NewEmitter {
+  background: #fff;
+  font-size: 0.8em;
+  color: #999;
+  padding: 0.7em 1em;
+}
+
+/* HTMLTree */
+.HTMLTree {
+  padding: 0.3em;
+}
+.HTMLTree a {
+  display: block;
+  cursor: pointer;
+}
+.HTMLTree .attrName, .HTMLPin .attrName {
+  color: rgb(4, 121, 156);
+}
+.HTMLTree .attrValue, .HTMLPin .attrValue {
+  color: rgb(4, 156, 80);
+}
+.HTMLTree .over > a > strong, 
+.HTMLTree .over > a > span > strong, 
+.HTMLTree .over > span > strong {
+  background: #fff;
+}
+.HTMLPin {
+  font-size: 0.9em;  
+}
+.HTMLPin p {
+  margin: 0;
+  padding: 0;
+}

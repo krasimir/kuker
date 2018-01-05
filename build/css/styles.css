@@ -4,7 +4,7 @@ body, html {
 	margin: 0;
 	padding: 0;
 	font-family: 'Roboto', sans-serif;
-	font-size: 14px;
+	font-size: 14px; dd
 }
 p {
   margin-top: 0;
@@ -428,7 +428,7 @@ p {
   max-width: 200px;
   opacity: 0.4;
 }
-.noEvents p {
+.noEvents .text {
   float: left;
   padding: 1.6em 2em 0 0;
 }

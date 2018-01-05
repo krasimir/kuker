@@ -4,12 +4,23 @@
   "description": "Debug like a boss",
   "main": "",
   "scripts": {
-    "build-react-devtools-helpers": "browserify ./lib/react.devtools.helpers.src.js -o ./lib/react.devtools.helpers.js -t babelify -s reactDevToolsConnector",
-    "build-content-script": "browserify ./lib/content.src.js -o ./lib/content.js -t babelify -t brfs",
-    "build": "git submodule update -f && npm run build-react-devtools-helpers && npm run build-content-script && browserify ./src/index.js -o ./lib/app.js -t babelify && rm ./build/* && node ./scripts/zipExtension.js",
-    "watch-react-devtools-helpers": "watchify ./lib/react.devtools.helpers.src.js -o ./lib/react.devtools.helpers.js -t babelify -s reactDevToolsConnector -v",
-    "watch-content-script": "watchify ./lib/content.src.js -o ./lib/content.js -t babelify -t brfs -v",
-    "watch": "watchify ./src/index.js -o ./lib/app.js -t babelify -v"
+    "build-react-devtools-helpers": "browserify ./src/vendor/react.devtools.helpers.src.js -o ./src/vendor/react.devtools.helpers.js -t babelify -s reactDevToolsConnector",
+    "watch-react-devtools-helpers": "watchify ./src/vendor/react.devtools.helpers.src.js -o ./src/vendor/react.devtools.helpers.js -t babelify -s reactDevToolsConnector -v",
+
+    "build-content-react": "browserify ./src/content-scripts/content-react.js -o ./build/content-react.js -t babelify -t brfs",
+    "watch-content-react": "watchify ./src/content-scripts/content-react.js -o ./build/content-react.js -t babelify -t brfs -v",
+
+    "build-content-script": "browserify ./src/content-scripts/content-kuker.js -o ./build/content-kuker.js -t babelify",
+    "watch-content-script": "watchify ./src/content-scripts/content-kuker.js -o ./build/content-kuker.js -t babelify -v",
+
+    "build-kuker-ui": "browserify ./src/kuker-ui/index.js -o ./build/kuker-ui.js -t babelify",
+    "watch-kuker-ui": "watchify ./src/kuker-ui/index.js -o ./build/kuker-ui.js -t babelify -v",
+
+    "build-extension-static": "cpx \"src/extension-static/**/*.*\" build",
+    "watch-extension-static": "cpx \"src/extension-static/**/*.*\" build --watch",
+
+    "build": "rm -rf ./build/* && git submodule update -f && npm run build-react-devtools-helpers && npm run build-content-react && npm run build-content-script && npm run build-kuker-ui && npm run build-extension-static && rm ./packages/* && node ./scripts/zipExtension.js",
+    "watch": "rm -rf ./build/* && concurrently \"npm run watch-react-devtools-helpers\" \"npm run watch-content-react\" \"npm run watch-content-script\" \"npm run watch-kuker-ui\" \"npm run watch-extension-static\""
   },
   "repository": {
     "type": "git",
@@ -51,6 +62,8 @@
     "watchify": "^3.9.0"
   },
   "devDependencies": {
+    "concurrently": "^3.5.1",
+    "cpx": "^1.5.0",
     "zip-folder": "^1.0.0"
   }
 }

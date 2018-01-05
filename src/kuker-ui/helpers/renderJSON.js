@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 // import JSONTree from 'react-json-tree';
-import JSONTree from '../vendor/react-json-tree/lib';
+import JSONTree from '../../vendor/react-json-tree/lib';
 import renderJSONPreview from './renderJSONPreview';
 
 const treeTheme = {

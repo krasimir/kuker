@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import PropTypes from 'prop-types';
 import React from 'react';
-import manifest from '../../../lib/manifest.json';
+import manifest from '../../../extension-static/manifest.json';
 
 function reloadExtension() {
   if (location && location.reload) {
@@ -13,7 +13,7 @@ export default function NoEvents() {
   return (
     <div className='noEvents'>
       <img src='./img/kuker.png' />
-      <p>
+      <div className='text'>
         <strong>Waiting for events...</strong>
         <hr />
         Did you forget to instrument your app?<br />
@@ -28,7 +28,7 @@ export default function NoEvents() {
         </ul>
         <hr />
         <small>v.{ manifest.version }</small>
-      </p>
+      </div>
     </div>
   );
 };
