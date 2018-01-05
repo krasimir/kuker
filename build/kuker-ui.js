@@ -38122,7 +38122,7 @@ module.exports={
   "manifest_version": 2,
   "name": "Kuker",
   "description": "Debug like a boss. Works with Redux, redux-saga and more.",
-  "version": "5.0.1",
+  "version": "5.0.3",
   "icons": { "16": "img/icon16.png", "48": "img/icon48.png", "128": "img/icon128.png" },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "devtools_page": "devtools.html",
@@ -42826,6 +42826,8 @@ var _isInDevTools2 = _interopRequireDefault(_isInDevTools);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* eslint-disable vars-on-top, no-use-before-define, no-unused-vars */
+var socketRetryInterval = 2500;
 var listeners = [];
 var bridge = {
   on: function on(callback) {
@@ -42852,6 +42854,9 @@ var getActiveTabId = function getActiveTabId(callback) {
 };
 var sendMessageToCurrentTag = function sendMessageToCurrentTag(data, callback) {
   getActiveTabId(function (id) {
+    if (!id) {
+      console.error('It can\'t get the current active tab.');
+    }
     chrome.tabs.sendMessage(id, data, callback);
   });
 };
@@ -42874,9 +42879,21 @@ var wire = function wire() {
   });
 };
 var wireWithSockets = function wireWithSockets() {
-  function listen(serverURL) {
+  function fail(socket) {
+    try {
+      socket.close();
+      socket.disconnect();
+    } catch (error) {
+      console.log('Error closing the socket', error);
+    }
+    setTimeout(init, socketRetryInterval);
+  }
+  function listen(serverURL, noRetry) {
     var URL = serverURL + ':' + _constants.KUKER_EMITTER_SOCKET_PORT;
-    var socket = io(URL);
+
+    console.log('Trying to connect to ' + URL);
+
+    var socket = io(URL, { reconnection: false });
     var messagesToAdd = [];
     var requestAnimationFrameRequest = null;
 
@@ -42892,13 +42909,32 @@ var wireWithSockets = function wireWithSockets() {
       });
       socket.emit('received');
     });
+    if (!noRetry) {
+      socket.on('connect_error', function () {
+        return fail(socket);
+      });
+      socket.on('connect_timeout', function () {
+        return fail(socket);
+      });
+      socket.on('reconnect_error', function () {
+        return fail(socket);
+      });
+      socket.on('reconnect_failed', function () {
+        return fail(socket);
+      });
+    }
+  }
+  function init() {
+    if ((0, _isInDevTools2.default)()) {
+      sendMessageToCurrentTag({ type: 'get-page-url' }, function (u) {
+        return listen(u, false);
+      });
+    } else {
+      listen('http://localhost', true);
+    }
   }
 
-  if ((0, _isInDevTools2.default)()) {
-    sendMessageToCurrentTag({ type: 'get-page-url' }, listen);
-  } else {
-    listen('http://localhost');
-  }
+  init();
 };
 
 wire();

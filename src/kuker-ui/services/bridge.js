@@ -1,6 +1,8 @@
+/* eslint-disable vars-on-top, no-use-before-define, no-unused-vars */
 import { KUKER_EMITTER_SOCKET_PORT, KUKER_EVENT } from '../constants';
 import isInDevTools from '../helpers/isInDevTools';
 
+const socketRetryInterval = 2500;
 const listeners = [];
 const bridge = {
   on: function (callback) {
@@ -25,6 +27,9 @@ const getActiveTabId = function (callback) {
 };
 const sendMessageToCurrentTag = function (data, callback) {
   getActiveTabId(function (id) {
+    if (!id) {
+      console.error('It can\'t get the current active tab.');
+    }
     chrome.tabs.sendMessage(id, data, callback);
   });
 };
@@ -43,9 +48,21 @@ const wire = function () {
   });
 };
 const wireWithSockets = function () {
-  function listen(serverURL) {
+  function fail(socket) {
+    try {
+      socket.close();
+      socket.disconnect();
+    } catch (error) {
+      console.log('Error closing the socket', error);
+    }
+    setTimeout(init, socketRetryInterval);
+  }
+  function listen(serverURL, noRetry) {
     const URL = serverURL + ':' + KUKER_EMITTER_SOCKET_PORT;
-    const socket = io(URL);
+
+    console.log('Trying to connect to ' + URL);
+
+    const socket = io(URL, { reconnection: false });
     var messagesToAdd = [];
     var requestAnimationFrameRequest = null;
 
@@ -59,13 +76,22 @@ const wireWithSockets = function () {
       });
       socket.emit('received');
     });
+    if (!noRetry) {
+      socket.on('connect_error', () => fail(socket));
+      socket.on('connect_timeout', () => fail(socket));
+      socket.on('reconnect_error', () => fail(socket));
+      socket.on('reconnect_failed', () => fail(socket));
+    }
+  }
+  function init() {
+    if (isInDevTools()) {
+      sendMessageToCurrentTag({ type: 'get-page-url' }, u => listen(u, false));
+    } else {
+      listen('http://localhost', true);
+    }
   }
 
-  if (isInDevTools()) {
-    sendMessageToCurrentTag({ type: 'get-page-url' }, listen);
-  } else {
-    listen('http://localhost');
-  }
+  init();
 };
 
 wire();
