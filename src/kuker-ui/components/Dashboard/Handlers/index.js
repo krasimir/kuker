@@ -19,6 +19,7 @@ import onStateChanged from './onStateChanged';
 import onStateWillChange from './onStateWillChange';
 import MobX from './Mobx';
 import React from './React';
+import Angular from './Angular';
 
 export const Handlers = {
   '@saga_effectTriggered': SagaEffectTriggered,
@@ -30,7 +31,8 @@ export const Handlers = {
   'NEW_SESSION': NewSession,
   'NEW_EMITTER': NewEmitter,
   '@mobx': MobX,
-  '@@react': React
+  '@@react': React,
+  '@@angular': Angular
 };
 
 export const StentHandlers = {

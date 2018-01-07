@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import renderJSONPreview from './renderJSONPreview';
+import ExpandablePath from './ExpandablePath';
 
 /*
 kind - indicates the kind of change; will be one of the following:
@@ -39,10 +40,13 @@ function formatPath(mutation) {
   const path = mutation.path;
 
   if (path) {
+    const full = path.join('.');
+    const short = path.slice(path.length - 4, path.length).join('.');
+
     if (path.length > 4) {
-      return <strong>{ index } ...{ path.slice(path.length - 4, path.length).join('.') }</strong>;
+      return <strong>{ index } <ExpandablePath full={ full } short={ short }/></strong>;
     }
-    return <strong>{ index }{ path.join('.') }</strong>;
+    return <strong>{ index }{ full }</strong>;
   } else if (mutation.kind === 'A') {
     return <strong>{ index }</strong>;
   }

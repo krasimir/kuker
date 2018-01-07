@@ -38231,7 +38231,7 @@ App.propTypes = {
   page: _propTypes2.default.string
 };
 
-},{"../constants":487,"./Dashboard":481,"prop-types":161,"react":425,"stent/lib/react":444}],447:[function(require,module,exports){
+},{"../constants":489,"./Dashboard":482,"prop-types":161,"react":425,"stent/lib/react":444}],447:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38278,7 +38278,7 @@ Event.propTypes = {
   event: _propTypes2.default.object
 };
 
-},{"../Tree":485,"prop-types":161,"react":425}],448:[function(require,module,exports){
+},{"../Tree":486,"prop-types":161,"react":425}],448:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38363,7 +38363,7 @@ EventListRow.propTypes = {
   sources: _propTypes2.default.object
 };
 
-},{"../../helpers/getRandomColor":495,"./Handlers":463,"./handlers/UnrecognizedEvent":479,"prop-types":161,"react":425}],449:[function(require,module,exports){
+},{"../../helpers/getRandomColor":498,"./Handlers":464,"./handlers/UnrecognizedEvent":480,"prop-types":161,"react":425}],449:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38418,7 +38418,90 @@ HTMLPin.propTypes = {
 
 exports.default = (0, _react3.connect)(HTMLPin).with('Pinned').map();
 
-},{"../../helpers/renderJSON":500,"prop-types":161,"react":425,"stent/lib/react":444}],450:[function(require,module,exports){
+},{"../../helpers/renderJSON":503,"prop-types":161,"react":425,"stent/lib/react":444}],450:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = AngularEvent;
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _AngularIcon = require('../../icons/AngularIcon');
+
+var _AngularIcon2 = _interopRequireDefault(_AngularIcon);
+
+var _calculateRowStyles = require('./helpers/calculateRowStyles');
+
+var _calculateRowStyles2 = _interopRequireDefault(_calculateRowStyles);
+
+var _TimeDiff = require('../../TimeDiff');
+
+var _TimeDiff2 = _interopRequireDefault(_TimeDiff);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function AngularEvent(_ref) {
+  var event = _ref.event,
+      onClick = _ref.onClick,
+      className = _ref.className;
+
+  var style = (0, _calculateRowStyles2.default)(event, { color: 'rgb(230, 230, 230)' });
+  var label = event.type;
+
+  switch (event.type) {
+    case '@@angular_rootDetected':
+      label = 'Root node detected ';
+      break;
+    case '@@angular_onStable':
+      label = 'Update (stable)';
+      break;
+    case '@@angular_onError':
+      label = 'Error';
+      break;
+    case '@@angular_onMicrotaskEmpty':
+      label = 'Update (microtask empty)';
+      break;
+    case '@@angular_onUnstable':
+      label = 'Update (unstable)';
+      break;
+  }
+
+  return _react2.default.createElement(
+    'div',
+    { style: style, onClick: onClick, className: className },
+    _react2.default.createElement(_TimeDiff2.default, { timeDiff: event.timeDiff, parentStyle: style }),
+    _react2.default.createElement(
+      'div',
+      { className: 'actionRowContent' },
+      _react2.default.createElement(_AngularIcon2.default, { style: { float: 'left' } }),
+      label
+    )
+  );
+}
+// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-unused-vars
+;
+
+AngularEvent.propTypes = {
+  event: _propTypes2.default.object,
+  onClick: _propTypes2.default.func,
+  className: _propTypes2.default.string
+};
+
+AngularEvent.isAngularEvent = function (_ref2) {
+  var type = _ref2.type;
+  return type.split('_')[0] === '@@angular';
+};
+
+},{"../../TimeDiff":485,"../../icons/AngularIcon":487,"./helpers/calculateRowStyles":463,"prop-types":161,"react":425}],451:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38652,7 +38735,7 @@ MobX.propTypes = {
   className: _propTypes2.default.string
 };
 
-},{"../../../helpers/readFromPath":498,"../../../helpers/shortenJSON":502,"../../TimeDiff":484,"./helpers/calculateRowStyles":462,"prop-types":161,"react":425}],451:[function(require,module,exports){
+},{"../../../helpers/readFromPath":501,"../../../helpers/shortenJSON":505,"../../TimeDiff":485,"./helpers/calculateRowStyles":463,"prop-types":161,"react":425}],452:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38701,7 +38784,7 @@ NewEmitter.propTypes = {
   event: _propTypes2.default.object
 };
 
-},{"prop-types":161,"react":425}],452:[function(require,module,exports){
+},{"prop-types":161,"react":425}],453:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38740,7 +38823,7 @@ NewSession.propTypes = {
   event: _propTypes2.default.object
 };
 
-},{"prop-types":161,"react":425}],453:[function(require,module,exports){
+},{"prop-types":161,"react":425}],454:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38838,7 +38921,7 @@ ReactEvent.isReactEvent = function (_ref2) {
   return type.split('_')[0] === '@@react';
 };
 
-},{"../../TimeDiff":484,"../../icons/ReactIcon":486,"./helpers/calculateRowStyles":462,"prop-types":161,"react":425}],454:[function(require,module,exports){
+},{"../../TimeDiff":485,"../../icons/ReactIcon":488,"./helpers/calculateRowStyles":463,"prop-types":161,"react":425}],455:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38924,7 +39007,7 @@ function ReduxAction(_ref) {
   );
 }
 
-},{"../../../helpers/isDefined":496,"../../../helpers/renderJSONPreview":501,"../../TimeDiff":484,"./helpers/SagaEffectName":461,"./helpers/calculateRowStyles":462,"react":425}],455:[function(require,module,exports){
+},{"../../../helpers/isDefined":499,"../../../helpers/renderJSONPreview":504,"../../TimeDiff":485,"./helpers/SagaEffectName":462,"./helpers/calculateRowStyles":463,"react":425}],456:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38996,7 +39079,7 @@ function SagaEffectActionDispatched(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/isDefined":496,"../../TimeDiff":484,"./helpers/SagaEffectName":461,"./helpers/calculateRowStyles":462,"react":425}],456:[function(require,module,exports){
+},{"../../../helpers/isDefined":499,"../../TimeDiff":485,"./helpers/SagaEffectName":462,"./helpers/calculateRowStyles":463,"react":425}],457:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39055,7 +39138,7 @@ function SagaEffectCanceled(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../TimeDiff":484,"./helpers/SagaEffectIds":460,"./helpers/SagaEffectName":461,"./helpers/calculateRowStyles":462,"react":425}],457:[function(require,module,exports){
+},{"../../TimeDiff":485,"./helpers/SagaEffectIds":461,"./helpers/SagaEffectName":462,"./helpers/calculateRowStyles":463,"react":425}],458:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39137,7 +39220,7 @@ function SagaEffectCanceled(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/isDefined":496,"../../../helpers/readFromPath":498,"../../TimeDiff":484,"./helpers/SagaEffectIds":460,"./helpers/SagaEffectName":461,"./helpers/calculateRowStyles":462,"react":425}],458:[function(require,module,exports){
+},{"../../../helpers/isDefined":499,"../../../helpers/readFromPath":501,"../../TimeDiff":485,"./helpers/SagaEffectIds":461,"./helpers/SagaEffectName":462,"./helpers/calculateRowStyles":463,"react":425}],459:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39248,7 +39331,7 @@ function SagaEffectResolved(_ref) {
   );
 }
 
-},{"../../../helpers/isDefined":496,"../../../helpers/renderJSONPreview":501,"../../TimeDiff":484,"./helpers/SagaEffectIds":460,"./helpers/SagaEffectName":461,"./helpers/calculateRowStyles":462,"react":425}],459:[function(require,module,exports){
+},{"../../../helpers/isDefined":499,"../../../helpers/renderJSONPreview":504,"../../TimeDiff":485,"./helpers/SagaEffectIds":461,"./helpers/SagaEffectName":462,"./helpers/calculateRowStyles":463,"react":425}],460:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39345,7 +39428,7 @@ function SagaEffectTriggered(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/isDefined":496,"../../../helpers/readFromPath":498,"../../TimeDiff":484,"./helpers/SagaEffectIds":460,"./helpers/SagaEffectName":461,"./helpers/calculateRowStyles":462,"react":425}],460:[function(require,module,exports){
+},{"../../../helpers/isDefined":499,"../../../helpers/readFromPath":501,"../../TimeDiff":485,"./helpers/SagaEffectIds":461,"./helpers/SagaEffectName":462,"./helpers/calculateRowStyles":463,"react":425}],461:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39398,7 +39481,7 @@ SagaEffectIds.propTypes = {
   event: _propTypes2.default.object
 };
 
-},{"../../../../helpers/isDefined":496,"../../../../helpers/readFromPath":498,"prop-types":161,"react":425}],461:[function(require,module,exports){
+},{"../../../../helpers/isDefined":499,"../../../../helpers/readFromPath":501,"prop-types":161,"react":425}],462:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39555,7 +39638,7 @@ SagaEffectName.propTypes = {
   effect: _propTypes2.default.any
 };
 
-},{"../../../../helpers/readFromPath":498,"prop-types":161,"react":425}],462:[function(require,module,exports){
+},{"../../../../helpers/readFromPath":501,"prop-types":161,"react":425}],463:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39571,7 +39654,7 @@ function calculateRowStyles(_ref) {
   };
 }
 
-},{}],463:[function(require,module,exports){
+},{}],464:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39659,6 +39742,10 @@ var _React = require('./React');
 
 var _React2 = _interopRequireDefault(_React);
 
+var _Angular = require('./Angular');
+
+var _Angular2 = _interopRequireDefault(_Angular);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Handlers = exports.Handlers = {
@@ -39671,7 +39758,8 @@ var Handlers = exports.Handlers = {
   'NEW_SESSION': _NewSession2.default,
   'NEW_EMITTER': _NewEmitter2.default,
   '@mobx': _Mobx2.default,
-  '@@react': _React2.default
+  '@@react': _React2.default,
+  '@@angular': _Angular2.default
 };
 
 var StentHandlers = exports.StentHandlers = {
@@ -39687,7 +39775,7 @@ var StentHandlers = exports.StentHandlers = {
   onStateWillChange: _onStateWillChange2.default
 };
 
-},{"./Mobx":450,"./NewEmitter":451,"./NewSession":452,"./React":453,"./ReduxAction":454,"./SagaEffectActionDispatched":455,"./SagaEffectCanceled":456,"./SagaEffectRejected":457,"./SagaEffectResolved":458,"./SagaEffectTriggered":459,"./onActionDispatched":464,"./onActionProcessed":465,"./onGeneratorEnd":466,"./onGeneratorResumed":467,"./onGeneratorStep":468,"./onMachineConnected":469,"./onMachineCreated":470,"./onMachineDisconnected":471,"./onStateChanged":472,"./onStateWillChange":473}],464:[function(require,module,exports){
+},{"./Angular":450,"./Mobx":451,"./NewEmitter":452,"./NewSession":453,"./React":454,"./ReduxAction":455,"./SagaEffectActionDispatched":456,"./SagaEffectCanceled":457,"./SagaEffectRejected":458,"./SagaEffectResolved":459,"./SagaEffectTriggered":460,"./onActionDispatched":465,"./onActionProcessed":466,"./onGeneratorEnd":467,"./onGeneratorResumed":468,"./onGeneratorStep":469,"./onMachineConnected":470,"./onMachineCreated":471,"./onMachineDisconnected":472,"./onStateChanged":473,"./onStateWillChange":474}],465:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39757,7 +39845,7 @@ onActionDispatched.propTypes = {
   className: _propTypes2.default.string
 };
 
-},{"../../../helpers/getMachineName":494,"../../TimeDiff":484,"./helpers/calculateRowStyles":462,"prop-types":161,"react":425}],465:[function(require,module,exports){
+},{"../../../helpers/getMachineName":497,"../../TimeDiff":485,"./helpers/calculateRowStyles":463,"prop-types":161,"react":425}],466:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39818,7 +39906,7 @@ function onActionProcessed(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":494,"../../TimeDiff":484,"./helpers/calculateRowStyles":462,"react":425}],466:[function(require,module,exports){
+},{"../../../helpers/getMachineName":497,"../../TimeDiff":485,"./helpers/calculateRowStyles":463,"react":425}],467:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39881,7 +39969,7 @@ function onGeneratorEnd(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":494,"../../../helpers/shortenJSON":502,"../../TimeDiff":484,"./helpers/calculateRowStyles":462,"react":425}],467:[function(require,module,exports){
+},{"../../../helpers/getMachineName":497,"../../../helpers/shortenJSON":505,"../../TimeDiff":485,"./helpers/calculateRowStyles":463,"react":425}],468:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39944,7 +40032,7 @@ function onGeneratorResumed(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":494,"../../../helpers/shortenJSON":502,"../../TimeDiff":484,"./helpers/calculateRowStyles":462,"react":425}],468:[function(require,module,exports){
+},{"../../../helpers/getMachineName":497,"../../../helpers/shortenJSON":505,"../../TimeDiff":485,"./helpers/calculateRowStyles":463,"react":425}],469:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40049,7 +40137,7 @@ function onGeneratorStep(_ref) {
   );
 };
 
-},{"../../../helpers/getMachineName":494,"../../../helpers/shortenJSON":502,"../../TimeDiff":484,"./helpers/calculateRowStyles":462,"react":425}],469:[function(require,module,exports){
+},{"../../../helpers/getMachineName":497,"../../../helpers/shortenJSON":505,"../../TimeDiff":485,"./helpers/calculateRowStyles":463,"react":425}],470:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40112,7 +40200,7 @@ function onMachineConnected(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":494,"../../TimeDiff":484,"./helpers/calculateRowStyles":462,"react":425}],470:[function(require,module,exports){
+},{"../../../helpers/getMachineName":497,"../../TimeDiff":485,"./helpers/calculateRowStyles":463,"react":425}],471:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40168,7 +40256,7 @@ function onMachineCreated(_ref) {
 // eslint-disable-next-line no-unused-vars
 ;
 
-},{"../../../helpers/getMachineName":494,"../../TimeDiff":484,"./helpers/calculateRowStyles":462,"react":425}],471:[function(require,module,exports){
+},{"../../../helpers/getMachineName":497,"../../TimeDiff":485,"./helpers/calculateRowStyles":463,"react":425}],472:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40231,7 +40319,7 @@ function onMachineDisconnected(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":494,"../../TimeDiff":484,"./helpers/calculateRowStyles":462,"react":425}],472:[function(require,module,exports){
+},{"../../../helpers/getMachineName":497,"../../TimeDiff":485,"./helpers/calculateRowStyles":463,"react":425}],473:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40291,7 +40379,7 @@ function onStateChanged(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":494,"../../TimeDiff":484,"./helpers/calculateRowStyles":462,"react":425}],473:[function(require,module,exports){
+},{"../../../helpers/getMachineName":497,"../../TimeDiff":485,"./helpers/calculateRowStyles":463,"react":425}],474:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40352,7 +40440,7 @@ function onStateWillChange(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":494,"../../TimeDiff":484,"./helpers/calculateRowStyles":462,"react":425}],474:[function(require,module,exports){
+},{"../../../helpers/getMachineName":497,"../../TimeDiff":485,"./helpers/calculateRowStyles":463,"react":425}],475:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40415,7 +40503,7 @@ exports.default = (0, _react3.connect)(MutationPin).with('DevTools').map(functio
   };
 });
 
-},{"prop-types":161,"react":425,"stent/lib/react":444}],475:[function(require,module,exports){
+},{"prop-types":161,"react":425,"stent/lib/react":444}],476:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40559,7 +40647,7 @@ NoEvents.propTypes = {
   healthyComponent: _propTypes2.default.element
 };
 
-},{"../../../extension-static/manifest.json":445,"prop-types":161,"react":425}],476:[function(require,module,exports){
+},{"../../../extension-static/manifest.json":445,"prop-types":161,"react":425}],477:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40657,7 +40745,7 @@ exports.default = (0, _react3.connect)(QuickFilter).with('DevTools').map(functio
   };
 });
 
-},{"prop-types":161,"react":425,"stent/lib/react":444}],477:[function(require,module,exports){
+},{"prop-types":161,"react":425,"stent/lib/react":444}],478:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40907,7 +40995,7 @@ exports.default = (0, _react3.connect)(Settings).with('DevTools').map(function (
   };
 });
 
-},{"prop-types":161,"react":425,"stent/lib/react":444}],478:[function(require,module,exports){
+},{"prop-types":161,"react":425,"stent/lib/react":444}],479:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40935,12 +41023,16 @@ var _React = require('./Handlers/React');
 
 var _React2 = _interopRequireDefault(_React);
 
+var _Angular = require('./Handlers/Angular');
+
+var _Angular2 = _interopRequireDefault(_Angular);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function State(_ref) {
   var pinnedEvent = _ref.pinnedEvent;
 
-  if (_React2.default.isReactEvent(pinnedEvent)) {
+  if (_React2.default.isReactEvent(pinnedEvent) || _Angular2.default.isAngularEvent(pinnedEvent)) {
     return _react2.default.createElement(_HTMLTree2.default, null);
   }
   return _react2.default.createElement(_JSONTree2.default, null);
@@ -40950,7 +41042,7 @@ State.propTypes = {
   pinnedEvent: _propTypes2.default.object
 };
 
-},{"../HTMLTree":482,"../JSONTree":483,"./Handlers/React":453,"prop-types":161,"react":425}],479:[function(require,module,exports){
+},{"../HTMLTree":483,"../JSONTree":484,"./Handlers/Angular":450,"./Handlers/React":454,"prop-types":161,"react":425}],480:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41015,9 +41107,9 @@ UnrecognizedEvent.propTypes = {
   className: _propTypes2.default.string
 };
 
-},{"../../TimeDiff":484,"./helpers/calculateRowStyles":480,"prop-types":161,"react":425}],480:[function(require,module,exports){
-arguments[4][462][0].apply(exports,arguments)
-},{"dup":462}],481:[function(require,module,exports){
+},{"../../TimeDiff":485,"./helpers/calculateRowStyles":481,"prop-types":161,"react":425}],481:[function(require,module,exports){
+arguments[4][463][0].apply(exports,arguments)
+},{"dup":463}],482:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41282,7 +41374,7 @@ exports.default = (0, _react3.connect)(Dashboard).with('DevTools', 'TreeNav', 'P
   };
 });
 
-},{"./Event":447,"./EventListRow":448,"./NoEvents":475,"./QuickFilter":476,"./Settings":477,"./State":478,"prop-types":161,"react":425,"react-virtualized":384,"stent/lib/react":444}],482:[function(require,module,exports){
+},{"./Event":447,"./EventListRow":448,"./NoEvents":476,"./QuickFilter":477,"./Settings":478,"./State":479,"prop-types":161,"react":425,"react-virtualized":384,"stent/lib/react":444}],483:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41554,7 +41646,7 @@ exports.default = (0, _react3.connect)(HTMLTree).with('Pinned', 'DevTools').map(
   };
 });
 
-},{"../helpers/formatHTMLMutation":490,"../helpers/formatPropValue":493,"./Dashboard/HTMLPin":449,"prop-types":161,"react":425,"stent/lib/react":444}],483:[function(require,module,exports){
+},{"../helpers/formatHTMLMutation":493,"../helpers/formatPropValue":496,"./Dashboard/HTMLPin":449,"prop-types":161,"react":425,"stent/lib/react":444}],484:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41698,7 +41790,7 @@ exports.default = (0, _react3.connect)(JSONTree).with('DevTools', 'Pinned').map(
   };
 });
 
-},{"../helpers/formatJSONMutation":491,"./Dashboard/MutationPin":474,"./Tree":485,"prop-types":161,"react":425,"stent/lib/react":444}],484:[function(require,module,exports){
+},{"../helpers/formatJSONMutation":494,"./Dashboard/MutationPin":475,"./Tree":486,"prop-types":161,"react":425,"stent/lib/react":444}],485:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41748,7 +41840,7 @@ function TimeDiff(_ref) {
   );
 }
 
-},{"react":425}],485:[function(require,module,exports){
+},{"react":425}],486:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41855,7 +41947,37 @@ Tree.propTypes = {
   onItemClick: _propTypes2.default.func
 };
 
-},{"../helpers/renderAsTree":499,"../stent/Raw":507,"prop-types":161,"react":425,"stent/lib/helpers":434}],486:[function(require,module,exports){
+},{"../helpers/renderAsTree":502,"../stent/Raw":510,"prop-types":161,"react":425,"stent/lib/helpers":434}],487:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = AngularIcon;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function AngularIcon(_ref) {
+  var style = _ref.style;
+
+  return _react2.default.createElement(
+    'svg',
+    { width: '24', height: '16', version: '1.1', id: 'Layer_1', x: '0px', y: '0px',
+      viewBox: '0 0 250 250', style: style },
+    _react2.default.createElement(
+      'g',
+      null,
+      _react2.default.createElement('polygon', { points: '108,135.4 125,135.4 125,135.4 125,135.4 142,135.4 125,94.5 \t' }),
+      _react2.default.createElement('path', { d: 'M125,30L125,30L125,30L31.9,63.2l14.2,123.1L125,230l0,0l0,0l78.9-43.7l14.2-123.1L125,30z M183.1,182.6h-21.7h0 l-11.7-29.2H125h0h0h-24.7l-11.7,29.2h0H66.9h0L125,52.1l0,0l0,0l0,0l0,0L183.1,182.6L183.1,182.6z' })
+    )
+  );
+};
+
+},{"react":425}],488:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41886,7 +42008,7 @@ function ReactIcon(_ref) {
   );
 };
 
-},{"react":425}],487:[function(require,module,exports){
+},{"react":425}],489:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41901,7 +42023,85 @@ var DEFAULT_FILTER_TYPES = exports.DEFAULT_FILTER_TYPES = {
   '@mobx_spyReportEnd': false
 };
 
-},{}],488:[function(require,module,exports){
+},{}],490:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ExpandablePath = function (_React$Component) {
+  _inherits(ExpandablePath, _React$Component);
+
+  function ExpandablePath(props) {
+    _classCallCheck(this, ExpandablePath);
+
+    var _this = _possibleConstructorReturn(this, (ExpandablePath.__proto__ || Object.getPrototypeOf(ExpandablePath)).call(this, props));
+
+    _this.state = { expanded: false };
+    _this._expand = _this._expand.bind(_this);
+    return _this;
+  }
+
+  _createClass(ExpandablePath, [{
+    key: '_expand',
+    value: function _expand() {
+      this.setState({ expanded: true });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          full = _props.full,
+          short = _props.short;
+
+
+      return _react2.default.createElement(
+        'span',
+        null,
+        this.state.expanded ? full : _react2.default.createElement(
+          'span',
+          null,
+          _react2.default.createElement(
+            'a',
+            { onClick: this._expand, style: { display: 'inline ' } },
+            '.....'
+          ),
+          short
+        )
+      );
+    }
+  }]);
+
+  return ExpandablePath;
+}(_react2.default.Component);
+
+exports.default = ExpandablePath;
+;
+ExpandablePath.propTypes = {
+  full: _propTypes2.default.string,
+  short: _propTypes2.default.string
+};
+
+},{"prop-types":161,"react":425}],491:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -41916,7 +42116,7 @@ function calculateMutationExplorer(event, mutationExplorerPath) {
   }
 };
 
-},{}],489:[function(require,module,exports){
+},{}],492:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41991,7 +42191,7 @@ function enhanceEvent(event, previousState, mutationExplorerPath) {
   return event;
 };
 
-},{"./calculateMutationExplorer":488,"./formatJSONMutation":491,"./formatMilliseconds":492,"deep-diff":148}],490:[function(require,module,exports){
+},{"./calculateMutationExplorer":491,"./formatJSONMutation":494,"./formatMilliseconds":495,"deep-diff":148}],493:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42014,6 +42214,10 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 var _renderJSONPreview = require('./renderJSONPreview');
 
 var _renderJSONPreview2 = _interopRequireDefault(_renderJSONPreview);
+
+var _ExpandablePath = require('./ExpandablePath');
+
+var _ExpandablePath2 = _interopRequireDefault(_ExpandablePath);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -42072,6 +42276,7 @@ function formatSide(side) {
   }
   return String(side);
 }
+
 function formatPath(mutation, state) {
   var index = mutation.kind === 'A' ? '[ ' + mutation.index + ' ] ' : null;
   var path = mutation.path;
@@ -42093,19 +42298,21 @@ function formatPath(mutation, state) {
       ));
     }
     if (mutationPath && mutationPath.length > 0) {
+      var full = mutationPath.join('.');
+      var short = mutationPath.splice(mutationPath.length - 3, 3).join('.');
+
       if (mutationPath.length > 3) {
         result.push(_react2.default.createElement(
           'span',
           { key: 'mp' },
-          '......',
-          mutationPath.splice(mutationPath.length - 3, 3).join('.')
+          _react2.default.createElement(_ExpandablePath2.default, { full: full, short: short })
         ));
       } else {
         result.push(_react2.default.createElement(
           'span',
           { key: 'mp' },
           '.',
-          mutationPath.join('.')
+          full
         ));
       }
     }
@@ -42171,7 +42378,7 @@ formatHTMLMutation.PropTypes = {
   mutations: _propTypes2.default.object
 };
 
-},{"./renderJSONPreview":501,"prop-types":161,"react":425}],491:[function(require,module,exports){
+},{"./ExpandablePath":490,"./renderJSONPreview":504,"prop-types":161,"react":425}],494:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42195,6 +42402,10 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 var _renderJSONPreview = require('./renderJSONPreview');
 
 var _renderJSONPreview2 = _interopRequireDefault(_renderJSONPreview);
+
+var _ExpandablePath = require('./ExpandablePath');
+
+var _ExpandablePath2 = _interopRequireDefault(_ExpandablePath);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -42238,20 +42449,23 @@ function formatPath(mutation) {
   var path = mutation.path;
 
   if (path) {
+    var full = path.join('.');
+    var short = path.slice(path.length - 4, path.length).join('.');
+
     if (path.length > 4) {
       return _react2.default.createElement(
         'strong',
         null,
         index,
-        ' ...',
-        path.slice(path.length - 4, path.length).join('.')
+        ' ',
+        _react2.default.createElement(_ExpandablePath2.default, { full: full, short: short })
       );
     }
     return _react2.default.createElement(
       'strong',
       null,
       index,
-      path.join('.')
+      full
     );
   } else if (mutation.kind === 'A') {
     return _react2.default.createElement(
@@ -42324,7 +42538,7 @@ function extractMutatedPaths(mutation) {
   });
 };
 
-},{"./renderJSONPreview":501,"prop-types":161,"react":425}],492:[function(require,module,exports){
+},{"./ExpandablePath":490,"./renderJSONPreview":504,"prop-types":161,"react":425}],495:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -42358,7 +42572,7 @@ function formatMilliseconds(millisec) {
   return minutes + ":" + seconds + ':' + ms;
 }
 
-},{}],493:[function(require,module,exports){
+},{}],496:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42380,7 +42594,7 @@ function formatPropValue(value) {
   }
 };
 
-},{}],494:[function(require,module,exports){
+},{}],497:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42396,7 +42610,7 @@ function getMachineName(_ref) {
   return name;
 };
 
-},{}],495:[function(require,module,exports){
+},{}],498:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42415,7 +42629,7 @@ function getRandomColor() {
   return color;
 };
 
-},{}],496:[function(require,module,exports){
+},{}],499:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42427,7 +42641,7 @@ var isDefined = function isDefined(v) {
 
 exports.default = isDefined;
 
-},{}],497:[function(require,module,exports){
+},{}],500:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -42439,7 +42653,7 @@ function isInDevTools() {
   return true;
 };
 
-},{}],498:[function(require,module,exports){
+},{}],501:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42470,7 +42684,7 @@ function readFromPath(object, path) {
   return fallback;
 };
 
-},{"./isDefined":496}],499:[function(require,module,exports){
+},{"./isDefined":499}],502:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42521,7 +42735,7 @@ function renderEventAsTree(event) {
   return (0, _renderJSON2.default)(_extends({}, rest), 'Event', onItemClick);
 };
 
-},{"./getMachineName":494,"./renderJSON":500,"react":425}],500:[function(require,module,exports){
+},{"./getMachineName":497,"./renderJSON":503,"react":425}],503:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42665,7 +42879,7 @@ var renderJSON = function renderJSON(json) {
 
 exports.default = renderJSON;
 
-},{"../../vendor/react-json-tree/lib":519,"./renderJSONPreview":501,"react":425}],501:[function(require,module,exports){
+},{"../../vendor/react-json-tree/lib":522,"./renderJSONPreview":504,"react":425}],504:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42720,7 +42934,7 @@ function renderJSONPreview(data) {
   return result.length > limit ? result.substr(0, limit) + '...' : result;
 };
 
-},{}],502:[function(require,module,exports){
+},{}],505:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42736,7 +42950,7 @@ function shortenJSON(data) {
   return str.substr(0, STR_LIMIT) + '...';
 };
 
-},{}],503:[function(require,module,exports){
+},{}],506:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -42795,6 +43009,8 @@ if (typeof window !== 'undefined' && window.location && window.location.href) {
       s = '../_mocks/example.mobx.json';
     } else if (window.location.href.indexOf('populate=react') > 0) {
       s = '../_mocks/example.react.json';
+    } else if (window.location.href.indexOf('populate=angular') > 0) {
+      s = '../_mocks/example.angular.json';
     }
 
     fetch(s).then(function (response) {
@@ -42811,7 +43027,7 @@ if (typeof window !== 'undefined' && window.location && window.location.href) {
 // misc
 // Machine.addMiddleware(StentEmitter);
 
-},{"./components/App.jsx":446,"./services/bridge":504,"./stent/DevTools":505,"./stent/Pinned":506,"./stent/TreeNav":508,"react":425,"react-dom":173}],504:[function(require,module,exports){
+},{"./components/App.jsx":446,"./services/bridge":507,"./stent/DevTools":508,"./stent/Pinned":509,"./stent/TreeNav":511,"react":425,"react-dom":173}],507:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42942,7 +43158,7 @@ wireWithSockets();
 
 exports.default = bridge;
 
-},{"../constants":487,"../helpers/isInDevTools":497}],505:[function(require,module,exports){
+},{"../constants":489,"../helpers/isInDevTools":500}],508:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43141,7 +43357,7 @@ var DevTools = _stent.Machine.create('DevTools', {
 
 exports.default = DevTools;
 
-},{"../constants":487,"../helpers/calculateMutationExplorer":488,"../helpers/enhanceEvent":489,"stent":442}],506:[function(require,module,exports){
+},{"../constants":489,"../helpers/calculateMutationExplorer":491,"../helpers/enhanceEvent":492,"stent":442}],509:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43221,7 +43437,7 @@ var pinned = _stent.Machine.create('Pinned', {
 
 exports.default = pinned;
 
-},{"../helpers/isDefined":496,"stent":442,"stent/lib/helpers":434}],507:[function(require,module,exports){
+},{"../helpers/isDefined":499,"stent":442,"stent/lib/helpers":434}],510:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43242,7 +43458,7 @@ function createRawMachine() {
   });
 };
 
-},{"stent":442}],508:[function(require,module,exports){
+},{"stent":442}],511:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43271,7 +43487,7 @@ var TreeNav = _stent.Machine.create('TreeNav', {
 
 exports.default = TreeNav;
 
-},{"stent":442}],509:[function(require,module,exports){
+},{"stent":442}],512:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -43362,7 +43578,7 @@ ItemRange.propTypes = {
 };
 exports['default'] = ItemRange;
 
-},{"./JSONArrow":511,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425}],510:[function(require,module,exports){
+},{"./JSONArrow":514,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425}],513:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -43416,7 +43632,7 @@ JSONArrayNode.propTypes = {
 
 exports['default'] = JSONArrayNode;
 
-},{"./JSONNestedNode":513,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],511:[function(require,module,exports){
+},{"./JSONNestedNode":516,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],514:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -43460,7 +43676,7 @@ JSONArrow.defaultProps = {
 
 exports['default'] = JSONArrow;
 
-},{"babel-runtime/helpers/extends":12,"prop-types":161,"react":425}],512:[function(require,module,exports){
+},{"babel-runtime/helpers/extends":12,"prop-types":161,"react":425}],515:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -43539,7 +43755,7 @@ function JSONIterableNode(_ref2) {
   }));
 }
 
-},{"./JSONNestedNode":513,"babel-runtime/core-js/get-iterator":1,"babel-runtime/core-js/number/is-safe-integer":3,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"react":425}],513:[function(require,module,exports){
+},{"./JSONNestedNode":516,"babel-runtime/core-js/get-iterator":1,"babel-runtime/core-js/number/is-safe-integer":3,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"react":425}],516:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -43746,7 +43962,7 @@ JSONNestedNode.defaultProps = {
 };
 exports['default'] = JSONNestedNode;
 
-},{"./ItemRange":509,"./JSONArrow":511,"./JSONNode":514,"./getCollectionEntries":518,"babel-runtime/core-js/object/keys":7,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425}],514:[function(require,module,exports){
+},{"./ItemRange":512,"./JSONArrow":514,"./JSONNode":517,"./getCollectionEntries":521,"babel-runtime/core-js/object/keys":7,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425}],517:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -43883,7 +44099,7 @@ JSONNode.propTypes = {
 
 exports['default'] = JSONNode;
 
-},{"./JSONArrayNode":510,"./JSONIterableNode":512,"./JSONObjectNode":515,"./JSONValueNode":516,"./objType":520,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],515:[function(require,module,exports){
+},{"./JSONArrayNode":513,"./JSONIterableNode":515,"./JSONObjectNode":518,"./JSONValueNode":519,"./objType":523,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],518:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -43943,7 +44159,7 @@ JSONObjectNode.propTypes = {
 
 exports['default'] = JSONObjectNode;
 
-},{"./JSONNestedNode":513,"babel-runtime/core-js/object/get-own-property-names":6,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],516:[function(require,module,exports){
+},{"./JSONNestedNode":516,"babel-runtime/core-js/object/get-own-property-names":6,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],519:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -43993,7 +44209,7 @@ JSONValueNode.defaultProps = {
 
 exports['default'] = JSONValueNode;
 
-},{"prop-types":161,"react":425}],517:[function(require,module,exports){
+},{"prop-types":161,"react":425}],520:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44219,7 +44435,7 @@ exports['default'] = (0, _reactBase16Styling.createStyling)(getDefaultThemeStyli
   defaultBase16: _solarized2['default']
 });
 
-},{"./themes/solarized":521,"babel-runtime/helpers/extends":12,"react-base16-styling":172}],518:[function(require,module,exports){
+},{"./themes/solarized":524,"babel-runtime/helpers/extends":12,"react-base16-styling":172}],521:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44385,7 +44601,7 @@ function getCollectionEntries(type, collection, sortObjectKeys, limit) {
   return limitedEntries;
 }
 
-},{"babel-runtime/core-js/get-iterator":1,"babel-runtime/core-js/object/get-own-property-names":6,"babel-runtime/core-js/object/keys":7}],519:[function(require,module,exports){
+},{"babel-runtime/core-js/get-iterator":1,"babel-runtime/core-js/object/get-own-property-names":6,"babel-runtime/core-js/object/keys":7}],522:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44592,7 +44808,7 @@ JSONTree.defaultProps = {
 };
 exports['default'] = JSONTree;
 
-},{"./JSONNode":514,"./createStylingFromTheme":517,"babel-runtime/core-js/object/keys":7,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/objectWithoutProperties":14,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425,"react-base16-styling":172}],520:[function(require,module,exports){
+},{"./JSONNode":517,"./createStylingFromTheme":520,"babel-runtime/core-js/object/keys":7,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/objectWithoutProperties":14,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425,"react-base16-styling":172}],523:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44616,7 +44832,7 @@ function objType(obj) {
   return type;
 }
 
-},{"babel-runtime/core-js/symbol/iterator":10}],521:[function(require,module,exports){
+},{"babel-runtime/core-js/symbol/iterator":10}],524:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44641,4 +44857,4 @@ exports['default'] = {
   base0F: '#d33682'
 };
 
-},{}]},{},[503]);
+},{}]},{},[506]);
