@@ -48,6 +48,7 @@ To make the extension work you have to *instrument* your application. You have t
 
 * [Base emitter](#baseemitter)
 * [React](#integration-with-react)
+* [Angular](#integration-with-angular)
 * [Redux](#integration-with-redux)
 * [redux-saga](#integration-with-redux-saga)
 * [Stent](#integration-with-stent)
@@ -89,6 +90,20 @@ ReactEmitter();
 [TodoMVC example](http://work.krasimirtsonev.com/git/redux-react-todomvc/)
 
 ![screenshot react emitter](./img/kuker-emitters/screenshot_reactemitter.jpg)
+
+### Integration with [Angular](https://angular.io/)
+
+```js
+import { AngularEmitter } from 'kuker-emitters';
+
+AngularEmitter();
+```
+
+`AngularEmitter` accepts a single parameter `options` which by default is equal to `{ rootSelector: 'app-root' }`.
+
+[Simple Angular application](http://work.krasimirtsonev.com/angular-test/)
+
+![screenshot angular emitter](./img/kuker-emitters/screenshot_angular.jpg)
 
 ### Integration with [Redux](https://redux.js.org/)
 
