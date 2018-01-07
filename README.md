@@ -59,26 +59,6 @@ To make the extension work you have to *instrument* your application. You have t
 
 `yarn add kuker-emitters` or `npm install kuker-emitters`. There're also standalone versions in [here](./standalone). You may grab the file, include it in your page and you'll a global like `ReduxEmitter`, `ReduxSagaEmitter` or `ReactEmitter`.
 
-### BaseEmitter
-
-```js
-import { BaseEmitter } from 'kuker-emitters';
-
-const emit = BaseEmitter();
-
-emit({
-  type: 'adding money to my account',
-  label: 'hello',
-  state: { bank: { money: 100 } },
-  icon: 'fa-money',
-  color: '#bada55'
-});
-```
-
-[Codepen example](https://codepen.io/krasimir/pen/ypNVVm)
-
-![screenshot base emitter](./img/kuker-emitters/screenshot_baseemitter.jpg)
-
 ### Integration with [React](https://reactjs.org/)
 
 ```js
@@ -194,6 +174,26 @@ MobXEmitter(spy, [ person ]);
 [Codepen example](https://codepen.io/krasimir/pen/LeRqRg)
 
 ![screenshot mobx](./img/kuker-emitters/screenshot_mobx.jpg)
+
+### BaseEmitter
+
+```js
+import { BaseEmitter } from 'kuker-emitters';
+
+const emit = BaseEmitter();
+
+emit({
+  type: 'adding money to my account',
+  label: 'hello',
+  state: { bank: { money: 100 } },
+  icon: 'fa-money',
+  color: '#bada55'
+});
+```
+
+[Codepen example](https://codepen.io/krasimir/pen/ypNVVm)
+
+![screenshot base emitter](./img/kuker-emitters/screenshot_baseemitter.jpg)
 
 ### Writing your own Emitter
 
