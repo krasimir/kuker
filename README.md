@@ -79,7 +79,7 @@ import { AngularEmitter } from 'kuker-emitters';
 AngularEmitter();
 ```
 
-`AngularEmitter` accepts a single parameter `options` which by default is equal to `{ rootSelector: 'app-root' }`.
+`AngularEmitter` accepts a single parameter `options` which by default is equal to `{ rootSelector: 'app-root' }`. The root element in a Angular app is usually `app-root` (at least in the latest versions). If it happens to be a different one set the proper selector. Also you should compile your app in a development mode. Otherwise `ng.probe` is not available and the emitter can not send events.
 
 [Simple Angular application](http://work.krasimirtsonev.com/angular-test/)
 
