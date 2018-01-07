@@ -38122,7 +38122,7 @@ module.exports={
   "manifest_version": 2,
   "name": "Kuker",
   "description": "Debug like a boss. Works with Redux, redux-saga and more.",
-  "version": "5.1.0",
+  "version": "5.1.1",
   "icons": { "16": "img/icon16.png", "48": "img/icon48.png", "128": "img/icon128.png" },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "devtools_page": "devtools.html",
@@ -40552,6 +40552,12 @@ function NoEvents() {
         'a',
         { href: 'https://github.com/krasimir/kuker-emitters#integration-with-react', target: '_blank', rel: 'noopener noreferrer' },
         'React'
+      ),
+      ', ',
+      _react2.default.createElement(
+        'a',
+        { href: 'https://github.com/krasimir/kuker-emitters#integration-with-angular', target: '_blank', rel: 'noopener noreferrer' },
+        'Angular'
       ),
       ', ',
       _react2.default.createElement(
