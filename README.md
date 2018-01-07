@@ -46,7 +46,6 @@ To make the extension work you have to *instrument* your application. You have t
 
 ## Emitters
 
-* [Base emitter](#baseemitter)
 * [React](#integration-with-react)
 * [Angular](#integration-with-angular)
 * [Redux](#integration-with-redux)
@@ -54,6 +53,7 @@ To make the extension work you have to *instrument* your application. You have t
 * [Stent](#integration-with-stent)
 * [Machina.js](#integration-with-machinajs)
 * [MobX](#integration-with-mobx)
+* [Base emitter](#baseemitter)
 
 ### Installing emitters
 
