@@ -42602,7 +42602,7 @@ item - when kind === 'A', contains a nested change record indicating the change 
 function isDefined(value) {
   return typeof value !== 'undefined';
 }
-function formatKind(kind) {
+function getMutationIcon(kind) {
   switch (kind) {
     case 'N':
       return _react2.default.createElement('i', { className: 'fa fa-plus-square ' + kind });
@@ -42611,7 +42611,7 @@ function formatKind(kind) {
     case 'E':
       return _react2.default.createElement('i', { className: 'fa fa-pencil ' + kind });
     case 'A':
-      return _react2.default.createElement('i', { className: 'fa fa-ellipsis-h ' + kind });
+      return _react2.default.createElement('i', { className: 'fa fa-pencil ' + kind });
   }
   return '';
 }
@@ -42622,7 +42622,7 @@ function formatSide(side) {
   return String(side);
 }
 function formatPath(mutation) {
-  var index = mutation.kind === 'A' ? '[ ' + mutation.index + ' ] ' : null;
+  var index = mutation.kind === 'A' ? '[' + mutation.index + '] ' : null;
   var path = mutation.path;
 
   if (path) {
@@ -42633,16 +42633,15 @@ function formatPath(mutation) {
       return _react2.default.createElement(
         'strong',
         null,
-        index,
-        ' ',
-        _react2.default.createElement(_ExpandablePath2.default, { full: full, short: short })
+        _react2.default.createElement(_ExpandablePath2.default, { full: full, short: short }),
+        index
       );
     }
     return _react2.default.createElement(
       'strong',
       null,
-      index,
-      full
+      full,
+      index
     );
   } else if (mutation.kind === 'A') {
     return _react2.default.createElement(
@@ -42651,41 +42650,83 @@ function formatPath(mutation) {
       index
     );
   }
-  return _react2.default.createElement('span', { className: 'mutationLine' });
+  return null;
 }
-function formatItem(mutation) {
+function formatSingleMutation(mutation) {
   var indent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
+  var mutationBit;
+
   if (!mutation) return null;
+
+  switch (mutation.kind) {
+    case 'N':
+      mutationBit = _react2.default.createElement(
+        'span',
+        null,
+        formatPath(mutation) || formatSide(mutation.lhs),
+        ' = ',
+        formatSide(mutation.rhs)
+      );
+      break;
+    case 'E':
+      mutationBit = _react2.default.createElement(
+        'span',
+        null,
+        formatPath(mutation),
+        '\xA0 (',
+        _react2.default.createElement(
+          'span',
+          { className: 'strike' },
+          formatSide(mutation.lhs)
+        ),
+        ' = ',
+        formatSide(mutation.rhs),
+        ')'
+      );
+      break;
+    case 'D':
+      mutationBit = _react2.default.createElement(
+        'span',
+        { className: 'strike' },
+        mutation.path ? formatPath(mutation) : formatSide(mutation.lhs)
+      );
+      break;
+    case 'A':
+      mutationBit = _react2.default.createElement(
+        'span',
+        null,
+        formatPath(mutation),
+        formatSingleMutation(mutation.item, indent + 1)
+      );
+      break;
+  }
+
   return _react2.default.createElement(
     'div',
     { style: { marginLeft: indent * 1.5 + 'em' } },
-    _react2.default.createElement(
-      'div',
-      null,
-      formatKind(mutation.kind),
-      formatPath(mutation),
-      mutation.kind === 'A' && formatItem(mutation.item, indent + 1)
-    ),
-    _react2.default.createElement(
-      'div',
-      { style: { marginLeft: '1.2em' } },
-      isDefined(mutation.lhs) && formatSide(mutation.lhs),
-      isDefined(mutation.rhs) && _react2.default.createElement(
-        'span',
-        null,
-        ' ',
-        _react2.default.createElement('i', { className: 'fa fa-long-arrow-right' }),
-        ' ',
-        formatSide(mutation.rhs)
-      )
-    )
+    getMutationIcon(mutation.kind),
+    mutationBit
   );
+
+  // return (
+  //   <div style={{ marginLeft: (indent * 1.5) + 'em' }}>
+  //     <div>
+  //       { getMutationIcon(mutation.kind) }
+  //       { formatPath(mutation) }
+  //       { mutation.kind === 'A' && formatSingleMutation(mutation.item, indent + 1) }
+  //     </div>
+  //     <div style={{ marginLeft: '1.2em' }}>
+  //       { isDefined(mutation.lhs) && formatSide(mutation.lhs) }
+  //       { isDefined(mutation.rhs) && <span> <i className='fa fa-long-arrow-right'></i> { formatSide(mutation.rhs) }</span> }
+  //     </div>
+  //   </div>
+  // );
 }
 
 function formatJSONMutation(mutations) {
   if (!mutations) return null;
-
+  console.log(mutations);
   return _react2.default.createElement(
     'div',
     { className: 'stateMutation' },
@@ -42694,7 +42735,7 @@ function formatJSONMutation(mutations) {
       return _react2.default.createElement(
         'div',
         { key: i },
-        formatItem(mutation)
+        formatSingleMutation(mutation)
       );
     })
   );

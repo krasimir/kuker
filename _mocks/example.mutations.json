@@ -1,21 +1,40 @@
 {
   "events": [
     {
-      "time": 1513403750359,
-      "type": "nothing",
-      "state": {},
-      "origin": "https://s.codepen.io/boomerang/iFrameKey-049d8b25-5bd0-32fe-79eb-fd8c7b2b8db4/index.html",
-      "timeDiff": "+ 0:04:892",
-      "id": 545
+      "kuker": true,
+      "time": 1515576566570,
+      "origin": "https://s.codepen.io",
+      "type": "NEW_SESSION",
+      "id": 0
     },
     {
-      "time": 1513403750359,
+      "kuker": true,
+      "time": 1515576566553,
+      "origin": "https://s.codepen.io",
+      "emitter": "BaseEmitter",
+      "type": "NEW_EMITTER",
+      "emitterDescription": "",
+      "id": 1
+    },
+    {
+      "kuker": true,
+      "time": 1515576566553,
+      "origin": "https://s.codepen.io",
+      "emitter": "BaseEmitter",
+      "type": "nothing",
+      "state": {},
+      "id": 2
+    },
+    {
+      "kuker": true,
+      "time": 1515576566553,
+      "origin": "https://s.codepen.io",
+      "emitter": "BaseEmitter",
       "type": "new property(string)",
       "state": {
         "name": "foo bar"
       },
-      "origin": "https://s.codepen.io/boomerang/iFrameKey-049d8b25-5bd0-32fe-79eb-fd8c7b2b8db4/index.html",
-      "id": 546,
+      "id": 3,
       "stateMutation": [
         {
           "kind": "N",
@@ -24,17 +43,22 @@
           ],
           "rhs": "foo bar"
         }
+      ],
+      "mutationPaths": [
+        "name"
       ]
     },
     {
-      "time": 1513403750359,
+      "kuker": true,
+      "time": 1515576566553,
+      "origin": "https://s.codepen.io",
+      "emitter": "BaseEmitter",
       "type": "edit + new",
       "state": {
         "name": "zoo",
         "job": "developer"
       },
-      "origin": "https://s.codepen.io/boomerang/iFrameKey-049d8b25-5bd0-32fe-79eb-fd8c7b2b8db4/index.html",
-      "id": 547,
+      "id": 4,
       "stateMutation": [
         {
           "kind": "E",
@@ -51,27 +75,35 @@
           ],
           "rhs": "developer"
         }
+      ],
+      "mutationPaths": [
+        "name",
+        "job"
       ]
     },
     {
-      "time": 1513403750360,
+      "kuker": true,
+      "time": 1515576566554,
+      "origin": "https://s.codepen.io",
+      "emitter": "BaseEmitter",
       "type": "same",
       "state": {
         "name": "zoo",
         "job": "developer"
       },
-      "origin": "https://s.codepen.io/boomerang/iFrameKey-049d8b25-5bd0-32fe-79eb-fd8c7b2b8db4/index.html",
       "timeDiff": "+ 0:00:001",
-      "id": 548
+      "id": 5
     },
     {
-      "time": 1513403750360,
+      "kuker": true,
+      "time": 1515576566554,
+      "origin": "https://s.codepen.io",
+      "emitter": "BaseEmitter",
       "type": "deletion",
       "state": {
         "job": "developer"
       },
-      "origin": "https://s.codepen.io/boomerang/iFrameKey-049d8b25-5bd0-32fe-79eb-fd8c7b2b8db4/index.html",
-      "id": 549,
+      "id": 6,
       "stateMutation": [
         {
           "kind": "D",
@@ -80,10 +112,16 @@
           ],
           "lhs": "zoo"
         }
+      ],
+      "mutationPaths": [
+        "name"
       ]
     },
     {
-      "time": 1513403750360,
+      "kuker": true,
+      "time": 1515576566554,
+      "origin": "https://s.codepen.io",
+      "emitter": "BaseEmitter",
       "type": "array",
       "state": {
         "job": "developers",
@@ -94,8 +132,7 @@
           "css"
         ]
       },
-      "origin": "https://s.codepen.io/boomerang/iFrameKey-049d8b25-5bd0-32fe-79eb-fd8c7b2b8db4/index.html",
-      "id": 550,
+      "id": 7,
       "stateMutation": [
         {
           "kind": "E",
@@ -117,10 +154,17 @@
             "css"
           ]
         }
+      ],
+      "mutationPaths": [
+        "job",
+        "languages"
       ]
     },
     {
-      "time": 1513403750360,
+      "kuker": true,
+      "time": 1515576566554,
+      "origin": "https://s.codepen.io",
+      "emitter": "BaseEmitter",
       "type": "array edit",
       "state": {
         "job": "developers",
@@ -130,8 +174,7 @@
           "css"
         ]
       },
-      "origin": "https://s.codepen.io/boomerang/iFrameKey-049d8b25-5bd0-32fe-79eb-fd8c7b2b8db4/index.html",
-      "id": 551,
+      "id": 8,
       "stateMutation": [
         {
           "kind": "E",
@@ -162,10 +205,18 @@
             "lhs": "css"
           }
         }
+      ],
+      "mutationPaths": [
+        "languages.1",
+        "languages.2",
+        "languages"
       ]
     },
     {
-      "time": 1513403750360,
+      "kuker": true,
+      "time": 1515576566554,
+      "origin": "https://s.codepen.io",
+      "emitter": "BaseEmitter",
       "type": "array edit #2",
       "state": {
         "job": "developers",
@@ -175,8 +226,7 @@
           "CSS"
         ]
       },
-      "origin": "https://s.codepen.io/boomerang/iFrameKey-049d8b25-5bd0-32fe-79eb-fd8c7b2b8db4/index.html",
-      "id": 552,
+      "id": 9,
       "stateMutation": [
         {
           "kind": "E",
@@ -196,10 +246,17 @@
           "lhs": "css",
           "rhs": "CSS"
         }
+      ],
+      "mutationPaths": [
+        "languages.1",
+        "languages.2"
       ]
     },
     {
-      "time": 1513403750360,
+      "kuker": true,
+      "time": 1515576566554,
+      "origin": "https://s.codepen.io",
+      "emitter": "BaseEmitter",
       "type": "array edit new",
       "state": {
         "job": "developers",
@@ -210,8 +267,7 @@
           "Ruby"
         ]
       },
-      "origin": "https://s.codepen.io/boomerang/iFrameKey-049d8b25-5bd0-32fe-79eb-fd8c7b2b8db4/index.html",
-      "id": 553,
+      "id": 10,
       "stateMutation": [
         {
           "kind": "A",
@@ -224,10 +280,16 @@
             "rhs": "Ruby"
           }
         }
+      ],
+      "mutationPaths": [
+        "languages"
       ]
     },
     {
-      "time": 1513403750360,
+      "kuker": true,
+      "time": 1515576566554,
+      "origin": "https://s.codepen.io",
+      "emitter": "BaseEmitter",
       "type": "array edit new object",
       "state": {
         "job": "developers",
@@ -242,8 +304,7 @@
           }
         ]
       },
-      "origin": "https://s.codepen.io/boomerang/iFrameKey-049d8b25-5bd0-32fe-79eb-fd8c7b2b8db4/index.html",
-      "id": 554,
+      "id": 11,
       "stateMutation": [
         {
           "kind": "A",
@@ -259,10 +320,16 @@
             }
           }
         }
+      ],
+      "mutationPaths": [
+        "languages"
       ]
     },
     {
-      "time": 1513403750360,
+      "kuker": true,
+      "time": 1515576566554,
+      "origin": "https://s.codepen.io",
+      "emitter": "BaseEmitter",
       "type": "array edit object edit",
       "state": {
         "job": "developers",
@@ -277,8 +344,7 @@
           }
         ]
       },
-      "origin": "https://s.codepen.io/boomerang/iFrameKey-049d8b25-5bd0-32fe-79eb-fd8c7b2b8db4/index.html",
-      "id": 555,
+      "id": 12,
       "stateMutation": [
         {
           "kind": "E",
@@ -290,10 +356,16 @@
           "lhs": "JavaScript",
           "rhs": "JavaScript/es6"
         }
+      ],
+      "mutationPaths": [
+        "languages.4.language"
       ]
     },
     {
-      "time": 1513403750360,
+      "kuker": true,
+      "time": 1515576566554,
+      "origin": "https://s.codepen.io",
+      "emitter": "BaseEmitter",
       "type": "new array at top level",
       "state": {
         "job": "developers",
@@ -312,8 +384,7 @@
           2
         ]
       },
-      "origin": "https://s.codepen.io/boomerang/iFrameKey-049d8b25-5bd0-32fe-79eb-fd8c7b2b8db4/index.html",
-      "id": 556,
+      "id": 13,
       "stateMutation": [
         {
           "kind": "N",
@@ -325,10 +396,16 @@
             2
           ]
         }
+      ],
+      "mutationPaths": [
+        "thing"
       ]
     },
     {
-      "time": 1513403750360,
+      "kuker": true,
+      "time": 1515576566554,
+      "origin": "https://s.codepen.io",
+      "emitter": "BaseEmitter",
       "type": "array at top level edit",
       "state": {
         "job": "developers",
@@ -347,8 +424,7 @@
           42
         ]
       },
-      "origin": "https://s.codepen.io/boomerang/iFrameKey-049d8b25-5bd0-32fe-79eb-fd8c7b2b8db4/index.html",
-      "id": 557,
+      "id": 14,
       "stateMutation": [
         {
           "kind": "E",
@@ -359,10 +435,16 @@
           "lhs": 2,
           "rhs": 42
         }
+      ],
+      "mutationPaths": [
+        "thing.1"
       ]
     },
     {
-      "time": 1513403750360,
+      "kuker": true,
+      "time": 1515576566554,
+      "origin": "https://s.codepen.io",
+      "emitter": "BaseEmitter",
       "type": "array nested array",
       "state": {
         "job": "developers",
@@ -388,8 +470,7 @@
           }
         ]
       },
-      "origin": "https://s.codepen.io/boomerang/iFrameKey-049d8b25-5bd0-32fe-79eb-fd8c7b2b8db4/index.html",
-      "id": 558,
+      "id": 15,
       "stateMutation": [
         {
           "kind": "A",
@@ -408,10 +489,16 @@
             }
           }
         }
+      ],
+      "mutationPaths": [
+        "thing"
       ]
     },
     {
-      "time": 1513403750360,
+      "kuker": true,
+      "time": 1515576566554,
+      "origin": "https://s.codepen.io",
+      "emitter": "BaseEmitter",
       "type": "array nested array edit",
       "state": {
         "job": "developers",
@@ -437,8 +524,7 @@
           }
         ]
       },
-      "origin": "https://s.codepen.io/boomerang/iFrameKey-049d8b25-5bd0-32fe-79eb-fd8c7b2b8db4/index.html",
-      "id": 559,
+      "id": 16,
       "stateMutation": [
         {
           "kind": "E",
@@ -452,54 +538,116 @@
           "lhs": null,
           "rhs": 42
         }
+      ],
+      "mutationPaths": [
+        "thing.2.steps.0.answer"
       ]
-    }
-  ],
-  "autoscroll": true,
-  "pinnedEvent": {
-    "time": 1513403750360,
-    "type": "array nested array edit",
-    "state": {
-      "job": "developers",
-      "languages": [
-        "javascript",
-        "HTML",
-        "CSS",
-        "Ruby",
+    },
+    {
+      "kuker": true,
+      "time": 1515576566554,
+      "origin": "https://s.codepen.io",
+      "emitter": "BaseEmitter",
+      "type": "array at top level",
+      "state": [
         {
-          "framework": "React",
-          "language": "JavaScript/es6"
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
         }
       ],
-      "thing": [
-        1,
-        42,
+      "id": 17,
+      "stateMutation": [
         {
-          "steps": [
+          "kind": "E",
+          "lhs": {
+            "job": "developers",
+            "languages": [
+              "javascript",
+              "HTML",
+              "CSS",
+              "Ruby",
+              {
+                "framework": "React",
+                "language": "JavaScript/es6"
+              }
+            ],
+            "thing": [
+              1,
+              42,
+              {
+                "steps": [
+                  {
+                    "answer": 42
+                  }
+                ]
+              }
+            ]
+          },
+          "rhs": [
             {
-              "answer": 42
+              "id": 1
+            },
+            {
+              "id": 2
+            },
+            {
+              "id": 3
             }
           ]
         }
+      ],
+      "mutationPaths": [
+        ""
       ]
     },
-    "origin": "https://s.codepen.io/boomerang/iFrameKey-049d8b25-5bd0-32fe-79eb-fd8c7b2b8db4/index.html",
-    "id": 559,
-    "stateMutation": [
-      {
-        "kind": "E",
-        "path": [
-          "thing",
-          2,
-          "steps",
-          0,
-          "answer"
-        ],
-        "lhs": null,
-        "rhs": 42
-      }
-    ]
-  },
+    {
+      "kuker": true,
+      "time": 1515576566554,
+      "origin": "https://s.codepen.io",
+      "emitter": "BaseEmitter",
+      "type": "array at top level edit",
+      "state": [
+        {
+          "id": 1
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 3
+        }
+      ],
+      "id": 18,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            1,
+            "id"
+          ],
+          "lhs": 2,
+          "rhs": 42
+        }
+      ],
+      "mutationPaths": [
+        "1.id"
+      ]
+    }
+  ],
   "name": "working",
-  "page": "LOG"
+  "page": "LOG",
+  "mutationExplorerPath": null,
+  "filterTypes": {
+    "@mobx_spyReportEnd": false
+  },
+  "sources": null,
+  "quickFilters": {
+    "left": "",
+    "right": ""
+  }
 }
