@@ -20,6 +20,8 @@ import onStateWillChange from './onStateWillChange';
 import MobX from './Mobx';
 import React from './React';
 import Angular from './Angular';
+import Vue from './Vue';
+import Vuex from './Vuex';
 
 export const Handlers = {
   '@saga_effectTriggered': SagaEffectTriggered,
@@ -32,7 +34,9 @@ export const Handlers = {
   'NEW_EMITTER': NewEmitter,
   '@mobx': MobX,
   '@@react': React,
-  '@@angular': Angular
+  '@@angular': Angular,
+  '@@vue': Vue,
+  '@@vuex': Vuex
 };
 
 export const StentHandlers = {

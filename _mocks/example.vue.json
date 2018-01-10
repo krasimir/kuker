@@ -1,0 +1,1250 @@
+{
+  "events": [
+    {
+      "kuker": true,
+      "time": 1515476416903,
+      "origin": "http://localhost:8082",
+      "type": "NEW_SESSION",
+      "timeDiff": "+ 0:34:172",
+      "id": 15
+    },
+    {
+      "kuker": true,
+      "time": 1515476416854,
+      "origin": "http://localhost:8082",
+      "emitter": "VueEmitter",
+      "type": "NEW_EMITTER",
+      "emitterDescription": "",
+      "id": 16
+    },
+    {
+      "kuker": true,
+      "time": 1515476417731,
+      "origin": "http://localhost:8082",
+      "emitter": "Vuex",
+      "type": "@@vuex_vuex:init",
+      "state": {
+        "state": {
+          "todos": [
+            {
+              "text": "A new one",
+              "done": false
+            }
+          ]
+        },
+        "getters": {}
+      },
+      "timeDiff": "+ 0:01:877",
+      "id": 17
+    },
+    {
+      "kuker": true,
+      "time": 1515476417732,
+      "origin": "http://localhost:8082",
+      "emitter": "Vue",
+      "type": "@@vue_ready",
+      "version": "2.5.13",
+      "state": {},
+      "timeDiff": "+ 0:00:001",
+      "id": 18,
+      "stateMutation": [
+        {
+          "kind": "D",
+          "path": [
+            "inspectedInstance"
+          ],
+          "lhs": {}
+        },
+        {
+          "kind": "D",
+          "path": [
+            "instances"
+          ],
+          "lhs": [
+            {
+              "id": "1:2",
+              "name": "Root",
+              "inactive": false,
+              "isFragment": false,
+              "children": [
+                {
+                  "id": "1:3",
+                  "name": "App",
+                  "inactive": false,
+                  "isFragment": false,
+                  "children": [
+                    {
+                      "id": "1:4",
+                      "name": "Todo",
+                      "inactive": false,
+                      "isFragment": false,
+                      "children": [],
+                      "top": "__vue_devtool_infinity__",
+                      "consoleId": null
+                    }
+                  ],
+                  "top": "__vue_devtool_infinity__",
+                  "consoleId": null
+                }
+              ],
+              "top": "__vue_devtool_infinity__",
+              "consoleId": null
+            }
+          ]
+        }
+      ],
+      "mutationPaths": [
+        "inspectedInstance",
+        "instances"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515476417733,
+      "origin": "http://localhost:8082",
+      "emitter": "Vue",
+      "type": "@@vue_flush",
+      "state": {
+        "inspectedInstance": {},
+        "instances": [
+          {
+            "id": "1:2",
+            "name": "Root",
+            "inactive": false,
+            "isFragment": false,
+            "children": [
+              {
+                "id": "1:3",
+                "name": "App",
+                "inactive": false,
+                "isFragment": false,
+                "children": [
+                  {
+                    "id": "1:4",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": "__vue_devtool_infinity__",
+                    "consoleId": null
+                  }
+                ],
+                "top": "__vue_devtool_infinity__",
+                "consoleId": null
+              }
+            ],
+            "top": "__vue_devtool_infinity__",
+            "consoleId": null
+          }
+        ]
+      },
+      "timeDiff": "+ 0:00:001",
+      "id": 19,
+      "stateMutation": [
+        {
+          "kind": "N",
+          "path": [
+            "inspectedInstance"
+          ],
+          "rhs": {}
+        },
+        {
+          "kind": "N",
+          "path": [
+            "instances"
+          ],
+          "rhs": [
+            {
+              "id": "1:2",
+              "name": "Root",
+              "inactive": false,
+              "isFragment": false,
+              "children": [
+                {
+                  "id": "1:3",
+                  "name": "App",
+                  "inactive": false,
+                  "isFragment": false,
+                  "children": [
+                    {
+                      "id": "1:4",
+                      "name": "Todo",
+                      "inactive": false,
+                      "isFragment": false,
+                      "children": [],
+                      "top": "__vue_devtool_infinity__",
+                      "consoleId": null
+                    }
+                  ],
+                  "top": "__vue_devtool_infinity__",
+                  "consoleId": null
+                }
+              ],
+              "top": "__vue_devtool_infinity__",
+              "consoleId": null
+            }
+          ]
+        }
+      ],
+      "mutationPaths": [
+        "inspectedInstance",
+        "instances"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515476419446,
+      "origin": "http://localhost:8082",
+      "emitter": "Vuex",
+      "type": "@@vuex_vuex:mutation",
+      "state": {
+        "state": {
+          "todos": [
+            {
+              "text": "A new one",
+              "done": true
+            }
+          ]
+        },
+        "getters": {}
+      },
+      "mutation": {
+        "type": "toggleTodo",
+        "payload": "{\"todo\":{\"text\":\"A new one\",\"done\":true}}"
+      },
+      "timeDiff": "+ 0:02:713",
+      "id": 20,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "state",
+            "todos",
+            0,
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        }
+      ],
+      "mutationPaths": [
+        "state.todos.0.done"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515476419457,
+      "origin": "http://localhost:8082",
+      "emitter": "Vue",
+      "type": "@@vue_flush",
+      "state": {
+        "inspectedInstance": {},
+        "instances": [
+          {
+            "id": "1:2",
+            "name": "Root",
+            "inactive": false,
+            "isFragment": false,
+            "children": [
+              {
+                "id": "1:3",
+                "name": "App",
+                "inactive": false,
+                "isFragment": false,
+                "children": [
+                  {
+                    "id": "1:4",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": "__vue_devtool_infinity__",
+                    "consoleId": null
+                  }
+                ],
+                "top": "__vue_devtool_infinity__",
+                "consoleId": null
+              }
+            ],
+            "top": "__vue_devtool_infinity__",
+            "consoleId": null
+          }
+        ]
+      },
+      "timeDiff": "+ 0:00:011",
+      "id": 21
+    },
+    {
+      "kuker": true,
+      "time": 1515476437972,
+      "origin": "http://localhost:8082",
+      "emitter": "Vuex",
+      "type": "@@vuex_vuex:mutation",
+      "state": {
+        "state": {
+          "todos": [
+            {
+              "text": "A new one",
+              "done": true
+            },
+            {
+              "text": "Hello",
+              "done": false
+            }
+          ]
+        },
+        "getters": {}
+      },
+      "mutation": {
+        "type": "addTodo",
+        "payload": "{\"text\":\"Hello\"}"
+      },
+      "timeDiff": "+ 0:19:515",
+      "id": 22,
+      "stateMutation": [
+        {
+          "kind": "A",
+          "path": [
+            "state",
+            "todos"
+          ],
+          "index": 1,
+          "item": {
+            "kind": "N",
+            "rhs": {
+              "text": "Hello",
+              "done": false
+            }
+          }
+        }
+      ],
+      "mutationPaths": [
+        "state.todos"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515476437976,
+      "origin": "http://localhost:8082",
+      "emitter": "Vue",
+      "type": "@@vue_flush",
+      "state": {
+        "inspectedInstance": {},
+        "instances": [
+          {
+            "id": "1:2",
+            "name": "Root",
+            "inactive": false,
+            "isFragment": false,
+            "children": [
+              {
+                "id": "1:3",
+                "name": "App",
+                "inactive": false,
+                "isFragment": false,
+                "children": [
+                  {
+                    "id": "1:4",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 196,
+                    "consoleId": null
+                  },
+                  {
+                    "id": "1:5",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 255,
+                    "consoleId": null
+                  }
+                ],
+                "top": "__vue_devtool_infinity__",
+                "consoleId": null
+              }
+            ],
+            "top": "__vue_devtool_infinity__",
+            "consoleId": null
+          }
+        ]
+      },
+      "timeDiff": "+ 0:00:004",
+      "id": 23,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "instances",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "top"
+          ],
+          "lhs": "__vue_devtool_infinity__",
+          "rhs": 196
+        },
+        {
+          "kind": "A",
+          "path": [
+            "instances",
+            0,
+            "children",
+            0,
+            "children"
+          ],
+          "index": 1,
+          "item": {
+            "kind": "N",
+            "rhs": {
+              "id": "1:5",
+              "name": "Todo",
+              "inactive": false,
+              "isFragment": false,
+              "children": [],
+              "top": 255,
+              "consoleId": null
+            }
+          }
+        }
+      ],
+      "mutationPaths": [
+        "instances.0.children.0.children.0.top",
+        "instances.0.children.0.children"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515476439972,
+      "origin": "http://localhost:8082",
+      "emitter": "Vuex",
+      "type": "@@vuex_vuex:mutation",
+      "state": {
+        "state": {
+          "todos": [
+            {
+              "text": "A new one",
+              "done": true
+            },
+            {
+              "text": "Hello",
+              "done": true
+            }
+          ]
+        },
+        "getters": {}
+      },
+      "mutation": {
+        "type": "toggleTodo",
+        "payload": "{\"todo\":{\"text\":\"Hello\",\"done\":true}}"
+      },
+      "timeDiff": "+ 0:02:996",
+      "id": 24,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "state",
+            "todos",
+            1,
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        }
+      ],
+      "mutationPaths": [
+        "state.todos.1.done"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515476439974,
+      "origin": "http://localhost:8082",
+      "emitter": "Vue",
+      "type": "@@vue_flush",
+      "state": {
+        "inspectedInstance": {},
+        "instances": [
+          {
+            "id": "1:2",
+            "name": "Root",
+            "inactive": false,
+            "isFragment": false,
+            "children": [
+              {
+                "id": "1:3",
+                "name": "App",
+                "inactive": false,
+                "isFragment": false,
+                "children": [
+                  {
+                    "id": "1:4",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 196,
+                    "consoleId": null
+                  },
+                  {
+                    "id": "1:5",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 255,
+                    "consoleId": null
+                  }
+                ],
+                "top": "__vue_devtool_infinity__",
+                "consoleId": null
+              }
+            ],
+            "top": "__vue_devtool_infinity__",
+            "consoleId": null
+          }
+        ]
+      },
+      "timeDiff": "+ 0:00:002",
+      "id": 25
+    },
+    {
+      "kuker": true,
+      "time": 1515476440988,
+      "origin": "http://localhost:8082",
+      "emitter": "Vuex",
+      "type": "@@vuex_vuex:mutation",
+      "state": {
+        "state": {
+          "todos": [
+            {
+              "text": "A new one",
+              "done": false
+            },
+            {
+              "text": "Hello",
+              "done": true
+            }
+          ]
+        },
+        "getters": {}
+      },
+      "mutation": {
+        "type": "toggleTodo",
+        "payload": "{\"todo\":{\"text\":\"A new one\",\"done\":false}}"
+      },
+      "timeDiff": "+ 0:01:014",
+      "id": 26,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "state",
+            "todos",
+            0,
+            "done"
+          ],
+          "lhs": true,
+          "rhs": false
+        }
+      ],
+      "mutationPaths": [
+        "state.todos.0.done"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515476440990,
+      "origin": "http://localhost:8082",
+      "emitter": "Vue",
+      "type": "@@vue_flush",
+      "state": {
+        "inspectedInstance": {},
+        "instances": [
+          {
+            "id": "1:2",
+            "name": "Root",
+            "inactive": false,
+            "isFragment": false,
+            "children": [
+              {
+                "id": "1:3",
+                "name": "App",
+                "inactive": false,
+                "isFragment": false,
+                "children": [
+                  {
+                    "id": "1:4",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 196,
+                    "consoleId": null
+                  },
+                  {
+                    "id": "1:5",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 255,
+                    "consoleId": null
+                  }
+                ],
+                "top": "__vue_devtool_infinity__",
+                "consoleId": null
+              }
+            ],
+            "top": "__vue_devtool_infinity__",
+            "consoleId": null
+          }
+        ]
+      },
+      "timeDiff": "+ 0:00:002",
+      "id": 27
+    },
+    {
+      "kuker": true,
+      "time": 1515476442020,
+      "origin": "http://localhost:8082",
+      "emitter": "Vuex",
+      "type": "@@vuex_vuex:mutation",
+      "state": {
+        "state": {
+          "todos": [
+            {
+              "text": "Hello",
+              "done": true
+            }
+          ]
+        },
+        "getters": {}
+      },
+      "mutation": {
+        "type": "deleteTodo",
+        "payload": "{\"todo\":{\"text\":\"A new one\",\"done\":false}}"
+      },
+      "timeDiff": "+ 0:01:030",
+      "id": 28,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "state",
+            "todos",
+            0,
+            "text"
+          ],
+          "lhs": "A new one",
+          "rhs": "Hello"
+        },
+        {
+          "kind": "E",
+          "path": [
+            "state",
+            "todos",
+            0,
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
+        {
+          "kind": "A",
+          "path": [
+            "state",
+            "todos"
+          ],
+          "index": 1,
+          "item": {
+            "kind": "D",
+            "lhs": {
+              "text": "Hello",
+              "done": true
+            }
+          }
+        }
+      ],
+      "mutationPaths": [
+        "state.todos.0.text",
+        "state.todos.0.done",
+        "state.todos"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515476442023,
+      "origin": "http://localhost:8082",
+      "emitter": "Vue",
+      "type": "@@vue_flush",
+      "state": {
+        "inspectedInstance": {},
+        "instances": [
+          {
+            "id": "1:2",
+            "name": "Root",
+            "inactive": false,
+            "isFragment": false,
+            "children": [
+              {
+                "id": "1:3",
+                "name": "App",
+                "inactive": false,
+                "isFragment": false,
+                "children": [
+                  {
+                    "id": "1:4",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": "__vue_devtool_infinity__",
+                    "consoleId": null
+                  }
+                ],
+                "top": "__vue_devtool_infinity__",
+                "consoleId": null
+              }
+            ],
+            "top": "__vue_devtool_infinity__",
+            "consoleId": null
+          }
+        ]
+      },
+      "timeDiff": "+ 0:00:003",
+      "id": 29,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "instances",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "top"
+          ],
+          "lhs": 196,
+          "rhs": "__vue_devtool_infinity__"
+        },
+        {
+          "kind": "A",
+          "path": [
+            "instances",
+            0,
+            "children",
+            0,
+            "children"
+          ],
+          "index": 1,
+          "item": {
+            "kind": "D",
+            "lhs": {
+              "id": "1:5",
+              "name": "Todo",
+              "inactive": false,
+              "isFragment": false,
+              "children": [],
+              "top": 255,
+              "consoleId": null
+            }
+          }
+        }
+      ],
+      "mutationPaths": [
+        "instances.0.children.0.children.0.top",
+        "instances.0.children.0.children"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515476443323,
+      "origin": "http://localhost:8082",
+      "emitter": "Vue",
+      "type": "@@vue_flush",
+      "state": {
+        "inspectedInstance": {},
+        "instances": [
+          {
+            "id": "1:2",
+            "name": "Root",
+            "inactive": false,
+            "isFragment": false,
+            "children": [
+              {
+                "id": "1:3",
+                "name": "App",
+                "inactive": false,
+                "isFragment": false,
+                "children": [],
+                "top": "__vue_devtool_infinity__",
+                "consoleId": null
+              }
+            ],
+            "top": "__vue_devtool_infinity__",
+            "consoleId": null
+          }
+        ]
+      },
+      "timeDiff": "+ 0:01:300",
+      "id": 30,
+      "stateMutation": [
+        {
+          "kind": "A",
+          "path": [
+            "instances",
+            0,
+            "children",
+            0,
+            "children"
+          ],
+          "index": 0,
+          "item": {
+            "kind": "D",
+            "lhs": {
+              "id": "1:4",
+              "name": "Todo",
+              "inactive": false,
+              "isFragment": false,
+              "children": [],
+              "top": "__vue_devtool_infinity__",
+              "consoleId": null
+            }
+          }
+        }
+      ],
+      "mutationPaths": [
+        "instances.0.children.0.children"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515476444044,
+      "origin": "http://localhost:8082",
+      "emitter": "Vue",
+      "type": "@@vue_flush",
+      "state": {
+        "inspectedInstance": {},
+        "instances": [
+          {
+            "id": "1:2",
+            "name": "Root",
+            "inactive": false,
+            "isFragment": false,
+            "children": [
+              {
+                "id": "1:3",
+                "name": "App",
+                "inactive": false,
+                "isFragment": false,
+                "children": [
+                  {
+                    "id": "1:6",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": "__vue_devtool_infinity__",
+                    "consoleId": null
+                  }
+                ],
+                "top": "__vue_devtool_infinity__",
+                "consoleId": null
+              }
+            ],
+            "top": "__vue_devtool_infinity__",
+            "consoleId": null
+          }
+        ]
+      },
+      "timeDiff": "+ 0:01:721",
+      "id": 31,
+      "stateMutation": [
+        {
+          "kind": "A",
+          "path": [
+            "instances",
+            0,
+            "children",
+            0,
+            "children"
+          ],
+          "index": 0,
+          "item": {
+            "kind": "N",
+            "rhs": {
+              "id": "1:6",
+              "name": "Todo",
+              "inactive": false,
+              "isFragment": false,
+              "children": [],
+              "top": "__vue_devtool_infinity__",
+              "consoleId": null
+            }
+          }
+        }
+      ],
+      "mutationPaths": [
+        "instances.0.children.0.children"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515476444883,
+      "origin": "http://localhost:8082",
+      "emitter": "Vue",
+      "type": "@@vue_flush",
+      "state": {
+        "inspectedInstance": {},
+        "instances": [
+          {
+            "id": "1:2",
+            "name": "Root",
+            "inactive": false,
+            "isFragment": false,
+            "children": [
+              {
+                "id": "1:3",
+                "name": "App",
+                "inactive": false,
+                "isFragment": false,
+                "children": [
+                  {
+                    "id": "1:6",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": "__vue_devtool_infinity__",
+                    "consoleId": null
+                  }
+                ],
+                "top": "__vue_devtool_infinity__",
+                "consoleId": null
+              }
+            ],
+            "top": "__vue_devtool_infinity__",
+            "consoleId": null
+          }
+        ]
+      },
+      "timeDiff": "+ 0:01:839",
+      "id": 32
+    },
+    {
+      "kuker": true,
+      "time": 1515476448410,
+      "origin": "http://localhost:8082",
+      "emitter": "Vuex",
+      "type": "@@vuex_vuex:mutation",
+      "state": {
+        "state": {
+          "todos": [
+            {
+              "text": "Hello",
+              "done": true
+            },
+            {
+              "text": "Yes",
+              "done": false
+            }
+          ]
+        },
+        "getters": {}
+      },
+      "mutation": {
+        "type": "addTodo",
+        "payload": "{\"text\":\"Yes\"}"
+      },
+      "timeDiff": "+ 0:04:527",
+      "id": 33,
+      "stateMutation": [
+        {
+          "kind": "A",
+          "path": [
+            "state",
+            "todos"
+          ],
+          "index": 1,
+          "item": {
+            "kind": "N",
+            "rhs": {
+              "text": "Yes",
+              "done": false
+            }
+          }
+        }
+      ],
+      "mutationPaths": [
+        "state.todos"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515476448413,
+      "origin": "http://localhost:8082",
+      "emitter": "Vue",
+      "type": "@@vue_flush",
+      "state": {
+        "inspectedInstance": {},
+        "instances": [
+          {
+            "id": "1:2",
+            "name": "Root",
+            "inactive": false,
+            "isFragment": false,
+            "children": [
+              {
+                "id": "1:3",
+                "name": "App",
+                "inactive": false,
+                "isFragment": false,
+                "children": [
+                  {
+                    "id": "1:6",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 196,
+                    "consoleId": null
+                  },
+                  {
+                    "id": "1:7",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 255,
+                    "consoleId": null
+                  }
+                ],
+                "top": "__vue_devtool_infinity__",
+                "consoleId": null
+              }
+            ],
+            "top": "__vue_devtool_infinity__",
+            "consoleId": null
+          }
+        ]
+      },
+      "timeDiff": "+ 0:00:003",
+      "id": 34,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "instances",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "top"
+          ],
+          "lhs": "__vue_devtool_infinity__",
+          "rhs": 196
+        },
+        {
+          "kind": "A",
+          "path": [
+            "instances",
+            0,
+            "children",
+            0,
+            "children"
+          ],
+          "index": 1,
+          "item": {
+            "kind": "N",
+            "rhs": {
+              "id": "1:7",
+              "name": "Todo",
+              "inactive": false,
+              "isFragment": false,
+              "children": [],
+              "top": 255,
+              "consoleId": null
+            }
+          }
+        }
+      ],
+      "mutationPaths": [
+        "instances.0.children.0.children.0.top",
+        "instances.0.children.0.children"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515476450100,
+      "origin": "http://localhost:8082",
+      "emitter": "Vuex",
+      "type": "@@vuex_vuex:mutation",
+      "state": {
+        "state": {
+          "todos": [
+            {
+              "text": "Yes",
+              "done": false
+            }
+          ]
+        },
+        "getters": {}
+      },
+      "mutation": {
+        "type": "clearCompleted",
+        "payload": "\"[object MouseEvent]\""
+      },
+      "timeDiff": "+ 0:02:687",
+      "id": 35,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "state",
+            "todos",
+            0,
+            "text"
+          ],
+          "lhs": "Hello",
+          "rhs": "Yes"
+        },
+        {
+          "kind": "E",
+          "path": [
+            "state",
+            "todos",
+            0,
+            "done"
+          ],
+          "lhs": true,
+          "rhs": false
+        },
+        {
+          "kind": "A",
+          "path": [
+            "state",
+            "todos"
+          ],
+          "index": 1,
+          "item": {
+            "kind": "D",
+            "lhs": {
+              "text": "Yes",
+              "done": false
+            }
+          }
+        }
+      ],
+      "mutationPaths": [
+        "state.todos.0.text",
+        "state.todos.0.done",
+        "state.todos"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515476450103,
+      "origin": "http://localhost:8082",
+      "emitter": "Vue",
+      "type": "@@vue_flush",
+      "state": {
+        "inspectedInstance": {},
+        "instances": [
+          {
+            "id": "1:2",
+            "name": "Root",
+            "inactive": false,
+            "isFragment": false,
+            "children": [
+              {
+                "id": "1:3",
+                "name": "App",
+                "inactive": false,
+                "isFragment": false,
+                "children": [
+                  {
+                    "id": "1:6",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": "__vue_devtool_infinity__",
+                    "consoleId": null
+                  }
+                ],
+                "top": "__vue_devtool_infinity__",
+                "consoleId": null
+              }
+            ],
+            "top": "__vue_devtool_infinity__",
+            "consoleId": null
+          }
+        ]
+      },
+      "timeDiff": "+ 0:00:003",
+      "id": 36,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "instances",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "top"
+          ],
+          "lhs": 196,
+          "rhs": "__vue_devtool_infinity__"
+        },
+        {
+          "kind": "A",
+          "path": [
+            "instances",
+            0,
+            "children",
+            0,
+            "children"
+          ],
+          "index": 1,
+          "item": {
+            "kind": "D",
+            "lhs": {
+              "id": "1:7",
+              "name": "Todo",
+              "inactive": false,
+              "isFragment": false,
+              "children": [],
+              "top": 255,
+              "consoleId": null
+            }
+          }
+        }
+      ],
+      "mutationPaths": [
+        "instances.0.children.0.children.0.top",
+        "instances.0.children.0.children"
+      ]
+    }
+  ],
+  "name": "working",
+  "page": "LOG",
+  "mutationExplorerPath": null,
+  "filterTypes": {
+    "@mobx_spyReportEnd": false
+  },
+  "sources": null,
+  "quickFilters": {
+    "left": "",
+    "right": ""
+  }
+}

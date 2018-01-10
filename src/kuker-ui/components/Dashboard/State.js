@@ -4,9 +4,14 @@ import HTMLTree from '../HTMLTree';
 import JSONTree from '../JSONTree';
 import ReactEvent from './Handlers/React';
 import AngularEvent from './Handlers/Angular';
+import VueEvent from './Handlers/Vue';
 
 export default function State({ pinnedEvent }) {
-  if (ReactEvent.isReactEvent(pinnedEvent) || AngularEvent.isAngularEvent(pinnedEvent)) {
+  if (
+    ReactEvent.isReactEvent(pinnedEvent) ||
+    AngularEvent.isAngularEvent(pinnedEvent) ||
+    VueEvent.isVueEvent(pinnedEvent)
+  ) {
     return <HTMLTree />;
   }
   return <JSONTree />;

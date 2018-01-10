@@ -18,6 +18,12 @@
       "js": ["content-react.js"],
       "run_at": "document_start",
       "all_frames": true
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-vue.js"],
+      "run_at": "document_start",
+      "all_frames": true
     }
   ],
   "background": {

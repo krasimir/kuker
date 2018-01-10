@@ -7,20 +7,21 @@
     "build-react-devtools-helpers": "browserify ./src/vendor/react.devtools.helpers.src.js -o ./src/vendor/react.devtools.helpers.js -t babelify -s reactDevToolsConnector",
     "watch-react-devtools-helpers": "watchify ./src/vendor/react.devtools.helpers.src.js -o ./src/vendor/react.devtools.helpers.js -t babelify -s reactDevToolsConnector -v",
 
+    "build-vue-devtools": "NODE_PATH=./src/vendor/vue-devtools browserify ./src/vendor/vue.devtools.src.js -o ./src/vendor/vue.devtools.js -t babelify",
+    "watch-vue-devtools": "NODE_PATH=./src/vendor/vue-devtools watchify ./src/vendor/vue.devtools.src.js -o ./src/vendor/vue.devtools.js -t babelify -v",
+
     "build-content-react": "browserify ./src/content-scripts/content-react.js -o ./build/content-react.js -t babelify -t brfs",
     "watch-content-react": "watchify ./src/content-scripts/content-react.js -o ./build/content-react.js -t babelify -t brfs -v",
-
+    "build-content-vue": "browserify ./src/content-scripts/content-vue.js -o ./build/content-vue.js -t babelify -t brfs",
+    "watch-content-vue": "watchify ./src/content-scripts/content-vue.js -o ./build/content-vue.js -t babelify -t brfs -v",
     "build-content-script": "browserify ./src/content-scripts/content-kuker.js -o ./build/content-kuker.js -t babelify",
     "watch-content-script": "watchify ./src/content-scripts/content-kuker.js -o ./build/content-kuker.js -t babelify -v",
-
     "build-kuker-ui": "browserify ./src/kuker-ui/index.js -o ./build/kuker-ui.js -t babelify",
     "watch-kuker-ui": "watchify ./src/kuker-ui/index.js -o ./build/kuker-ui.js -t babelify -v",
-
     "build-extension-static": "cpx \"src/extension-static/**/*.*\" build",
     "watch-extension-static": "cpx \"src/extension-static/**/*.*\" build --watch",
-    
-    "build": "rm -rf ./build/* && git submodule update -f && npm run build-react-devtools-helpers && npm run build-content-react && npm run build-content-script && npm run build-kuker-ui && npm run build-extension-static && rm ./packages/* && node ./scripts/zipExtension.js",
-    "watch": "rm -rf ./build/* && concurrently \"npm run watch-react-devtools-helpers\" \"npm run watch-content-react\" \"npm run watch-content-script\" \"npm run watch-kuker-ui\" \"npm run watch-extension-static\""
+    "build": "rm -rf ./build/* && git submodule update -f && npm run build-react-devtools-helpers && npm run build-vue-devtools && npm run build-content-react && npm run build-content-script && npm run build-content-vue && npm run build-kuker-ui && npm run build-extension-static && rm ./packages/* && node ./scripts/zipExtension.js",
+    "watch": "rm -rf ./build/* && concurrently \"npm run watch-react-devtools-helpers\" \"npm run watch-vue-devtools\" \"npm run watch-content-react\" \"npm run watch-content-script\" \"npm run watch-kuker-ui\" \"npm run watch-extension-static\" \"npm run watch-content-vue\""
   },
   "repository": {
     "type": "git",
@@ -49,6 +50,7 @@
     "babelify": "^7.3.0",
     "brfs": "^1.4.3",
     "browserify": "^14.4.0",
+    "circular-json-es6": "^2.0.1",
     "concurrently": "^3.5.1",
     "cpx": "^1.5.0",
     "deep-diff": "^0.3.8",
