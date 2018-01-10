@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'stent/lib/react';
 import formatPropValue from '../helpers/formatPropValue';
-import HTMLPin from './Dashboard/HTMLPin';
 import formatHTMLMutation from '../helpers/formatHTMLMutation';
 
 var HTMLTreeState = { mouseOver: '' };
@@ -94,7 +93,7 @@ class HTMLTree extends React.Component {
     );
   };
   render() {
-    const { pinnedEvent, filter } = this.props;
+    const { pinnedEvent, filter, Pin } = this.props;
     var trees = [];
 
     if (pinnedEvent) {
@@ -122,7 +121,7 @@ class HTMLTree extends React.Component {
           { formatHTMLMutation(pinnedEvent) }
         </div>
         <div className='logDetails'>
-          { this.state.htmlPin && <HTMLPin component={ this.state.htmlPin.component } /> }
+          { this.state.htmlPin && <Pin component={ this.state.htmlPin.component } /> }
         </div>
       </div>
     );
@@ -131,7 +130,8 @@ class HTMLTree extends React.Component {
 
 HTMLTree.propTypes = {
   pinnedEvent: PropTypes.object,
-  filter: PropTypes.string
+  filter: PropTypes.string,
+  Pin: PropTypes.any
 };
 
 export default connect(HTMLTree)

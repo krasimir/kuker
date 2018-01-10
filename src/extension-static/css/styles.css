@@ -162,14 +162,15 @@ p {
   height: 100%;
 }
 .withDetails .logTree {
-  height: 70%;
+  height: 55%;
+  padding-bottom: 0.5em;
 }
 .logDetails {
   display: none;
   padding: 0.2em 0.5em 0.5em 0.5em;
   overflow-y: scroll;
   width: 100%;
-  height: 30%;
+  height: 45%;
   border-top: solid 1px #999;
 }
 .withDetails .logDetails {

@@ -2,30 +2,37 @@
   "events": [
     {
       "kuker": true,
-      "time": 1515476416903,
+      "time": 1515562837966,
       "origin": "http://localhost:8082",
       "type": "NEW_SESSION",
-      "timeDiff": "+ 0:34:172",
-      "id": 15
+      "id": 0
     },
     {
       "kuker": true,
-      "time": 1515476416854,
+      "time": 1515562837914,
       "origin": "http://localhost:8082",
       "emitter": "VueEmitter",
       "type": "NEW_EMITTER",
       "emitterDescription": "",
-      "id": 16
+      "id": 1
     },
     {
       "kuker": true,
-      "time": 1515476417731,
+      "time": 1515562838819,
       "origin": "http://localhost:8082",
       "emitter": "Vuex",
       "type": "@@vuex_vuex:init",
       "state": {
         "state": {
           "todos": [
+            {
+              "text": "Yes",
+              "done": true
+            },
+            {
+              "text": "Buy something",
+              "done": false
+            },
             {
               "text": "A new one",
               "done": false
@@ -34,79 +41,29 @@
         },
         "getters": {}
       },
-      "timeDiff": "+ 0:01:877",
-      "id": 17
+      "timeDiff": "+ 0:01:905",
+      "id": 2
     },
     {
       "kuker": true,
-      "time": 1515476417732,
+      "time": 1515562838819,
       "origin": "http://localhost:8082",
       "emitter": "Vue",
       "type": "@@vue_ready",
       "version": "2.5.13",
       "state": {},
-      "timeDiff": "+ 0:00:001",
-      "id": 18,
-      "stateMutation": [
-        {
-          "kind": "D",
-          "path": [
-            "inspectedInstance"
-          ],
-          "lhs": {}
-        },
-        {
-          "kind": "D",
-          "path": [
-            "instances"
-          ],
-          "lhs": [
-            {
-              "id": "1:2",
-              "name": "Root",
-              "inactive": false,
-              "isFragment": false,
-              "children": [
-                {
-                  "id": "1:3",
-                  "name": "App",
-                  "inactive": false,
-                  "isFragment": false,
-                  "children": [
-                    {
-                      "id": "1:4",
-                      "name": "Todo",
-                      "inactive": false,
-                      "isFragment": false,
-                      "children": [],
-                      "top": "__vue_devtool_infinity__",
-                      "consoleId": null
-                    }
-                  ],
-                  "top": "__vue_devtool_infinity__",
-                  "consoleId": null
-                }
-              ],
-              "top": "__vue_devtool_infinity__",
-              "consoleId": null
-            }
-          ]
-        }
-      ],
-      "mutationPaths": [
-        "inspectedInstance",
-        "instances"
-      ]
+      "id": 3
     },
     {
       "kuker": true,
-      "time": 1515476417733,
+      "time": 1515562838820,
       "origin": "http://localhost:8082",
       "emitter": "Vue",
       "type": "@@vue_flush",
       "state": {
-        "inspectedInstance": {},
-        "instances": [
+        "name": "Vue",
+        "state": {},
+        "children": [
           {
             "id": "1:2",
             "name": "Root",
@@ -125,33 +82,215 @@
                     "inactive": false,
                     "isFragment": false,
                     "children": [],
-                    "top": "__vue_devtool_infinity__",
-                    "consoleId": null
+                    "top": 196,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": true
+                        },
+                        {
+                          "text": "Buy something",
+                          "done": false
+                        },
+                        {
+                          "text": "A new one",
+                          "done": false
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 2
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "Yes",
+                        "done": true
+                      }
+                    }
+                  },
+                  {
+                    "id": "1:5",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 255,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": true
+                        },
+                        {
+                          "text": "Buy something",
+                          "done": false
+                        },
+                        {
+                          "text": "A new one",
+                          "done": false
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 2
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "Buy something",
+                        "done": false
+                      }
+                    }
+                  },
+                  {
+                    "id": "1:6",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 314,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": true
+                        },
+                        {
+                          "text": "Buy something",
+                          "done": false
+                        },
+                        {
+                          "text": "A new one",
+                          "done": false
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 2
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "A new one",
+                        "done": false
+                      }
+                    }
                   }
                 ],
                 "top": "__vue_devtool_infinity__",
-                "consoleId": null
+                "consoleId": null,
+                "data": {
+                  "visibility": "all",
+                  "filters": {
+                    "all": {
+                      "__func": "all"
+                    },
+                    "active": {
+                      "__func": "active"
+                    },
+                    "completed": {
+                      "__func": "completed"
+                    }
+                  }
+                },
+                "computed": {
+                  "todos": [
+                    {
+                      "text": "Yes",
+                      "done": true
+                    },
+                    {
+                      "text": "Buy something",
+                      "done": false
+                    },
+                    {
+                      "text": "A new one",
+                      "done": false
+                    }
+                  ],
+                  "allChecked": false,
+                  "filteredTodos": "~todos",
+                  "remaining": 2
+                },
+                "props": {}
               }
             ],
             "top": "__vue_devtool_infinity__",
-            "consoleId": null
+            "consoleId": null,
+            "data": {},
+            "computed": {},
+            "props": {}
           }
         ]
       },
       "timeDiff": "+ 0:00:001",
-      "id": 19,
+      "id": 4,
       "stateMutation": [
         {
           "kind": "N",
           "path": [
-            "inspectedInstance"
+            "name"
+          ],
+          "rhs": "Vue"
+        },
+        {
+          "kind": "N",
+          "path": [
+            "state"
           ],
           "rhs": {}
         },
         {
           "kind": "N",
           "path": [
-            "instances"
+            "children"
           ],
           "rhs": [
             {
@@ -172,28 +311,204 @@
                       "inactive": false,
                       "isFragment": false,
                       "children": [],
-                      "top": "__vue_devtool_infinity__",
-                      "consoleId": null
+                      "top": 196,
+                      "consoleId": null,
+                      "data": {
+                        "visibility": "all",
+                        "filters": {
+                          "all": {
+                            "__func": "all"
+                          },
+                          "active": {
+                            "__func": "active"
+                          },
+                          "completed": {
+                            "__func": "completed"
+                          }
+                        },
+                        "editing": false
+                      },
+                      "computed": {
+                        "todos": [
+                          {
+                            "text": "Yes",
+                            "done": true
+                          },
+                          {
+                            "text": "Buy something",
+                            "done": false
+                          },
+                          {
+                            "text": "A new one",
+                            "done": false
+                          }
+                        ],
+                        "allChecked": false,
+                        "filteredTodos": "~todos",
+                        "remaining": 2
+                      },
+                      "props": {
+                        "todo": {
+                          "text": "Yes",
+                          "done": true
+                        }
+                      }
+                    },
+                    {
+                      "id": "1:5",
+                      "name": "Todo",
+                      "inactive": false,
+                      "isFragment": false,
+                      "children": [],
+                      "top": 255,
+                      "consoleId": null,
+                      "data": {
+                        "visibility": "all",
+                        "filters": {
+                          "all": {
+                            "__func": "all"
+                          },
+                          "active": {
+                            "__func": "active"
+                          },
+                          "completed": {
+                            "__func": "completed"
+                          }
+                        },
+                        "editing": false
+                      },
+                      "computed": {
+                        "todos": [
+                          {
+                            "text": "Yes",
+                            "done": true
+                          },
+                          {
+                            "text": "Buy something",
+                            "done": false
+                          },
+                          {
+                            "text": "A new one",
+                            "done": false
+                          }
+                        ],
+                        "allChecked": false,
+                        "filteredTodos": "~todos",
+                        "remaining": 2
+                      },
+                      "props": {
+                        "todo": {
+                          "text": "Buy something",
+                          "done": false
+                        }
+                      }
+                    },
+                    {
+                      "id": "1:6",
+                      "name": "Todo",
+                      "inactive": false,
+                      "isFragment": false,
+                      "children": [],
+                      "top": 314,
+                      "consoleId": null,
+                      "data": {
+                        "visibility": "all",
+                        "filters": {
+                          "all": {
+                            "__func": "all"
+                          },
+                          "active": {
+                            "__func": "active"
+                          },
+                          "completed": {
+                            "__func": "completed"
+                          }
+                        },
+                        "editing": false
+                      },
+                      "computed": {
+                        "todos": [
+                          {
+                            "text": "Yes",
+                            "done": true
+                          },
+                          {
+                            "text": "Buy something",
+                            "done": false
+                          },
+                          {
+                            "text": "A new one",
+                            "done": false
+                          }
+                        ],
+                        "allChecked": false,
+                        "filteredTodos": "~todos",
+                        "remaining": 2
+                      },
+                      "props": {
+                        "todo": {
+                          "text": "A new one",
+                          "done": false
+                        }
+                      }
                     }
                   ],
                   "top": "__vue_devtool_infinity__",
-                  "consoleId": null
+                  "consoleId": null,
+                  "data": {
+                    "visibility": "all",
+                    "filters": {
+                      "all": {
+                        "__func": "all"
+                      },
+                      "active": {
+                        "__func": "active"
+                      },
+                      "completed": {
+                        "__func": "completed"
+                      }
+                    }
+                  },
+                  "computed": {
+                    "todos": [
+                      {
+                        "text": "Yes",
+                        "done": true
+                      },
+                      {
+                        "text": "Buy something",
+                        "done": false
+                      },
+                      {
+                        "text": "A new one",
+                        "done": false
+                      }
+                    ],
+                    "allChecked": false,
+                    "filteredTodos": "~todos",
+                    "remaining": 2
+                  },
+                  "props": {}
                 }
               ],
               "top": "__vue_devtool_infinity__",
-              "consoleId": null
+              "consoleId": null,
+              "data": {},
+              "computed": {},
+              "props": {}
             }
           ]
         }
       ],
       "mutationPaths": [
-        "inspectedInstance",
-        "instances"
+        "name",
+        "state",
+        "children"
       ]
     },
     {
       "kuker": true,
-      "time": 1515476419446,
+      "time": 1515562859338,
       "origin": "http://localhost:8082",
       "emitter": "Vuex",
       "type": "@@vuex_vuex:mutation",
@@ -201,94 +516,15 @@
         "state": {
           "todos": [
             {
-              "text": "A new one",
-              "done": true
-            }
-          ]
-        },
-        "getters": {}
-      },
-      "mutation": {
-        "type": "toggleTodo",
-        "payload": "{\"todo\":{\"text\":\"A new one\",\"done\":true}}"
-      },
-      "timeDiff": "+ 0:02:713",
-      "id": 20,
-      "stateMutation": [
-        {
-          "kind": "E",
-          "path": [
-            "state",
-            "todos",
-            0,
-            "done"
-          ],
-          "lhs": false,
-          "rhs": true
-        }
-      ],
-      "mutationPaths": [
-        "state.todos.0.done"
-      ]
-    },
-    {
-      "kuker": true,
-      "time": 1515476419457,
-      "origin": "http://localhost:8082",
-      "emitter": "Vue",
-      "type": "@@vue_flush",
-      "state": {
-        "inspectedInstance": {},
-        "instances": [
-          {
-            "id": "1:2",
-            "name": "Root",
-            "inactive": false,
-            "isFragment": false,
-            "children": [
-              {
-                "id": "1:3",
-                "name": "App",
-                "inactive": false,
-                "isFragment": false,
-                "children": [
-                  {
-                    "id": "1:4",
-                    "name": "Todo",
-                    "inactive": false,
-                    "isFragment": false,
-                    "children": [],
-                    "top": "__vue_devtool_infinity__",
-                    "consoleId": null
-                  }
-                ],
-                "top": "__vue_devtool_infinity__",
-                "consoleId": null
-              }
-            ],
-            "top": "__vue_devtool_infinity__",
-            "consoleId": null
-          }
-        ]
-      },
-      "timeDiff": "+ 0:00:011",
-      "id": 21
-    },
-    {
-      "kuker": true,
-      "time": 1515476437972,
-      "origin": "http://localhost:8082",
-      "emitter": "Vuex",
-      "type": "@@vuex_vuex:mutation",
-      "state": {
-        "state": {
-          "todos": [
-            {
-              "text": "A new one",
+              "text": "Yes",
               "done": true
             },
             {
-              "text": "Hello",
+              "text": "Buy something",
+              "done": true
+            },
+            {
+              "text": "A new one",
               "done": false
             }
           ]
@@ -296,154 +532,11 @@
         "getters": {}
       },
       "mutation": {
-        "type": "addTodo",
-        "payload": "{\"text\":\"Hello\"}"
-      },
-      "timeDiff": "+ 0:19:515",
-      "id": 22,
-      "stateMutation": [
-        {
-          "kind": "A",
-          "path": [
-            "state",
-            "todos"
-          ],
-          "index": 1,
-          "item": {
-            "kind": "N",
-            "rhs": {
-              "text": "Hello",
-              "done": false
-            }
-          }
-        }
-      ],
-      "mutationPaths": [
-        "state.todos"
-      ]
-    },
-    {
-      "kuker": true,
-      "time": 1515476437976,
-      "origin": "http://localhost:8082",
-      "emitter": "Vue",
-      "type": "@@vue_flush",
-      "state": {
-        "inspectedInstance": {},
-        "instances": [
-          {
-            "id": "1:2",
-            "name": "Root",
-            "inactive": false,
-            "isFragment": false,
-            "children": [
-              {
-                "id": "1:3",
-                "name": "App",
-                "inactive": false,
-                "isFragment": false,
-                "children": [
-                  {
-                    "id": "1:4",
-                    "name": "Todo",
-                    "inactive": false,
-                    "isFragment": false,
-                    "children": [],
-                    "top": 196,
-                    "consoleId": null
-                  },
-                  {
-                    "id": "1:5",
-                    "name": "Todo",
-                    "inactive": false,
-                    "isFragment": false,
-                    "children": [],
-                    "top": 255,
-                    "consoleId": null
-                  }
-                ],
-                "top": "__vue_devtool_infinity__",
-                "consoleId": null
-              }
-            ],
-            "top": "__vue_devtool_infinity__",
-            "consoleId": null
-          }
-        ]
-      },
-      "timeDiff": "+ 0:00:004",
-      "id": 23,
-      "stateMutation": [
-        {
-          "kind": "E",
-          "path": [
-            "instances",
-            0,
-            "children",
-            0,
-            "children",
-            0,
-            "top"
-          ],
-          "lhs": "__vue_devtool_infinity__",
-          "rhs": 196
-        },
-        {
-          "kind": "A",
-          "path": [
-            "instances",
-            0,
-            "children",
-            0,
-            "children"
-          ],
-          "index": 1,
-          "item": {
-            "kind": "N",
-            "rhs": {
-              "id": "1:5",
-              "name": "Todo",
-              "inactive": false,
-              "isFragment": false,
-              "children": [],
-              "top": 255,
-              "consoleId": null
-            }
-          }
-        }
-      ],
-      "mutationPaths": [
-        "instances.0.children.0.children.0.top",
-        "instances.0.children.0.children"
-      ]
-    },
-    {
-      "kuker": true,
-      "time": 1515476439972,
-      "origin": "http://localhost:8082",
-      "emitter": "Vuex",
-      "type": "@@vuex_vuex:mutation",
-      "state": {
-        "state": {
-          "todos": [
-            {
-              "text": "A new one",
-              "done": true
-            },
-            {
-              "text": "Hello",
-              "done": true
-            }
-          ]
-        },
-        "getters": {}
-      },
-      "mutation": {
         "type": "toggleTodo",
-        "payload": "{\"todo\":{\"text\":\"Hello\",\"done\":true}}"
+        "payload": "{\"todo\":{\"text\":\"Buy something\",\"done\":true}}"
       },
-      "timeDiff": "+ 0:02:996",
-      "id": 24,
+      "timeDiff": "+ 0:21:518",
+      "id": 5,
       "stateMutation": [
         {
           "kind": "E",
@@ -463,13 +556,14 @@
     },
     {
       "kuker": true,
-      "time": 1515476439974,
+      "time": 1515562859345,
       "origin": "http://localhost:8082",
       "emitter": "Vue",
       "type": "@@vue_flush",
       "state": {
-        "inspectedInstance": {},
-        "instances": [
+        "name": "Vue",
+        "state": {},
+        "children": [
           {
             "id": "1:2",
             "name": "Root",
@@ -489,7 +583,47 @@
                     "isFragment": false,
                     "children": [],
                     "top": 196,
-                    "consoleId": null
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": true
+                        },
+                        {
+                          "text": "Buy something",
+                          "done": true
+                        },
+                        {
+                          "text": "A new one",
+                          "done": false
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 1
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "Yes",
+                        "done": true
+                      }
+                    }
                   },
                   {
                     "id": "1:5",
@@ -498,24 +632,489 @@
                     "isFragment": false,
                     "children": [],
                     "top": 255,
-                    "consoleId": null
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": true
+                        },
+                        {
+                          "text": "Buy something",
+                          "done": true
+                        },
+                        {
+                          "text": "A new one",
+                          "done": false
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 1
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "Buy something",
+                        "done": true
+                      }
+                    }
+                  },
+                  {
+                    "id": "1:6",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 314,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": true
+                        },
+                        {
+                          "text": "Buy something",
+                          "done": true
+                        },
+                        {
+                          "text": "A new one",
+                          "done": false
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 1
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "A new one",
+                        "done": false
+                      }
+                    }
                   }
                 ],
                 "top": "__vue_devtool_infinity__",
-                "consoleId": null
+                "consoleId": null,
+                "data": {
+                  "visibility": "all",
+                  "filters": {
+                    "all": {
+                      "__func": "all"
+                    },
+                    "active": {
+                      "__func": "active"
+                    },
+                    "completed": {
+                      "__func": "completed"
+                    }
+                  },
+                  "editing": false
+                },
+                "computed": {
+                  "todos": [
+                    {
+                      "text": "Yes",
+                      "done": true
+                    },
+                    {
+                      "text": "Buy something",
+                      "done": true
+                    },
+                    {
+                      "text": "A new one",
+                      "done": false
+                    }
+                  ],
+                  "allChecked": false,
+                  "filteredTodos": "~todos",
+                  "remaining": 1
+                },
+                "props": {
+                  "todo": {
+                    "text": "A new one",
+                    "done": false
+                  }
+                }
               }
             ],
             "top": "__vue_devtool_infinity__",
-            "consoleId": null
+            "consoleId": null,
+            "data": {
+              "visibility": "all",
+              "filters": {
+                "all": {
+                  "__func": "all"
+                },
+                "active": {
+                  "__func": "active"
+                },
+                "completed": {
+                  "__func": "completed"
+                }
+              },
+              "editing": false
+            },
+            "computed": {
+              "todos": [
+                {
+                  "text": "Yes",
+                  "done": true
+                },
+                {
+                  "text": "Buy something",
+                  "done": true
+                },
+                {
+                  "text": "A new one",
+                  "done": false
+                }
+              ],
+              "allChecked": false,
+              "filteredTodos": "~todos",
+              "remaining": 2
+            },
+            "props": {
+              "todo": {
+                "text": "A new one",
+                "done": false
+              }
+            }
           }
         ]
       },
-      "timeDiff": "+ 0:00:002",
-      "id": 25
+      "timeDiff": "+ 0:00:007",
+      "id": 6,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "todos",
+            1,
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 2,
+          "rhs": 1
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "computed",
+            "todos",
+            1,
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 2,
+          "rhs": 1
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "props",
+            "todo",
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            2,
+            "computed",
+            "todos",
+            1,
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            2,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 2,
+          "rhs": 1
+        },
+        {
+          "kind": "N",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "data",
+            "editing"
+          ],
+          "rhs": false
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "todos",
+            1,
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 2,
+          "rhs": 1
+        },
+        {
+          "kind": "N",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "props",
+            "todo"
+          ],
+          "rhs": {
+            "text": "A new one",
+            "done": false
+          }
+        },
+        {
+          "kind": "N",
+          "path": [
+            "children",
+            0,
+            "data",
+            "visibility"
+          ],
+          "rhs": "all"
+        },
+        {
+          "kind": "N",
+          "path": [
+            "children",
+            0,
+            "data",
+            "filters"
+          ],
+          "rhs": {
+            "all": {
+              "__func": "all"
+            },
+            "active": {
+              "__func": "active"
+            },
+            "completed": {
+              "__func": "completed"
+            }
+          }
+        },
+        {
+          "kind": "N",
+          "path": [
+            "children",
+            0,
+            "data",
+            "editing"
+          ],
+          "rhs": false
+        },
+        {
+          "kind": "N",
+          "path": [
+            "children",
+            0,
+            "computed",
+            "todos"
+          ],
+          "rhs": [
+            {
+              "text": "Yes",
+              "done": true
+            },
+            {
+              "text": "Buy something",
+              "done": true
+            },
+            {
+              "text": "A new one",
+              "done": false
+            }
+          ]
+        },
+        {
+          "kind": "N",
+          "path": [
+            "children",
+            0,
+            "computed",
+            "allChecked"
+          ],
+          "rhs": false
+        },
+        {
+          "kind": "N",
+          "path": [
+            "children",
+            0,
+            "computed",
+            "filteredTodos"
+          ],
+          "rhs": "~todos"
+        },
+        {
+          "kind": "N",
+          "path": [
+            "children",
+            0,
+            "computed",
+            "remaining"
+          ],
+          "rhs": 2
+        },
+        {
+          "kind": "N",
+          "path": [
+            "children",
+            0,
+            "props",
+            "todo"
+          ],
+          "rhs": {
+            "text": "A new one",
+            "done": false
+          }
+        }
+      ],
+      "mutationPaths": [
+        "children.0.children.0.children.0.computed.todos.1.done",
+        "children.0.children.0.children.0.computed.remaining",
+        "children.0.children.0.children.1.computed.todos.1.done",
+        "children.0.children.0.children.1.computed.remaining",
+        "children.0.children.0.children.1.props.todo.done",
+        "children.0.children.0.children.2.computed.todos.1.done",
+        "children.0.children.0.children.2.computed.remaining",
+        "children.0.children.0.data.editing",
+        "children.0.children.0.computed.todos.1.done",
+        "children.0.children.0.computed.remaining",
+        "children.0.children.0.props.todo",
+        "children.0.data.visibility",
+        "children.0.data.filters",
+        "children.0.data.editing",
+        "children.0.computed.todos",
+        "children.0.computed.allChecked",
+        "children.0.computed.filteredTodos",
+        "children.0.computed.remaining",
+        "children.0.props.todo"
+      ]
     },
     {
       "kuker": true,
-      "time": 1515476440988,
+      "time": 1515562859933,
       "origin": "http://localhost:8082",
       "emitter": "Vuex",
       "type": "@@vuex_vuex:mutation",
@@ -523,12 +1122,16 @@
         "state": {
           "todos": [
             {
-              "text": "A new one",
+              "text": "Yes",
               "done": false
             },
             {
-              "text": "Hello",
+              "text": "Buy something",
               "done": true
+            },
+            {
+              "text": "A new one",
+              "done": false
             }
           ]
         },
@@ -536,10 +1139,10 @@
       },
       "mutation": {
         "type": "toggleTodo",
-        "payload": "{\"todo\":{\"text\":\"A new one\",\"done\":false}}"
+        "payload": "{\"todo\":{\"text\":\"Yes\",\"done\":false}}"
       },
-      "timeDiff": "+ 0:01:014",
-      "id": 26,
+      "timeDiff": "+ 0:01:588",
+      "id": 7,
       "stateMutation": [
         {
           "kind": "E",
@@ -559,13 +1162,14 @@
     },
     {
       "kuker": true,
-      "time": 1515476440990,
+      "time": 1515562859937,
       "origin": "http://localhost:8082",
       "emitter": "Vue",
       "type": "@@vue_flush",
       "state": {
-        "inspectedInstance": {},
-        "instances": [
+        "name": "Vue",
+        "state": {},
+        "children": [
           {
             "id": "1:2",
             "name": "Root",
@@ -585,7 +1189,47 @@
                     "isFragment": false,
                     "children": [],
                     "top": 196,
-                    "consoleId": null
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "Buy something",
+                          "done": true
+                        },
+                        {
+                          "text": "A new one",
+                          "done": false
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 2
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "Yes",
+                        "done": false
+                      }
+                    }
                   },
                   {
                     "id": "1:5",
@@ -594,24 +1238,372 @@
                     "isFragment": false,
                     "children": [],
                     "top": 255,
-                    "consoleId": null
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "Buy something",
+                          "done": true
+                        },
+                        {
+                          "text": "A new one",
+                          "done": false
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 2
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "Buy something",
+                        "done": true
+                      }
+                    }
+                  },
+                  {
+                    "id": "1:6",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 314,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "Buy something",
+                          "done": true
+                        },
+                        {
+                          "text": "A new one",
+                          "done": false
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 2
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "A new one",
+                        "done": false
+                      }
+                    }
                   }
                 ],
                 "top": "__vue_devtool_infinity__",
-                "consoleId": null
+                "consoleId": null,
+                "data": {
+                  "visibility": "all",
+                  "filters": {
+                    "all": {
+                      "__func": "all"
+                    },
+                    "active": {
+                      "__func": "active"
+                    },
+                    "completed": {
+                      "__func": "completed"
+                    }
+                  },
+                  "editing": false
+                },
+                "computed": {
+                  "todos": [
+                    {
+                      "text": "Yes",
+                      "done": false
+                    },
+                    {
+                      "text": "Buy something",
+                      "done": true
+                    },
+                    {
+                      "text": "A new one",
+                      "done": false
+                    }
+                  ],
+                  "allChecked": false,
+                  "filteredTodos": "~todos",
+                  "remaining": 2
+                },
+                "props": {
+                  "todo": {
+                    "text": "A new one",
+                    "done": false
+                  }
+                }
               }
             ],
             "top": "__vue_devtool_infinity__",
-            "consoleId": null
+            "consoleId": null,
+            "data": {
+              "visibility": "all",
+              "filters": {
+                "all": {
+                  "__func": "all"
+                },
+                "active": {
+                  "__func": "active"
+                },
+                "completed": {
+                  "__func": "completed"
+                }
+              },
+              "editing": false
+            },
+            "computed": {
+              "todos": [
+                {
+                  "text": "Yes",
+                  "done": false
+                },
+                {
+                  "text": "Buy something",
+                  "done": true
+                },
+                {
+                  "text": "A new one",
+                  "done": false
+                }
+              ],
+              "allChecked": false,
+              "filteredTodos": "~todos",
+              "remaining": 1
+            },
+            "props": {
+              "todo": {
+                "text": "A new one",
+                "done": false
+              }
+            }
           }
         ]
       },
-      "timeDiff": "+ 0:00:002",
-      "id": 27
+      "timeDiff": "+ 0:00:004",
+      "id": 8,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "todos",
+            0,
+            "done"
+          ],
+          "lhs": true,
+          "rhs": false
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 1,
+          "rhs": 2
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "props",
+            "todo",
+            "done"
+          ],
+          "lhs": true,
+          "rhs": false
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "computed",
+            "todos",
+            0,
+            "done"
+          ],
+          "lhs": true,
+          "rhs": false
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 1,
+          "rhs": 2
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            2,
+            "computed",
+            "todos",
+            0,
+            "done"
+          ],
+          "lhs": true,
+          "rhs": false
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            2,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 1,
+          "rhs": 2
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "todos",
+            0,
+            "done"
+          ],
+          "lhs": true,
+          "rhs": false
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 1,
+          "rhs": 2
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "computed",
+            "todos",
+            0,
+            "done"
+          ],
+          "lhs": true,
+          "rhs": false
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 2,
+          "rhs": 1
+        }
+      ],
+      "mutationPaths": [
+        "children.0.children.0.children.0.computed.todos.0.done",
+        "children.0.children.0.children.0.computed.remaining",
+        "children.0.children.0.children.0.props.todo.done",
+        "children.0.children.0.children.1.computed.todos.0.done",
+        "children.0.children.0.children.1.computed.remaining",
+        "children.0.children.0.children.2.computed.todos.0.done",
+        "children.0.children.0.children.2.computed.remaining",
+        "children.0.children.0.computed.todos.0.done",
+        "children.0.children.0.computed.remaining",
+        "children.0.computed.todos.0.done",
+        "children.0.computed.remaining"
+      ]
     },
     {
       "kuker": true,
-      "time": 1515476442020,
+      "time": 1515562860541,
       "origin": "http://localhost:8082",
       "emitter": "Vuex",
       "type": "@@vuex_vuex:mutation",
@@ -619,7 +1611,1742 @@
         "state": {
           "todos": [
             {
-              "text": "Hello",
+              "text": "Yes",
+              "done": false
+            },
+            {
+              "text": "Buy something",
+              "done": true
+            },
+            {
+              "text": "A new one",
+              "done": true
+            }
+          ]
+        },
+        "getters": {}
+      },
+      "mutation": {
+        "type": "toggleTodo",
+        "payload": "{\"todo\":{\"text\":\"A new one\",\"done\":true}}"
+      },
+      "timeDiff": "+ 0:01:604",
+      "id": 9,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "state",
+            "todos",
+            2,
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        }
+      ],
+      "mutationPaths": [
+        "state.todos.2.done"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515562860545,
+      "origin": "http://localhost:8082",
+      "emitter": "Vue",
+      "type": "@@vue_flush",
+      "state": {
+        "name": "Vue",
+        "state": {},
+        "children": [
+          {
+            "id": "1:2",
+            "name": "Root",
+            "inactive": false,
+            "isFragment": false,
+            "children": [
+              {
+                "id": "1:3",
+                "name": "App",
+                "inactive": false,
+                "isFragment": false,
+                "children": [
+                  {
+                    "id": "1:4",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 196,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "Buy something",
+                          "done": true
+                        },
+                        {
+                          "text": "A new one",
+                          "done": true
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 1
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "Yes",
+                        "done": false
+                      }
+                    }
+                  },
+                  {
+                    "id": "1:5",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 255,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "Buy something",
+                          "done": true
+                        },
+                        {
+                          "text": "A new one",
+                          "done": true
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 1
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "Buy something",
+                        "done": true
+                      }
+                    }
+                  },
+                  {
+                    "id": "1:6",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 314,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "Buy something",
+                          "done": true
+                        },
+                        {
+                          "text": "A new one",
+                          "done": true
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 1
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "A new one",
+                        "done": true
+                      }
+                    }
+                  }
+                ],
+                "top": "__vue_devtool_infinity__",
+                "consoleId": null,
+                "data": {
+                  "visibility": "all",
+                  "filters": {
+                    "all": {
+                      "__func": "all"
+                    },
+                    "active": {
+                      "__func": "active"
+                    },
+                    "completed": {
+                      "__func": "completed"
+                    }
+                  },
+                  "editing": false
+                },
+                "computed": {
+                  "todos": [
+                    {
+                      "text": "Yes",
+                      "done": false
+                    },
+                    {
+                      "text": "Buy something",
+                      "done": true
+                    },
+                    {
+                      "text": "A new one",
+                      "done": true
+                    }
+                  ],
+                  "allChecked": false,
+                  "filteredTodos": "~todos",
+                  "remaining": 1
+                },
+                "props": {
+                  "todo": {
+                    "text": "A new one",
+                    "done": true
+                  }
+                }
+              }
+            ],
+            "top": "__vue_devtool_infinity__",
+            "consoleId": null,
+            "data": {
+              "visibility": "all",
+              "filters": {
+                "all": {
+                  "__func": "all"
+                },
+                "active": {
+                  "__func": "active"
+                },
+                "completed": {
+                  "__func": "completed"
+                }
+              },
+              "editing": false
+            },
+            "computed": {
+              "todos": [
+                {
+                  "text": "Yes",
+                  "done": false
+                },
+                {
+                  "text": "Buy something",
+                  "done": true
+                },
+                {
+                  "text": "A new one",
+                  "done": true
+                }
+              ],
+              "allChecked": false,
+              "filteredTodos": "~todos",
+              "remaining": 2
+            },
+            "props": {
+              "todo": {
+                "text": "A new one",
+                "done": true
+              }
+            }
+          }
+        ]
+      },
+      "timeDiff": "+ 0:00:004",
+      "id": 10,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "todos",
+            2,
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 2,
+          "rhs": 1
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "computed",
+            "todos",
+            2,
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 2,
+          "rhs": 1
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            2,
+            "computed",
+            "todos",
+            2,
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            2,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 2,
+          "rhs": 1
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            2,
+            "props",
+            "todo",
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "todos",
+            2,
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 2,
+          "rhs": 1
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "props",
+            "todo",
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "computed",
+            "todos",
+            2,
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 1,
+          "rhs": 2
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "props",
+            "todo",
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        }
+      ],
+      "mutationPaths": [
+        "children.0.children.0.children.0.computed.todos.2.done",
+        "children.0.children.0.children.0.computed.remaining",
+        "children.0.children.0.children.1.computed.todos.2.done",
+        "children.0.children.0.children.1.computed.remaining",
+        "children.0.children.0.children.2.computed.todos.2.done",
+        "children.0.children.0.children.2.computed.remaining",
+        "children.0.children.0.children.2.props.todo.done",
+        "children.0.children.0.computed.todos.2.done",
+        "children.0.children.0.computed.remaining",
+        "children.0.children.0.props.todo.done",
+        "children.0.computed.todos.2.done",
+        "children.0.computed.remaining",
+        "children.0.props.todo.done"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515562862421,
+      "origin": "http://localhost:8082",
+      "emitter": "Vuex",
+      "type": "@@vuex_vuex:mutation",
+      "state": {
+        "state": {
+          "todos": [
+            {
+              "text": "Yes",
+              "done": false
+            },
+            {
+              "text": "Buy something",
+              "done": false
+            },
+            {
+              "text": "A new one",
+              "done": true
+            }
+          ]
+        },
+        "getters": {}
+      },
+      "mutation": {
+        "type": "toggleTodo",
+        "payload": "{\"todo\":{\"text\":\"Buy something\",\"done\":false}}"
+      },
+      "timeDiff": "+ 0:02:876",
+      "id": 11,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "state",
+            "todos",
+            1,
+            "done"
+          ],
+          "lhs": true,
+          "rhs": false
+        }
+      ],
+      "mutationPaths": [
+        "state.todos.1.done"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515562862425,
+      "origin": "http://localhost:8082",
+      "emitter": "Vue",
+      "type": "@@vue_flush",
+      "state": {
+        "name": "Vue",
+        "state": {},
+        "children": [
+          {
+            "id": "1:2",
+            "name": "Root",
+            "inactive": false,
+            "isFragment": false,
+            "children": [
+              {
+                "id": "1:3",
+                "name": "App",
+                "inactive": false,
+                "isFragment": false,
+                "children": [
+                  {
+                    "id": "1:4",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 196,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "Buy something",
+                          "done": false
+                        },
+                        {
+                          "text": "A new one",
+                          "done": true
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 2
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "Yes",
+                        "done": false
+                      }
+                    }
+                  },
+                  {
+                    "id": "1:5",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 255,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "Buy something",
+                          "done": false
+                        },
+                        {
+                          "text": "A new one",
+                          "done": true
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 2
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "Buy something",
+                        "done": false
+                      }
+                    }
+                  },
+                  {
+                    "id": "1:6",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 314,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "Buy something",
+                          "done": false
+                        },
+                        {
+                          "text": "A new one",
+                          "done": true
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 2
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "A new one",
+                        "done": true
+                      }
+                    }
+                  }
+                ],
+                "top": "__vue_devtool_infinity__",
+                "consoleId": null,
+                "data": {
+                  "visibility": "all",
+                  "filters": {
+                    "all": {
+                      "__func": "all"
+                    },
+                    "active": {
+                      "__func": "active"
+                    },
+                    "completed": {
+                      "__func": "completed"
+                    }
+                  },
+                  "editing": false
+                },
+                "computed": {
+                  "todos": [
+                    {
+                      "text": "Yes",
+                      "done": false
+                    },
+                    {
+                      "text": "Buy something",
+                      "done": false
+                    },
+                    {
+                      "text": "A new one",
+                      "done": true
+                    }
+                  ],
+                  "allChecked": false,
+                  "filteredTodos": "~todos",
+                  "remaining": 2
+                },
+                "props": {
+                  "todo": {
+                    "text": "A new one",
+                    "done": true
+                  }
+                }
+              }
+            ],
+            "top": "__vue_devtool_infinity__",
+            "consoleId": null,
+            "data": {
+              "visibility": "all",
+              "filters": {
+                "all": {
+                  "__func": "all"
+                },
+                "active": {
+                  "__func": "active"
+                },
+                "completed": {
+                  "__func": "completed"
+                }
+              },
+              "editing": false
+            },
+            "computed": {
+              "todos": [
+                {
+                  "text": "Yes",
+                  "done": false
+                },
+                {
+                  "text": "Buy something",
+                  "done": false
+                },
+                {
+                  "text": "A new one",
+                  "done": true
+                }
+              ],
+              "allChecked": false,
+              "filteredTodos": "~todos",
+              "remaining": 1
+            },
+            "props": {
+              "todo": {
+                "text": "A new one",
+                "done": true
+              }
+            }
+          }
+        ]
+      },
+      "timeDiff": "+ 0:00:004",
+      "id": 12,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "todos",
+            1,
+            "done"
+          ],
+          "lhs": true,
+          "rhs": false
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 1,
+          "rhs": 2
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "computed",
+            "todos",
+            1,
+            "done"
+          ],
+          "lhs": true,
+          "rhs": false
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 1,
+          "rhs": 2
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "props",
+            "todo",
+            "done"
+          ],
+          "lhs": true,
+          "rhs": false
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            2,
+            "computed",
+            "todos",
+            1,
+            "done"
+          ],
+          "lhs": true,
+          "rhs": false
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            2,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 1,
+          "rhs": 2
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "todos",
+            1,
+            "done"
+          ],
+          "lhs": true,
+          "rhs": false
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 1,
+          "rhs": 2
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "computed",
+            "todos",
+            1,
+            "done"
+          ],
+          "lhs": true,
+          "rhs": false
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 2,
+          "rhs": 1
+        }
+      ],
+      "mutationPaths": [
+        "children.0.children.0.children.0.computed.todos.1.done",
+        "children.0.children.0.children.0.computed.remaining",
+        "children.0.children.0.children.1.computed.todos.1.done",
+        "children.0.children.0.children.1.computed.remaining",
+        "children.0.children.0.children.1.props.todo.done",
+        "children.0.children.0.children.2.computed.todos.1.done",
+        "children.0.children.0.children.2.computed.remaining",
+        "children.0.children.0.computed.todos.1.done",
+        "children.0.children.0.computed.remaining",
+        "children.0.computed.todos.1.done",
+        "children.0.computed.remaining"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515562862984,
+      "origin": "http://localhost:8082",
+      "emitter": "Vue",
+      "type": "@@vue_flush",
+      "state": {
+        "name": "Vue",
+        "state": {},
+        "children": [
+          {
+            "id": "1:2",
+            "name": "Root",
+            "inactive": false,
+            "isFragment": false,
+            "children": [
+              {
+                "id": "1:3",
+                "name": "App",
+                "inactive": false,
+                "isFragment": false,
+                "children": [
+                  {
+                    "id": "1:4",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 196,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "Buy something",
+                          "done": false
+                        },
+                        {
+                          "text": "A new one",
+                          "done": true
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 2
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "Yes",
+                        "done": false
+                      }
+                    }
+                  },
+                  {
+                    "id": "1:5",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 255,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": true
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "Buy something",
+                          "done": false
+                        },
+                        {
+                          "text": "A new one",
+                          "done": true
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 2
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "Buy something",
+                        "done": false
+                      }
+                    }
+                  },
+                  {
+                    "id": "1:6",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 314,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "Buy something",
+                          "done": false
+                        },
+                        {
+                          "text": "A new one",
+                          "done": true
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 2
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "A new one",
+                        "done": true
+                      }
+                    }
+                  }
+                ],
+                "top": "__vue_devtool_infinity__",
+                "consoleId": null,
+                "data": {
+                  "visibility": "all",
+                  "filters": {
+                    "all": {
+                      "__func": "all"
+                    },
+                    "active": {
+                      "__func": "active"
+                    },
+                    "completed": {
+                      "__func": "completed"
+                    }
+                  },
+                  "editing": false
+                },
+                "computed": {
+                  "todos": [
+                    {
+                      "text": "Yes",
+                      "done": false
+                    },
+                    {
+                      "text": "Buy something",
+                      "done": false
+                    },
+                    {
+                      "text": "A new one",
+                      "done": true
+                    }
+                  ],
+                  "allChecked": false,
+                  "filteredTodos": "~todos",
+                  "remaining": 2
+                },
+                "props": {
+                  "todo": {
+                    "text": "A new one",
+                    "done": true
+                  }
+                }
+              }
+            ],
+            "top": "__vue_devtool_infinity__",
+            "consoleId": null,
+            "data": {
+              "visibility": "all",
+              "filters": {
+                "all": {
+                  "__func": "all"
+                },
+                "active": {
+                  "__func": "active"
+                },
+                "completed": {
+                  "__func": "completed"
+                }
+              },
+              "editing": false
+            },
+            "computed": {
+              "todos": [
+                {
+                  "text": "Yes",
+                  "done": false
+                },
+                {
+                  "text": "Buy something",
+                  "done": false
+                },
+                {
+                  "text": "A new one",
+                  "done": true
+                }
+              ],
+              "allChecked": false,
+              "filteredTodos": "~todos",
+              "remaining": 2
+            },
+            "props": {
+              "todo": {
+                "text": "A new one",
+                "done": true
+              }
+            }
+          }
+        ]
+      },
+      "timeDiff": "+ 0:01:559",
+      "id": 13,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "data",
+            "editing"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 1,
+          "rhs": 2
+        }
+      ],
+      "mutationPaths": [
+        "children.0.children.0.children.1.data.editing",
+        "children.0.computed.remaining"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515562865494,
+      "origin": "http://localhost:8082",
+      "emitter": "Vuex",
+      "type": "@@vuex_vuex:mutation",
+      "state": {
+        "state": {
+          "todos": [
+            {
+              "text": "Yes",
+              "done": false
+            },
+            {
+              "text": "300",
+              "done": false
+            },
+            {
+              "text": "A new one",
+              "done": true
+            }
+          ]
+        },
+        "getters": {}
+      },
+      "mutation": {
+        "type": "editTodo",
+        "payload": "{\"todo\":{\"text\":\"300\",\"done\":false},\"value\":\"300\"}"
+      },
+      "timeDiff": "+ 0:03:510",
+      "id": 14,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "state",
+            "todos",
+            1,
+            "text"
+          ],
+          "lhs": "Buy something",
+          "rhs": "300"
+        }
+      ],
+      "mutationPaths": [
+        "state.todos.1.text"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515562865497,
+      "origin": "http://localhost:8082",
+      "emitter": "Vue",
+      "type": "@@vue_flush",
+      "state": {
+        "name": "Vue",
+        "state": {},
+        "children": [
+          {
+            "id": "1:2",
+            "name": "Root",
+            "inactive": false,
+            "isFragment": false,
+            "children": [
+              {
+                "id": "1:3",
+                "name": "App",
+                "inactive": false,
+                "isFragment": false,
+                "children": [
+                  {
+                    "id": "1:4",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 196,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "300",
+                          "done": false
+                        },
+                        {
+                          "text": "A new one",
+                          "done": true
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 2
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "Yes",
+                        "done": false
+                      }
+                    }
+                  },
+                  {
+                    "id": "1:5",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 255,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "300",
+                          "done": false
+                        },
+                        {
+                          "text": "A new one",
+                          "done": true
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 2
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "300",
+                        "done": false
+                      }
+                    }
+                  },
+                  {
+                    "id": "1:6",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 314,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "300",
+                          "done": false
+                        },
+                        {
+                          "text": "A new one",
+                          "done": true
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 2
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "A new one",
+                        "done": true
+                      }
+                    }
+                  }
+                ],
+                "top": "__vue_devtool_infinity__",
+                "consoleId": null,
+                "data": {
+                  "visibility": "all",
+                  "filters": {
+                    "all": {
+                      "__func": "all"
+                    },
+                    "active": {
+                      "__func": "active"
+                    },
+                    "completed": {
+                      "__func": "completed"
+                    }
+                  },
+                  "editing": false
+                },
+                "computed": {
+                  "todos": [
+                    {
+                      "text": "Yes",
+                      "done": false
+                    },
+                    {
+                      "text": "300",
+                      "done": false
+                    },
+                    {
+                      "text": "A new one",
+                      "done": true
+                    }
+                  ],
+                  "allChecked": false,
+                  "filteredTodos": "~todos",
+                  "remaining": 2
+                },
+                "props": {
+                  "todo": {
+                    "text": "A new one",
+                    "done": true
+                  }
+                }
+              }
+            ],
+            "top": "__vue_devtool_infinity__",
+            "consoleId": null,
+            "data": {
+              "visibility": "all",
+              "filters": {
+                "all": {
+                  "__func": "all"
+                },
+                "active": {
+                  "__func": "active"
+                },
+                "completed": {
+                  "__func": "completed"
+                }
+              },
+              "editing": false
+            },
+            "computed": {
+              "todos": [
+                {
+                  "text": "Yes",
+                  "done": false
+                },
+                {
+                  "text": "300",
+                  "done": false
+                },
+                {
+                  "text": "A new one",
+                  "done": true
+                }
+              ],
+              "allChecked": false,
+              "filteredTodos": "~todos",
+              "remaining": 2
+            },
+            "props": {
+              "todo": {
+                "text": "A new one",
+                "done": true
+              }
+            }
+          }
+        ]
+      },
+      "timeDiff": "+ 0:00:003",
+      "id": 15,
+      "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "todos",
+            1,
+            "text"
+          ],
+          "lhs": "Buy something",
+          "rhs": "300"
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "data",
+            "editing"
+          ],
+          "lhs": true,
+          "rhs": false
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "computed",
+            "todos",
+            1,
+            "text"
+          ],
+          "lhs": "Buy something",
+          "rhs": "300"
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "props",
+            "todo",
+            "text"
+          ],
+          "lhs": "Buy something",
+          "rhs": "300"
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            2,
+            "computed",
+            "todos",
+            1,
+            "text"
+          ],
+          "lhs": "Buy something",
+          "rhs": "300"
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "todos",
+            1,
+            "text"
+          ],
+          "lhs": "Buy something",
+          "rhs": "300"
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "computed",
+            "todos",
+            1,
+            "text"
+          ],
+          "lhs": "Buy something",
+          "rhs": "300"
+        }
+      ],
+      "mutationPaths": [
+        "children.0.children.0.children.0.computed.todos.1.text",
+        "children.0.children.0.children.1.data.editing",
+        "children.0.children.0.children.1.computed.todos.1.text",
+        "children.0.children.0.children.1.props.todo.text",
+        "children.0.children.0.children.2.computed.todos.1.text",
+        "children.0.children.0.computed.todos.1.text",
+        "children.0.computed.todos.1.text"
+      ]
+    },
+    {
+      "kuker": true,
+      "time": 1515562867462,
+      "origin": "http://localhost:8082",
+      "emitter": "Vuex",
+      "type": "@@vuex_vuex:mutation",
+      "state": {
+        "state": {
+          "todos": [
+            {
+              "text": "Yes",
+              "done": false
+            },
+            {
+              "text": "A new one",
               "done": true
             }
           ]
@@ -628,28 +3355,28 @@
       },
       "mutation": {
         "type": "deleteTodo",
-        "payload": "{\"todo\":{\"text\":\"A new one\",\"done\":false}}"
+        "payload": "{\"todo\":{\"text\":\"300\",\"done\":false}}"
       },
-      "timeDiff": "+ 0:01:030",
-      "id": 28,
+      "timeDiff": "+ 0:02:965",
+      "id": 16,
       "stateMutation": [
         {
           "kind": "E",
           "path": [
             "state",
             "todos",
-            0,
+            1,
             "text"
           ],
-          "lhs": "A new one",
-          "rhs": "Hello"
+          "lhs": "300",
+          "rhs": "A new one"
         },
         {
           "kind": "E",
           "path": [
             "state",
             "todos",
-            0,
+            1,
             "done"
           ],
           "lhs": false,
@@ -661,31 +3388,32 @@
             "state",
             "todos"
           ],
-          "index": 1,
+          "index": 2,
           "item": {
             "kind": "D",
             "lhs": {
-              "text": "Hello",
+              "text": "A new one",
               "done": true
             }
           }
         }
       ],
       "mutationPaths": [
-        "state.todos.0.text",
-        "state.todos.0.done",
+        "state.todos.1.text",
+        "state.todos.1.done",
         "state.todos"
       ]
     },
     {
       "kuker": true,
-      "time": 1515476442023,
+      "time": 1515562867467,
       "origin": "http://localhost:8082",
       "emitter": "Vue",
       "type": "@@vue_flush",
       "state": {
-        "inspectedInstance": {},
-        "instances": [
+        "name": "Vue",
+        "state": {},
+        "children": [
           {
             "id": "1:2",
             "name": "Root",
@@ -704,243 +3432,540 @@
                     "inactive": false,
                     "isFragment": false,
                     "children": [],
-                    "top": "__vue_devtool_infinity__",
-                    "consoleId": null
-                  }
-                ],
-                "top": "__vue_devtool_infinity__",
-                "consoleId": null
-              }
-            ],
-            "top": "__vue_devtool_infinity__",
-            "consoleId": null
-          }
-        ]
-      },
-      "timeDiff": "+ 0:00:003",
-      "id": 29,
-      "stateMutation": [
-        {
-          "kind": "E",
-          "path": [
-            "instances",
-            0,
-            "children",
-            0,
-            "children",
-            0,
-            "top"
-          ],
-          "lhs": 196,
-          "rhs": "__vue_devtool_infinity__"
-        },
-        {
-          "kind": "A",
-          "path": [
-            "instances",
-            0,
-            "children",
-            0,
-            "children"
-          ],
-          "index": 1,
-          "item": {
-            "kind": "D",
-            "lhs": {
-              "id": "1:5",
-              "name": "Todo",
-              "inactive": false,
-              "isFragment": false,
-              "children": [],
-              "top": 255,
-              "consoleId": null
-            }
-          }
-        }
-      ],
-      "mutationPaths": [
-        "instances.0.children.0.children.0.top",
-        "instances.0.children.0.children"
-      ]
-    },
-    {
-      "kuker": true,
-      "time": 1515476443323,
-      "origin": "http://localhost:8082",
-      "emitter": "Vue",
-      "type": "@@vue_flush",
-      "state": {
-        "inspectedInstance": {},
-        "instances": [
-          {
-            "id": "1:2",
-            "name": "Root",
-            "inactive": false,
-            "isFragment": false,
-            "children": [
-              {
-                "id": "1:3",
-                "name": "App",
-                "inactive": false,
-                "isFragment": false,
-                "children": [],
-                "top": "__vue_devtool_infinity__",
-                "consoleId": null
-              }
-            ],
-            "top": "__vue_devtool_infinity__",
-            "consoleId": null
-          }
-        ]
-      },
-      "timeDiff": "+ 0:01:300",
-      "id": 30,
-      "stateMutation": [
-        {
-          "kind": "A",
-          "path": [
-            "instances",
-            0,
-            "children",
-            0,
-            "children"
-          ],
-          "index": 0,
-          "item": {
-            "kind": "D",
-            "lhs": {
-              "id": "1:4",
-              "name": "Todo",
-              "inactive": false,
-              "isFragment": false,
-              "children": [],
-              "top": "__vue_devtool_infinity__",
-              "consoleId": null
-            }
-          }
-        }
-      ],
-      "mutationPaths": [
-        "instances.0.children.0.children"
-      ]
-    },
-    {
-      "kuker": true,
-      "time": 1515476444044,
-      "origin": "http://localhost:8082",
-      "emitter": "Vue",
-      "type": "@@vue_flush",
-      "state": {
-        "inspectedInstance": {},
-        "instances": [
-          {
-            "id": "1:2",
-            "name": "Root",
-            "inactive": false,
-            "isFragment": false,
-            "children": [
-              {
-                "id": "1:3",
-                "name": "App",
-                "inactive": false,
-                "isFragment": false,
-                "children": [
+                    "top": 196,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "A new one",
+                          "done": true
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 1
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "Yes",
+                        "done": false
+                      }
+                    }
+                  },
                   {
-                    "id": "1:6",
+                    "id": "1:5",
                     "name": "Todo",
                     "inactive": false,
                     "isFragment": false,
                     "children": [],
-                    "top": "__vue_devtool_infinity__",
-                    "consoleId": null
+                    "top": 255,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "A new one",
+                          "done": true
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 1
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "A new one",
+                        "done": true
+                      }
+                    }
                   }
                 ],
                 "top": "__vue_devtool_infinity__",
-                "consoleId": null
+                "consoleId": null,
+                "data": {
+                  "visibility": "all",
+                  "filters": {
+                    "all": {
+                      "__func": "all"
+                    },
+                    "active": {
+                      "__func": "active"
+                    },
+                    "completed": {
+                      "__func": "completed"
+                    }
+                  },
+                  "editing": false
+                },
+                "computed": {
+                  "todos": [
+                    {
+                      "text": "Yes",
+                      "done": false
+                    },
+                    {
+                      "text": "A new one",
+                      "done": true
+                    }
+                  ],
+                  "allChecked": false,
+                  "filteredTodos": "~todos",
+                  "remaining": 1
+                },
+                "props": {
+                  "todo": {
+                    "text": "A new one",
+                    "done": true
+                  }
+                }
               }
             ],
             "top": "__vue_devtool_infinity__",
-            "consoleId": null
+            "consoleId": null,
+            "data": {
+              "visibility": "all",
+              "filters": {
+                "all": {
+                  "__func": "all"
+                },
+                "active": {
+                  "__func": "active"
+                },
+                "completed": {
+                  "__func": "completed"
+                }
+              },
+              "editing": false
+            },
+            "computed": {
+              "todos": [
+                {
+                  "text": "Yes",
+                  "done": false
+                },
+                {
+                  "text": "A new one",
+                  "done": true
+                }
+              ],
+              "allChecked": false,
+              "filteredTodos": "~todos",
+              "remaining": 2
+            },
+            "props": {
+              "todo": {
+                "text": "A new one",
+                "done": true
+              }
+            }
           }
         ]
       },
-      "timeDiff": "+ 0:01:721",
-      "id": 31,
+      "timeDiff": "+ 0:00:005",
+      "id": 17,
       "stateMutation": [
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "todos",
+            1,
+            "text"
+          ],
+          "lhs": "300",
+          "rhs": "A new one"
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "todos",
+            1,
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
         {
           "kind": "A",
           "path": [
-            "instances",
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "todos"
+          ],
+          "index": 2,
+          "item": {
+            "kind": "D",
+            "lhs": {
+              "text": "A new one",
+              "done": true
+            }
+          }
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 2,
+          "rhs": 1
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "computed",
+            "todos",
+            1,
+            "text"
+          ],
+          "lhs": "300",
+          "rhs": "A new one"
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "computed",
+            "todos",
+            1,
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
+        {
+          "kind": "A",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "computed",
+            "todos"
+          ],
+          "index": 2,
+          "item": {
+            "kind": "D",
+            "lhs": {
+              "text": "A new one",
+              "done": true
+            }
+          }
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 2,
+          "rhs": 1
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "props",
+            "todo",
+            "text"
+          ],
+          "lhs": "300",
+          "rhs": "A new one"
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "props",
+            "todo",
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
+        {
+          "kind": "A",
+          "path": [
+            "children",
             0,
             "children",
             0,
             "children"
           ],
-          "index": 0,
+          "index": 2,
           "item": {
-            "kind": "N",
-            "rhs": {
+            "kind": "D",
+            "lhs": {
               "id": "1:6",
               "name": "Todo",
               "inactive": false,
               "isFragment": false,
               "children": [],
-              "top": "__vue_devtool_infinity__",
-              "consoleId": null
+              "top": 314,
+              "consoleId": null,
+              "data": {
+                "visibility": "all",
+                "filters": {
+                  "all": {
+                    "__func": "all"
+                  },
+                  "active": {
+                    "__func": "active"
+                  },
+                  "completed": {
+                    "__func": "completed"
+                  }
+                },
+                "editing": false
+              },
+              "computed": {
+                "todos": [
+                  {
+                    "text": "Yes",
+                    "done": false
+                  },
+                  {
+                    "text": "300",
+                    "done": false
+                  },
+                  {
+                    "text": "A new one",
+                    "done": true
+                  }
+                ],
+                "allChecked": false,
+                "filteredTodos": "~todos",
+                "remaining": 2
+              },
+              "props": {
+                "todo": {
+                  "text": "A new one",
+                  "done": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "todos",
+            1,
+            "text"
+          ],
+          "lhs": "300",
+          "rhs": "A new one"
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "todos",
+            1,
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
+        {
+          "kind": "A",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "todos"
+          ],
+          "index": 2,
+          "item": {
+            "kind": "D",
+            "lhs": {
+              "text": "A new one",
+              "done": true
+            }
+          }
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 2,
+          "rhs": 1
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "computed",
+            "todos",
+            1,
+            "text"
+          ],
+          "lhs": "300",
+          "rhs": "A new one"
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "computed",
+            "todos",
+            1,
+            "done"
+          ],
+          "lhs": false,
+          "rhs": true
+        },
+        {
+          "kind": "A",
+          "path": [
+            "children",
+            0,
+            "computed",
+            "todos"
+          ],
+          "index": 2,
+          "item": {
+            "kind": "D",
+            "lhs": {
+              "text": "A new one",
+              "done": true
             }
           }
         }
       ],
       "mutationPaths": [
-        "instances.0.children.0.children"
+        "children.0.children.0.children.0.computed.todos.1.text",
+        "children.0.children.0.children.0.computed.todos.1.done",
+        "children.0.children.0.children.0.computed.todos",
+        "children.0.children.0.children.0.computed.remaining",
+        "children.0.children.0.children.1.computed.todos.1.text",
+        "children.0.children.0.children.1.computed.todos.1.done",
+        "children.0.children.0.children.1.computed.todos",
+        "children.0.children.0.children.1.computed.remaining",
+        "children.0.children.0.children.1.props.todo.text",
+        "children.0.children.0.children.1.props.todo.done",
+        "children.0.children.0.children",
+        "children.0.children.0.computed.todos.1.text",
+        "children.0.children.0.computed.todos.1.done",
+        "children.0.children.0.computed.todos",
+        "children.0.children.0.computed.remaining",
+        "children.0.computed.todos.1.text",
+        "children.0.computed.todos.1.done",
+        "children.0.computed.todos"
       ]
     },
     {
       "kuker": true,
-      "time": 1515476444883,
-      "origin": "http://localhost:8082",
-      "emitter": "Vue",
-      "type": "@@vue_flush",
-      "state": {
-        "inspectedInstance": {},
-        "instances": [
-          {
-            "id": "1:2",
-            "name": "Root",
-            "inactive": false,
-            "isFragment": false,
-            "children": [
-              {
-                "id": "1:3",
-                "name": "App",
-                "inactive": false,
-                "isFragment": false,
-                "children": [
-                  {
-                    "id": "1:6",
-                    "name": "Todo",
-                    "inactive": false,
-                    "isFragment": false,
-                    "children": [],
-                    "top": "__vue_devtool_infinity__",
-                    "consoleId": null
-                  }
-                ],
-                "top": "__vue_devtool_infinity__",
-                "consoleId": null
-              }
-            ],
-            "top": "__vue_devtool_infinity__",
-            "consoleId": null
-          }
-        ]
-      },
-      "timeDiff": "+ 0:01:839",
-      "id": 32
-    },
-    {
-      "kuker": true,
-      "time": 1515476448410,
+      "time": 1515562869886,
       "origin": "http://localhost:8082",
       "emitter": "Vuex",
       "type": "@@vuex_vuex:mutation",
@@ -948,11 +3973,15 @@
         "state": {
           "todos": [
             {
-              "text": "Hello",
+              "text": "Yes",
+              "done": false
+            },
+            {
+              "text": "A new one",
               "done": true
             },
             {
-              "text": "Yes",
+              "text": "A new one",
               "done": false
             }
           ]
@@ -961,10 +3990,10 @@
       },
       "mutation": {
         "type": "addTodo",
-        "payload": "{\"text\":\"Yes\"}"
+        "payload": "{\"text\":\"A new one\"}"
       },
-      "timeDiff": "+ 0:04:527",
-      "id": 33,
+      "timeDiff": "+ 0:02:419",
+      "id": 18,
       "stateMutation": [
         {
           "kind": "A",
@@ -972,11 +4001,11 @@
             "state",
             "todos"
           ],
-          "index": 1,
+          "index": 2,
           "item": {
             "kind": "N",
             "rhs": {
-              "text": "Yes",
+              "text": "A new one",
               "done": false
             }
           }
@@ -988,13 +4017,14 @@
     },
     {
       "kuker": true,
-      "time": 1515476448413,
+      "time": 1515562869890,
       "origin": "http://localhost:8082",
       "emitter": "Vue",
       "type": "@@vue_flush",
       "state": {
-        "inspectedInstance": {},
-        "instances": [
+        "name": "Vue",
+        "state": {},
+        "children": [
           {
             "id": "1:2",
             "name": "Root",
@@ -1008,13 +4038,102 @@
                 "isFragment": false,
                 "children": [
                   {
-                    "id": "1:6",
+                    "id": "1:4",
                     "name": "Todo",
                     "inactive": false,
                     "isFragment": false,
                     "children": [],
                     "top": 196,
-                    "consoleId": null
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "A new one",
+                          "done": true
+                        },
+                        {
+                          "text": "A new one",
+                          "done": false
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 2
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "Yes",
+                        "done": false
+                      }
+                    }
+                  },
+                  {
+                    "id": "1:5",
+                    "name": "Todo",
+                    "inactive": false,
+                    "isFragment": false,
+                    "children": [],
+                    "top": 255,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "A new one",
+                          "done": true
+                        },
+                        {
+                          "text": "A new one",
+                          "done": false
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 2
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "A new one",
+                        "done": true
+                      }
+                    }
                   },
                   {
                     "id": "1:7",
@@ -1022,46 +4141,224 @@
                     "inactive": false,
                     "isFragment": false,
                     "children": [],
-                    "top": 255,
-                    "consoleId": null
+                    "top": 314,
+                    "consoleId": null,
+                    "data": {
+                      "visibility": "all",
+                      "filters": {
+                        "all": {
+                          "__func": "all"
+                        },
+                        "active": {
+                          "__func": "active"
+                        },
+                        "completed": {
+                          "__func": "completed"
+                        }
+                      },
+                      "editing": false
+                    },
+                    "computed": {
+                      "todos": [
+                        {
+                          "text": "Yes",
+                          "done": false
+                        },
+                        {
+                          "text": "A new one",
+                          "done": true
+                        },
+                        {
+                          "text": "A new one",
+                          "done": false
+                        }
+                      ],
+                      "allChecked": false,
+                      "filteredTodos": "~todos",
+                      "remaining": 2
+                    },
+                    "props": {
+                      "todo": {
+                        "text": "A new one",
+                        "done": false
+                      }
+                    }
                   }
                 ],
                 "top": "__vue_devtool_infinity__",
-                "consoleId": null
+                "consoleId": null,
+                "data": {
+                  "visibility": "all",
+                  "filters": {
+                    "all": {
+                      "__func": "all"
+                    },
+                    "active": {
+                      "__func": "active"
+                    },
+                    "completed": {
+                      "__func": "completed"
+                    }
+                  },
+                  "editing": false
+                },
+                "computed": {
+                  "todos": [
+                    {
+                      "text": "Yes",
+                      "done": false
+                    },
+                    {
+                      "text": "A new one",
+                      "done": true
+                    },
+                    {
+                      "text": "A new one",
+                      "done": false
+                    }
+                  ],
+                  "allChecked": false,
+                  "filteredTodos": "~todos",
+                  "remaining": 2
+                },
+                "props": {
+                  "todo": {
+                    "text": "A new one",
+                    "done": true
+                  }
+                }
               }
             ],
             "top": "__vue_devtool_infinity__",
-            "consoleId": null
+            "consoleId": null,
+            "data": {
+              "visibility": "all",
+              "filters": {
+                "all": {
+                  "__func": "all"
+                },
+                "active": {
+                  "__func": "active"
+                },
+                "completed": {
+                  "__func": "completed"
+                }
+              },
+              "editing": false
+            },
+            "computed": {
+              "todos": [
+                {
+                  "text": "Yes",
+                  "done": false
+                },
+                {
+                  "text": "A new one",
+                  "done": true
+                },
+                {
+                  "text": "A new one",
+                  "done": false
+                }
+              ],
+              "allChecked": false,
+              "filteredTodos": "~todos",
+              "remaining": 1
+            },
+            "props": {
+              "todo": {
+                "text": "A new one",
+                "done": true
+              }
+            }
           }
         ]
       },
-      "timeDiff": "+ 0:00:003",
-      "id": 34,
+      "timeDiff": "+ 0:00:004",
+      "id": 19,
       "stateMutation": [
+        {
+          "kind": "A",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "todos"
+          ],
+          "index": 2,
+          "item": {
+            "kind": "N",
+            "rhs": {
+              "text": "A new one",
+              "done": false
+            }
+          }
+        },
         {
           "kind": "E",
           "path": [
-            "instances",
-            0,
             "children",
             0,
             "children",
             0,
-            "top"
+            "children",
+            0,
+            "computed",
+            "remaining"
           ],
-          "lhs": "__vue_devtool_infinity__",
-          "rhs": 196
+          "lhs": 1,
+          "rhs": 2
         },
         {
           "kind": "A",
           "path": [
-            "instances",
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "computed",
+            "todos"
+          ],
+          "index": 2,
+          "item": {
+            "kind": "N",
+            "rhs": {
+              "text": "A new one",
+              "done": false
+            }
+          }
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "children",
+            1,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 1,
+          "rhs": 2
+        },
+        {
+          "kind": "A",
+          "path": [
+            "children",
             0,
             "children",
             0,
             "children"
           ],
-          "index": 1,
+          "index": 2,
           "item": {
             "kind": "N",
             "rhs": {
@@ -1070,169 +4367,122 @@
               "inactive": false,
               "isFragment": false,
               "children": [],
-              "top": 255,
-              "consoleId": null
-            }
-          }
-        }
-      ],
-      "mutationPaths": [
-        "instances.0.children.0.children.0.top",
-        "instances.0.children.0.children"
-      ]
-    },
-    {
-      "kuker": true,
-      "time": 1515476450100,
-      "origin": "http://localhost:8082",
-      "emitter": "Vuex",
-      "type": "@@vuex_vuex:mutation",
-      "state": {
-        "state": {
-          "todos": [
-            {
-              "text": "Yes",
-              "done": false
-            }
-          ]
-        },
-        "getters": {}
-      },
-      "mutation": {
-        "type": "clearCompleted",
-        "payload": "\"[object MouseEvent]\""
-      },
-      "timeDiff": "+ 0:02:687",
-      "id": 35,
-      "stateMutation": [
-        {
-          "kind": "E",
-          "path": [
-            "state",
-            "todos",
-            0,
-            "text"
-          ],
-          "lhs": "Hello",
-          "rhs": "Yes"
-        },
-        {
-          "kind": "E",
-          "path": [
-            "state",
-            "todos",
-            0,
-            "done"
-          ],
-          "lhs": true,
-          "rhs": false
-        },
-        {
-          "kind": "A",
-          "path": [
-            "state",
-            "todos"
-          ],
-          "index": 1,
-          "item": {
-            "kind": "D",
-            "lhs": {
-              "text": "Yes",
-              "done": false
-            }
-          }
-        }
-      ],
-      "mutationPaths": [
-        "state.todos.0.text",
-        "state.todos.0.done",
-        "state.todos"
-      ]
-    },
-    {
-      "kuker": true,
-      "time": 1515476450103,
-      "origin": "http://localhost:8082",
-      "emitter": "Vue",
-      "type": "@@vue_flush",
-      "state": {
-        "inspectedInstance": {},
-        "instances": [
-          {
-            "id": "1:2",
-            "name": "Root",
-            "inactive": false,
-            "isFragment": false,
-            "children": [
-              {
-                "id": "1:3",
-                "name": "App",
-                "inactive": false,
-                "isFragment": false,
-                "children": [
+              "top": 314,
+              "consoleId": null,
+              "data": {
+                "visibility": "all",
+                "filters": {
+                  "all": {
+                    "__func": "all"
+                  },
+                  "active": {
+                    "__func": "active"
+                  },
+                  "completed": {
+                    "__func": "completed"
+                  }
+                },
+                "editing": false
+              },
+              "computed": {
+                "todos": [
                   {
-                    "id": "1:6",
-                    "name": "Todo",
-                    "inactive": false,
-                    "isFragment": false,
-                    "children": [],
-                    "top": "__vue_devtool_infinity__",
-                    "consoleId": null
+                    "text": "Yes",
+                    "done": false
+                  },
+                  {
+                    "text": "A new one",
+                    "done": true
+                  },
+                  {
+                    "text": "A new one",
+                    "done": false
                   }
                 ],
-                "top": "__vue_devtool_infinity__",
-                "consoleId": null
+                "allChecked": false,
+                "filteredTodos": "~todos",
+                "remaining": 2
+              },
+              "props": {
+                "todo": {
+                  "text": "A new one",
+                  "done": false
+                }
               }
-            ],
-            "top": "__vue_devtool_infinity__",
-            "consoleId": null
+            }
           }
-        ]
-      },
-      "timeDiff": "+ 0:00:003",
-      "id": 36,
-      "stateMutation": [
-        {
-          "kind": "E",
-          "path": [
-            "instances",
-            0,
-            "children",
-            0,
-            "children",
-            0,
-            "top"
-          ],
-          "lhs": 196,
-          "rhs": "__vue_devtool_infinity__"
         },
         {
           "kind": "A",
           "path": [
-            "instances",
+            "children",
             0,
             "children",
             0,
-            "children"
+            "computed",
+            "todos"
           ],
-          "index": 1,
+          "index": 2,
           "item": {
-            "kind": "D",
-            "lhs": {
-              "id": "1:7",
-              "name": "Todo",
-              "inactive": false,
-              "isFragment": false,
-              "children": [],
-              "top": 255,
-              "consoleId": null
+            "kind": "N",
+            "rhs": {
+              "text": "A new one",
+              "done": false
             }
           }
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "children",
+            0,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 1,
+          "rhs": 2
+        },
+        {
+          "kind": "A",
+          "path": [
+            "children",
+            0,
+            "computed",
+            "todos"
+          ],
+          "index": 2,
+          "item": {
+            "kind": "N",
+            "rhs": {
+              "text": "A new one",
+              "done": false
+            }
+          }
+        },
+        {
+          "kind": "E",
+          "path": [
+            "children",
+            0,
+            "computed",
+            "remaining"
+          ],
+          "lhs": 2,
+          "rhs": 1
         }
       ],
       "mutationPaths": [
-        "instances.0.children.0.children.0.top",
-        "instances.0.children.0.children"
+        "children.0.children.0.children.0.computed.todos",
+        "children.0.children.0.children.0.computed.remaining",
+        "children.0.children.0.children.1.computed.todos",
+        "children.0.children.0.children.1.computed.remaining",
+        "children.0.children.0.children",
+        "children.0.children.0.computed.todos",
+        "children.0.children.0.computed.remaining",
+        "children.0.computed.todos",
+        "children.0.computed.remaining"
       ]
     }
   ],

@@ -5,14 +5,11 @@ import { connect } from 'stent/lib/react';
 import renderJSON from '../../helpers/renderJSON';
 
 function HTMLPin({ component }) {
-  const { name, props, state, children, ...other } = component;
+  const { name, children, ...other } = component;
 
   return (
     <div className='HTMLPin'>
-      <p><strong>&lt;{ name }&gt;</strong></p>
-      { props && Object.keys(props).length > 0 && renderJSON(props, 'props') }
-      { state && Object.keys(state).length > 0 && renderJSON(state, 'state') }
-      { other && Object.keys(other).length > 0 && renderJSON(other, '...') }
+      { other && Object.keys(other).length > 0 && renderJSON(other, <strong>&lt;{ name }&gt;</strong>) }
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { installHook } from 'src/backend/hook';
+import { sanitize } from 'kuker-emitters';
 
 const MAX_MESSAGES_TO_CACHE = 50;
 const HOOK_KEY = '__VUE_DEVTOOLS_GLOBAL_HOOK__';
@@ -19,11 +20,14 @@ const detect = function (callback) {
 };
 
 installHook(window);
-detect(() => {
+detect(error => {
+  if (error) return;
+
   const listeners = [];
   const bridgeListeners = {};
-  const { initBackend } = require('src/backend/index');
+  const { initBackend, getInstanceDetails } = require('src/backend/index');
   const messages = [];
+  const defaultInstanceCharacteristics = { data: {}, computed: {}, props: {} };
 
   window[KUKER_HOOK_KEY] = {
     listen: function (callback) {
@@ -32,18 +36,55 @@ detect(() => {
     }
   };
 
+  function populateVueTreeWithInstanceDetails(tree) {
+    return (function process(node) {
+      if (node && node.id) {
+        const { name, state } = getInstanceDetails(node.id);
+        const { data, computed, props } = state && Array.isArray(state) ? state.reduce((result, item) => {
+          if (item.type === 'computed') {
+            result.computed[item.key] = item.value;
+          } else if (item.type === 'props') {
+            result.props[item.key] = item.value;
+          } else {
+            result.data[item.key] = item.value;
+          }
+          return result;
+        }, defaultInstanceCharacteristics) : defaultInstanceCharacteristics;
+
+        node = Object.assign(
+          node,
+          name && { name },
+          { data: sanitize(data), computed: sanitize(computed), props: sanitize(props) }
+        );
+      }
+      if (node.children && node.children.length > 0) {
+        node.children = node.children.map(process);
+      }
+      return node;
+    })({
+      name: 'Vue',
+      state: {},
+      children: tree.instances || []
+    });
+  }
+
   initBackend({
     on: function (type, callback) {
+      // we are currently not using these listeners but who knows ...
       if (!bridgeListeners[type]) bridgeListeners[type] = [];
       bridgeListeners[type].push(callback);
     },
     send: function (type, payload) {
-      console.log('------------> ' + type);
       if (messages.length > MAX_MESSAGES_TO_CACHE) messages.shift();
-      messages.push({ type, payload });
-      if (type === 'flush' && bridgeListeners['select-instance']) {
-        // bridgeListeners['select-instance'][0]('1:5');
+      if (type === 'flush') {
+        try {
+          payload = populateVueTreeWithInstanceDetails(JSON.parse(payload));
+        } catch (error) {
+          console.error('Vue tree can not be deserialized to json.');
+          payload = {};
+        }
       }
+      messages.push({ type, payload });
       listeners.forEach(l => l(type, payload));
     },
     log: function () {}

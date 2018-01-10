@@ -56,7 +56,7 @@ function labelRenderer(what, onItemClick) {
       </a>) :
       null;
 
-    if (key[0] === 'root' && parentKey === 'Object' && rootKey === true) {
+    if (key[0] === 'root' && (parentKey === 'Object' || parentKey === 'Array') && rootKey === true) {
       return what;
     }
     return <span><strong>{ key[0] }</strong>{ clickMeIcon }</span>;

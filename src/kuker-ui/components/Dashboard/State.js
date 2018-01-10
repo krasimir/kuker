@@ -5,6 +5,7 @@ import JSONTree from '../JSONTree';
 import ReactEvent from './Handlers/React';
 import AngularEvent from './Handlers/Angular';
 import VueEvent from './Handlers/Vue';
+import HTMLPin from './HTMLPin';
 
 export default function State({ pinnedEvent }) {
   if (
@@ -12,7 +13,7 @@ export default function State({ pinnedEvent }) {
     AngularEvent.isAngularEvent(pinnedEvent) ||
     VueEvent.isVueEvent(pinnedEvent)
   ) {
-    return <HTMLTree />;
+    return <HTMLTree Pin={ HTMLPin }/>;
   }
   return <JSONTree />;
 }

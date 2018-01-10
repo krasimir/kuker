@@ -38399,28 +38399,19 @@ function HTMLPin(_ref) {
   var component = _ref.component;
 
   var name = component.name,
-      props = component.props,
-      state = component.state,
       children = component.children,
-      other = _objectWithoutProperties(component, ['name', 'props', 'state', 'children']);
+      other = _objectWithoutProperties(component, ['name', 'children']);
 
   return _react2.default.createElement(
     'div',
     { className: 'HTMLPin' },
-    _react2.default.createElement(
-      'p',
+    other && Object.keys(other).length > 0 && (0, _renderJSON2.default)(other, _react2.default.createElement(
+      'strong',
       null,
-      _react2.default.createElement(
-        'strong',
-        null,
-        '<',
-        name,
-        '>'
-      )
-    ),
-    props && Object.keys(props).length > 0 && (0, _renderJSON2.default)(props, 'props'),
-    state && Object.keys(state).length > 0 && (0, _renderJSON2.default)(state, 'state'),
-    other && Object.keys(other).length > 0 && (0, _renderJSON2.default)(other, '...')
+      '<',
+      name,
+      '>'
+    ))
   );
 };
 
@@ -39499,7 +39490,6 @@ function VueEvent(_ref) {
     )
   );
 }
-// eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 ;
 
@@ -41212,13 +41202,17 @@ var _Vue = require('./Handlers/Vue');
 
 var _Vue2 = _interopRequireDefault(_Vue);
 
+var _HTMLPin = require('./HTMLPin');
+
+var _HTMLPin2 = _interopRequireDefault(_HTMLPin);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function State(_ref) {
   var pinnedEvent = _ref.pinnedEvent;
 
   if (_React2.default.isReactEvent(pinnedEvent) || _Angular2.default.isAngularEvent(pinnedEvent) || _Vue2.default.isVueEvent(pinnedEvent)) {
-    return _react2.default.createElement(_HTMLTree2.default, null);
+    return _react2.default.createElement(_HTMLTree2.default, { Pin: _HTMLPin2.default });
   }
   return _react2.default.createElement(_JSONTree2.default, null);
 }
@@ -41227,7 +41221,7 @@ State.propTypes = {
   pinnedEvent: _propTypes2.default.object
 };
 
-},{"../HTMLTree":485,"../JSONTree":486,"./Handlers/Angular":450,"./Handlers/React":454,"./Handlers/Vue":461,"prop-types":161,"react":425}],482:[function(require,module,exports){
+},{"../HTMLTree":485,"../JSONTree":486,"./HTMLPin":449,"./Handlers/Angular":450,"./Handlers/React":454,"./Handlers/Vue":461,"prop-types":161,"react":425}],482:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41584,10 +41578,6 @@ var _formatPropValue = require('../helpers/formatPropValue');
 
 var _formatPropValue2 = _interopRequireDefault(_formatPropValue);
 
-var _HTMLPin = require('./Dashboard/HTMLPin');
-
-var _HTMLPin2 = _interopRequireDefault(_HTMLPin);
-
 var _formatHTMLMutation = require('../helpers/formatHTMLMutation');
 
 var _formatHTMLMutation2 = _interopRequireDefault(_formatHTMLMutation);
@@ -41772,7 +41762,8 @@ var HTMLTree = function (_React$Component) {
 
       var _props = this.props,
           pinnedEvent = _props.pinnedEvent,
-          filter = _props.filter;
+          filter = _props.filter,
+          Pin = _props.Pin;
 
       var trees = [];
 
@@ -41807,7 +41798,7 @@ var HTMLTree = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'logDetails' },
-          this.state.htmlPin && _react2.default.createElement(_HTMLPin2.default, { component: this.state.htmlPin.component })
+          this.state.htmlPin && _react2.default.createElement(Pin, { component: this.state.htmlPin.component })
         )
       );
     }
@@ -41820,7 +41811,8 @@ var HTMLTree = function (_React$Component) {
 
 HTMLTree.propTypes = {
   pinnedEvent: _propTypes2.default.object,
-  filter: _propTypes2.default.string
+  filter: _propTypes2.default.string,
+  Pin: _propTypes2.default.any
 };
 
 exports.default = (0, _react3.connect)(HTMLTree).with('Pinned', 'DevTools').map(function (_ref, devtools) {
@@ -41831,7 +41823,7 @@ exports.default = (0, _react3.connect)(HTMLTree).with('Pinned', 'DevTools').map(
   };
 });
 
-},{"../helpers/formatHTMLMutation":495,"../helpers/formatPropValue":498,"./Dashboard/HTMLPin":449,"prop-types":161,"react":425,"stent/lib/react":444}],486:[function(require,module,exports){
+},{"../helpers/formatHTMLMutation":495,"../helpers/formatPropValue":498,"prop-types":161,"react":425,"stent/lib/react":444}],486:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43002,7 +42994,7 @@ function labelRenderer(what, onItemClick) {
       _react2.default.createElement('i', { className: 'fa fa-eye viewMutationIcon' })
     ) : null;
 
-    if (key[0] === 'root' && parentKey === 'Object' && rootKey === true) {
+    if (key[0] === 'root' && (parentKey === 'Object' || parentKey === 'Array') && rootKey === true) {
       return what;
     }
     return _react2.default.createElement(
