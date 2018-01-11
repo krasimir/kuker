@@ -1,4 +1,4 @@
-* web sockets in `message` so we can see the server-side-renderd
-* MobX, cycle.js, RxJS emitters
-* Analysis (show how the state changes on every event)
-* React component emitter
+* When working together with VueDevtools we see an error message because of Object.create
+* increase the limit
+* clear the pin for a upcoming events. The pin stays even tho there is a new event
+* keep the filters when we clear
