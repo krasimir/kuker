@@ -4,15 +4,13 @@
 
 <p align="center">
 Kuker :heart:
-
-[React](#integration-with-react), 
-[Angular](#integration-with-angular), 
-[Redux](#integration-with-redux), 
-[redux-saga](#integration-with-redux-saga), 
-[Stent](#integration-with-stent), 
-[Machina.js](#integration-with-machinajs), 
-[MobX](#integration-with-mobx)
-
+<a href="#integration-with-react">React</a>, 
+<a href="#integration-with-angular">Angular</a>, 
+<a href="#integration-with-redux">Redux</a>, 
+<a href="#integration-with-redux-saga">redux-saga</a>, 
+<a href="#integration-with-stent">Stent</a>, 
+<a href="#integration-with-machinajs">Machina.js</a>, 
+<a href="#integration-with-mobx">MobX</a>
 </p>
 
 ---
