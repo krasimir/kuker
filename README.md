@@ -2,7 +2,7 @@
 
 ---
 
-<center>
+<p align="center">
 Kuker :heart: 
 [React](#integration-with-react), 
 [Angular](#integration-with-angular), 
@@ -11,9 +11,9 @@ Kuker :heart:
 [Stent](#integration-with-stent), 
 [Machina.js](#integration-with-machinajs), 
 [MobX](#integration-with-mobx)
-</center>
+</p>
 
-<hr />
+---
 
 <small>You want your framework listed here? Check out the [Emitters](#emitters) section and learn how to integrate it with Kuker.</small>
 
