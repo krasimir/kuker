@@ -108,6 +108,8 @@ import { VueEmitter } from 'kuker-emitters';
 VueEmitter();
 ```
 
+The same `VueEmitter` works for [Vuex](https://github.com/vuejs/vuex) too.
+
 * [TodoMVC example](http://work.krasimirtsonev.com/git/vuex-vue-todomvc/)
 
 ![screenshot vue emitter](./img/kuker-emitters/screenshot_vue.jpg)
