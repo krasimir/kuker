@@ -1,8 +1,15 @@
-# Kuker
-
 ![kuker](./img/kuker_banner.jpg)
 
-Chrome extension to debug your apps.
+Kuker :heart: 
+[React](#integration-with-react), 
+[Angular](#integration-with-angular), 
+[Redux](#integration-with-redux), 
+[redux-saga](#integration-with-redux-saga), 
+[Stent](#integration-with-stent), 
+[Machina.js](#integration-with-machinajs), 
+[MobX](#integration-with-mobx)
+
+You want your framework listed here? Check out the [Emitters](#emitters) section and learn how to integrate it with Kuker.
 
 ## How to use it
 
