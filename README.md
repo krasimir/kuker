@@ -6,6 +6,7 @@
 Kuker :heart:
 <a href="#integration-with-react">React</a>, 
 <a href="#integration-with-angular">Angular</a>, 
+<a href="#integration-with-vue">Vue & Vuex</a>, 
 <a href="#integration-with-redux">Redux</a>, 
 <a href="#integration-with-redux-saga">redux-saga</a>, 
 <a href="#integration-with-stent">Stent</a>, 
@@ -61,6 +62,7 @@ To make the extension work you have to *instrument* your application. You have t
 
 * [React](#integration-with-react)
 * [Angular](#integration-with-angular)
+* [Vue and Vuex](#integration-with-vue)
 * [Redux](#integration-with-redux)
 * [redux-saga](#integration-with-redux-saga)
 * [Stent](#integration-with-stent)
@@ -96,7 +98,19 @@ AngularEmitter();
 
 [Simple Angular application](http://work.krasimirtsonev.com/angular-test/)
 
-![screenshot angular emitter](./img/kuker-emitters/screenshot_angular.jpg)
+![screenshot angular emitter](./img/screenshot_angular.jpg)
+
+### Integration with [Vue](https://github.com/vuejs/)
+
+```js
+import { VueEmitter } from 'kuker-emitters';
+
+VueEmitter();
+```
+
+* [TodoMVC example](http://work.krasimirtsonev.com/git/vuex-vue-todomvc/)
+
+![screenshot vue emitter](./img/kuker-emitters/screenshot_vue.jpg)
 
 ### Integration with [Redux](https://redux.js.org/)
 
