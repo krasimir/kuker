@@ -32,11 +32,13 @@ function getMutationIcon(kind) {
 function formatSide(side) {
   if (typeof side === 'object' && side !== null) {
     return renderJSONPreview(side);
+  } else if (!isDefined(side)) {
+    return null;
   }
   return String(side);
 }
 function formatPath(mutation) {
-  const index = mutation.kind === 'A' ? `[${ mutation.index }] ` : null;
+  const index = mutation.kind === 'A' ? `.${ mutation.index }` : null;
   const path = mutation.path;
 
   if (path) {
@@ -59,11 +61,14 @@ function formatSingleMutation(mutation, indent = 0) {
 
   switch (mutation.kind) {
     case 'N':
+      const left = formatPath(mutation) || formatSide(mutation.lhs) || null;
+      const right = formatSide(mutation.rhs);
+
       mutationBit = (
         <span>
-          {
-            formatPath(mutation) || formatSide(mutation.lhs)
-          } = { formatSide(mutation.rhs) }
+          { left }
+          { left && right && ' = ' }
+          { formatSide(mutation.rhs) }
         </span>
       );
       break;
@@ -71,7 +76,7 @@ function formatSingleMutation(mutation, indent = 0) {
       mutationBit = (
         <span>
           { formatPath(mutation) }&nbsp;
-          (<span className='strike'>{ formatSide(mutation.lhs) }</span> = { formatSide(mutation.rhs) })
+          (<span className='strike'>{ formatSide(mutation.lhs) }</span> <i className='fa fa-long-arrow-right'></i> { formatSide(mutation.rhs) })
         </span>
       );
       break;
@@ -100,25 +105,11 @@ function formatSingleMutation(mutation, indent = 0) {
       { mutationBit }
     </div>
   );
-
-  // return (
-  //   <div style={{ marginLeft: (indent * 1.5) + 'em' }}>
-  //     <div>
-  //       { getMutationIcon(mutation.kind) }
-  //       { formatPath(mutation) }
-  //       { mutation.kind === 'A' && formatSingleMutation(mutation.item, indent + 1) }
-  //     </div>
-  //     <div style={{ marginLeft: '1.2em' }}>
-  //       { isDefined(mutation.lhs) && formatSide(mutation.lhs) }
-  //       { isDefined(mutation.rhs) && <span> <i className='fa fa-long-arrow-right'></i> { formatSide(mutation.rhs) }</span> }
-  //     </div>
-  //   </div>
-  // );
 }
 
 export default function formatJSONMutation(mutations) {
   if (!mutations) return null;
-  console.log(mutations);
+
   return (
     <div className='stateMutation'>
       <div className='diff'></div>

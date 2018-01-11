@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'stent/lib/react';
 import formatPropValue from '../helpers/formatPropValue';
-import formatHTMLMutation from '../helpers/formatHTMLMutation';
+import HTMLMutation from './HTMLMutation';
 
 var HTMLTreeState = { mouseOver: '' };
 var filteredTreesCache = {};
@@ -118,7 +118,7 @@ class HTMLTree extends React.Component {
             trees.map((tree, i) =>
               <div key={ i } className='filteredTreeResult'>{ this._renderTag(tree, 0, i + 'a') }</div>)
           }
-          { formatHTMLMutation(pinnedEvent) }
+          <HTMLMutation pinnedEvent={ pinnedEvent } filter={ filter } />
         </div>
         <div className='logDetails'>
           { this.state.htmlPin && <Pin component={ this.state.htmlPin.component } /> }

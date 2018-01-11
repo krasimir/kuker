@@ -21,6 +21,6 @@ export default class ExpandablePath extends React.Component {
   }
 };
 ExpandablePath.propTypes = {
-  full: PropTypes.string,
-  short: PropTypes.string
+  full: PropTypes.object,
+  short: PropTypes.object
 };
