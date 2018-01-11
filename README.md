@@ -2,7 +2,8 @@
 
 ---
 
-<center>Kuker :heart: 
+<center>
+Kuker :heart: 
 [React](#integration-with-react), 
 [Angular](#integration-with-angular), 
 [Redux](#integration-with-redux), 
