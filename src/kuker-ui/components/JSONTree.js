@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Tree from './Tree';
 import { connect } from 'stent/lib/react';
-import formatJSONMutation from '../helpers/formatJSONMutation';
+import JSONMutation from './JSONMutation';
 import MutationPin from './Dashboard/MutationPin';
 
 var filteredTreesCache = {};
@@ -58,7 +58,7 @@ class JSONTree extends React.Component {
               </div>
             )
           }
-          { formatJSONMutation(pinnedEvent.stateMutation) }
+          <JSONMutation mutations={ pinnedEvent.stateMutation } filter={ filter }/>
         </div>
         <div className='logDetails'>
           <MutationPin />

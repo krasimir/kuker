@@ -38237,7 +38237,7 @@ App.propTypes = {
   page: _propTypes2.default.string
 };
 
-},{"../constants":492,"./Dashboard":484,"prop-types":161,"react":425,"stent/lib/react":444}],447:[function(require,module,exports){
+},{"../constants":495,"./Dashboard":484,"prop-types":161,"react":425,"stent/lib/react":444}],447:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38284,7 +38284,7 @@ Event.propTypes = {
   event: _propTypes2.default.object
 };
 
-},{"../Tree":489,"prop-types":161,"react":425}],448:[function(require,module,exports){
+},{"../Tree":491,"prop-types":161,"react":425}],448:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38369,7 +38369,7 @@ EventListRow.propTypes = {
   sources: _propTypes2.default.object
 };
 
-},{"../../helpers/getRandomColor":500,"./Handlers":466,"./handlers/UnrecognizedEvent":482,"prop-types":161,"react":425}],449:[function(require,module,exports){
+},{"../../helpers/getRandomColor":504,"./Handlers":466,"./handlers/UnrecognizedEvent":482,"prop-types":161,"react":425}],449:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38421,7 +38421,7 @@ HTMLPin.propTypes = {
 
 exports.default = (0, _react3.connect)(HTMLPin).with('Pinned').map();
 
-},{"../../helpers/renderJSON":505,"prop-types":161,"react":425,"stent/lib/react":444}],450:[function(require,module,exports){
+},{"../../helpers/renderJSON":511,"prop-types":161,"react":425,"stent/lib/react":444}],450:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38504,7 +38504,7 @@ AngularEvent.isAngularEvent = function (_ref2) {
   return type.split('_')[0] === '@@angular';
 };
 
-},{"../../TimeDiff":488,"../../icons/AngularIcon":490,"./helpers/calculateRowStyles":465,"prop-types":161,"react":425}],451:[function(require,module,exports){
+},{"../../TimeDiff":490,"../../icons/AngularIcon":492,"./helpers/calculateRowStyles":465,"prop-types":161,"react":425}],451:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38738,7 +38738,7 @@ MobX.propTypes = {
   className: _propTypes2.default.string
 };
 
-},{"../../../helpers/readFromPath":503,"../../../helpers/shortenJSON":507,"../../TimeDiff":488,"./helpers/calculateRowStyles":465,"prop-types":161,"react":425}],452:[function(require,module,exports){
+},{"../../../helpers/readFromPath":509,"../../../helpers/shortenJSON":513,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"prop-types":161,"react":425}],452:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38924,7 +38924,7 @@ ReactEvent.isReactEvent = function (_ref2) {
   return type.split('_')[0] === '@@react';
 };
 
-},{"../../TimeDiff":488,"../../icons/ReactIcon":491,"./helpers/calculateRowStyles":465,"prop-types":161,"react":425}],455:[function(require,module,exports){
+},{"../../TimeDiff":490,"../../icons/ReactIcon":494,"./helpers/calculateRowStyles":465,"prop-types":161,"react":425}],455:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39010,7 +39010,7 @@ function ReduxAction(_ref) {
   );
 }
 
-},{"../../../helpers/isDefined":501,"../../../helpers/renderJSONPreview":506,"../../TimeDiff":488,"./helpers/SagaEffectName":464,"./helpers/calculateRowStyles":465,"react":425}],456:[function(require,module,exports){
+},{"../../../helpers/isDefined":505,"../../../helpers/renderJSONPreview":512,"../../TimeDiff":490,"./helpers/SagaEffectName":464,"./helpers/calculateRowStyles":465,"react":425}],456:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39082,7 +39082,7 @@ function SagaEffectActionDispatched(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/isDefined":501,"../../TimeDiff":488,"./helpers/SagaEffectName":464,"./helpers/calculateRowStyles":465,"react":425}],457:[function(require,module,exports){
+},{"../../../helpers/isDefined":505,"../../TimeDiff":490,"./helpers/SagaEffectName":464,"./helpers/calculateRowStyles":465,"react":425}],457:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39141,7 +39141,7 @@ function SagaEffectCanceled(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../TimeDiff":488,"./helpers/SagaEffectIds":463,"./helpers/SagaEffectName":464,"./helpers/calculateRowStyles":465,"react":425}],458:[function(require,module,exports){
+},{"../../TimeDiff":490,"./helpers/SagaEffectIds":463,"./helpers/SagaEffectName":464,"./helpers/calculateRowStyles":465,"react":425}],458:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39223,7 +39223,7 @@ function SagaEffectCanceled(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/isDefined":501,"../../../helpers/readFromPath":503,"../../TimeDiff":488,"./helpers/SagaEffectIds":463,"./helpers/SagaEffectName":464,"./helpers/calculateRowStyles":465,"react":425}],459:[function(require,module,exports){
+},{"../../../helpers/isDefined":505,"../../../helpers/readFromPath":509,"../../TimeDiff":490,"./helpers/SagaEffectIds":463,"./helpers/SagaEffectName":464,"./helpers/calculateRowStyles":465,"react":425}],459:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39334,7 +39334,7 @@ function SagaEffectResolved(_ref) {
   );
 }
 
-},{"../../../helpers/isDefined":501,"../../../helpers/renderJSONPreview":506,"../../TimeDiff":488,"./helpers/SagaEffectIds":463,"./helpers/SagaEffectName":464,"./helpers/calculateRowStyles":465,"react":425}],460:[function(require,module,exports){
+},{"../../../helpers/isDefined":505,"../../../helpers/renderJSONPreview":512,"../../TimeDiff":490,"./helpers/SagaEffectIds":463,"./helpers/SagaEffectName":464,"./helpers/calculateRowStyles":465,"react":425}],460:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39431,7 +39431,7 @@ function SagaEffectTriggered(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/isDefined":501,"../../../helpers/readFromPath":503,"../../TimeDiff":488,"./helpers/SagaEffectIds":463,"./helpers/SagaEffectName":464,"./helpers/calculateRowStyles":465,"react":425}],461:[function(require,module,exports){
+},{"../../../helpers/isDefined":505,"../../../helpers/readFromPath":509,"../../TimeDiff":490,"./helpers/SagaEffectIds":463,"./helpers/SagaEffectName":464,"./helpers/calculateRowStyles":465,"react":425}],461:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39504,7 +39504,7 @@ VueEvent.isVueEvent = function (_ref2) {
   return type.split('_')[0] === '@@vue';
 };
 
-},{"../../TimeDiff":488,"../../icons/AngularIcon":490,"./helpers/calculateRowStyles":465,"prop-types":161,"react":425}],462:[function(require,module,exports){
+},{"../../TimeDiff":490,"../../icons/AngularIcon":492,"./helpers/calculateRowStyles":465,"prop-types":161,"react":425}],462:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39583,7 +39583,7 @@ VuexEvent.propTypes = {
   className: _propTypes2.default.string
 };
 
-},{"../../TimeDiff":488,"../../icons/AngularIcon":490,"./helpers/calculateRowStyles":465,"prop-types":161,"react":425}],463:[function(require,module,exports){
+},{"../../TimeDiff":490,"../../icons/AngularIcon":492,"./helpers/calculateRowStyles":465,"prop-types":161,"react":425}],463:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39636,7 +39636,7 @@ SagaEffectIds.propTypes = {
   event: _propTypes2.default.object
 };
 
-},{"../../../../helpers/isDefined":501,"../../../../helpers/readFromPath":503,"prop-types":161,"react":425}],464:[function(require,module,exports){
+},{"../../../../helpers/isDefined":505,"../../../../helpers/readFromPath":509,"prop-types":161,"react":425}],464:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39793,7 +39793,7 @@ SagaEffectName.propTypes = {
   effect: _propTypes2.default.any
 };
 
-},{"../../../../helpers/readFromPath":503,"prop-types":161,"react":425}],465:[function(require,module,exports){
+},{"../../../../helpers/readFromPath":509,"prop-types":161,"react":425}],465:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40010,7 +40010,7 @@ onActionDispatched.propTypes = {
   className: _propTypes2.default.string
 };
 
-},{"../../../helpers/getMachineName":499,"../../TimeDiff":488,"./helpers/calculateRowStyles":465,"prop-types":161,"react":425}],468:[function(require,module,exports){
+},{"../../../helpers/getMachineName":503,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"prop-types":161,"react":425}],468:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40071,7 +40071,7 @@ function onActionProcessed(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":499,"../../TimeDiff":488,"./helpers/calculateRowStyles":465,"react":425}],469:[function(require,module,exports){
+},{"../../../helpers/getMachineName":503,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"react":425}],469:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40134,7 +40134,7 @@ function onGeneratorEnd(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":499,"../../../helpers/shortenJSON":507,"../../TimeDiff":488,"./helpers/calculateRowStyles":465,"react":425}],470:[function(require,module,exports){
+},{"../../../helpers/getMachineName":503,"../../../helpers/shortenJSON":513,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"react":425}],470:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40197,7 +40197,7 @@ function onGeneratorResumed(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":499,"../../../helpers/shortenJSON":507,"../../TimeDiff":488,"./helpers/calculateRowStyles":465,"react":425}],471:[function(require,module,exports){
+},{"../../../helpers/getMachineName":503,"../../../helpers/shortenJSON":513,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"react":425}],471:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40302,7 +40302,7 @@ function onGeneratorStep(_ref) {
   );
 };
 
-},{"../../../helpers/getMachineName":499,"../../../helpers/shortenJSON":507,"../../TimeDiff":488,"./helpers/calculateRowStyles":465,"react":425}],472:[function(require,module,exports){
+},{"../../../helpers/getMachineName":503,"../../../helpers/shortenJSON":513,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"react":425}],472:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40365,7 +40365,7 @@ function onMachineConnected(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":499,"../../TimeDiff":488,"./helpers/calculateRowStyles":465,"react":425}],473:[function(require,module,exports){
+},{"../../../helpers/getMachineName":503,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"react":425}],473:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40421,7 +40421,7 @@ function onMachineCreated(_ref) {
 // eslint-disable-next-line no-unused-vars
 ;
 
-},{"../../../helpers/getMachineName":499,"../../TimeDiff":488,"./helpers/calculateRowStyles":465,"react":425}],474:[function(require,module,exports){
+},{"../../../helpers/getMachineName":503,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"react":425}],474:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40484,7 +40484,7 @@ function onMachineDisconnected(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":499,"../../TimeDiff":488,"./helpers/calculateRowStyles":465,"react":425}],475:[function(require,module,exports){
+},{"../../../helpers/getMachineName":503,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"react":425}],475:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40544,7 +40544,7 @@ function onStateChanged(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":499,"../../TimeDiff":488,"./helpers/calculateRowStyles":465,"react":425}],476:[function(require,module,exports){
+},{"../../../helpers/getMachineName":503,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"react":425}],476:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40605,7 +40605,7 @@ function onStateWillChange(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":499,"../../TimeDiff":488,"./helpers/calculateRowStyles":465,"react":425}],477:[function(require,module,exports){
+},{"../../../helpers/getMachineName":503,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"react":425}],477:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41221,7 +41221,7 @@ State.propTypes = {
   pinnedEvent: _propTypes2.default.object
 };
 
-},{"../HTMLTree":486,"../JSONTree":487,"./HTMLPin":449,"./Handlers/Angular":450,"./Handlers/React":454,"./Handlers/Vue":461,"prop-types":161,"react":425}],482:[function(require,module,exports){
+},{"../HTMLTree":486,"../JSONTree":488,"./HTMLPin":449,"./Handlers/Angular":450,"./Handlers/React":454,"./Handlers/Vue":461,"prop-types":161,"react":425}],482:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41286,7 +41286,7 @@ UnrecognizedEvent.propTypes = {
   className: _propTypes2.default.string
 };
 
-},{"../../TimeDiff":488,"./helpers/calculateRowStyles":483,"prop-types":161,"react":425}],483:[function(require,module,exports){
+},{"../../TimeDiff":490,"./helpers/calculateRowStyles":483,"prop-types":161,"react":425}],483:[function(require,module,exports){
 arguments[4][465][0].apply(exports,arguments)
 },{"dup":465}],484:[function(require,module,exports){
 'use strict';
@@ -41562,9 +41562,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /* eslint-ignore max-len */
-
-
 exports.default = HTMLMutation;
 
 var _react = require('react');
@@ -41575,17 +41572,18 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _renderJSONPreview = require('../helpers/renderJSONPreview');
+var _normalizeMutationPathParts = require('../helpers/normalizeMutationPathParts');
 
-var _renderJSONPreview2 = _interopRequireDefault(_renderJSONPreview);
+var _normalizeMutationPathParts2 = _interopRequireDefault(_normalizeMutationPathParts);
 
-var _ExpandablePath = require('../helpers/ExpandablePath');
+var _SingleMutation = require('./SingleMutation');
 
-var _ExpandablePath2 = _interopRequireDefault(_ExpandablePath);
+var _SingleMutation2 = _interopRequireDefault(_SingleMutation);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; } /* eslint-ignore max-len */
+
 
 /*
 kind - indicates the kind of change; will be one of the following:
@@ -41600,43 +41598,6 @@ index - when kind === 'A', indicates the array index where the change occurred
 item - when kind === 'A', contains a nested change record indicating the change that occurred at the array index
 */
 
-function joinReact(delimiter, arr) {
-  return _react2.default.createElement(
-    'span',
-    null,
-    arr.map(function (element, i) {
-      if (i < arr.length - 1) {
-        return _react2.default.createElement(
-          'span',
-          { key: i },
-          element,
-          delimiter
-        );
-      }
-      return _react2.default.createElement(
-        'span',
-        { key: i },
-        element
-      );
-    })
-  );
-}
-function isDefined(value) {
-  return typeof value !== 'undefined';
-}
-function getMutationIcon(kind) {
-  switch (kind) {
-    case 'N':
-      return _react2.default.createElement('i', { className: 'fa fa-plus-square ' + kind });
-    case 'D':
-      return _react2.default.createElement('i', { className: 'fa fa-minus-square ' + kind });
-    case 'E':
-      return _react2.default.createElement('i', { className: 'fa fa-pencil ' + kind });
-    case 'A':
-      return _react2.default.createElement('i', { className: 'fa fa-pencil ' + kind });
-  }
-  return '';
-}
 function convertPathPartsToItems(path, tree) {
   var arr = [];
   var cursor = tree;
@@ -41664,103 +41625,6 @@ function convertPathPartsToItems(path, tree) {
   }
   return arr;
 }
-function formatSide(side) {
-  if ((typeof side === 'undefined' ? 'undefined' : _typeof(side)) === 'object' && side !== null) {
-    return (0, _renderJSONPreview2.default)(side);
-  } else if (!isDefined(side)) {
-    return null;
-  }
-  return String(side);
-}
-function formatPath(mutation) {
-  var index = mutation.kind === 'A' ? '.' + mutation.index : null;
-  var path = mutation.path;
-  var filterRegExp = mutation.filterRegExp;
-
-  if (path) {
-    var full = path;
-    var short = path.slice(path.length - 4, path.length);
-
-    return path.length > 4 && !filterRegExp ? _react2.default.createElement(
-      'span',
-      null,
-      _react2.default.createElement(_ExpandablePath2.default, { full: joinReact('.', full), short: joinReact('.', short) }),
-      index
-    ) : _react2.default.createElement(
-      'span',
-      null,
-      joinReact('.', full),
-      index
-    );
-  } else if (mutation.kind === 'A') {
-    return _react2.default.createElement(
-      'strong',
-      null,
-      index
-    );
-  }
-  return null;
-}
-function formatSingleMutation(mutation, indent) {
-  var mutationBit;
-
-  if (!mutation) return null;
-
-  switch (mutation.kind) {
-    case 'N':
-      var left = formatPath(mutation) || formatSide(mutation.lhs) || null;
-      var right = formatSide(mutation.rhs);
-
-      mutationBit = _react2.default.createElement(
-        'span',
-        null,
-        left,
-        left && right && ' = ',
-        formatSide(mutation.rhs)
-      );
-      break;
-    case 'E':
-      mutationBit = _react2.default.createElement(
-        'span',
-        null,
-        formatPath(mutation),
-        '\xA0 (',
-        _react2.default.createElement(
-          'span',
-          { className: 'strike' },
-          formatSide(mutation.lhs)
-        ),
-        ' ',
-        _react2.default.createElement('i', { className: 'fa fa-long-arrow-right' }),
-        ' ',
-        formatSide(mutation.rhs),
-        ')'
-      );
-      break;
-    case 'D':
-      mutationBit = _react2.default.createElement(
-        'span',
-        { className: 'strike' },
-        mutation.path ? formatPath(mutation) : formatSide(mutation.lhs)
-      );
-      break;
-    case 'A':
-      mutationBit = _react2.default.createElement(
-        'span',
-        null,
-        formatPath(mutation),
-        formatSingleMutation(mutation.item, indent + 1)
-      );
-      break;
-  }
-
-  return _react2.default.createElement(
-    'div',
-    { style: { marginLeft: indent * 1.5 + 'em' } },
-    getMutationIcon(mutation.kind),
-    mutationBit
-  );
-}
 function normalizeMutationPath(mutations, state, filter) {
   var r,
       isThereAnyFilter = filter && filter !== '';
@@ -41769,7 +41633,7 @@ function normalizeMutationPath(mutations, state, filter) {
     r = new RegExp(filter, 'i');
   }
 
-  return mutations.map(function (_ref) {
+  return (0, _normalizeMutationPathParts2.default)(mutations.map(function (_ref) {
     var path = _ref.path,
         rest = _objectWithoutProperties(_ref, ['path']);
 
@@ -41777,36 +41641,7 @@ function normalizeMutationPath(mutations, state, filter) {
       path: path ? convertPathPartsToItems(path, state) : path,
       filterRegExp: r
     });
-  }).filter(function (mutation) {
-    if (!mutation.path || !isThereAnyFilter) return true;
-    return mutation.path.find(function (part, index) {
-      var match = part.toString().match(r);
-
-      if (match) {
-        var tokens = part.split(r);
-
-        tokens = tokens.reduce(function (soFar, token, i) {
-          if (i > 0) soFar.push(_react2.default.createElement(
-            'strong',
-            { style: { color: 'red' } },
-            match[0]
-          ));
-          soFar.push(token);
-          return soFar;
-        }, []);
-
-        mutation.newPath = [joinReact('', tokens)].concat(mutation.path.slice(index + 1));
-        return true;
-      };
-      return false;
-    });
-  }).map(function (mutation) {
-    if (mutation.newPath) {
-      mutation.path = mutation.newPath;
-      delete mutation.newPath;
-    }
-    return mutation;
-  });
+  }), r);
 }
 
 function HTMLMutation(_ref2) {
@@ -41825,7 +41660,7 @@ function HTMLMutation(_ref2) {
       return _react2.default.createElement(
         'div',
         { key: i },
-        formatSingleMutation(mutation, 0)
+        _react2.default.createElement(_SingleMutation2.default, { mutation: mutation })
       );
     })
   );
@@ -41836,7 +41671,7 @@ HTMLMutation.propTypes = {
   filter: _propTypes2.default.string
 };
 
-},{"../helpers/ExpandablePath":493,"../helpers/renderJSONPreview":506,"prop-types":161,"react":425}],486:[function(require,module,exports){
+},{"../helpers/normalizeMutationPathParts":508,"./SingleMutation":489,"prop-types":161,"react":425}],486:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42106,7 +41941,100 @@ exports.default = (0, _react3.connect)(HTMLTree).with('Pinned', 'DevTools').map(
   };
 });
 
-},{"../helpers/formatPropValue":498,"./HTMLMutation":485,"prop-types":161,"react":425,"stent/lib/react":444}],487:[function(require,module,exports){
+},{"../helpers/formatPropValue":501,"./HTMLMutation":485,"prop-types":161,"react":425,"stent/lib/react":444}],487:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /* eslint-ignore max-len */
+
+
+exports.default = JSONMutation;
+exports.extractMutatedPaths = extractMutatedPaths;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _normalizeMutationPathParts = require('../helpers/normalizeMutationPathParts');
+
+var _normalizeMutationPathParts2 = _interopRequireDefault(_normalizeMutationPathParts);
+
+var _SingleMutation = require('./SingleMutation');
+
+var _SingleMutation2 = _interopRequireDefault(_SingleMutation);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/*
+kind - indicates the kind of change; will be one of the following:
+  N - indicates a newly added property/element
+  D - indicates a property/element was deleted
+  E - indicates a property/element was edited
+  A - indicates a change occurred within an array
+path - the property path (from the left-hand-side root)
+lhs - the value on the left-hand-side of the comparison (undefined if kind === 'N')
+rhs - the value on the right-hand-side of the comparison (undefined if kind === 'D')
+index - when kind === 'A', indicates the array index where the change occurred
+item - when kind === 'A', contains a nested change record indicating the change that occurred at the array index
+*/
+
+function normalizeMutations(mutations, filter) {
+  var r,
+      isThereAnyFilter = filter && filter !== '';
+
+  if (isThereAnyFilter) {
+    r = new RegExp(filter, 'i');
+  }
+
+  return (0, _normalizeMutationPathParts2.default)(mutations.map(function (mutation) {
+    return _extends({}, mutation, { filterRegExp: isThereAnyFilter });
+  }), r);
+}
+
+function JSONMutation(_ref) {
+  var mutations = _ref.mutations,
+      filter = _ref.filter;
+
+  if (!mutations) return null;
+
+  return _react2.default.createElement(
+    'div',
+    { className: 'stateMutation' },
+    _react2.default.createElement('div', { className: 'diff' }),
+    normalizeMutations(mutations, filter).map(function (mutation, i) {
+      return _react2.default.createElement(
+        'div',
+        { key: i },
+        _react2.default.createElement(_SingleMutation2.default, { mutation: mutation })
+      );
+    })
+  );
+};
+
+JSONMutation.propTypes = {
+  mutations: _propTypes2.default.array,
+  filter: _propTypes2.default.string
+};
+
+function extractMutatedPaths(mutation) {
+  return mutation.map(function (_ref2) {
+    var path = _ref2.path,
+        item = _ref2.item;
+
+    if (path) return path.join('.');
+    if (item) return extractMutatedPaths([item]);
+    return '';
+  });
+};
+
+},{"../helpers/normalizeMutationPathParts":508,"./SingleMutation":489,"prop-types":161,"react":425}],488:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42131,9 +42059,9 @@ var _Tree2 = _interopRequireDefault(_Tree);
 
 var _react3 = require('stent/lib/react');
 
-var _formatJSONMutation = require('../helpers/formatJSONMutation');
+var _JSONMutation = require('./JSONMutation');
 
-var _formatJSONMutation2 = _interopRequireDefault(_formatJSONMutation);
+var _JSONMutation2 = _interopRequireDefault(_JSONMutation);
 
 var _MutationPin = require('./Dashboard/MutationPin');
 
@@ -42220,7 +42148,7 @@ var JSONTree = function (_React$Component) {
               _react2.default.createElement(_Tree2.default, { data: tree, onItemClick: showMutation })
             );
           }),
-          (0, _formatJSONMutation2.default)(pinnedEvent.stateMutation)
+          _react2.default.createElement(_JSONMutation2.default, { mutations: pinnedEvent.stateMutation, filter: filter })
         ),
         _react2.default.createElement(
           'div',
@@ -42250,7 +42178,110 @@ exports.default = (0, _react3.connect)(JSONTree).with('DevTools', 'Pinned').map(
   };
 });
 
-},{"../helpers/formatJSONMutation":496,"./Dashboard/MutationPin":477,"./Tree":489,"prop-types":161,"react":425,"stent/lib/react":444}],488:[function(require,module,exports){
+},{"./Dashboard/MutationPin":477,"./JSONMutation":487,"./Tree":491,"prop-types":161,"react":425,"stent/lib/react":444}],489:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = SingleMutation;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _formatMutationPath = require('../helpers/formatMutationPath');
+
+var _formatMutationPath2 = _interopRequireDefault(_formatMutationPath);
+
+var _formatSide = require('../helpers/formatSide');
+
+var _formatSide2 = _interopRequireDefault(_formatSide);
+
+var _MutationIcon = require('./icons/MutationIcon');
+
+var _MutationIcon2 = _interopRequireDefault(_MutationIcon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function SingleMutation(_ref) {
+  var mutation = _ref.mutation,
+      indent = _ref.indent;
+
+  var mutationBit;
+
+  if (!mutation) return null;
+
+  switch (mutation.kind) {
+    case 'N':
+      var left = (0, _formatMutationPath2.default)(mutation) || (0, _formatSide2.default)(mutation.lhs) || null;
+      var right = (0, _formatSide2.default)(mutation.rhs);
+
+      mutationBit = _react2.default.createElement(
+        'span',
+        null,
+        left,
+        left && right && ' = ',
+        (0, _formatSide2.default)(mutation.rhs)
+      );
+      break;
+    case 'E':
+      mutationBit = _react2.default.createElement(
+        'span',
+        null,
+        (0, _formatMutationPath2.default)(mutation),
+        '\xA0 (',
+        _react2.default.createElement(
+          'span',
+          { className: 'strike' },
+          (0, _formatSide2.default)(mutation.lhs)
+        ),
+        ' ',
+        _react2.default.createElement('i', { className: 'fa fa-long-arrow-right' }),
+        ' ',
+        (0, _formatSide2.default)(mutation.rhs),
+        ')'
+      );
+      break;
+    case 'D':
+      mutationBit = _react2.default.createElement(
+        'span',
+        { className: 'strike' },
+        mutation.path ? (0, _formatMutationPath2.default)(mutation) : (0, _formatSide2.default)(mutation.lhs)
+      );
+      break;
+    case 'A':
+      mutationBit = _react2.default.createElement(
+        'span',
+        null,
+        (0, _formatMutationPath2.default)(mutation),
+        _react2.default.createElement(SingleMutation, { mutation: mutation.item, indent: indent + 1 })
+      );
+      break;
+  }
+
+  return _react2.default.createElement(
+    'div',
+    { style: { marginLeft: indent * 1.5 + 'em' } },
+    _react2.default.createElement(_MutationIcon2.default, { kind: mutation.kind }),
+    mutationBit
+  );
+};
+
+SingleMutation.defaultProps = {
+  indent: 0
+};
+
+SingleMutation.propTypes = {
+  mutation: _propTypes2.default.object,
+  indent: _propTypes2.default.number
+};
+
+},{"../helpers/formatMutationPath":500,"../helpers/formatSide":502,"./icons/MutationIcon":493,"prop-types":161,"react":425}],490:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42300,7 +42331,7 @@ function TimeDiff(_ref) {
   );
 }
 
-},{"react":425}],489:[function(require,module,exports){
+},{"react":425}],491:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42407,7 +42438,7 @@ Tree.propTypes = {
   onItemClick: _propTypes2.default.func
 };
 
-},{"../helpers/renderAsTree":504,"../stent/Raw":512,"prop-types":161,"react":425,"stent/lib/helpers":434}],490:[function(require,module,exports){
+},{"../helpers/renderAsTree":510,"../stent/Raw":518,"prop-types":161,"react":425,"stent/lib/helpers":434}],492:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42437,7 +42468,45 @@ function AngularIcon(_ref) {
   );
 };
 
-},{"react":425}],491:[function(require,module,exports){
+},{"react":425}],493:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = MutationIcon;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function MutationIcon(_ref) {
+  var kind = _ref.kind;
+
+  switch (kind) {
+    case 'N':
+      return _react2.default.createElement('i', { className: 'fa fa-plus-square ' + kind });
+    case 'D':
+      return _react2.default.createElement('i', { className: 'fa fa-minus-square ' + kind });
+    case 'E':
+      return _react2.default.createElement('i', { className: 'fa fa-pencil ' + kind });
+    case 'A':
+      return _react2.default.createElement('i', { className: 'fa fa-pencil ' + kind });
+  }
+  return null;
+};
+
+MutationIcon.propTypes = {
+  kind: _propTypes2.default.string
+};
+
+},{"prop-types":161,"react":425}],494:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42468,7 +42537,7 @@ function ReactIcon(_ref) {
   );
 };
 
-},{"react":425}],492:[function(require,module,exports){
+},{"react":425}],495:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42483,7 +42552,7 @@ var DEFAULT_FILTER_TYPES = exports.DEFAULT_FILTER_TYPES = {
   '@mobx_spyReportEnd': false
 };
 
-},{}],493:[function(require,module,exports){
+},{}],496:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42561,7 +42630,7 @@ ExpandablePath.propTypes = {
   short: _propTypes2.default.object
 };
 
-},{"prop-types":161,"react":425}],494:[function(require,module,exports){
+},{"prop-types":161,"react":425}],497:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -42576,7 +42645,7 @@ function calculateMutationExplorer(event, mutationExplorerPath) {
   }
 };
 
-},{}],495:[function(require,module,exports){
+},{}],498:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42588,7 +42657,7 @@ var _formatMilliseconds = require('./formatMilliseconds');
 
 var _formatMilliseconds2 = _interopRequireDefault(_formatMilliseconds);
 
-var _formatJSONMutation = require('./formatJSONMutation');
+var _JSONMutation = require('../components/JSONMutation');
 
 var _calculateMutationExplorer = require('./calculateMutationExplorer');
 
@@ -42643,7 +42712,7 @@ function enhanceEvent(event, previousState, mutationExplorerPath) {
 
     if (stateMutation) {
       event.stateMutation = stateMutation;
-      event.mutationPaths = (0, _formatJSONMutation.extractMutatedPaths)(stateMutation);
+      event.mutationPaths = (0, _JSONMutation.extractMutatedPaths)(stateMutation);
       (0, _calculateMutationExplorer2.default)(event, mutationExplorerPath);
     }
   }
@@ -42651,201 +42720,7 @@ function enhanceEvent(event, previousState, mutationExplorerPath) {
   return event;
 };
 
-},{"./calculateMutationExplorer":494,"./formatJSONMutation":496,"./formatMilliseconds":497,"deep-diff":148}],496:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /* eslint-ignore max-len */
-
-
-exports.default = formatJSONMutation;
-exports.extractMutatedPaths = extractMutatedPaths;
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _renderJSONPreview = require('./renderJSONPreview');
-
-var _renderJSONPreview2 = _interopRequireDefault(_renderJSONPreview);
-
-var _ExpandablePath = require('./ExpandablePath');
-
-var _ExpandablePath2 = _interopRequireDefault(_ExpandablePath);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/*
-kind - indicates the kind of change; will be one of the following:
-  N - indicates a newly added property/element
-  D - indicates a property/element was deleted
-  E - indicates a property/element was edited
-  A - indicates a change occurred within an array
-path - the property path (from the left-hand-side root)
-lhs - the value on the left-hand-side of the comparison (undefined if kind === 'N')
-rhs - the value on the right-hand-side of the comparison (undefined if kind === 'D')
-index - when kind === 'A', indicates the array index where the change occurred
-item - when kind === 'A', contains a nested change record indicating the change that occurred at the array index
-*/
-
-function isDefined(value) {
-  return typeof value !== 'undefined';
-}
-function getMutationIcon(kind) {
-  switch (kind) {
-    case 'N':
-      return _react2.default.createElement('i', { className: 'fa fa-plus-square ' + kind });
-    case 'D':
-      return _react2.default.createElement('i', { className: 'fa fa-minus-square ' + kind });
-    case 'E':
-      return _react2.default.createElement('i', { className: 'fa fa-pencil ' + kind });
-    case 'A':
-      return _react2.default.createElement('i', { className: 'fa fa-pencil ' + kind });
-  }
-  return '';
-}
-function formatSide(side) {
-  if ((typeof side === 'undefined' ? 'undefined' : _typeof(side)) === 'object' && side !== null) {
-    return (0, _renderJSONPreview2.default)(side);
-  } else if (!isDefined(side)) {
-    return null;
-  }
-  return String(side);
-}
-function formatPath(mutation) {
-  var index = mutation.kind === 'A' ? '.' + mutation.index : null;
-  var path = mutation.path;
-
-  if (path) {
-    var full = path.join('.');
-    var short = path.slice(path.length - 4, path.length).join('.');
-
-    if (path.length > 4) {
-      return _react2.default.createElement(
-        'strong',
-        null,
-        _react2.default.createElement(_ExpandablePath2.default, { full: full, short: short }),
-        index
-      );
-    }
-    return _react2.default.createElement(
-      'strong',
-      null,
-      full,
-      index
-    );
-  } else if (mutation.kind === 'A') {
-    return _react2.default.createElement(
-      'strong',
-      null,
-      index
-    );
-  }
-  return null;
-}
-function formatSingleMutation(mutation) {
-  var indent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-
-  var mutationBit;
-
-  if (!mutation) return null;
-
-  switch (mutation.kind) {
-    case 'N':
-      var left = formatPath(mutation) || formatSide(mutation.lhs) || null;
-      var right = formatSide(mutation.rhs);
-
-      mutationBit = _react2.default.createElement(
-        'span',
-        null,
-        left,
-        left && right && ' = ',
-        formatSide(mutation.rhs)
-      );
-      break;
-    case 'E':
-      mutationBit = _react2.default.createElement(
-        'span',
-        null,
-        formatPath(mutation),
-        '\xA0 (',
-        _react2.default.createElement(
-          'span',
-          { className: 'strike' },
-          formatSide(mutation.lhs)
-        ),
-        ' ',
-        _react2.default.createElement('i', { className: 'fa fa-long-arrow-right' }),
-        ' ',
-        formatSide(mutation.rhs),
-        ')'
-      );
-      break;
-    case 'D':
-      mutationBit = _react2.default.createElement(
-        'span',
-        { className: 'strike' },
-        mutation.path ? formatPath(mutation) : formatSide(mutation.lhs)
-      );
-      break;
-    case 'A':
-      mutationBit = _react2.default.createElement(
-        'span',
-        null,
-        formatPath(mutation),
-        formatSingleMutation(mutation.item, indent + 1)
-      );
-      break;
-  }
-
-  return _react2.default.createElement(
-    'div',
-    { style: { marginLeft: indent * 1.5 + 'em' } },
-    getMutationIcon(mutation.kind),
-    mutationBit
-  );
-}
-
-function formatJSONMutation(mutations) {
-  if (!mutations) return null;
-
-  return _react2.default.createElement(
-    'div',
-    { className: 'stateMutation' },
-    _react2.default.createElement('div', { className: 'diff' }),
-    mutations.map(function (mutation, i) {
-      return _react2.default.createElement(
-        'div',
-        { key: i },
-        formatSingleMutation(mutation)
-      );
-    })
-  );
-};
-
-formatJSONMutation.PropTypes = {
-  mutations: _propTypes2.default.object
-};
-
-function extractMutatedPaths(mutation) {
-  return mutation.map(function (_ref) {
-    var path = _ref.path,
-        item = _ref.item;
-
-    if (path) return path.join('.');
-    if (item) return extractMutatedPaths([item]);
-    return '';
-  });
-};
-
-},{"./ExpandablePath":493,"./renderJSONPreview":506,"prop-types":161,"react":425}],497:[function(require,module,exports){
+},{"../components/JSONMutation":487,"./calculateMutationExplorer":497,"./formatMilliseconds":499,"deep-diff":148}],499:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -42879,7 +42754,59 @@ function formatMilliseconds(millisec) {
   return minutes + ":" + seconds + ':' + ms;
 }
 
-},{}],498:[function(require,module,exports){
+},{}],500:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = formatPath;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _ExpandablePath = require('./ExpandablePath');
+
+var _ExpandablePath2 = _interopRequireDefault(_ExpandablePath);
+
+var _joinReactElements = require('./joinReactElements');
+
+var _joinReactElements2 = _interopRequireDefault(_joinReactElements);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function formatPath(mutation) {
+  var index = mutation.kind === 'A' ? '.' + mutation.index : null;
+  var path = mutation.path;
+  var filterRegExp = mutation.filterRegExp;
+
+  if (path) {
+    var full = path;
+    var short = path.slice(path.length - 4, path.length);
+
+    return path.length > 4 && !filterRegExp ? _react2.default.createElement(
+      'span',
+      null,
+      _react2.default.createElement(_ExpandablePath2.default, { full: (0, _joinReactElements2.default)('.', full), short: (0, _joinReactElements2.default)('.', short) }),
+      index
+    ) : _react2.default.createElement(
+      'span',
+      null,
+      (0, _joinReactElements2.default)('.', full),
+      index
+    );
+  } else if (mutation.kind === 'A') {
+    return _react2.default.createElement(
+      'strong',
+      null,
+      index
+    );
+  }
+  return null;
+};
+
+},{"./ExpandablePath":496,"./joinReactElements":507,"react":425}],501:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42901,7 +42828,37 @@ function formatPropValue(value) {
   }
 };
 
-},{}],499:[function(require,module,exports){
+},{}],502:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.default = formatSide;
+
+var _isDefined = require('./isDefined');
+
+var _isDefined2 = _interopRequireDefault(_isDefined);
+
+var _renderJSONPreview = require('./renderJSONPreview');
+
+var _renderJSONPreview2 = _interopRequireDefault(_renderJSONPreview);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function formatSide(side) {
+  if ((typeof side === 'undefined' ? 'undefined' : _typeof(side)) === 'object' && side !== null) {
+    return (0, _renderJSONPreview2.default)(side);
+  } else if (!(0, _isDefined2.default)(side)) {
+    return null;
+  }
+  return String(side);
+}
+
+},{"./isDefined":505,"./renderJSONPreview":512}],503:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42917,7 +42874,7 @@ function getMachineName(_ref) {
   return name;
 };
 
-},{}],500:[function(require,module,exports){
+},{}],504:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42936,7 +42893,7 @@ function getRandomColor() {
   return color;
 };
 
-},{}],501:[function(require,module,exports){
+},{}],505:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42948,7 +42905,7 @@ var isDefined = function isDefined(v) {
 
 exports.default = isDefined;
 
-},{}],502:[function(require,module,exports){
+},{}],506:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -42960,7 +42917,94 @@ function isInDevTools() {
   return true;
 };
 
-},{}],503:[function(require,module,exports){
+},{}],507:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = joinReactElements;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function joinReactElements(delimiter, arr) {
+  return _react2.default.createElement(
+    'span',
+    null,
+    arr.map(function (element, i) {
+      if (i < arr.length - 1) {
+        return _react2.default.createElement(
+          'span',
+          { key: i },
+          element,
+          delimiter
+        );
+      }
+      return _react2.default.createElement(
+        'span',
+        { key: i },
+        element
+      );
+    })
+  );
+};
+
+},{"react":425}],508:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = normalizeMutationPathParts;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _joinReactElements = require('./joinReactElements');
+
+var _joinReactElements2 = _interopRequireDefault(_joinReactElements);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function normalizeMutationPathParts(mutations, filterRegExp) {
+  return mutations.filter(function (mutation) {
+    if (!mutation.path || !filterRegExp) return true;
+    return mutation.path.find(function (part, index) {
+      var match = part.toString().match(filterRegExp);
+
+      if (match) {
+        var tokens = part.split(filterRegExp);
+
+        tokens = tokens.reduce(function (soFar, token, i) {
+          if (i > 0) soFar.push(_react2.default.createElement(
+            'strong',
+            { style: { color: 'red' } },
+            match[0]
+          ));
+          soFar.push(token);
+          return soFar;
+        }, []);
+
+        mutation.newPath = [(0, _joinReactElements2.default)('', tokens)].concat(mutation.path.slice(index + 1));
+        return true;
+      };
+      return false;
+    });
+  }).map(function (mutation) {
+    if (mutation.newPath) {
+      mutation.path = mutation.newPath;
+      delete mutation.newPath;
+    }
+    return mutation;
+  });
+};
+
+},{"./joinReactElements":507,"react":425}],509:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42991,7 +43035,7 @@ function readFromPath(object, path) {
   return fallback;
 };
 
-},{"./isDefined":501}],504:[function(require,module,exports){
+},{"./isDefined":505}],510:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43042,7 +43086,7 @@ function renderEventAsTree(event) {
   return (0, _renderJSON2.default)(_extends({}, rest), 'Event', onItemClick);
 };
 
-},{"./getMachineName":499,"./renderJSON":505,"react":425}],505:[function(require,module,exports){
+},{"./getMachineName":503,"./renderJSON":511,"react":425}],511:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43186,7 +43230,7 @@ var renderJSON = function renderJSON(json) {
 
 exports.default = renderJSON;
 
-},{"../../vendor/react-json-tree/lib":524,"./renderJSONPreview":506,"react":425}],506:[function(require,module,exports){
+},{"../../vendor/react-json-tree/lib":530,"./renderJSONPreview":512,"react":425}],512:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43241,7 +43285,7 @@ function renderJSONPreview(data) {
   return result.length > limit ? result.substr(0, limit) + '...' : result;
 };
 
-},{}],507:[function(require,module,exports){
+},{}],513:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43257,7 +43301,7 @@ function shortenJSON(data) {
   return str.substr(0, STR_LIMIT) + '...';
 };
 
-},{}],508:[function(require,module,exports){
+},{}],514:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -43336,7 +43380,7 @@ if (typeof window !== 'undefined' && window.location && window.location.href) {
 // misc
 // Machine.addMiddleware(StentEmitter);
 
-},{"./components/App.jsx":446,"./services/bridge":509,"./stent/DevTools":510,"./stent/Pinned":511,"./stent/TreeNav":513,"react":425,"react-dom":173}],509:[function(require,module,exports){
+},{"./components/App.jsx":446,"./services/bridge":515,"./stent/DevTools":516,"./stent/Pinned":517,"./stent/TreeNav":519,"react":425,"react-dom":173}],515:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43467,7 +43511,7 @@ wireWithSockets();
 
 exports.default = bridge;
 
-},{"../constants":492,"../helpers/isInDevTools":502}],510:[function(require,module,exports){
+},{"../constants":495,"../helpers/isInDevTools":506}],516:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43666,7 +43710,7 @@ var DevTools = _stent.Machine.create('DevTools', {
 
 exports.default = DevTools;
 
-},{"../constants":492,"../helpers/calculateMutationExplorer":494,"../helpers/enhanceEvent":495,"stent":442}],511:[function(require,module,exports){
+},{"../constants":495,"../helpers/calculateMutationExplorer":497,"../helpers/enhanceEvent":498,"stent":442}],517:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43746,7 +43790,7 @@ var pinned = _stent.Machine.create('Pinned', {
 
 exports.default = pinned;
 
-},{"../helpers/isDefined":501,"stent":442,"stent/lib/helpers":434}],512:[function(require,module,exports){
+},{"../helpers/isDefined":505,"stent":442,"stent/lib/helpers":434}],518:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43767,7 +43811,7 @@ function createRawMachine() {
   });
 };
 
-},{"stent":442}],513:[function(require,module,exports){
+},{"stent":442}],519:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43796,7 +43840,7 @@ var TreeNav = _stent.Machine.create('TreeNav', {
 
 exports.default = TreeNav;
 
-},{"stent":442}],514:[function(require,module,exports){
+},{"stent":442}],520:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -43887,7 +43931,7 @@ ItemRange.propTypes = {
 };
 exports['default'] = ItemRange;
 
-},{"./JSONArrow":516,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425}],515:[function(require,module,exports){
+},{"./JSONArrow":522,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425}],521:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -43941,7 +43985,7 @@ JSONArrayNode.propTypes = {
 
 exports['default'] = JSONArrayNode;
 
-},{"./JSONNestedNode":518,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],516:[function(require,module,exports){
+},{"./JSONNestedNode":524,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],522:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -43985,7 +44029,7 @@ JSONArrow.defaultProps = {
 
 exports['default'] = JSONArrow;
 
-},{"babel-runtime/helpers/extends":12,"prop-types":161,"react":425}],517:[function(require,module,exports){
+},{"babel-runtime/helpers/extends":12,"prop-types":161,"react":425}],523:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44064,7 +44108,7 @@ function JSONIterableNode(_ref2) {
   }));
 }
 
-},{"./JSONNestedNode":518,"babel-runtime/core-js/get-iterator":1,"babel-runtime/core-js/number/is-safe-integer":3,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"react":425}],518:[function(require,module,exports){
+},{"./JSONNestedNode":524,"babel-runtime/core-js/get-iterator":1,"babel-runtime/core-js/number/is-safe-integer":3,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"react":425}],524:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44271,7 +44315,7 @@ JSONNestedNode.defaultProps = {
 };
 exports['default'] = JSONNestedNode;
 
-},{"./ItemRange":514,"./JSONArrow":516,"./JSONNode":519,"./getCollectionEntries":523,"babel-runtime/core-js/object/keys":7,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425}],519:[function(require,module,exports){
+},{"./ItemRange":520,"./JSONArrow":522,"./JSONNode":525,"./getCollectionEntries":529,"babel-runtime/core-js/object/keys":7,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425}],525:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44408,7 +44452,7 @@ JSONNode.propTypes = {
 
 exports['default'] = JSONNode;
 
-},{"./JSONArrayNode":515,"./JSONIterableNode":517,"./JSONObjectNode":520,"./JSONValueNode":521,"./objType":525,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],520:[function(require,module,exports){
+},{"./JSONArrayNode":521,"./JSONIterableNode":523,"./JSONObjectNode":526,"./JSONValueNode":527,"./objType":531,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],526:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44468,7 +44512,7 @@ JSONObjectNode.propTypes = {
 
 exports['default'] = JSONObjectNode;
 
-},{"./JSONNestedNode":518,"babel-runtime/core-js/object/get-own-property-names":6,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],521:[function(require,module,exports){
+},{"./JSONNestedNode":524,"babel-runtime/core-js/object/get-own-property-names":6,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],527:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44518,7 +44562,7 @@ JSONValueNode.defaultProps = {
 
 exports['default'] = JSONValueNode;
 
-},{"prop-types":161,"react":425}],522:[function(require,module,exports){
+},{"prop-types":161,"react":425}],528:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44744,7 +44788,7 @@ exports['default'] = (0, _reactBase16Styling.createStyling)(getDefaultThemeStyli
   defaultBase16: _solarized2['default']
 });
 
-},{"./themes/solarized":526,"babel-runtime/helpers/extends":12,"react-base16-styling":172}],523:[function(require,module,exports){
+},{"./themes/solarized":532,"babel-runtime/helpers/extends":12,"react-base16-styling":172}],529:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44910,7 +44954,7 @@ function getCollectionEntries(type, collection, sortObjectKeys, limit) {
   return limitedEntries;
 }
 
-},{"babel-runtime/core-js/get-iterator":1,"babel-runtime/core-js/object/get-own-property-names":6,"babel-runtime/core-js/object/keys":7}],524:[function(require,module,exports){
+},{"babel-runtime/core-js/get-iterator":1,"babel-runtime/core-js/object/get-own-property-names":6,"babel-runtime/core-js/object/keys":7}],530:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -45117,7 +45161,7 @@ JSONTree.defaultProps = {
 };
 exports['default'] = JSONTree;
 
-},{"./JSONNode":519,"./createStylingFromTheme":522,"babel-runtime/core-js/object/keys":7,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/objectWithoutProperties":14,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425,"react-base16-styling":172}],525:[function(require,module,exports){
+},{"./JSONNode":525,"./createStylingFromTheme":528,"babel-runtime/core-js/object/keys":7,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/objectWithoutProperties":14,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425,"react-base16-styling":172}],531:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -45141,7 +45185,7 @@ function objType(obj) {
   return type;
 }
 
-},{"babel-runtime/core-js/symbol/iterator":10}],526:[function(require,module,exports){
+},{"babel-runtime/core-js/symbol/iterator":10}],532:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -45166,4 +45210,4 @@ exports['default'] = {
   base0F: '#d33682'
 };
 
-},{}]},{},[508]);
+},{}]},{},[514]);

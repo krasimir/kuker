@@ -1,5 +1,5 @@
 import formatMilliseconds from './formatMilliseconds';
-import { extractMutatedPaths } from './formatJSONMutation';
+import { extractMutatedPaths } from '../components/JSONMutation';
 import calculateMutationExplorer from './calculateMutationExplorer';
 import diff from 'deep-diff';
 

@@ -17,36 +17,7 @@ index - when kind === 'A', indicates the array index where the change occurred
 item - when kind === 'A', contains a nested change record indicating the change that occurred at the array index
 */
 
-function convertPathPartsToItems(path, tree) {
-  const arr = [];
-  var cursor = tree;
-
-  for (let i = 0; i < path.length; i++) {
-    const part = path[i];
-    let item, childrenIndex = null;
-
-    if (part === 'children') {
-      item = cursor[part][path[i + 1]];
-      if (item && Array.isArray(cursor[part]) && cursor[part].length > 1) {
-        childrenIndex = path[i + 1];
-      }
-      i++;
-    } else {
-      item = cursor[part];
-    }
-    if (item) {
-      cursor = item;
-      arr.push(item.name ?
-        childrenIndex !== null ? `<${ item.name }.${ childrenIndex }>` : `<${ item.name }>` :
-        part
-      );
-    } else {
-      arr.push(part);
-    }
-  }
-  return arr;
-}
-function normalizeMutationPath(mutations, state, filter) {
+function normalizeMutations(mutations, filter) {
   var r, isThereAnyFilter = filter && filter !== '';
 
   if (isThereAnyFilter) {
@@ -54,32 +25,34 @@ function normalizeMutationPath(mutations, state, filter) {
   }
 
   return normalizeMutationPathParts(
-    mutations.map(({ path, ...rest }) => ({
-      ...rest,
-      path: path ? convertPathPartsToItems(path, state) : path,
-      filterRegExp: r
-    })),
+    mutations.map(mutation => ({ ...mutation, filterRegExp: isThereAnyFilter })),
     r
   );
 }
 
-export default function HTMLMutation({ pinnedEvent, filter }) {
-  var mutations = pinnedEvent.stateMutation;
-
+export default function JSONMutation({ mutations, filter }) {
   if (!mutations) return null;
 
   return (
     <div className='stateMutation'>
       <div className='diff'></div>
       {
-        normalizeMutationPath(mutations, pinnedEvent.state, filter)
+        normalizeMutations(mutations, filter)
           .map((mutation, i) => <div key={i}><SingleMutation mutation={ mutation } /></div>)
       }
     </div>
   );
 };
 
-HTMLMutation.propTypes = {
-  pinnedEvent: PropTypes.object,
+JSONMutation.propTypes = {
+  mutations: PropTypes.array,
   filter: PropTypes.string
+};
+
+export function extractMutatedPaths(mutation) {
+  return mutation.map(({ path, item }) => {
+    if (path) return path.join('.');
+    if (item) return extractMutatedPaths([ item ]);
+    return '';
+  });
 };
