@@ -15,7 +15,7 @@ Kuker :heart:
 
 ---
 
-<small>You want your framework listed here? Check out the [Emitters](#emitters) section and learn how to integrate it with Kuker.</small>
+<sub><sup>You want your framework listed here? Check out the [Emitters](#emitters) section and learn how to integrate it with Kuker.</sup></sub>
 
 ## How to use it
 
