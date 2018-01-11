@@ -3,7 +3,8 @@
 ---
 
 <p align="center">
-Kuker :heart: 
+Kuker :heart:
+
 [React](#integration-with-react), 
 [Angular](#integration-with-angular), 
 [Redux](#integration-with-redux), 
@@ -11,6 +12,7 @@ Kuker :heart:
 [Stent](#integration-with-stent), 
 [Machina.js](#integration-with-machinajs), 
 [MobX](#integration-with-mobx)
+
 </p>
 
 ---
