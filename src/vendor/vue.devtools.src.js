@@ -4,7 +4,7 @@ import { sanitize } from 'kuker-emitters';
 const MAX_MESSAGES_TO_CACHE = 50;
 const HOOK_KEY = '__VUE_DEVTOOLS_GLOBAL_HOOK__';
 const KUKER_HOOK_KEY = '__KUKER_VUE_HOOK__';
-var detectAttempts = 5;
+var detectAttempts = 7;
 
 const detect = function (callback) {
   detectAttempts -= 1;
@@ -14,6 +14,7 @@ const detect = function (callback) {
   } else {
     if (detectAttempts === 0) {
       callback('Can not detect Vue on the page!');
+      return;
     }
     setTimeout(() => detect(callback), 1000);
   }

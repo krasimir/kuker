@@ -1,3 +1,4 @@
+* Check if the codepens are ok
 * Vue icon on the events
 * When working together with VueDevtools we see an error message because of Object.create
 * increase the limit

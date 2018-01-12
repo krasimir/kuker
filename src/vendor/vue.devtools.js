@@ -2689,7 +2689,7 @@ var _kukerEmitters = require('kuker-emitters');
 var MAX_MESSAGES_TO_CACHE = 50;
 var HOOK_KEY = '__VUE_DEVTOOLS_GLOBAL_HOOK__';
 var KUKER_HOOK_KEY = '__KUKER_VUE_HOOK__';
-var detectAttempts = 5;
+var detectAttempts = 7;
 
 var detect = function detect(callback) {
   detectAttempts -= 1;
@@ -2699,6 +2699,7 @@ var detect = function detect(callback) {
   } else {
     if (detectAttempts === 0) {
       callback('Can not detect Vue on the page!');
+      return;
     }
     setTimeout(function () {
       return detect(callback);
