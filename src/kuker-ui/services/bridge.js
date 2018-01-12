@@ -1,4 +1,4 @@
-/* eslint-disable vars-on-top, no-use-before-define, no-unused-vars */
+/* eslint-disable vars-on-top, no-use-before-define */
 import { KUKER_EMITTER_SOCKET_PORT, KUKER_EVENT } from '../constants';
 import isInDevTools from '../helpers/isInDevTools';
 

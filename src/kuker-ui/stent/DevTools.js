@@ -87,8 +87,10 @@ const DevTools = Machine.create('DevTools', {
           ...rest
         };
       },
-      'flush events': function () {
-        return initialState();
+      'flush events': function ({ quickFilters }) {
+        return Object.assign({}, initialState(), {
+          quickFilters
+        });
       },
       'show mutation': function ({ events, ...rest }, mutationExplorerPath) {
         events.forEach(event => calculateMutationExplorer(event, mutationExplorerPath));

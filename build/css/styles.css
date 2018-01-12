@@ -264,8 +264,9 @@ p {
   top: -8px;
   right: 0;
   background: #e6e6e6;
-  font-size: 1em;
+  font-size: 0.8em;
   padding: 0 0.5em;
+  cursor: pointer;
 }
 
 /* tree filter */
@@ -434,11 +435,11 @@ p {
 
 /* no events */
 @keyframes noEventsLogoSlideIn {
-  from { bottom: -500px; opacity: 0; }
-  to { bottom: -85px; opactiy: 1; }
+  from { bottom: -300px; }
+  to { bottom: -85px; }
 }
 @keyframes noEventsBalloon {
-  from { bottom: 90px; opacity: 0; }
+  from { bottom: 80px; opacity: 0; }
   to { bottom: 93px; opacity: 1; }
 }
 .noEvents {
@@ -452,7 +453,7 @@ p {
   bottom: -85px;
   left: 50px;
   max-width: 200px;
-  animation: 2000ms noEventsLogoSlideIn ease-out;
+  animation: 1000ms noEventsLogoSlideIn ease-out;
 }
 .noEvents .balloon {
   background: #fff;
@@ -465,20 +466,16 @@ p {
   bottom: 93px;
   left: 247px;
   animation: 500ms noEventsBalloon ease-out;
-  animation-delay: 2000ms;
+  animation-delay: 900ms;
   animation-fill-mode: backwards;
-}
-.noEvents .balloon strong {
-  font-size: 1.2em;
-  color: #000;
 }
 .noEvents .balloon a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: underline;
   font-weight: bold;
 }
 .noEvents .balloon a:hover {
-  text-decoration: underline;
+  color: #000;
 }
 
 /* new session */

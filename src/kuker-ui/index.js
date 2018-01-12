@@ -11,14 +11,23 @@ bridge.on(action => devToolsMachine.actionReceived(action));
 ReactDOM.render(<App />, document.querySelector('#container'));
 
 // shortcuts
-Mousetrap.bind('ctrl+`', function (e) {
+Mousetrap.bind('ctrl+`', function (e) { // prints out the current state in the console
   console.log(JSON.stringify(devToolsMachine.state, null, 2));
 });
 
 // development goodies
 if (typeof window !== 'undefined' && window.location && window.location.href) {
   if (window.location.href.indexOf('populate=') > 0) {
-    let s;
+    let s, inChunks;
+
+    const GET = function (key) {
+      const urlString = window.location.href;
+      const url = new URL(urlString);
+
+      return url.searchParams.get(key);
+    };
+
+    inChunks = GET('inChunks') ? Number(GET('inChunks')) : false;
 
     if (window.location.href.indexOf('populate=stent') > 0) {
       s = '../_mocks/example.stent.json';
@@ -42,8 +51,26 @@ if (typeof window !== 'undefined' && window.location && window.location.href) {
 
     fetch(s).then(response => {
       response.json().then(({ events }) => {
-        console.log('About to inject ' + events.length + ' actions');
-        devToolsMachine.actionReceived(events);
+        if (inChunks) {
+          const eventsPerChunk = Math.floor(events.length / inChunks);
+
+          const loadChunk = function () {
+            if (events.length > 0) {
+              const chunk = events.splice(0, eventsPerChunk);
+
+              console.log('About to inject ' + chunk.length + ' actions');
+              devToolsMachine.actionReceived(chunk);
+            } else {
+              console.log('No more chunks to load.');
+            }
+          };
+
+          Mousetrap.bind('ctrl+enter', loadChunk); // load the next chunk
+          loadChunk();
+        } else {
+          console.log('About to inject ' + events.length + ' actions');
+          devToolsMachine.actionReceived(events);
+        }
       });
     });
   };

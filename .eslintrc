@@ -19,6 +19,7 @@
       "expect": true,
       "sinon": true,
       "chrome": true,
+      "browser": true,
       "Mousetrap": true,
       "React": true,
       "io": true

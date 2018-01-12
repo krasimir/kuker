@@ -121,7 +121,7 @@ class HTMLTree extends React.Component {
           <HTMLMutation pinnedEvent={ pinnedEvent } filter={ filter } />
         </div>
         <div className='logDetails'>
-          { this.state.htmlPin && <Pin component={ this.state.htmlPin.component } /> }
+          { trees.length > 0 && this.state.htmlPin && <Pin component={ this.state.htmlPin.component } /> }
         </div>
       </div>
     );

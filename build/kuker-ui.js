@@ -40708,13 +40708,9 @@ function NoEvents() {
     _react2.default.createElement(
       'div',
       { className: 'balloon' },
-      _react2.default.createElement(
-        'strong',
-        null,
-        'Do I look broken to you?'
-      ),
-      _react2.default.createElement('br', null),
-      'Wait a bit or check my ',
+      'Hey, I\'m version ',
+      _manifest2.default.version,
+      ' and I\'m not broken. Just wait a bit or check my ',
       _react2.default.createElement(
         'a',
         { href: 'https://github.com/krasimir/kuker', target: '_blank' },
@@ -40727,14 +40723,7 @@ function NoEvents() {
         'me'
       ),
       ' with your app.',
-      _react2.default.createElement('br', null),
-      _react2.default.createElement('br', null),
-      _react2.default.createElement(
-        'small',
-        null,
-        'I\'m version ',
-        _manifest2.default.version
-      )
+      _react2.default.createElement('br', null)
     )
   );
 } /* eslint-disable max-len */
@@ -40743,25 +40732,6 @@ function NoEvents() {
 NoEvents.propTypes = {
   healthyComponent: _propTypes2.default.element
 };
-
-/*
-<div className='text'>
-  <strong>Waiting for events...</strong>
-  <hr />
-  Did you forget to instrument your app?<br />
-  What&apos;s your framework of choice:
-  <br />
-  <a href="https://github.com/krasimir/kuker-emitters#integration-with-react" target="_blank" rel='noopener noreferrer'>React</a>, <a href="https://github.com/krasimir/kuker-emitters#integration-with-angular" target="_blank" rel='noopener noreferrer'>Angular</a>, <a href="https://github.com/krasimir/kuker-emitters#integration-with-redux" target="_blank" rel='noopener noreferrer'>Redux</a>, <a href="https://github.com/krasimir/kuker-emitters#integration-with-redux-saga" target="_blank" rel='noopener noreferrer'>redux-saga</a>, <a href="https://github.com/krasimir/kuker-emitters#integration-with-mobx" target="_blank" rel='noopener noreferrer'>MobX</a>, <a href="https://github.com/krasimir/kuker-emitters#integration-with-stent" target="_blank" rel='noopener noreferrer'>Stent</a>, <a href="https://github.com/krasimir/kuker-emitters#integration-with-machinajs" target="_blank" rel='noopener noreferrer'>Machina.js</a>, <a href="https://github.com/krasimir/kuker-emitters#baseemitter" target="_blank" rel='noopener noreferrer'>No framework</a>, <a href="https://github.com/krasimir/kuker-emitters" target="_blank" rel='noopener noreferrer'>Other</a>
-  <hr />
-  <ul>
-    <li>Learn about <a href="https://github.com/krasimir/kuker" target="_blank" rel='noopener noreferrer'>Kuker</a></li>
-    <li>Learn about <a href='https://github.com/krasimir/kuker#instrumentation' target='_blank' rel='noopener noreferrer'>Kuker&apos;s emitters</a>.</li>
-    <li>Nothing helps? Click <a href='#' onClick={ reloadExtension }>here</a> to refresh the extension.</li>
-  </ul>
-  <hr />
-  <small>v.{ manifest.version }</small>
-</div>
-*/
 
 },{"../../../extension-static/manifest.json":445,"prop-types":161,"react":425}],479:[function(require,module,exports){
 'use strict';
@@ -40800,7 +40770,7 @@ var QuickFilter = function (_React$Component) {
 
     _this._onFieldChange = _this._onFieldChange.bind(_this);
     _this._clearFilter = _this._clearFilter.bind(_this);
-    _this.state = { text: '' };
+    _this.state = { text: props.quickFilters[props.whichOne] };
     return _this;
   }
 
@@ -40850,14 +40820,16 @@ var QuickFilter = function (_React$Component) {
 
 QuickFilter.propTypes = {
   whichOne: _propTypes2.default.string,
-  updateQuickFilters: _propTypes2.default.func
+  updateQuickFilters: _propTypes2.default.func,
+  quickFilters: _propTypes2.default.object
 };
 
 exports.default = (0, _react3.connect)(QuickFilter).with('DevTools').map(function (_ref) {
   var state = _ref.state,
       updateQuickFilters = _ref.updateQuickFilters;
   return {
-    updateQuickFilters: updateQuickFilters
+    updateQuickFilters: updateQuickFilters,
+    quickFilters: state.quickFilters
   };
 });
 
@@ -41861,7 +41833,7 @@ var HTMLTree = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'logDetails' },
-          this.state.htmlPin && _react2.default.createElement(Pin, { component: this.state.htmlPin.component })
+          trees.length > 0 && this.state.htmlPin && _react2.default.createElement(Pin, { component: this.state.htmlPin.component })
         )
       );
     }
@@ -43338,13 +43310,24 @@ _reactDom2.default.render(_react2.default.createElement(_App2.default, null), do
 
 // shortcuts
 Mousetrap.bind('ctrl+`', function (e) {
+  // prints out the current state in the console
   console.log(JSON.stringify(_DevTools2.default.state, null, 2));
 });
 
 // development goodies
 if (typeof window !== 'undefined' && window.location && window.location.href) {
   if (window.location.href.indexOf('populate=') > 0) {
-    var s = void 0;
+    var s = void 0,
+        inChunks = void 0;
+
+    var GET = function GET(key) {
+      var urlString = window.location.href;
+      var url = new URL(urlString);
+
+      return url.searchParams.get(key);
+    };
+
+    inChunks = GET('inChunks') ? Number(GET('inChunks')) : false;
 
     if (window.location.href.indexOf('populate=stent') > 0) {
       s = '../_mocks/example.stent.json';
@@ -43370,8 +43353,26 @@ if (typeof window !== 'undefined' && window.location && window.location.href) {
       response.json().then(function (_ref) {
         var events = _ref.events;
 
-        console.log('About to inject ' + events.length + ' actions');
-        _DevTools2.default.actionReceived(events);
+        if (inChunks) {
+          var eventsPerChunk = Math.floor(events.length / inChunks);
+
+          var loadChunk = function loadChunk() {
+            if (events.length > 0) {
+              var chunk = events.splice(0, eventsPerChunk);
+
+              console.log('About to inject ' + chunk.length + ' actions');
+              _DevTools2.default.actionReceived(chunk);
+            } else {
+              console.log('No more chunks to load.');
+            }
+          };
+
+          Mousetrap.bind('ctrl+enter', loadChunk); // load the next chunk
+          loadChunk();
+        } else {
+          console.log('About to inject ' + events.length + ' actions');
+          _DevTools2.default.actionReceived(events);
+        }
       });
     });
   };
@@ -43395,7 +43396,7 @@ var _isInDevTools2 = _interopRequireDefault(_isInDevTools);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* eslint-disable vars-on-top, no-use-before-define, no-unused-vars */
+/* eslint-disable vars-on-top, no-use-before-define */
 var socketRetryInterval = 2500;
 var listeners = [];
 var bridge = {
@@ -43624,12 +43625,16 @@ var DevTools = _stent.Machine.create('DevTools', {
           events: events
         }, rest);
       },
-      'flush events': function flushEvents() {
-        return initialState();
+      'flush events': function flushEvents(_ref2) {
+        var quickFilters = _ref2.quickFilters;
+
+        return Object.assign({}, initialState(), {
+          quickFilters: quickFilters
+        });
       },
-      'show mutation': function showMutation(_ref2, mutationExplorerPath) {
-        var events = _ref2.events,
-            rest = _objectWithoutProperties(_ref2, ['events']);
+      'show mutation': function showMutation(_ref3, mutationExplorerPath) {
+        var events = _ref3.events,
+            rest = _objectWithoutProperties(_ref3, ['events']);
 
         events.forEach(function (event) {
           return (0, _calculateMutationExplorer2.default)(event, mutationExplorerPath);
@@ -43637,19 +43642,19 @@ var DevTools = _stent.Machine.create('DevTools', {
 
         return _extends({ events: events }, rest, { mutationExplorerPath: mutationExplorerPath });
       },
-      'clear mutation': function clearMutation(_ref3) {
-        var events = _ref3.events,
-            mutationExplorerPath = _ref3.mutationExplorerPath,
-            rest = _objectWithoutProperties(_ref3, ['events', 'mutationExplorerPath']);
+      'clear mutation': function clearMutation(_ref4) {
+        var events = _ref4.events,
+            mutationExplorerPath = _ref4.mutationExplorerPath,
+            rest = _objectWithoutProperties(_ref4, ['events', 'mutationExplorerPath']);
 
         events.forEach(function (event) {
           return event.mutationExplorer = false;
         });
         return _extends({ events: events }, rest, { mutationExplorerPath: null });
       },
-      'update filters': function updateFilters(state, _ref4) {
-        var filterTypes = _ref4.filterTypes,
-            sources = _ref4.sources;
+      'update filters': function updateFilters(state, _ref5) {
+        var filterTypes = _ref5.filterTypes,
+            sources = _ref5.sources;
 
         var newFilterTypes = Object.assign({}, state.filterTypes, filterTypes);
         var newSources = Object.assign({}, state.sources, sources);
@@ -43661,9 +43666,9 @@ var DevTools = _stent.Machine.create('DevTools', {
           sources: newSources
         });
       },
-      'update quick filters': function updateQuickFilters(_ref5, whichOne, value) {
-        var quickFilters = _ref5.quickFilters,
-            rest = _objectWithoutProperties(_ref5, ['quickFilters']);
+      'update quick filters': function updateQuickFilters(_ref6, whichOne, value) {
+        var quickFilters = _ref6.quickFilters,
+            rest = _objectWithoutProperties(_ref6, ['quickFilters']);
 
         return _extends({}, rest, { quickFilters: _extends({}, quickFilters, _defineProperty({}, whichOne, value)) });
       }
@@ -43674,15 +43679,15 @@ var DevTools = _stent.Machine.create('DevTools', {
     var sources = this.state.sources;
     var filterRegExp = this.state.quickFilters.left !== '' ? new RegExp(this.state.quickFilters.left, 'gi') : false;
 
-    var filteredByTypeAndSource = this.state.events.filter(function (_ref6) {
-      var type = _ref6.type;
+    var filteredByTypeAndSource = this.state.events.filter(function (_ref7) {
+      var type = _ref7.type;
 
       if (filterTypes !== null && typeof filterTypes[type] !== 'undefined') {
         return filterTypes[type];
       }
       return true;
-    }).filter(function (_ref7) {
-      var origin = _ref7.origin;
+    }).filter(function (_ref8) {
+      var origin = _ref8.origin;
 
       if (sources !== null && typeof sources[origin] !== 'undefined') {
         return sources[origin];
@@ -43691,9 +43696,9 @@ var DevTools = _stent.Machine.create('DevTools', {
     });
 
     if (filterRegExp) {
-      return filteredByTypeAndSource.filter(function (_ref8) {
-        var state = _ref8.state,
-            rest = _objectWithoutProperties(_ref8, ['state']);
+      return filteredByTypeAndSource.filter(function (_ref9) {
+        var state = _ref9.state,
+            rest = _objectWithoutProperties(_ref9, ['state']);
 
         try {
           return JSON.stringify(rest).match(filterRegExp);

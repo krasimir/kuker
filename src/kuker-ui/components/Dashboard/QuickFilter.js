@@ -8,7 +8,7 @@ class QuickFilter extends React.Component {
 
     this._onFieldChange = this._onFieldChange.bind(this);
     this._clearFilter = this._clearFilter.bind(this);
-    this.state = { text: '' };
+    this.state = { text: props.quickFilters[props.whichOne] };
   }
   _onFieldChange(e) {
     const { whichOne, updateQuickFilters } = this.props;
@@ -36,11 +36,13 @@ class QuickFilter extends React.Component {
 
 QuickFilter.propTypes = {
   whichOne: PropTypes.string,
-  updateQuickFilters: PropTypes.func
+  updateQuickFilters: PropTypes.func,
+  quickFilters: PropTypes.object
 };
 
 export default connect(QuickFilter).with('DevTools').map(
   ({ state, updateQuickFilters }) => ({
-    updateQuickFilters
+    updateQuickFilters,
+    quickFilters: state.quickFilters
   })
 );
