@@ -14,6 +14,8 @@ Kuker :heart:
 <a href="#integration-with-mobx">MobX</a>
 </p>
 
+![Kuker](./img/screenshot_reactredux1.jpg)
+
 ---
 
 <p align="center">You want your framework listed here? Check out the <a href="#emitters">Emitters</a> section and learn how to integrate it with Kuker.</p>
