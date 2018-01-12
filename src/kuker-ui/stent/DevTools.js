@@ -51,7 +51,7 @@ const initialState = () => ({
   sources: getSources(),
   quickFilters: { left: '', right: '' }
 });
-const MAX_EVENTS = 500;
+const MAX_EVENTS = 1000;
 
 const DevTools = Machine.create('DevTools', {
   state: initialState(),

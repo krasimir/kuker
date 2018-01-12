@@ -433,38 +433,52 @@ p {
 }
 
 /* no events */
+@keyframes noEventsLogoSlideIn {
+  from { bottom: -500px; opacity: 0; }
+  to { bottom: -85px; opactiy: 1; }
+}
+@keyframes noEventsBalloon {
+  from { bottom: 90px; opacity: 0; }
+  to { bottom: 93px; opacity: 1; }
+}
 .noEvents {
   background: #e6e6e6;
   height: 100%;
   color: rgb(87, 87, 87);
   line-height: 1.6em;
 }
-.noEvents img {
-  display: block;
-  float: left;
+.noEvents .logo {
+  position: absolute;
+  bottom: -85px;
+  left: 50px;
   max-width: 200px;
-  opacity: 0.4;
+  animation: 2000ms noEventsLogoSlideIn ease-out;
 }
-.noEvents .text {
-  float: left;
-  padding: 1.6em 2em 0 0;
+.noEvents .balloon {
+  background: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 2em;
+  max-width: 250px;
+  position: absolute;
+  bottom: 93px;
+  left: 247px;
+  animation: 500ms noEventsBalloon ease-out;
+  animation-delay: 2000ms;
+  animation-fill-mode: backwards;
 }
-.noEvents a {
-  font-weight: bold;
-  color: rgb(83, 83, 83);
-}
-.noEvents a:hover {
+.noEvents .balloon strong {
+  font-size: 1.2em;
   color: #000;
 }
-.noEvents ul {
-  margin: 0.4em 0 0 1.2em;
-  padding: 0;
-  display: block;
+.noEvents .balloon a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
 }
-.noEvents hr {
-  border-top: none;
-  border-bottom: 2px dotted #999;
-  margin: 1em 0;
+.noEvents .balloon a:hover {
+  text-decoration: underline;
 }
 
 /* new session */

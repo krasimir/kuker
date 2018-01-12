@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import AngularIcon from '../../icons/AngularIcon';
+import VueIcon from '../../icons/VueIcon';
 
 import calculateRowStyles from './helpers/calculateRowStyles';
 // eslint-disable-next-line no-unused-vars
 import TimeDiff from '../../TimeDiff';
 
 export default function VueEvent({ event, onClick, className }) {
-  const style = calculateRowStyles(event, { color: 'rgb(230, 230, 230)' });
+  const style = calculateRowStyles(event, { color: 'rgb(230, 230, 230)' }, { padding: '0.2em 0.5em 0.5em 0.3em' });
   var label = event.type;
 
   switch (event.type) {
@@ -23,7 +23,7 @@ export default function VueEvent({ event, onClick, className }) {
     <div style={ style } onClick={ onClick } className={ className }>
       <TimeDiff timeDiff={ event.timeDiff } parentStyle={ style } />
       <div className='actionRowContent'>
-        <AngularIcon style={{ float: 'left' }}></AngularIcon>
+        <VueIcon style={{ float: 'left' }}></VueIcon>
         { label }
       </div>
     </div>

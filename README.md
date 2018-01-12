@@ -113,7 +113,7 @@ VueEmitter();
 The same `VueEmitter` works for [Vuex](https://github.com/vuejs/vuex) too.
 
 * [TodoMVC example](http://work.krasimirtsonev.com/git/vuex-vue-todomvc/)
-* [Codepen example](https://codepen.io/krasimir/pen/EoLddv?editors=1010);
+* [Codepen example](https://codepen.io/krasimir/pen/EoLddv?editors=1010)
 
 ![screenshot vue emitter](./img/kuker-emitters/screenshot_vue.jpg)
 
