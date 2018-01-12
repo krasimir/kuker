@@ -14,7 +14,7 @@ Kuker :heart:
 <a href="#integration-with-mobx">MobX</a>
 </p>
 
-![Kuker](./img/screenshot_showcase.jpg)
+![Kuker](./img/kuker_showcase.jpg)
 
 ---
 
