@@ -3,3 +3,4 @@
 * build for firefox
 * create css and dom emitter
 * import export of events
+* in the diff section - the strike-through line doesn't look good when the text is more then one line

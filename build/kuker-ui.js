@@ -38122,7 +38122,7 @@ module.exports={
   "manifest_version": 2,
   "name": "Kuker",
   "description": "Debug applications made with React, Redux, Angular, Vue and many more",
-  "version": "5.4.0",
+  "version": "5.4.2",
   "icons": { "16": "img/icon16.png", "48": "img/icon48.png", "128": "img/icon128.png" },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "devtools_page": "devtools.html",
@@ -41651,7 +41651,13 @@ var filteredTreesCache = {};
 var extractFilteredTrees = function extractFilteredTrees(root, filter) {
   var result = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
 
-  if (root.name && root.name.match(filter)) {
+  var searchIn = [];
+
+  root.name && searchIn.push(root.name);
+  root.props && root.props.class && searchIn.push(root.props.class);
+  root.props && root.props.id && searchIn.push(root.props.id);
+
+  if (searchIn.join(' ').match(filter)) {
     result.push(root);
   }
   if (root.children && root.children.length > 0) {
@@ -41863,7 +41869,7 @@ var HTMLTree = function (_React$Component) {
           var cacheId = filter + pinnedEvent.id;
 
           if (!filteredTreesCache[cacheId]) {
-            filteredTreesCache = _defineProperty({}, cacheId, extractFilteredTrees(pinnedEvent.state, new RegExp('^' + filter, 'ig')));
+            filteredTreesCache = _defineProperty({}, cacheId, extractFilteredTrees(pinnedEvent.state, new RegExp('' + filter, 'ig')));
           }
           trees = filteredTreesCache[cacheId];
         } else {
@@ -43509,16 +43515,11 @@ var sendMessageToCurrentTag = function sendMessageToCurrentTag(data, callback) {
   getActiveTabId(function (id) {
     if (!id) {
       console.error('It can\'t get the current active tab.');
+      callback();
+      return;
     }
     chrome.tabs.sendMessage(id, data, callback);
   });
-};
-var activeTabConsoleLog = function activeTabConsoleLog() {
-  for (var _len = arguments.length, data = Array(_len), _key = 0; _key < _len; _key++) {
-    data[_key] = arguments[_key];
-  }
-
-  sendMessageToCurrentTag({ type: 'console.log', data: data });
 };
 var wire = function wire() {
   if (!(0, _isInDevTools2.default)()) return;
@@ -43534,8 +43535,10 @@ var wire = function wire() {
 var wireWithSockets = function wireWithSockets() {
   function fail(socket) {
     try {
-      socket.close();
-      socket.disconnect();
+      if (socket) {
+        socket.close();
+        socket.disconnect();
+      }
     } catch (error) {
       console.log('Error closing the socket', error);
     }
@@ -43580,7 +43583,7 @@ var wireWithSockets = function wireWithSockets() {
   function init() {
     if ((0, _isInDevTools2.default)()) {
       sendMessageToCurrentTag({ type: 'get-page-url' }, function (u) {
-        return listen(u, false);
+        u ? listen(u, false) : fail();
       });
     } else {
       listen('http://localhost', true);

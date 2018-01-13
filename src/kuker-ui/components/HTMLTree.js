@@ -11,7 +11,13 @@ var HTMLTreeState = { mouseOver: '' };
 var filteredTreesCache = {};
 
 const extractFilteredTrees = function (root, filter, result = []) {
-  if (root.name && root.name.match(filter)) {
+  const searchIn = [];
+
+  root.name && searchIn.push(root.name);
+  root.props && root.props.class && searchIn.push(root.props.class);
+  root.props && root.props.id && searchIn.push(root.props.id);
+
+  if (searchIn.join(' ').match(filter)) {
     result.push(root);
   }
   if (root.children && root.children.length > 0) {
@@ -148,7 +154,7 @@ class HTMLTree extends React.Component {
 
         if (!filteredTreesCache[cacheId]) {
           filteredTreesCache = {
-            [cacheId]: extractFilteredTrees(pinnedEvent.state, new RegExp(`^${ filter }`, 'ig'))
+            [cacheId]: extractFilteredTrees(pinnedEvent.state, new RegExp(`${ filter }`, 'ig'))
           };
         }
         trees = filteredTreesCache[cacheId];

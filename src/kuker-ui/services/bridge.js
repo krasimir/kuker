@@ -29,12 +29,11 @@ const sendMessageToCurrentTag = function (data, callback) {
   getActiveTabId(function (id) {
     if (!id) {
       console.error('It can\'t get the current active tab.');
+      callback();
+      return;
     }
     chrome.tabs.sendMessage(id, data, callback);
   });
-};
-const activeTabConsoleLog = function (...data) {
-  sendMessageToCurrentTag({ type: 'console.log', data });
 };
 const wire = function () {
   if (!isInDevTools()) return;
@@ -50,8 +49,10 @@ const wire = function () {
 const wireWithSockets = function () {
   function fail(socket) {
     try {
-      socket.close();
-      socket.disconnect();
+      if (socket) {
+        socket.close();
+        socket.disconnect();
+      }
     } catch (error) {
       console.log('Error closing the socket', error);
     }
@@ -85,7 +86,9 @@ const wireWithSockets = function () {
   }
   function init() {
     if (isInDevTools()) {
-      sendMessageToCurrentTag({ type: 'get-page-url' }, u => listen(u, false));
+      sendMessageToCurrentTag({ type: 'get-page-url' }, u => {
+        u ? listen(u, false) : fail();
+      });
     } else {
       listen('http://localhost', true);
     }
