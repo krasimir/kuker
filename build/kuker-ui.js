@@ -38121,8 +38121,8 @@ module.exports = exports['default'];
 module.exports={
   "manifest_version": 2,
   "name": "Kuker",
-  "description": "Debug applications made with React, Angular, Vue and many more",
-  "version": "5.3.1",
+  "description": "Debug applications made with React, Redux, Angular, Vue and many more",
+  "version": "5.3.2",
   "icons": { "16": "img/icon16.png", "48": "img/icon48.png", "128": "img/icon128.png" },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "devtools_page": "devtools.html",
@@ -38237,7 +38237,7 @@ App.propTypes = {
   page: _propTypes2.default.string
 };
 
-},{"../constants":496,"./Dashboard":484,"prop-types":161,"react":425,"stent/lib/react":444}],447:[function(require,module,exports){
+},{"../constants":497,"./Dashboard":485,"prop-types":161,"react":425,"stent/lib/react":444}],447:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38284,7 +38284,7 @@ Event.propTypes = {
   event: _propTypes2.default.object
 };
 
-},{"../Tree":491,"prop-types":161,"react":425}],448:[function(require,module,exports){
+},{"../Tree":492,"prop-types":161,"react":425}],448:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38369,7 +38369,7 @@ EventListRow.propTypes = {
   sources: _propTypes2.default.object
 };
 
-},{"../../helpers/getRandomColor":505,"./Handlers":466,"./handlers/UnrecognizedEvent":482,"prop-types":161,"react":425}],449:[function(require,module,exports){
+},{"../../helpers/getRandomColor":506,"./Handlers":467,"./handlers/UnrecognizedEvent":483,"prop-types":161,"react":425}],449:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38421,7 +38421,7 @@ HTMLPin.propTypes = {
 
 exports.default = (0, _react3.connect)(HTMLPin).with('Pinned').map();
 
-},{"../../helpers/renderJSON":512,"prop-types":161,"react":425,"stent/lib/react":444}],450:[function(require,module,exports){
+},{"../../helpers/renderJSON":513,"prop-types":161,"react":425,"stent/lib/react":444}],450:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38504,7 +38504,74 @@ AngularEvent.isAngularEvent = function (_ref2) {
   return type.split('_')[0] === '@@angular';
 };
 
-},{"../../TimeDiff":490,"../../icons/AngularIcon":492,"./helpers/calculateRowStyles":465,"prop-types":161,"react":425}],451:[function(require,module,exports){
+},{"../../TimeDiff":491,"../../icons/AngularIcon":493,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],451:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = HTMLEvent;
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _calculateRowStyles = require('./helpers/calculateRowStyles');
+
+var _calculateRowStyles2 = _interopRequireDefault(_calculateRowStyles);
+
+var _TimeDiff = require('../../TimeDiff');
+
+var _TimeDiff2 = _interopRequireDefault(_TimeDiff);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function HTMLEvent(_ref) {
+  var event = _ref.event,
+      onClick = _ref.onClick,
+      className = _ref.className;
+
+  var style = (0, _calculateRowStyles2.default)(event, { color: 'rgb(230, 230, 230)' });
+  var label = event.type;
+
+  switch (event.type) {
+    case '@@HTML_mutation':
+      label = 'HTML mutation';
+      break;
+  }
+
+  return _react2.default.createElement(
+    'div',
+    { style: style, onClick: onClick, className: className },
+    _react2.default.createElement(_TimeDiff2.default, { timeDiff: event.timeDiff, parentStyle: style }),
+    _react2.default.createElement(
+      'div',
+      { className: 'actionRowContent' },
+      _react2.default.createElement('i', { className: 'fa fa-code' }),
+      ' ',
+      label
+    )
+  );
+}
+// eslint-disable-next-line no-unused-vars
+;
+
+HTMLEvent.propTypes = {
+  event: _propTypes2.default.object,
+  onClick: _propTypes2.default.func,
+  className: _propTypes2.default.string
+};
+
+HTMLEvent.isHTMLEvent = function (_ref2) {
+  var type = _ref2.type;
+  return type.split('_')[0] === '@@HTML';
+};
+
+},{"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],452:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38738,7 +38805,7 @@ MobX.propTypes = {
   className: _propTypes2.default.string
 };
 
-},{"../../../helpers/readFromPath":510,"../../../helpers/shortenJSON":514,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"prop-types":161,"react":425}],452:[function(require,module,exports){
+},{"../../../helpers/readFromPath":511,"../../../helpers/shortenJSON":515,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],453:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38787,7 +38854,7 @@ NewEmitter.propTypes = {
   event: _propTypes2.default.object
 };
 
-},{"prop-types":161,"react":425}],453:[function(require,module,exports){
+},{"prop-types":161,"react":425}],454:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38826,7 +38893,7 @@ NewSession.propTypes = {
   event: _propTypes2.default.object
 };
 
-},{"prop-types":161,"react":425}],454:[function(require,module,exports){
+},{"prop-types":161,"react":425}],455:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38924,7 +38991,7 @@ ReactEvent.isReactEvent = function (_ref2) {
   return type.split('_')[0] === '@@react';
 };
 
-},{"../../TimeDiff":490,"../../icons/ReactIcon":494,"./helpers/calculateRowStyles":465,"prop-types":161,"react":425}],455:[function(require,module,exports){
+},{"../../TimeDiff":491,"../../icons/ReactIcon":495,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],456:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39010,7 +39077,7 @@ function ReduxAction(_ref) {
   );
 }
 
-},{"../../../helpers/isDefined":506,"../../../helpers/renderJSONPreview":513,"../../TimeDiff":490,"./helpers/SagaEffectName":464,"./helpers/calculateRowStyles":465,"react":425}],456:[function(require,module,exports){
+},{"../../../helpers/isDefined":507,"../../../helpers/renderJSONPreview":514,"../../TimeDiff":491,"./helpers/SagaEffectName":465,"./helpers/calculateRowStyles":466,"react":425}],457:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39082,7 +39149,7 @@ function SagaEffectActionDispatched(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/isDefined":506,"../../TimeDiff":490,"./helpers/SagaEffectName":464,"./helpers/calculateRowStyles":465,"react":425}],457:[function(require,module,exports){
+},{"../../../helpers/isDefined":507,"../../TimeDiff":491,"./helpers/SagaEffectName":465,"./helpers/calculateRowStyles":466,"react":425}],458:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39141,7 +39208,7 @@ function SagaEffectCanceled(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../TimeDiff":490,"./helpers/SagaEffectIds":463,"./helpers/SagaEffectName":464,"./helpers/calculateRowStyles":465,"react":425}],458:[function(require,module,exports){
+},{"../../TimeDiff":491,"./helpers/SagaEffectIds":464,"./helpers/SagaEffectName":465,"./helpers/calculateRowStyles":466,"react":425}],459:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39223,7 +39290,7 @@ function SagaEffectCanceled(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/isDefined":506,"../../../helpers/readFromPath":510,"../../TimeDiff":490,"./helpers/SagaEffectIds":463,"./helpers/SagaEffectName":464,"./helpers/calculateRowStyles":465,"react":425}],459:[function(require,module,exports){
+},{"../../../helpers/isDefined":507,"../../../helpers/readFromPath":511,"../../TimeDiff":491,"./helpers/SagaEffectIds":464,"./helpers/SagaEffectName":465,"./helpers/calculateRowStyles":466,"react":425}],460:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39334,7 +39401,7 @@ function SagaEffectResolved(_ref) {
   );
 }
 
-},{"../../../helpers/isDefined":506,"../../../helpers/renderJSONPreview":513,"../../TimeDiff":490,"./helpers/SagaEffectIds":463,"./helpers/SagaEffectName":464,"./helpers/calculateRowStyles":465,"react":425}],460:[function(require,module,exports){
+},{"../../../helpers/isDefined":507,"../../../helpers/renderJSONPreview":514,"../../TimeDiff":491,"./helpers/SagaEffectIds":464,"./helpers/SagaEffectName":465,"./helpers/calculateRowStyles":466,"react":425}],461:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39431,7 +39498,7 @@ function SagaEffectTriggered(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/isDefined":506,"../../../helpers/readFromPath":510,"../../TimeDiff":490,"./helpers/SagaEffectIds":463,"./helpers/SagaEffectName":464,"./helpers/calculateRowStyles":465,"react":425}],461:[function(require,module,exports){
+},{"../../../helpers/isDefined":507,"../../../helpers/readFromPath":511,"../../TimeDiff":491,"./helpers/SagaEffectIds":464,"./helpers/SagaEffectName":465,"./helpers/calculateRowStyles":466,"react":425}],462:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39504,7 +39571,7 @@ VueEvent.isVueEvent = function (_ref2) {
   return type.split('_')[0] === '@@vue';
 };
 
-},{"../../TimeDiff":490,"../../icons/VueIcon":495,"./helpers/calculateRowStyles":465,"prop-types":161,"react":425}],462:[function(require,module,exports){
+},{"../../TimeDiff":491,"../../icons/VueIcon":496,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],463:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39583,7 +39650,7 @@ VuexEvent.propTypes = {
   className: _propTypes2.default.string
 };
 
-},{"../../TimeDiff":490,"../../icons/VueIcon":495,"./helpers/calculateRowStyles":465,"prop-types":161,"react":425}],463:[function(require,module,exports){
+},{"../../TimeDiff":491,"../../icons/VueIcon":496,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],464:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39636,7 +39703,7 @@ SagaEffectIds.propTypes = {
   event: _propTypes2.default.object
 };
 
-},{"../../../../helpers/isDefined":506,"../../../../helpers/readFromPath":510,"prop-types":161,"react":425}],464:[function(require,module,exports){
+},{"../../../../helpers/isDefined":507,"../../../../helpers/readFromPath":511,"prop-types":161,"react":425}],465:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39793,7 +39860,7 @@ SagaEffectName.propTypes = {
   effect: _propTypes2.default.any
 };
 
-},{"../../../../helpers/readFromPath":510,"prop-types":161,"react":425}],465:[function(require,module,exports){
+},{"../../../../helpers/readFromPath":511,"prop-types":161,"react":425}],466:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39813,7 +39880,7 @@ function calculateRowStyles(_ref) {
   }, other);
 }
 
-},{}],466:[function(require,module,exports){
+},{}],467:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39913,6 +39980,10 @@ var _Vuex = require('./Vuex');
 
 var _Vuex2 = _interopRequireDefault(_Vuex);
 
+var _HTML = require('./HTML');
+
+var _HTML2 = _interopRequireDefault(_HTML);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Handlers = exports.Handlers = {
@@ -39928,7 +39999,8 @@ var Handlers = exports.Handlers = {
   '@@react': _React2.default,
   '@@angular': _Angular2.default,
   '@@vue': _Vue2.default,
-  '@@vuex': _Vuex2.default
+  '@@vuex': _Vuex2.default,
+  '@@HTML': _HTML2.default
 };
 
 var StentHandlers = exports.StentHandlers = {
@@ -39944,7 +40016,7 @@ var StentHandlers = exports.StentHandlers = {
   onStateWillChange: _onStateWillChange2.default
 };
 
-},{"./Angular":450,"./Mobx":451,"./NewEmitter":452,"./NewSession":453,"./React":454,"./ReduxAction":455,"./SagaEffectActionDispatched":456,"./SagaEffectCanceled":457,"./SagaEffectRejected":458,"./SagaEffectResolved":459,"./SagaEffectTriggered":460,"./Vue":461,"./Vuex":462,"./onActionDispatched":467,"./onActionProcessed":468,"./onGeneratorEnd":469,"./onGeneratorResumed":470,"./onGeneratorStep":471,"./onMachineConnected":472,"./onMachineCreated":473,"./onMachineDisconnected":474,"./onStateChanged":475,"./onStateWillChange":476}],467:[function(require,module,exports){
+},{"./Angular":450,"./HTML":451,"./Mobx":452,"./NewEmitter":453,"./NewSession":454,"./React":455,"./ReduxAction":456,"./SagaEffectActionDispatched":457,"./SagaEffectCanceled":458,"./SagaEffectRejected":459,"./SagaEffectResolved":460,"./SagaEffectTriggered":461,"./Vue":462,"./Vuex":463,"./onActionDispatched":468,"./onActionProcessed":469,"./onGeneratorEnd":470,"./onGeneratorResumed":471,"./onGeneratorStep":472,"./onMachineConnected":473,"./onMachineCreated":474,"./onMachineDisconnected":475,"./onStateChanged":476,"./onStateWillChange":477}],468:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40014,7 +40086,7 @@ onActionDispatched.propTypes = {
   className: _propTypes2.default.string
 };
 
-},{"../../../helpers/getMachineName":504,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"prop-types":161,"react":425}],468:[function(require,module,exports){
+},{"../../../helpers/getMachineName":505,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],469:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40075,7 +40147,7 @@ function onActionProcessed(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":504,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"react":425}],469:[function(require,module,exports){
+},{"../../../helpers/getMachineName":505,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"react":425}],470:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40138,7 +40210,7 @@ function onGeneratorEnd(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":504,"../../../helpers/shortenJSON":514,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"react":425}],470:[function(require,module,exports){
+},{"../../../helpers/getMachineName":505,"../../../helpers/shortenJSON":515,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"react":425}],471:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40201,7 +40273,7 @@ function onGeneratorResumed(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":504,"../../../helpers/shortenJSON":514,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"react":425}],471:[function(require,module,exports){
+},{"../../../helpers/getMachineName":505,"../../../helpers/shortenJSON":515,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"react":425}],472:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40306,7 +40378,7 @@ function onGeneratorStep(_ref) {
   );
 };
 
-},{"../../../helpers/getMachineName":504,"../../../helpers/shortenJSON":514,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"react":425}],472:[function(require,module,exports){
+},{"../../../helpers/getMachineName":505,"../../../helpers/shortenJSON":515,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"react":425}],473:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40369,7 +40441,7 @@ function onMachineConnected(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":504,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"react":425}],473:[function(require,module,exports){
+},{"../../../helpers/getMachineName":505,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"react":425}],474:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40425,7 +40497,7 @@ function onMachineCreated(_ref) {
 // eslint-disable-next-line no-unused-vars
 ;
 
-},{"../../../helpers/getMachineName":504,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"react":425}],474:[function(require,module,exports){
+},{"../../../helpers/getMachineName":505,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"react":425}],475:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40488,7 +40560,7 @@ function onMachineDisconnected(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":504,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"react":425}],475:[function(require,module,exports){
+},{"../../../helpers/getMachineName":505,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"react":425}],476:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40548,7 +40620,7 @@ function onStateChanged(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":504,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"react":425}],476:[function(require,module,exports){
+},{"../../../helpers/getMachineName":505,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"react":425}],477:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40609,7 +40681,7 @@ function onStateWillChange(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":504,"../../TimeDiff":490,"./helpers/calculateRowStyles":465,"react":425}],477:[function(require,module,exports){
+},{"../../../helpers/getMachineName":505,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"react":425}],478:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40672,7 +40744,7 @@ exports.default = (0, _react3.connect)(MutationPin).with('DevTools').map(functio
   };
 });
 
-},{"prop-types":161,"react":425,"stent/lib/react":444}],478:[function(require,module,exports){
+},{"prop-types":161,"react":425,"stent/lib/react":444}],479:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40733,7 +40805,7 @@ NoEvents.propTypes = {
   healthyComponent: _propTypes2.default.element
 };
 
-},{"../../../extension-static/manifest.json":445,"prop-types":161,"react":425}],479:[function(require,module,exports){
+},{"../../../extension-static/manifest.json":445,"prop-types":161,"react":425}],480:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40833,7 +40905,7 @@ exports.default = (0, _react3.connect)(QuickFilter).with('DevTools').map(functio
   };
 });
 
-},{"prop-types":161,"react":425,"stent/lib/react":444}],480:[function(require,module,exports){
+},{"prop-types":161,"react":425,"stent/lib/react":444}],481:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41083,7 +41155,7 @@ exports.default = (0, _react3.connect)(Settings).with('DevTools').map(function (
   };
 });
 
-},{"prop-types":161,"react":425,"stent/lib/react":444}],481:[function(require,module,exports){
+},{"prop-types":161,"react":425,"stent/lib/react":444}],482:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41119,6 +41191,10 @@ var _Vue = require('./Handlers/Vue');
 
 var _Vue2 = _interopRequireDefault(_Vue);
 
+var _HTML = require('./Handlers/HTML');
+
+var _HTML2 = _interopRequireDefault(_HTML);
+
 var _HTMLPin = require('./HTMLPin');
 
 var _HTMLPin2 = _interopRequireDefault(_HTMLPin);
@@ -41128,7 +41204,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function State(_ref) {
   var pinnedEvent = _ref.pinnedEvent;
 
-  if (_React2.default.isReactEvent(pinnedEvent) || _Angular2.default.isAngularEvent(pinnedEvent) || _Vue2.default.isVueEvent(pinnedEvent)) {
+  if (_React2.default.isReactEvent(pinnedEvent) || _Angular2.default.isAngularEvent(pinnedEvent) || _Vue2.default.isVueEvent(pinnedEvent) || _HTML2.default.isHTMLEvent(pinnedEvent)) {
     return _react2.default.createElement(_HTMLTree2.default, { Pin: _HTMLPin2.default });
   }
   return _react2.default.createElement(_JSONTree2.default, null);
@@ -41138,7 +41214,7 @@ State.propTypes = {
   pinnedEvent: _propTypes2.default.object
 };
 
-},{"../HTMLTree":486,"../JSONTree":488,"./HTMLPin":449,"./Handlers/Angular":450,"./Handlers/React":454,"./Handlers/Vue":461,"prop-types":161,"react":425}],482:[function(require,module,exports){
+},{"../HTMLTree":487,"../JSONTree":489,"./HTMLPin":449,"./Handlers/Angular":450,"./Handlers/HTML":451,"./Handlers/React":455,"./Handlers/Vue":462,"prop-types":161,"react":425}],483:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41203,9 +41279,9 @@ UnrecognizedEvent.propTypes = {
   className: _propTypes2.default.string
 };
 
-},{"../../TimeDiff":490,"./helpers/calculateRowStyles":483,"prop-types":161,"react":425}],483:[function(require,module,exports){
-arguments[4][465][0].apply(exports,arguments)
-},{"dup":465}],484:[function(require,module,exports){
+},{"../../TimeDiff":491,"./helpers/calculateRowStyles":484,"prop-types":161,"react":425}],484:[function(require,module,exports){
+arguments[4][466][0].apply(exports,arguments)
+},{"dup":466}],485:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41470,7 +41546,7 @@ exports.default = (0, _react3.connect)(Dashboard).with('DevTools', 'TreeNav', 'P
   };
 });
 
-},{"./Event":447,"./EventListRow":448,"./NoEvents":478,"./QuickFilter":479,"./Settings":480,"./State":481,"prop-types":161,"react":425,"react-virtualized":384,"stent/lib/react":444}],485:[function(require,module,exports){
+},{"./Event":447,"./EventListRow":448,"./NoEvents":479,"./QuickFilter":480,"./Settings":481,"./State":482,"prop-types":161,"react":425,"react-virtualized":384,"stent/lib/react":444}],486:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41588,16 +41664,19 @@ HTMLMutation.propTypes = {
   filter: _propTypes2.default.string
 };
 
-},{"../helpers/normalizeMutationPathParts":509,"./SingleMutation":489,"prop-types":161,"react":425}],486:[function(require,module,exports){
+},{"../helpers/normalizeMutationPathParts":510,"./SingleMutation":490,"prop-types":161,"react":425}],487:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _nodeStyles;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /* eslint-disable react/prop-types */
+
 
 var _react = require('react');
 
@@ -41619,15 +41698,16 @@ var _HTMLMutation2 = _interopRequireDefault(_HTMLMutation);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint-disable react/prop-types */
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+var TEXT_NODE = 3;
+var COMMENT_NODE = 8;
 var HTMLTreeState = { mouseOver: '' };
 var filteredTreesCache = {};
 
@@ -41645,6 +41725,17 @@ var extractFilteredTrees = function extractFilteredTrees(root, filter) {
   }
   return result;
 };
+var wrapperStyle = {
+  marginLeft: '8px'
+};
+var nodeStyles = (_nodeStyles = {}, _defineProperty(_nodeStyles, TEXT_NODE, _extends({}, wrapperStyle, {
+  color: 'rgb(220, 107, 21)',
+  fontSize: '0.9em',
+  fontWeight: 'bold'
+})), _defineProperty(_nodeStyles, COMMENT_NODE, _extends({}, wrapperStyle, {
+  color: 'rgb(84, 84, 84)',
+  fontSize: '0.9em'
+})), _nodeStyles);
 
 var HTMLTree = function (_React$Component) {
   _inherits(HTMLTree, _React$Component);
@@ -41673,17 +41764,36 @@ var HTMLTree = function (_React$Component) {
       this.setState({ mouseOver: expandKey });
     }
   }, {
+    key: '_showMutation',
+    value: function _showMutation(mutationExplorerPath) {
+      this.props.showMutation(mutationExplorerPath);
+      this.setState({ mutationExplorerPath: mutationExplorerPath });
+    }
+  }, {
     key: '_renderTag',
     value: function _renderTag(component) {
       var _this2 = this;
 
       var indent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-      var index = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+      var jsonPath = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+
+      if ([TEXT_NODE, COMMENT_NODE].indexOf(component.nodeType) >= 0 && component.nodeValue) {
+        if (component.nodeValue.replace(/^\s*\n\s+/gm, '') !== '') {
+          return _react2.default.createElement(
+            'div',
+            { style: nodeStyles[component.nodeType] },
+            component.nodeType === COMMENT_NODE ? '/* ' : '"',
+            component.nodeValue,
+            component.nodeType === COMMENT_NODE ? ' */' : '"'
+          );
+        }
+        return null;
+      }
 
       var name = component.name;
       var props = component.props || {};
       var children = component.children;
-      var expandedKey = index.toString();
+      var expandedKey = jsonPath;
       var renderChildren = this.state[expandedKey];
       var numOfProps = Object.keys(props).length;
       var hasChildren = children && children.length > 0;
@@ -41714,9 +41824,6 @@ var HTMLTree = function (_React$Component) {
           )
         );
       });
-      var wrapperStyle = {
-        marginLeft: '8px'
-      };
 
       if (this.state.htmlPin && expandedKey === this.state.htmlPin.key) {
         // eslint-disable-next-line
@@ -41727,7 +41834,7 @@ var HTMLTree = function (_React$Component) {
         'div',
         {
           style: wrapperStyle,
-          className: 'tag' + (expandedKey === this.state.mouseOver ? ' over' : ''),
+          className: 'tag' + (expandedKey === this.state.mouseOver ? ' over' : '') + (this.state.mutationExplorerPath === jsonPath ? ' mutationExplorer' : ''),
           onMouseOver: function onMouseOver(event) {
             return _this2._onComponentMouseOver(event, expandedKey, component);
           }
@@ -41770,11 +41877,18 @@ var HTMLTree = function (_React$Component) {
             '> '
           )
         ),
+        _react2.default.createElement(
+          'a',
+          { onClick: function onClick() {
+              return _this2._showMutation(jsonPath);
+            } },
+          _react2.default.createElement('i', { className: 'fa fa-eye viewMutationIcon' })
+        ),
         renderChildren && hasChildren && children.map(function (child, i) {
           return _react2.default.createElement(
             'div',
             { key: i },
-            _this2._renderTag(children[i], indent + 1, expandedKey + (i + 1))
+            _this2._renderTag(children[i], indent + 1, (jsonPath !== '' ? jsonPath + '.' : jsonPath) + 'children.' + i)
           );
         }),
         renderChildren && hasChildren && _react2.default.createElement(
@@ -41825,7 +41939,7 @@ var HTMLTree = function (_React$Component) {
             return _react2.default.createElement(
               'div',
               { key: i, className: 'filteredTreeResult' },
-              _this3._renderTag(tree, 0, i + 'a')
+              _this3._renderTag(tree, 0)
             );
           }),
           _react2.default.createElement(_HTMLMutation2.default, { pinnedEvent: pinnedEvent, filter: filter })
@@ -41846,6 +41960,7 @@ var HTMLTree = function (_React$Component) {
 
 HTMLTree.propTypes = {
   pinnedEvent: _propTypes2.default.object,
+  showMutation: _propTypes2.default.func,
   filter: _propTypes2.default.string,
   Pin: _propTypes2.default.any
 };
@@ -41853,12 +41968,13 @@ HTMLTree.propTypes = {
 exports.default = (0, _react3.connect)(HTMLTree).with('Pinned', 'DevTools').map(function (_ref, devtools) {
   var state = _ref.state;
   return {
+    showMutation: devtools.showMutation,
     pinnedEvent: state.pinnedEvent,
     filter: devtools.state.quickFilters.right
   };
 });
 
-},{"../helpers/formatPropValue":502,"./HTMLMutation":485,"prop-types":161,"react":425,"stent/lib/react":444}],487:[function(require,module,exports){
+},{"../helpers/formatPropValue":503,"./HTMLMutation":486,"prop-types":161,"react":425,"stent/lib/react":444}],488:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41951,7 +42067,7 @@ function extractMutatedPaths(mutation) {
   });
 };
 
-},{"../helpers/normalizeMutationPathParts":509,"./SingleMutation":489,"prop-types":161,"react":425}],488:[function(require,module,exports){
+},{"../helpers/normalizeMutationPathParts":510,"./SingleMutation":490,"prop-types":161,"react":425}],489:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42095,7 +42211,7 @@ exports.default = (0, _react3.connect)(JSONTree).with('DevTools', 'Pinned').map(
   };
 });
 
-},{"./Dashboard/MutationPin":477,"./JSONMutation":487,"./Tree":491,"prop-types":161,"react":425,"stent/lib/react":444}],489:[function(require,module,exports){
+},{"./Dashboard/MutationPin":478,"./JSONMutation":488,"./Tree":492,"prop-types":161,"react":425,"stent/lib/react":444}],490:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42198,7 +42314,7 @@ SingleMutation.propTypes = {
   indent: _propTypes2.default.number
 };
 
-},{"../helpers/formatMutationPath":501,"../helpers/formatSide":503,"./icons/MutationIcon":493,"prop-types":161,"react":425}],490:[function(require,module,exports){
+},{"../helpers/formatMutationPath":502,"../helpers/formatSide":504,"./icons/MutationIcon":494,"prop-types":161,"react":425}],491:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42248,7 +42364,7 @@ function TimeDiff(_ref) {
   );
 }
 
-},{"react":425}],491:[function(require,module,exports){
+},{"react":425}],492:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42355,7 +42471,7 @@ Tree.propTypes = {
   onItemClick: _propTypes2.default.func
 };
 
-},{"../helpers/renderAsTree":511,"../stent/Raw":519,"prop-types":161,"react":425,"stent/lib/helpers":434}],492:[function(require,module,exports){
+},{"../helpers/renderAsTree":512,"../stent/Raw":520,"prop-types":161,"react":425,"stent/lib/helpers":434}],493:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42385,7 +42501,7 @@ function AngularIcon(_ref) {
   );
 };
 
-},{"react":425}],493:[function(require,module,exports){
+},{"react":425}],494:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42423,7 +42539,7 @@ MutationIcon.propTypes = {
   kind: _propTypes2.default.string
 };
 
-},{"prop-types":161,"react":425}],494:[function(require,module,exports){
+},{"prop-types":161,"react":425}],495:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42454,7 +42570,7 @@ function ReactIcon(_ref) {
   );
 };
 
-},{"react":425}],495:[function(require,module,exports){
+},{"react":425}],496:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42509,7 +42625,7 @@ function VueIcon(_ref) {
   );
 };
 
-},{"react":425}],496:[function(require,module,exports){
+},{"react":425}],497:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42524,7 +42640,7 @@ var DEFAULT_FILTER_TYPES = exports.DEFAULT_FILTER_TYPES = {
   '@mobx_spyReportEnd': false
 };
 
-},{}],497:[function(require,module,exports){
+},{}],498:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42602,8 +42718,8 @@ ExpandablePath.propTypes = {
   short: _propTypes2.default.object
 };
 
-},{"prop-types":161,"react":425}],498:[function(require,module,exports){
-"use strict";
+},{"prop-types":161,"react":425}],499:[function(require,module,exports){
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -42611,13 +42727,14 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = calculateMutationExplorer;
 function calculateMutationExplorer(event, mutationExplorerPath) {
   if (event.mutationPaths && mutationExplorerPath !== null) {
+    console.log('--------- ', mutationExplorerPath);
     event.mutationExplorer = event.mutationPaths.filter(function (mPath) {
       return mPath.toString().indexOf(mutationExplorerPath.toString()) === 0;
     }).length > 0;
   }
 };
 
-},{}],499:[function(require,module,exports){
+},{}],500:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42692,7 +42809,7 @@ function enhanceEvent(event, previousState, mutationExplorerPath) {
   return event;
 };
 
-},{"../components/JSONMutation":487,"./calculateMutationExplorer":498,"./formatMilliseconds":500,"deep-diff":148}],500:[function(require,module,exports){
+},{"../components/JSONMutation":488,"./calculateMutationExplorer":499,"./formatMilliseconds":501,"deep-diff":148}],501:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -42726,7 +42843,7 @@ function formatMilliseconds(millisec) {
   return minutes + ":" + seconds + ':' + ms;
 }
 
-},{}],501:[function(require,module,exports){
+},{}],502:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42778,7 +42895,7 @@ function formatPath(mutation) {
   return null;
 };
 
-},{"./ExpandablePath":497,"./joinReactElements":508,"react":425}],502:[function(require,module,exports){
+},{"./ExpandablePath":498,"./joinReactElements":509,"react":425}],503:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42800,7 +42917,7 @@ function formatPropValue(value) {
   }
 };
 
-},{}],503:[function(require,module,exports){
+},{}],504:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42830,7 +42947,7 @@ function formatSide(side) {
   return String(side);
 }
 
-},{"./isDefined":506,"./renderJSONPreview":513}],504:[function(require,module,exports){
+},{"./isDefined":507,"./renderJSONPreview":514}],505:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42846,7 +42963,7 @@ function getMachineName(_ref) {
   return name;
 };
 
-},{}],505:[function(require,module,exports){
+},{}],506:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42865,7 +42982,7 @@ function getRandomColor() {
   return color;
 };
 
-},{}],506:[function(require,module,exports){
+},{}],507:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42877,7 +42994,7 @@ var isDefined = function isDefined(v) {
 
 exports.default = isDefined;
 
-},{}],507:[function(require,module,exports){
+},{}],508:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -42889,7 +43006,7 @@ function isInDevTools() {
   return true;
 };
 
-},{}],508:[function(require,module,exports){
+},{}],509:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42925,7 +43042,7 @@ function joinReactElements(delimiter, arr) {
   );
 };
 
-},{"react":425}],509:[function(require,module,exports){
+},{"react":425}],510:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42976,7 +43093,7 @@ function normalizeMutationPathParts(mutations, filterRegExp) {
   });
 };
 
-},{"./joinReactElements":508,"react":425}],510:[function(require,module,exports){
+},{"./joinReactElements":509,"react":425}],511:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43007,7 +43124,7 @@ function readFromPath(object, path) {
   return fallback;
 };
 
-},{"./isDefined":506}],511:[function(require,module,exports){
+},{"./isDefined":507}],512:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43058,7 +43175,7 @@ function renderEventAsTree(event) {
   return (0, _renderJSON2.default)(_extends({}, rest), 'Event', onItemClick);
 };
 
-},{"./getMachineName":504,"./renderJSON":512,"react":425}],512:[function(require,module,exports){
+},{"./getMachineName":505,"./renderJSON":513,"react":425}],513:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43202,7 +43319,7 @@ var renderJSON = function renderJSON(json) {
 
 exports.default = renderJSON;
 
-},{"../../vendor/react-json-tree/lib":531,"./renderJSONPreview":513,"react":425}],513:[function(require,module,exports){
+},{"../../vendor/react-json-tree/lib":532,"./renderJSONPreview":514,"react":425}],514:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43257,7 +43374,7 @@ function renderJSONPreview(data) {
   return result.length > limit ? result.substr(0, limit) + '...' : result;
 };
 
-},{}],514:[function(require,module,exports){
+},{}],515:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43273,7 +43390,7 @@ function shortenJSON(data) {
   return str.substr(0, STR_LIMIT) + '...';
 };
 
-},{}],515:[function(require,module,exports){
+},{}],516:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -43347,7 +43464,10 @@ if (typeof window !== 'undefined' && window.location && window.location.href) {
       s = '../_mocks/example.angular.json';
     } else if (window.location.href.indexOf('populate=vue') > 0) {
       s = '../_mocks/example.vue.json';
+    } else if (window.location.href.indexOf('populate=html') > 0) {
+      s = '../_mocks/example.html.json';
     }
+    console.log(s);
 
     fetch(s).then(function (response) {
       response.json().then(function (_ref) {
@@ -43381,7 +43501,7 @@ if (typeof window !== 'undefined' && window.location && window.location.href) {
 // misc
 // Machine.addMiddleware(StentEmitter);
 
-},{"./components/App.jsx":446,"./services/bridge":516,"./stent/DevTools":517,"./stent/Pinned":518,"./stent/TreeNav":520,"react":425,"react-dom":173}],516:[function(require,module,exports){
+},{"./components/App.jsx":446,"./services/bridge":517,"./stent/DevTools":518,"./stent/Pinned":519,"./stent/TreeNav":521,"react":425,"react-dom":173}],517:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43512,7 +43632,7 @@ wireWithSockets();
 
 exports.default = bridge;
 
-},{"../constants":496,"../helpers/isInDevTools":507}],517:[function(require,module,exports){
+},{"../constants":497,"../helpers/isInDevTools":508}],518:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43715,7 +43835,7 @@ var DevTools = _stent.Machine.create('DevTools', {
 
 exports.default = DevTools;
 
-},{"../constants":496,"../helpers/calculateMutationExplorer":498,"../helpers/enhanceEvent":499,"stent":442}],518:[function(require,module,exports){
+},{"../constants":497,"../helpers/calculateMutationExplorer":499,"../helpers/enhanceEvent":500,"stent":442}],519:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43795,7 +43915,7 @@ var pinned = _stent.Machine.create('Pinned', {
 
 exports.default = pinned;
 
-},{"../helpers/isDefined":506,"stent":442,"stent/lib/helpers":434}],519:[function(require,module,exports){
+},{"../helpers/isDefined":507,"stent":442,"stent/lib/helpers":434}],520:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43816,7 +43936,7 @@ function createRawMachine() {
   });
 };
 
-},{"stent":442}],520:[function(require,module,exports){
+},{"stent":442}],521:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43845,7 +43965,7 @@ var TreeNav = _stent.Machine.create('TreeNav', {
 
 exports.default = TreeNav;
 
-},{"stent":442}],521:[function(require,module,exports){
+},{"stent":442}],522:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -43936,7 +44056,7 @@ ItemRange.propTypes = {
 };
 exports['default'] = ItemRange;
 
-},{"./JSONArrow":523,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425}],522:[function(require,module,exports){
+},{"./JSONArrow":524,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425}],523:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -43990,7 +44110,7 @@ JSONArrayNode.propTypes = {
 
 exports['default'] = JSONArrayNode;
 
-},{"./JSONNestedNode":525,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],523:[function(require,module,exports){
+},{"./JSONNestedNode":526,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],524:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44034,7 +44154,7 @@ JSONArrow.defaultProps = {
 
 exports['default'] = JSONArrow;
 
-},{"babel-runtime/helpers/extends":12,"prop-types":161,"react":425}],524:[function(require,module,exports){
+},{"babel-runtime/helpers/extends":12,"prop-types":161,"react":425}],525:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44113,7 +44233,7 @@ function JSONIterableNode(_ref2) {
   }));
 }
 
-},{"./JSONNestedNode":525,"babel-runtime/core-js/get-iterator":1,"babel-runtime/core-js/number/is-safe-integer":3,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"react":425}],525:[function(require,module,exports){
+},{"./JSONNestedNode":526,"babel-runtime/core-js/get-iterator":1,"babel-runtime/core-js/number/is-safe-integer":3,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"react":425}],526:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44320,7 +44440,7 @@ JSONNestedNode.defaultProps = {
 };
 exports['default'] = JSONNestedNode;
 
-},{"./ItemRange":521,"./JSONArrow":523,"./JSONNode":526,"./getCollectionEntries":530,"babel-runtime/core-js/object/keys":7,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425}],526:[function(require,module,exports){
+},{"./ItemRange":522,"./JSONArrow":524,"./JSONNode":527,"./getCollectionEntries":531,"babel-runtime/core-js/object/keys":7,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425}],527:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44457,7 +44577,7 @@ JSONNode.propTypes = {
 
 exports['default'] = JSONNode;
 
-},{"./JSONArrayNode":522,"./JSONIterableNode":524,"./JSONObjectNode":527,"./JSONValueNode":528,"./objType":532,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],527:[function(require,module,exports){
+},{"./JSONArrayNode":523,"./JSONIterableNode":525,"./JSONObjectNode":528,"./JSONValueNode":529,"./objType":533,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],528:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44517,7 +44637,7 @@ JSONObjectNode.propTypes = {
 
 exports['default'] = JSONObjectNode;
 
-},{"./JSONNestedNode":525,"babel-runtime/core-js/object/get-own-property-names":6,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],528:[function(require,module,exports){
+},{"./JSONNestedNode":526,"babel-runtime/core-js/object/get-own-property-names":6,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],529:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44567,7 +44687,7 @@ JSONValueNode.defaultProps = {
 
 exports['default'] = JSONValueNode;
 
-},{"prop-types":161,"react":425}],529:[function(require,module,exports){
+},{"prop-types":161,"react":425}],530:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44793,7 +44913,7 @@ exports['default'] = (0, _reactBase16Styling.createStyling)(getDefaultThemeStyli
   defaultBase16: _solarized2['default']
 });
 
-},{"./themes/solarized":533,"babel-runtime/helpers/extends":12,"react-base16-styling":172}],530:[function(require,module,exports){
+},{"./themes/solarized":534,"babel-runtime/helpers/extends":12,"react-base16-styling":172}],531:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44959,7 +45079,7 @@ function getCollectionEntries(type, collection, sortObjectKeys, limit) {
   return limitedEntries;
 }
 
-},{"babel-runtime/core-js/get-iterator":1,"babel-runtime/core-js/object/get-own-property-names":6,"babel-runtime/core-js/object/keys":7}],531:[function(require,module,exports){
+},{"babel-runtime/core-js/get-iterator":1,"babel-runtime/core-js/object/get-own-property-names":6,"babel-runtime/core-js/object/keys":7}],532:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -45166,7 +45286,7 @@ JSONTree.defaultProps = {
 };
 exports['default'] = JSONTree;
 
-},{"./JSONNode":526,"./createStylingFromTheme":529,"babel-runtime/core-js/object/keys":7,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/objectWithoutProperties":14,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425,"react-base16-styling":172}],532:[function(require,module,exports){
+},{"./JSONNode":527,"./createStylingFromTheme":530,"babel-runtime/core-js/object/keys":7,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/objectWithoutProperties":14,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425,"react-base16-styling":172}],533:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -45190,7 +45310,7 @@ function objType(obj) {
   return type;
 }
 
-},{"babel-runtime/core-js/symbol/iterator":10}],533:[function(require,module,exports){
+},{"babel-runtime/core-js/symbol/iterator":10}],534:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -45215,4 +45335,4 @@ exports['default'] = {
   base0F: '#d33682'
 };
 
-},{}]},{},[515]);
+},{}]},{},[516]);

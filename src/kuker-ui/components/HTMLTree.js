@@ -5,6 +5,8 @@ import { connect } from 'stent/lib/react';
 import formatPropValue from '../helpers/formatPropValue';
 import HTMLMutation from './HTMLMutation';
 
+const TEXT_NODE = 3;
+const COMMENT_NODE = 8;
 var HTMLTreeState = { mouseOver: '' };
 var filteredTreesCache = {};
 
@@ -19,6 +21,22 @@ const extractFilteredTrees = function (root, filter, result = []) {
     }, result);
   }
   return result;
+};
+const wrapperStyle = {
+  marginLeft: '8px'
+};
+const nodeStyles = {
+  [TEXT_NODE]: {
+    ...wrapperStyle,
+    color: 'rgb(220, 107, 21)',
+    fontSize: '0.9em',
+    fontWeight: 'bold'
+  },
+  [COMMENT_NODE]: {
+    ...wrapperStyle,
+    color: 'rgb(84, 84, 84)',
+    fontSize: '0.9em'
+  }
 };
 
 class HTMLTree extends React.Component {
@@ -39,11 +57,28 @@ class HTMLTree extends React.Component {
     event.stopPropagation();
     this.setState({ mouseOver: expandKey });
   }
-  _renderTag(component, indent = 0, index = 1) {
+  _showMutation(mutationExplorerPath) {
+    this.props.showMutation(mutationExplorerPath);
+    this.setState({ mutationExplorerPath });
+  }
+  _renderTag(component, indent = 0, jsonPath = '') {
+    if ([TEXT_NODE, COMMENT_NODE].indexOf(component.nodeType) >= 0 && component.nodeValue) {
+      if (component.nodeValue.replace(/^\s*\n\s+/gm, '') !== '') {
+        return (
+          <div style={ nodeStyles[component.nodeType] }>
+            { component.nodeType === COMMENT_NODE ? '/* ' : '"' }
+            { component.nodeValue }
+            { component.nodeType === COMMENT_NODE ? ' */' : '"' }
+          </div>
+        );
+      }
+      return null;
+    }
+
     const name = component.name;
     const props = component.props || {};
     const children = component.children;
-    const expandedKey = index.toString();
+    const expandedKey = jsonPath;
     const renderChildren = this.state[expandedKey];
     const numOfProps = Object.keys(props).length;
     const hasChildren = children && children.length > 0;
@@ -62,9 +97,6 @@ class HTMLTree extends React.Component {
           </span>
         );
       });
-    const wrapperStyle = {
-      marginLeft: '8px'
-    };
 
     if (this.state.htmlPin && expandedKey === this.state.htmlPin.key) {
       // eslint-disable-next-line
@@ -74,7 +106,11 @@ class HTMLTree extends React.Component {
     return (
       <div
         style={ wrapperStyle }
-        className={ 'tag' + (expandedKey === this.state.mouseOver ? ' over' : '') }
+        className={
+          'tag' +
+          (expandedKey === this.state.mouseOver ? ' over' : '') +
+          (this.state.mutationExplorerPath === jsonPath ? ' mutationExplorer' : '')
+        }
         onMouseOver={ event => this._onComponentMouseOver(event, expandedKey, component) }
       >
         <a onClick={ () => this._onComponentClick(expandedKey, component) }>
@@ -83,9 +119,15 @@ class HTMLTree extends React.Component {
           { hasChildren ? <span>&gt;</span> : <span>/&gt;</span> }
           { !renderChildren && hasChildren && <span>...&lt;/<strong>{ name }</strong>&gt; </span>}
         </a>
+        <a onClick={ () => this._showMutation(jsonPath) }><i className='fa fa-eye viewMutationIcon'></i></a>
         { renderChildren && hasChildren && children.map((child, i) => {
           return (
-            <div key={ i }>{ this._renderTag(children[i], indent + 1, expandedKey + (i + 1)) }</div>
+            <div key={ i }>{
+              this._renderTag(
+                children[i],
+                indent + 1, `${ jsonPath !== '' ? jsonPath + '.' : jsonPath }children.${ i }`
+              )
+            }</div>
           );
         }) }
         { renderChildren && hasChildren && <span>&lt;/<strong>{ name }</strong>&gt; </span>}
@@ -116,7 +158,7 @@ class HTMLTree extends React.Component {
         <div className='logTree HTMLTree'>
           {
             trees.map((tree, i) =>
-              <div key={ i } className='filteredTreeResult'>{ this._renderTag(tree, 0, i + 'a') }</div>)
+              <div key={ i } className='filteredTreeResult'>{ this._renderTag(tree, 0) }</div>)
           }
           <HTMLMutation pinnedEvent={ pinnedEvent } filter={ filter } />
         </div>
@@ -130,6 +172,7 @@ class HTMLTree extends React.Component {
 
 HTMLTree.propTypes = {
   pinnedEvent: PropTypes.object,
+  showMutation: PropTypes.func,
   filter: PropTypes.string,
   Pin: PropTypes.any
 };
@@ -137,6 +180,7 @@ HTMLTree.propTypes = {
 export default connect(HTMLTree)
   .with('Pinned', 'DevTools')
   .map(({ state }, devtools) => ({
+    showMutation: devtools.showMutation,
     pinnedEvent: state.pinnedEvent,
     filter: devtools.state.quickFilters.right
   }));

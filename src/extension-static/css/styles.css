@@ -491,7 +491,6 @@ p {
   padding: 0.3em;
 }
 .HTMLTree a {
-  display: block;
   cursor: pointer;
 }
 .HTMLTree .attrName, .HTMLPin .attrName {
@@ -504,6 +503,9 @@ p {
 .HTMLTree .over > a > span > strong, 
 .HTMLTree .over > span > strong {
   background: #fff;
+}
+.HTMLTree .mutationExplorer {
+  color: #F00 !important;
 }
 .HTMLPin {
   font-size: 0.9em;  

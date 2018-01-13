@@ -47,6 +47,8 @@ if (typeof window !== 'undefined' && window.location && window.location.href) {
       s = '../_mocks/example.angular.json';
     } else if (window.location.href.indexOf('populate=vue') > 0) {
       s = '../_mocks/example.vue.json';
+    } else if (window.location.href.indexOf('populate=html') > 0) {
+      s = '../_mocks/example.html.json';
     }
 
     fetch(s).then(response => {

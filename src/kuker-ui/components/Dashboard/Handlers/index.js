@@ -22,6 +22,7 @@ import React from './React';
 import Angular from './Angular';
 import Vue from './Vue';
 import Vuex from './Vuex';
+import HTML from './HTML';
 
 export const Handlers = {
   '@saga_effectTriggered': SagaEffectTriggered,
@@ -36,7 +37,8 @@ export const Handlers = {
   '@@react': React,
   '@@angular': Angular,
   '@@vue': Vue,
-  '@@vuex': Vuex
+  '@@vuex': Vuex,
+  '@@HTML': HTML
 };
 
 export const StentHandlers = {
