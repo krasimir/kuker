@@ -38122,7 +38122,7 @@ module.exports={
   "manifest_version": 2,
   "name": "Kuker",
   "description": "Debug applications made with React, Redux, Angular, Vue and many more",
-  "version": "5.3.2",
+  "version": "5.4.0",
   "icons": { "16": "img/icon16.png", "48": "img/icon48.png", "128": "img/icon128.png" },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "devtools_page": "devtools.html",
@@ -38237,7 +38237,7 @@ App.propTypes = {
   page: _propTypes2.default.string
 };
 
-},{"../constants":497,"./Dashboard":485,"prop-types":161,"react":425,"stent/lib/react":444}],447:[function(require,module,exports){
+},{"../constants":496,"./Dashboard":484,"prop-types":161,"react":425,"stent/lib/react":444}],447:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38284,7 +38284,7 @@ Event.propTypes = {
   event: _propTypes2.default.object
 };
 
-},{"../Tree":492,"prop-types":161,"react":425}],448:[function(require,module,exports){
+},{"../Tree":491,"prop-types":161,"react":425}],448:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38369,7 +38369,7 @@ EventListRow.propTypes = {
   sources: _propTypes2.default.object
 };
 
-},{"../../helpers/getRandomColor":506,"./Handlers":467,"./handlers/UnrecognizedEvent":483,"prop-types":161,"react":425}],449:[function(require,module,exports){
+},{"../../helpers/getRandomColor":505,"./Handlers":467,"./handlers/UnrecognizedEvent":482,"prop-types":161,"react":425}],449:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38421,7 +38421,7 @@ HTMLPin.propTypes = {
 
 exports.default = (0, _react3.connect)(HTMLPin).with('Pinned').map();
 
-},{"../../helpers/renderJSON":513,"prop-types":161,"react":425,"stent/lib/react":444}],450:[function(require,module,exports){
+},{"../../helpers/renderJSON":512,"prop-types":161,"react":425,"stent/lib/react":444}],450:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38504,7 +38504,7 @@ AngularEvent.isAngularEvent = function (_ref2) {
   return type.split('_')[0] === '@@angular';
 };
 
-},{"../../TimeDiff":491,"../../icons/AngularIcon":493,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],451:[function(require,module,exports){
+},{"../../TimeDiff":490,"../../icons/AngularIcon":492,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],451:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38571,7 +38571,7 @@ HTMLEvent.isHTMLEvent = function (_ref2) {
   return type.split('_')[0] === '@@HTML';
 };
 
-},{"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],452:[function(require,module,exports){
+},{"../../TimeDiff":490,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],452:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38805,7 +38805,7 @@ MobX.propTypes = {
   className: _propTypes2.default.string
 };
 
-},{"../../../helpers/readFromPath":511,"../../../helpers/shortenJSON":515,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],453:[function(require,module,exports){
+},{"../../../helpers/readFromPath":510,"../../../helpers/shortenJSON":514,"../../TimeDiff":490,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],453:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38991,7 +38991,7 @@ ReactEvent.isReactEvent = function (_ref2) {
   return type.split('_')[0] === '@@react';
 };
 
-},{"../../TimeDiff":491,"../../icons/ReactIcon":495,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],456:[function(require,module,exports){
+},{"../../TimeDiff":490,"../../icons/ReactIcon":494,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],456:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39077,7 +39077,7 @@ function ReduxAction(_ref) {
   );
 }
 
-},{"../../../helpers/isDefined":507,"../../../helpers/renderJSONPreview":514,"../../TimeDiff":491,"./helpers/SagaEffectName":465,"./helpers/calculateRowStyles":466,"react":425}],457:[function(require,module,exports){
+},{"../../../helpers/isDefined":506,"../../../helpers/renderJSONPreview":513,"../../TimeDiff":490,"./helpers/SagaEffectName":465,"./helpers/calculateRowStyles":466,"react":425}],457:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39149,7 +39149,7 @@ function SagaEffectActionDispatched(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/isDefined":507,"../../TimeDiff":491,"./helpers/SagaEffectName":465,"./helpers/calculateRowStyles":466,"react":425}],458:[function(require,module,exports){
+},{"../../../helpers/isDefined":506,"../../TimeDiff":490,"./helpers/SagaEffectName":465,"./helpers/calculateRowStyles":466,"react":425}],458:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39208,7 +39208,7 @@ function SagaEffectCanceled(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../TimeDiff":491,"./helpers/SagaEffectIds":464,"./helpers/SagaEffectName":465,"./helpers/calculateRowStyles":466,"react":425}],459:[function(require,module,exports){
+},{"../../TimeDiff":490,"./helpers/SagaEffectIds":464,"./helpers/SagaEffectName":465,"./helpers/calculateRowStyles":466,"react":425}],459:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39290,7 +39290,7 @@ function SagaEffectCanceled(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/isDefined":507,"../../../helpers/readFromPath":511,"../../TimeDiff":491,"./helpers/SagaEffectIds":464,"./helpers/SagaEffectName":465,"./helpers/calculateRowStyles":466,"react":425}],460:[function(require,module,exports){
+},{"../../../helpers/isDefined":506,"../../../helpers/readFromPath":510,"../../TimeDiff":490,"./helpers/SagaEffectIds":464,"./helpers/SagaEffectName":465,"./helpers/calculateRowStyles":466,"react":425}],460:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39401,7 +39401,7 @@ function SagaEffectResolved(_ref) {
   );
 }
 
-},{"../../../helpers/isDefined":507,"../../../helpers/renderJSONPreview":514,"../../TimeDiff":491,"./helpers/SagaEffectIds":464,"./helpers/SagaEffectName":465,"./helpers/calculateRowStyles":466,"react":425}],461:[function(require,module,exports){
+},{"../../../helpers/isDefined":506,"../../../helpers/renderJSONPreview":513,"../../TimeDiff":490,"./helpers/SagaEffectIds":464,"./helpers/SagaEffectName":465,"./helpers/calculateRowStyles":466,"react":425}],461:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39498,7 +39498,7 @@ function SagaEffectTriggered(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/isDefined":507,"../../../helpers/readFromPath":511,"../../TimeDiff":491,"./helpers/SagaEffectIds":464,"./helpers/SagaEffectName":465,"./helpers/calculateRowStyles":466,"react":425}],462:[function(require,module,exports){
+},{"../../../helpers/isDefined":506,"../../../helpers/readFromPath":510,"../../TimeDiff":490,"./helpers/SagaEffectIds":464,"./helpers/SagaEffectName":465,"./helpers/calculateRowStyles":466,"react":425}],462:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39571,7 +39571,7 @@ VueEvent.isVueEvent = function (_ref2) {
   return type.split('_')[0] === '@@vue';
 };
 
-},{"../../TimeDiff":491,"../../icons/VueIcon":496,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],463:[function(require,module,exports){
+},{"../../TimeDiff":490,"../../icons/VueIcon":495,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],463:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39650,7 +39650,7 @@ VuexEvent.propTypes = {
   className: _propTypes2.default.string
 };
 
-},{"../../TimeDiff":491,"../../icons/VueIcon":496,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],464:[function(require,module,exports){
+},{"../../TimeDiff":490,"../../icons/VueIcon":495,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],464:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39703,7 +39703,7 @@ SagaEffectIds.propTypes = {
   event: _propTypes2.default.object
 };
 
-},{"../../../../helpers/isDefined":507,"../../../../helpers/readFromPath":511,"prop-types":161,"react":425}],465:[function(require,module,exports){
+},{"../../../../helpers/isDefined":506,"../../../../helpers/readFromPath":510,"prop-types":161,"react":425}],465:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39860,7 +39860,7 @@ SagaEffectName.propTypes = {
   effect: _propTypes2.default.any
 };
 
-},{"../../../../helpers/readFromPath":511,"prop-types":161,"react":425}],466:[function(require,module,exports){
+},{"../../../../helpers/readFromPath":510,"prop-types":161,"react":425}],466:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40086,7 +40086,7 @@ onActionDispatched.propTypes = {
   className: _propTypes2.default.string
 };
 
-},{"../../../helpers/getMachineName":505,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],469:[function(require,module,exports){
+},{"../../../helpers/getMachineName":504,"../../TimeDiff":490,"./helpers/calculateRowStyles":466,"prop-types":161,"react":425}],469:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40147,7 +40147,7 @@ function onActionProcessed(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":505,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"react":425}],470:[function(require,module,exports){
+},{"../../../helpers/getMachineName":504,"../../TimeDiff":490,"./helpers/calculateRowStyles":466,"react":425}],470:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40210,7 +40210,7 @@ function onGeneratorEnd(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":505,"../../../helpers/shortenJSON":515,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"react":425}],471:[function(require,module,exports){
+},{"../../../helpers/getMachineName":504,"../../../helpers/shortenJSON":514,"../../TimeDiff":490,"./helpers/calculateRowStyles":466,"react":425}],471:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40273,7 +40273,7 @@ function onGeneratorResumed(_ref) {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":505,"../../../helpers/shortenJSON":515,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"react":425}],472:[function(require,module,exports){
+},{"../../../helpers/getMachineName":504,"../../../helpers/shortenJSON":514,"../../TimeDiff":490,"./helpers/calculateRowStyles":466,"react":425}],472:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40378,7 +40378,7 @@ function onGeneratorStep(_ref) {
   );
 };
 
-},{"../../../helpers/getMachineName":505,"../../../helpers/shortenJSON":515,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"react":425}],473:[function(require,module,exports){
+},{"../../../helpers/getMachineName":504,"../../../helpers/shortenJSON":514,"../../TimeDiff":490,"./helpers/calculateRowStyles":466,"react":425}],473:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40441,7 +40441,7 @@ function onMachineConnected(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":505,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"react":425}],474:[function(require,module,exports){
+},{"../../../helpers/getMachineName":504,"../../TimeDiff":490,"./helpers/calculateRowStyles":466,"react":425}],474:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40497,7 +40497,7 @@ function onMachineCreated(_ref) {
 // eslint-disable-next-line no-unused-vars
 ;
 
-},{"../../../helpers/getMachineName":505,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"react":425}],475:[function(require,module,exports){
+},{"../../../helpers/getMachineName":504,"../../TimeDiff":490,"./helpers/calculateRowStyles":466,"react":425}],475:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40560,7 +40560,7 @@ function onMachineDisconnected(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":505,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"react":425}],476:[function(require,module,exports){
+},{"../../../helpers/getMachineName":504,"../../TimeDiff":490,"./helpers/calculateRowStyles":466,"react":425}],476:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40620,7 +40620,7 @@ function onStateChanged(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":505,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"react":425}],477:[function(require,module,exports){
+},{"../../../helpers/getMachineName":504,"../../TimeDiff":490,"./helpers/calculateRowStyles":466,"react":425}],477:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40681,70 +40681,7 @@ function onStateWillChange(_ref) {
 }
 // eslint-disable-next-line no-unused-vars
 
-},{"../../../helpers/getMachineName":505,"../../TimeDiff":491,"./helpers/calculateRowStyles":466,"react":425}],478:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _react3 = require('stent/lib/react');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function MutationPin(_ref) {
-  var clearMutation = _ref.clearMutation,
-      mutationExplorerPath = _ref.mutationExplorerPath;
-
-  if (!mutationExplorerPath) return null;
-
-  return _react2.default.createElement(
-    'div',
-    { className: 'mutationContainer' },
-    _react2.default.createElement(
-      'strong',
-      null,
-      mutationExplorerPath,
-      '.*'
-    ),
-    _react2.default.createElement(
-      'small',
-      null,
-      _react2.default.createElement(
-        'a',
-        { onClick: clearMutation },
-        ' (',
-        _react2.default.createElement('i', { className: 'fa fa-times' }),
-        ' clear)'
-      )
-    )
-  );
-};
-
-MutationPin.propTypes = {
-  clearMutation: _propTypes2.default.func,
-  children: _propTypes2.default.func,
-  mutationExplorerPath: _propTypes2.default.string
-};
-
-exports.default = (0, _react3.connect)(MutationPin).with('DevTools').map(function (_ref2) {
-  var state = _ref2.state,
-      clearMutation = _ref2.clearMutation;
-  return {
-    mutationExplorerPath: state.mutationExplorerPath,
-    clearMutation: clearMutation
-  };
-});
-
-},{"prop-types":161,"react":425,"stent/lib/react":444}],479:[function(require,module,exports){
+},{"../../../helpers/getMachineName":504,"../../TimeDiff":490,"./helpers/calculateRowStyles":466,"react":425}],478:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40805,7 +40742,7 @@ NoEvents.propTypes = {
   healthyComponent: _propTypes2.default.element
 };
 
-},{"../../../extension-static/manifest.json":445,"prop-types":161,"react":425}],480:[function(require,module,exports){
+},{"../../../extension-static/manifest.json":445,"prop-types":161,"react":425}],479:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40905,7 +40842,7 @@ exports.default = (0, _react3.connect)(QuickFilter).with('DevTools').map(functio
   };
 });
 
-},{"prop-types":161,"react":425,"stent/lib/react":444}],481:[function(require,module,exports){
+},{"prop-types":161,"react":425,"stent/lib/react":444}],480:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41155,7 +41092,7 @@ exports.default = (0, _react3.connect)(Settings).with('DevTools').map(function (
   };
 });
 
-},{"prop-types":161,"react":425,"stent/lib/react":444}],482:[function(require,module,exports){
+},{"prop-types":161,"react":425,"stent/lib/react":444}],481:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41214,7 +41151,7 @@ State.propTypes = {
   pinnedEvent: _propTypes2.default.object
 };
 
-},{"../HTMLTree":487,"../JSONTree":489,"./HTMLPin":449,"./Handlers/Angular":450,"./Handlers/HTML":451,"./Handlers/React":455,"./Handlers/Vue":462,"prop-types":161,"react":425}],483:[function(require,module,exports){
+},{"../HTMLTree":486,"../JSONTree":488,"./HTMLPin":449,"./Handlers/Angular":450,"./Handlers/HTML":451,"./Handlers/React":455,"./Handlers/Vue":462,"prop-types":161,"react":425}],482:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41279,9 +41216,9 @@ UnrecognizedEvent.propTypes = {
   className: _propTypes2.default.string
 };
 
-},{"../../TimeDiff":491,"./helpers/calculateRowStyles":484,"prop-types":161,"react":425}],484:[function(require,module,exports){
+},{"../../TimeDiff":490,"./helpers/calculateRowStyles":483,"prop-types":161,"react":425}],483:[function(require,module,exports){
 arguments[4][466][0].apply(exports,arguments)
-},{"dup":466}],485:[function(require,module,exports){
+},{"dup":466}],484:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41546,7 +41483,7 @@ exports.default = (0, _react3.connect)(Dashboard).with('DevTools', 'TreeNav', 'P
   };
 });
 
-},{"./Event":447,"./EventListRow":448,"./NoEvents":479,"./QuickFilter":480,"./Settings":481,"./State":482,"prop-types":161,"react":425,"react-virtualized":384,"stent/lib/react":444}],486:[function(require,module,exports){
+},{"./Event":447,"./EventListRow":448,"./NoEvents":478,"./QuickFilter":479,"./Settings":480,"./State":481,"prop-types":161,"react":425,"react-virtualized":384,"stent/lib/react":444}],485:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41664,7 +41601,7 @@ HTMLMutation.propTypes = {
   filter: _propTypes2.default.string
 };
 
-},{"../helpers/normalizeMutationPathParts":510,"./SingleMutation":490,"prop-types":161,"react":425}],487:[function(require,module,exports){
+},{"../helpers/normalizeMutationPathParts":509,"./SingleMutation":489,"prop-types":161,"react":425}],486:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41766,8 +41703,13 @@ var HTMLTree = function (_React$Component) {
   }, {
     key: '_showMutation',
     value: function _showMutation(mutationExplorerPath) {
-      this.props.showMutation(mutationExplorerPath);
-      this.setState({ mutationExplorerPath: mutationExplorerPath });
+      if (mutationExplorerPath === this.state.mutationExplorerPath) {
+        this.props.clearMutation();
+        this.setState({ mutationExplorerPath: null });
+      } else {
+        this.props.showMutation(mutationExplorerPath);
+        this.setState({ mutationExplorerPath: mutationExplorerPath });
+      }
     }
   }, {
     key: '_renderTag',
@@ -41874,7 +41816,7 @@ var HTMLTree = function (_React$Component) {
               null,
               name
             ),
-            '> '
+            '>'
           )
         ),
         _react2.default.createElement(
@@ -41900,7 +41842,7 @@ var HTMLTree = function (_React$Component) {
             null,
             name
           ),
-          '> '
+          '>'
         )
       );
     }
@@ -41961,6 +41903,7 @@ var HTMLTree = function (_React$Component) {
 HTMLTree.propTypes = {
   pinnedEvent: _propTypes2.default.object,
   showMutation: _propTypes2.default.func,
+  clearMutation: _propTypes2.default.func,
   filter: _propTypes2.default.string,
   Pin: _propTypes2.default.any
 };
@@ -41969,12 +41912,13 @@ exports.default = (0, _react3.connect)(HTMLTree).with('Pinned', 'DevTools').map(
   var state = _ref.state;
   return {
     showMutation: devtools.showMutation,
+    clearMutation: devtools.clearMutation,
     pinnedEvent: state.pinnedEvent,
     filter: devtools.state.quickFilters.right
   };
 });
 
-},{"../helpers/formatPropValue":503,"./HTMLMutation":486,"prop-types":161,"react":425,"stent/lib/react":444}],488:[function(require,module,exports){
+},{"../helpers/formatPropValue":502,"./HTMLMutation":485,"prop-types":161,"react":425,"stent/lib/react":444}],487:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42067,7 +42011,7 @@ function extractMutatedPaths(mutation) {
   });
 };
 
-},{"../helpers/normalizeMutationPathParts":510,"./SingleMutation":490,"prop-types":161,"react":425}],489:[function(require,module,exports){
+},{"../helpers/normalizeMutationPathParts":509,"./SingleMutation":489,"prop-types":161,"react":425}],488:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42095,10 +42039,6 @@ var _react3 = require('stent/lib/react');
 var _JSONMutation = require('./JSONMutation');
 
 var _JSONMutation2 = _interopRequireDefault(_JSONMutation);
-
-var _MutationPin = require('./Dashboard/MutationPin');
-
-var _MutationPin2 = _interopRequireDefault(_MutationPin);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -42140,19 +42080,35 @@ var extractFilteredTrees = function extractFilteredTrees(root, filter) {
 var JSONTree = function (_React$Component) {
   _inherits(JSONTree, _React$Component);
 
-  function JSONTree() {
+  function JSONTree(props) {
     _classCallCheck(this, JSONTree);
 
-    return _possibleConstructorReturn(this, (JSONTree.__proto__ || Object.getPrototypeOf(JSONTree)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (JSONTree.__proto__ || Object.getPrototypeOf(JSONTree)).call(this, props));
+
+    _this.state = { mutationExplorerPath: null };
+    _this._showMutation = _this._showMutation.bind(_this);
+    return _this;
   }
 
   _createClass(JSONTree, [{
+    key: '_showMutation',
+    value: function _showMutation(mutationExplorerPath) {
+      if (mutationExplorerPath === this.state.mutationExplorerPath) {
+        this.props.clearMutation();
+        this.setState({ mutationExplorerPath: null });
+      } else {
+        this.props.showMutation(mutationExplorerPath);
+        this.setState({ mutationExplorerPath: mutationExplorerPath });
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       var _props = this.props,
           mutationExplorerPath = _props.mutationExplorerPath,
           pinnedEvent = _props.pinnedEvent,
-          showMutation = _props.showMutation,
           filter = _props.filter;
 
       var trees = [];
@@ -42178,15 +42134,10 @@ var JSONTree = function (_React$Component) {
             return _react2.default.createElement(
               'div',
               { key: i, className: 'filteredTreeResult' },
-              _react2.default.createElement(_Tree2.default, { data: tree, onItemClick: showMutation })
+              _react2.default.createElement(_Tree2.default, { data: tree, onItemClick: _this2._showMutation, mutationExplorerPath: mutationExplorerPath })
             );
           }),
           _react2.default.createElement(_JSONMutation2.default, { mutations: pinnedEvent.stateMutation, filter: filter })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'logDetails' },
-          _react2.default.createElement(_MutationPin2.default, null)
         )
       );
     }
@@ -42199,19 +42150,21 @@ JSONTree.propTypes = {
   pinnedEvent: _propTypes2.default.object,
   mutationExplorerPath: _propTypes2.default.string,
   filter: _propTypes2.default.string,
-  showMutation: _propTypes2.default.func
+  showMutation: _propTypes2.default.func,
+  clearMutation: _propTypes2.default.func
 };
 
 exports.default = (0, _react3.connect)(JSONTree).with('DevTools', 'Pinned').map(function (devtools, pinned) {
   return {
     showMutation: devtools.showMutation,
+    clearMutation: devtools.clearMutation,
     mutationExplorerPath: devtools.state.mutationExplorerPath,
     pinnedEvent: pinned.state.pinnedEvent,
     filter: devtools.state.quickFilters.right
   };
 });
 
-},{"./Dashboard/MutationPin":478,"./JSONMutation":488,"./Tree":492,"prop-types":161,"react":425,"stent/lib/react":444}],490:[function(require,module,exports){
+},{"./JSONMutation":487,"./Tree":491,"prop-types":161,"react":425,"stent/lib/react":444}],489:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42314,7 +42267,7 @@ SingleMutation.propTypes = {
   indent: _propTypes2.default.number
 };
 
-},{"../helpers/formatMutationPath":502,"../helpers/formatSide":504,"./icons/MutationIcon":494,"prop-types":161,"react":425}],491:[function(require,module,exports){
+},{"../helpers/formatMutationPath":501,"../helpers/formatSide":503,"./icons/MutationIcon":493,"prop-types":161,"react":425}],490:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42364,7 +42317,7 @@ function TimeDiff(_ref) {
   );
 }
 
-},{"react":425}],492:[function(require,module,exports){
+},{"react":425}],491:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42428,12 +42381,13 @@ var Tree = function (_React$Component) {
       var _props = this.props,
           data = _props.data,
           renderer = _props.renderer,
-          onItemClick = _props.onItemClick;
+          onItemClick = _props.onItemClick,
+          mutationExplorerPath = _props.mutationExplorerPath;
 
 
       if (!data) return null;
 
-      var tree = (renderer || _renderAsTree.renderStateAsTree)(data, onItemClick);
+      var tree = (renderer || _renderAsTree.renderStateAsTree)(data, onItemClick, mutationExplorerPath);
 
       return _react2.default.createElement(
         'div',
@@ -42467,11 +42421,12 @@ Tree.defaultPropTypes = {
 
 Tree.propTypes = {
   data: _propTypes2.default.any,
+  mutationExplorerPath: _propTypes2.default.string,
   renderer: _propTypes2.default.func,
   onItemClick: _propTypes2.default.func
 };
 
-},{"../helpers/renderAsTree":512,"../stent/Raw":520,"prop-types":161,"react":425,"stent/lib/helpers":434}],493:[function(require,module,exports){
+},{"../helpers/renderAsTree":511,"../stent/Raw":519,"prop-types":161,"react":425,"stent/lib/helpers":434}],492:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42501,7 +42456,7 @@ function AngularIcon(_ref) {
   );
 };
 
-},{"react":425}],494:[function(require,module,exports){
+},{"react":425}],493:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42539,7 +42494,7 @@ MutationIcon.propTypes = {
   kind: _propTypes2.default.string
 };
 
-},{"prop-types":161,"react":425}],495:[function(require,module,exports){
+},{"prop-types":161,"react":425}],494:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42570,7 +42525,7 @@ function ReactIcon(_ref) {
   );
 };
 
-},{"react":425}],496:[function(require,module,exports){
+},{"react":425}],495:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42625,7 +42580,7 @@ function VueIcon(_ref) {
   );
 };
 
-},{"react":425}],497:[function(require,module,exports){
+},{"react":425}],496:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42640,7 +42595,7 @@ var DEFAULT_FILTER_TYPES = exports.DEFAULT_FILTER_TYPES = {
   '@mobx_spyReportEnd': false
 };
 
-},{}],498:[function(require,module,exports){
+},{}],497:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42718,8 +42673,8 @@ ExpandablePath.propTypes = {
   short: _propTypes2.default.object
 };
 
-},{"prop-types":161,"react":425}],499:[function(require,module,exports){
-'use strict';
+},{"prop-types":161,"react":425}],498:[function(require,module,exports){
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -42727,14 +42682,13 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = calculateMutationExplorer;
 function calculateMutationExplorer(event, mutationExplorerPath) {
   if (event.mutationPaths && mutationExplorerPath !== null) {
-    console.log('--------- ', mutationExplorerPath);
     event.mutationExplorer = event.mutationPaths.filter(function (mPath) {
       return mPath.toString().indexOf(mutationExplorerPath.toString()) === 0;
     }).length > 0;
   }
 };
 
-},{}],500:[function(require,module,exports){
+},{}],499:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42809,7 +42763,7 @@ function enhanceEvent(event, previousState, mutationExplorerPath) {
   return event;
 };
 
-},{"../components/JSONMutation":488,"./calculateMutationExplorer":499,"./formatMilliseconds":501,"deep-diff":148}],501:[function(require,module,exports){
+},{"../components/JSONMutation":487,"./calculateMutationExplorer":498,"./formatMilliseconds":500,"deep-diff":148}],500:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -42843,7 +42797,7 @@ function formatMilliseconds(millisec) {
   return minutes + ":" + seconds + ':' + ms;
 }
 
-},{}],502:[function(require,module,exports){
+},{}],501:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42895,7 +42849,7 @@ function formatPath(mutation) {
   return null;
 };
 
-},{"./ExpandablePath":498,"./joinReactElements":509,"react":425}],503:[function(require,module,exports){
+},{"./ExpandablePath":497,"./joinReactElements":508,"react":425}],502:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42917,7 +42871,7 @@ function formatPropValue(value) {
   }
 };
 
-},{}],504:[function(require,module,exports){
+},{}],503:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42947,7 +42901,7 @@ function formatSide(side) {
   return String(side);
 }
 
-},{"./isDefined":507,"./renderJSONPreview":514}],505:[function(require,module,exports){
+},{"./isDefined":506,"./renderJSONPreview":513}],504:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42963,7 +42917,7 @@ function getMachineName(_ref) {
   return name;
 };
 
-},{}],506:[function(require,module,exports){
+},{}],505:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42982,7 +42936,7 @@ function getRandomColor() {
   return color;
 };
 
-},{}],507:[function(require,module,exports){
+},{}],506:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42994,7 +42948,7 @@ var isDefined = function isDefined(v) {
 
 exports.default = isDefined;
 
-},{}],508:[function(require,module,exports){
+},{}],507:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -43006,7 +42960,7 @@ function isInDevTools() {
   return true;
 };
 
-},{}],509:[function(require,module,exports){
+},{}],508:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43042,7 +42996,7 @@ function joinReactElements(delimiter, arr) {
   );
 };
 
-},{"react":425}],510:[function(require,module,exports){
+},{"react":425}],509:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43093,7 +43047,7 @@ function normalizeMutationPathParts(mutations, filterRegExp) {
   });
 };
 
-},{"./joinReactElements":509,"react":425}],511:[function(require,module,exports){
+},{"./joinReactElements":508,"react":425}],510:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43124,7 +43078,7 @@ function readFromPath(object, path) {
   return fallback;
 };
 
-},{"./isDefined":507}],512:[function(require,module,exports){
+},{"./isDefined":506}],511:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43156,8 +43110,9 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 function renderStateAsTree() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var onItemClick = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+  var mutationExplorerPath = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
 
-  return (0, _renderJSON2.default)(state, _react2.default.createElement('i', { className: 'fa fa-list-alt' }), onItemClick);
+  return (0, _renderJSON2.default)(state, _react2.default.createElement('i', { className: 'fa fa-list-alt' }), onItemClick, mutationExplorerPath);
 };
 
 function renderEventAsTree(event) {
@@ -43175,7 +43130,7 @@ function renderEventAsTree(event) {
   return (0, _renderJSON2.default)(_extends({}, rest), 'Event', onItemClick);
 };
 
-},{"./getMachineName":505,"./renderJSON":513,"react":425}],513:[function(require,module,exports){
+},{"./getMachineName":504,"./renderJSON":512,"react":425}],512:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43240,20 +43195,28 @@ var treeTheme = {
 };
 var treeNodesState = {};
 
-function labelRenderer(what, onItemClick) {
-  var viewMutation = function viewMutation(event, data) {
+function getPathFromKey(key) {
+  if (!key) return false;
+  return key.slice(0, key.length - 1).reverse().join('.');
+}
+function labelRenderer(what, onItemClick, mutationExplorerPath) {
+  var viewMutation = function viewMutation(event, path) {
     event.stopPropagation();
-    if (data) {
-      onItemClick(data.slice(0, data.length - 1).reverse().join('.'));
+    if (path) {
+      onItemClick(path);
     }
   };
 
   return function labelRenderer(key, parentKey, expanded, rootKey) {
+    var path = getPathFromKey(key);
+    var style = path === mutationExplorerPath ? {
+      color: '#f00'
+    } : {};
     var clickMeIcon = onItemClick !== null ? _react2.default.createElement(
       'a',
       { onClick: function onClick(event) {
-          return viewMutation(event, key);
-        }, style: { marginLeft: '0.5em', textIndent: 0 } },
+          return viewMutation(event, path);
+        }, style: { textIndent: 0 } },
       _react2.default.createElement('i', { className: 'fa fa-eye viewMutationIcon' })
     ) : null;
 
@@ -43262,7 +43225,7 @@ function labelRenderer(what, onItemClick) {
     }
     return _react2.default.createElement(
       'span',
-      null,
+      { style: style },
       _react2.default.createElement(
         'strong',
         null,
@@ -43299,12 +43262,13 @@ function getItemString(type, data, itemType, itemString) {
 var renderJSON = function renderJSON(json) {
   var what = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'root';
   var onItemClick = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+  var mutationExplorerPath = arguments[3];
 
   return _react2.default.createElement(_lib2.default, {
     data: json,
     theme: treeTheme,
     getItemString: getItemString,
-    labelRenderer: labelRenderer(what, onItemClick),
+    labelRenderer: labelRenderer(what, onItemClick, mutationExplorerPath),
     shouldExpandNode: shouldExpandNode,
     valueRenderer: valueRenderer,
     hideRoot: false,
@@ -43319,7 +43283,7 @@ var renderJSON = function renderJSON(json) {
 
 exports.default = renderJSON;
 
-},{"../../vendor/react-json-tree/lib":532,"./renderJSONPreview":514,"react":425}],514:[function(require,module,exports){
+},{"../../vendor/react-json-tree/lib":531,"./renderJSONPreview":513,"react":425}],513:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43374,7 +43338,7 @@ function renderJSONPreview(data) {
   return result.length > limit ? result.substr(0, limit) + '...' : result;
 };
 
-},{}],515:[function(require,module,exports){
+},{}],514:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43390,7 +43354,7 @@ function shortenJSON(data) {
   return str.substr(0, STR_LIMIT) + '...';
 };
 
-},{}],516:[function(require,module,exports){
+},{}],515:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -43467,7 +43431,6 @@ if (typeof window !== 'undefined' && window.location && window.location.href) {
     } else if (window.location.href.indexOf('populate=html') > 0) {
       s = '../_mocks/example.html.json';
     }
-    console.log(s);
 
     fetch(s).then(function (response) {
       response.json().then(function (_ref) {
@@ -43501,7 +43464,7 @@ if (typeof window !== 'undefined' && window.location && window.location.href) {
 // misc
 // Machine.addMiddleware(StentEmitter);
 
-},{"./components/App.jsx":446,"./services/bridge":517,"./stent/DevTools":518,"./stent/Pinned":519,"./stent/TreeNav":521,"react":425,"react-dom":173}],517:[function(require,module,exports){
+},{"./components/App.jsx":446,"./services/bridge":516,"./stent/DevTools":517,"./stent/Pinned":518,"./stent/TreeNav":520,"react":425,"react-dom":173}],516:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43632,7 +43595,7 @@ wireWithSockets();
 
 exports.default = bridge;
 
-},{"../constants":497,"../helpers/isInDevTools":508}],518:[function(require,module,exports){
+},{"../constants":496,"../helpers/isInDevTools":507}],517:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43835,7 +43798,7 @@ var DevTools = _stent.Machine.create('DevTools', {
 
 exports.default = DevTools;
 
-},{"../constants":497,"../helpers/calculateMutationExplorer":499,"../helpers/enhanceEvent":500,"stent":442}],519:[function(require,module,exports){
+},{"../constants":496,"../helpers/calculateMutationExplorer":498,"../helpers/enhanceEvent":499,"stent":442}],518:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43915,7 +43878,7 @@ var pinned = _stent.Machine.create('Pinned', {
 
 exports.default = pinned;
 
-},{"../helpers/isDefined":507,"stent":442,"stent/lib/helpers":434}],520:[function(require,module,exports){
+},{"../helpers/isDefined":506,"stent":442,"stent/lib/helpers":434}],519:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43936,7 +43899,7 @@ function createRawMachine() {
   });
 };
 
-},{"stent":442}],521:[function(require,module,exports){
+},{"stent":442}],520:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43965,7 +43928,7 @@ var TreeNav = _stent.Machine.create('TreeNav', {
 
 exports.default = TreeNav;
 
-},{"stent":442}],522:[function(require,module,exports){
+},{"stent":442}],521:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44056,7 +44019,7 @@ ItemRange.propTypes = {
 };
 exports['default'] = ItemRange;
 
-},{"./JSONArrow":524,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425}],523:[function(require,module,exports){
+},{"./JSONArrow":523,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425}],522:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44110,7 +44073,7 @@ JSONArrayNode.propTypes = {
 
 exports['default'] = JSONArrayNode;
 
-},{"./JSONNestedNode":526,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],524:[function(require,module,exports){
+},{"./JSONNestedNode":525,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],523:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44154,7 +44117,7 @@ JSONArrow.defaultProps = {
 
 exports['default'] = JSONArrow;
 
-},{"babel-runtime/helpers/extends":12,"prop-types":161,"react":425}],525:[function(require,module,exports){
+},{"babel-runtime/helpers/extends":12,"prop-types":161,"react":425}],524:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44233,7 +44196,7 @@ function JSONIterableNode(_ref2) {
   }));
 }
 
-},{"./JSONNestedNode":526,"babel-runtime/core-js/get-iterator":1,"babel-runtime/core-js/number/is-safe-integer":3,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"react":425}],526:[function(require,module,exports){
+},{"./JSONNestedNode":525,"babel-runtime/core-js/get-iterator":1,"babel-runtime/core-js/number/is-safe-integer":3,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"react":425}],525:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44440,7 +44403,7 @@ JSONNestedNode.defaultProps = {
 };
 exports['default'] = JSONNestedNode;
 
-},{"./ItemRange":522,"./JSONArrow":524,"./JSONNode":527,"./getCollectionEntries":531,"babel-runtime/core-js/object/keys":7,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425}],527:[function(require,module,exports){
+},{"./ItemRange":521,"./JSONArrow":523,"./JSONNode":526,"./getCollectionEntries":530,"babel-runtime/core-js/object/keys":7,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425}],526:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44577,7 +44540,7 @@ JSONNode.propTypes = {
 
 exports['default'] = JSONNode;
 
-},{"./JSONArrayNode":523,"./JSONIterableNode":525,"./JSONObjectNode":528,"./JSONValueNode":529,"./objType":533,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],528:[function(require,module,exports){
+},{"./JSONArrayNode":522,"./JSONIterableNode":524,"./JSONObjectNode":527,"./JSONValueNode":528,"./objType":532,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],527:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44637,7 +44600,7 @@ JSONObjectNode.propTypes = {
 
 exports['default'] = JSONObjectNode;
 
-},{"./JSONNestedNode":526,"babel-runtime/core-js/object/get-own-property-names":6,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],529:[function(require,module,exports){
+},{"./JSONNestedNode":525,"babel-runtime/core-js/object/get-own-property-names":6,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/objectWithoutProperties":14,"prop-types":161,"react":425}],528:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44687,7 +44650,7 @@ JSONValueNode.defaultProps = {
 
 exports['default'] = JSONValueNode;
 
-},{"prop-types":161,"react":425}],530:[function(require,module,exports){
+},{"prop-types":161,"react":425}],529:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44913,7 +44876,7 @@ exports['default'] = (0, _reactBase16Styling.createStyling)(getDefaultThemeStyli
   defaultBase16: _solarized2['default']
 });
 
-},{"./themes/solarized":534,"babel-runtime/helpers/extends":12,"react-base16-styling":172}],531:[function(require,module,exports){
+},{"./themes/solarized":533,"babel-runtime/helpers/extends":12,"react-base16-styling":172}],530:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -45079,7 +45042,7 @@ function getCollectionEntries(type, collection, sortObjectKeys, limit) {
   return limitedEntries;
 }
 
-},{"babel-runtime/core-js/get-iterator":1,"babel-runtime/core-js/object/get-own-property-names":6,"babel-runtime/core-js/object/keys":7}],532:[function(require,module,exports){
+},{"babel-runtime/core-js/get-iterator":1,"babel-runtime/core-js/object/get-own-property-names":6,"babel-runtime/core-js/object/keys":7}],531:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -45286,7 +45249,7 @@ JSONTree.defaultProps = {
 };
 exports['default'] = JSONTree;
 
-},{"./JSONNode":527,"./createStylingFromTheme":530,"babel-runtime/core-js/object/keys":7,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/objectWithoutProperties":14,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425,"react-base16-styling":172}],533:[function(require,module,exports){
+},{"./JSONNode":526,"./createStylingFromTheme":529,"babel-runtime/core-js/object/keys":7,"babel-runtime/helpers/classCallCheck":11,"babel-runtime/helpers/extends":12,"babel-runtime/helpers/inherits":13,"babel-runtime/helpers/objectWithoutProperties":14,"babel-runtime/helpers/possibleConstructorReturn":15,"prop-types":161,"react":425,"react-base16-styling":172}],532:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -45310,7 +45273,7 @@ function objType(obj) {
   return type;
 }
 
-},{"babel-runtime/core-js/symbol/iterator":10}],534:[function(require,module,exports){
+},{"babel-runtime/core-js/symbol/iterator":10}],533:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -45335,4 +45298,4 @@ exports['default'] = {
   base0F: '#d33682'
 };
 
-},{}]},{},[516]);
+},{}]},{},[515]);

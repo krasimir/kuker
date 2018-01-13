@@ -20,11 +20,11 @@ export default class Tree extends React.Component {
     }
   }
   render() {
-    const { data, renderer, onItemClick } = this.props;
+    const { data, renderer, onItemClick, mutationExplorerPath } = this.props;
 
     if (!data) return null;
 
-    const tree = (renderer || renderStateAsTree)(data, onItemClick);
+    const tree = (renderer || renderStateAsTree)(data, onItemClick, mutationExplorerPath);
 
     return (
       <div>
@@ -44,6 +44,7 @@ Tree.defaultPropTypes = {
 
 Tree.propTypes = {
   data: PropTypes.any,
+  mutationExplorerPath: PropTypes.string,
   renderer: PropTypes.func,
   onItemClick: PropTypes.func
 };

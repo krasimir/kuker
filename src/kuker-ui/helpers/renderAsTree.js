@@ -3,8 +3,8 @@ import getMachineName from './getMachineName';
 import renderJSON from './renderJSON';
 import React from 'react';
 
-export function renderStateAsTree(state = {}, onItemClick = null) {
-  return renderJSON(state, <i className='fa fa-list-alt'></i>, onItemClick);
+export function renderStateAsTree(state = {}, onItemClick = null, mutationExplorerPath = null) {
+  return renderJSON(state, <i className='fa fa-list-alt'></i>, onItemClick, mutationExplorerPath);
 };
 
 export function renderEventAsTree(event, onItemClick = null) {

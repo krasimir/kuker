@@ -41,17 +41,25 @@ const treeTheme = {
 };
 const treeNodesState = {};
 
-function labelRenderer(what, onItemClick) {
-  const viewMutation = (event, data) => {
+function getPathFromKey(key) {
+  if (!key) return false;
+  return key.slice(0, key.length - 1).reverse().join('.');
+}
+function labelRenderer(what, onItemClick, mutationExplorerPath) {
+  const viewMutation = (event, path) => {
     event.stopPropagation();
-    if (data) {
-      onItemClick(data.slice(0, data.length - 1).reverse().join('.'));
+    if (path) {
+      onItemClick(path);
     }
   };
 
   return function labelRenderer(key, parentKey, expanded, rootKey) {
+    const path = getPathFromKey(key);
+    const style = path === mutationExplorerPath ? {
+      color: '#f00'
+    } : {};
     const clickMeIcon = onItemClick !== null ?
-      (<a onClick={ event => viewMutation(event, key) } style={{ marginLeft: '0.5em', textIndent: 0 }}>
+      (<a onClick={ event => viewMutation(event, path) } style={{ textIndent: 0 }}>
         <i className='fa fa-eye viewMutationIcon'></i>
       </a>) :
       null;
@@ -59,7 +67,7 @@ function labelRenderer(what, onItemClick) {
     if (key[0] === 'root' && (parentKey === 'Object' || parentKey === 'Array') && rootKey === true) {
       return what;
     }
-    return <span><strong>{ key[0] }</strong>{ clickMeIcon }</span>;
+    return <span style={ style }><strong>{ key[0] }</strong>{ clickMeIcon }</span>;
   };
 }
 function shouldExpandNode(keyName, data, level) {
@@ -78,12 +86,12 @@ function getItemString(type, data, itemType, itemString) {
   return null;
 };
 
-const renderJSON = function (json, what = 'root', onItemClick = null) {
+const renderJSON = function (json, what = 'root', onItemClick = null, mutationExplorerPath) {
   return <JSONTree
     data={ json }
     theme={ treeTheme }
     getItemString={ getItemString }
-    labelRenderer={ labelRenderer(what, onItemClick) }
+    labelRenderer={ labelRenderer(what, onItemClick, mutationExplorerPath) }
     shouldExpandNode={ shouldExpandNode }
     valueRenderer={ valueRenderer }
     hideRoot={ false }

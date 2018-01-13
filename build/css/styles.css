@@ -211,6 +211,7 @@ p {
   cursor: pointer;
   opacity: 0.4;
   transition: opacity 200ms ease;
+  margin-left: 0.3em;
 }
 .viewMutationIcon:hover {
   opacity: 1;

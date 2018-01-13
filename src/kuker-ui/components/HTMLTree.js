@@ -58,8 +58,13 @@ class HTMLTree extends React.Component {
     this.setState({ mouseOver: expandKey });
   }
   _showMutation(mutationExplorerPath) {
-    this.props.showMutation(mutationExplorerPath);
-    this.setState({ mutationExplorerPath });
+    if (mutationExplorerPath === this.state.mutationExplorerPath) {
+      this.props.clearMutation();
+      this.setState({ mutationExplorerPath: null });
+    } else {
+      this.props.showMutation(mutationExplorerPath);
+      this.setState({ mutationExplorerPath });
+    }
   }
   _renderTag(component, indent = 0, jsonPath = '') {
     if ([TEXT_NODE, COMMENT_NODE].indexOf(component.nodeType) >= 0 && component.nodeValue) {
@@ -117,9 +122,8 @@ class HTMLTree extends React.Component {
           &lt;
           <strong>{ name }</strong>{ attributes.length > 0 && <span> { attributes }</span> }
           { hasChildren ? <span>&gt;</span> : <span>/&gt;</span> }
-          { !renderChildren && hasChildren && <span>...&lt;/<strong>{ name }</strong>&gt; </span>}
-        </a>
-        <a onClick={ () => this._showMutation(jsonPath) }><i className='fa fa-eye viewMutationIcon'></i></a>
+          { !renderChildren && hasChildren && <span>...&lt;/<strong>{ name }</strong>&gt;</span>}
+        </a><a onClick={ () => this._showMutation(jsonPath) }><i className='fa fa-eye viewMutationIcon'></i></a>
         { renderChildren && hasChildren && children.map((child, i) => {
           return (
             <div key={ i }>{
@@ -130,7 +134,7 @@ class HTMLTree extends React.Component {
             }</div>
           );
         }) }
-        { renderChildren && hasChildren && <span>&lt;/<strong>{ name }</strong>&gt; </span>}
+        { renderChildren && hasChildren && <span>&lt;/<strong>{ name }</strong>&gt;</span>}
       </div>
     );
   };
@@ -173,6 +177,7 @@ class HTMLTree extends React.Component {
 HTMLTree.propTypes = {
   pinnedEvent: PropTypes.object,
   showMutation: PropTypes.func,
+  clearMutation: PropTypes.func,
   filter: PropTypes.string,
   Pin: PropTypes.any
 };
@@ -181,6 +186,7 @@ export default connect(HTMLTree)
   .with('Pinned', 'DevTools')
   .map(({ state }, devtools) => ({
     showMutation: devtools.showMutation,
+    clearMutation: devtools.clearMutation,
     pinnedEvent: state.pinnedEvent,
     filter: devtools.state.quickFilters.right
   }));

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Tree from './Tree';
 import { connect } from 'stent/lib/react';
 import JSONMutation from './JSONMutation';
-import MutationPin from './Dashboard/MutationPin';
 
 var filteredTreesCache = {};
 
@@ -31,8 +30,23 @@ const extractFilteredTrees = function (root, filter, result = []) {
 };
 
 class JSONTree extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { mutationExplorerPath: null };
+    this._showMutation = this._showMutation.bind(this);
+  }
+  _showMutation(mutationExplorerPath) {
+    if (mutationExplorerPath === this.state.mutationExplorerPath) {
+      this.props.clearMutation();
+      this.setState({ mutationExplorerPath: null });
+    } else {
+      this.props.showMutation(mutationExplorerPath);
+      this.setState({ mutationExplorerPath });
+    }
+  }
   render() {
-    const { mutationExplorerPath, pinnedEvent, showMutation, filter } = this.props;
+    const { mutationExplorerPath, pinnedEvent, filter } = this.props;
     var trees = [];
 
     if (filter !== '') {
@@ -54,14 +68,11 @@ class JSONTree extends React.Component {
           {
             trees.map((tree, i) =>
               <div key={ i } className='filteredTreeResult'>
-                <Tree data={ tree } onItemClick={ showMutation } />
+                <Tree data={ tree } onItemClick={ this._showMutation } mutationExplorerPath={ mutationExplorerPath } />
               </div>
             )
           }
           <JSONMutation mutations={ pinnedEvent.stateMutation } filter={ filter }/>
-        </div>
-        <div className='logDetails'>
-          <MutationPin />
         </div>
       </div>
     );
@@ -72,13 +83,15 @@ JSONTree.propTypes = {
   pinnedEvent: PropTypes.object,
   mutationExplorerPath: PropTypes.string,
   filter: PropTypes.string,
-  showMutation: PropTypes.func
+  showMutation: PropTypes.func,
+  clearMutation: PropTypes.func
 };
 
 export default connect(JSONTree)
   .with('DevTools', 'Pinned')
   .map((devtools, pinned) => ({
     showMutation: devtools.showMutation,
+    clearMutation: devtools.clearMutation,
     mutationExplorerPath: devtools.state.mutationExplorerPath,
     pinnedEvent: pinned.state.pinnedEvent,
     filter: devtools.state.quickFilters.right
