@@ -167,6 +167,8 @@ import { HTMLEmitter } from 'kuker-emitters';
 HTMLEmitter();
 ```
 
+[Codepen example](https://codepen.io/krasimir/pen/aEKjWY?editors=0010)
+
 ![screenshot redux-saga](./img/kuker-emitters/screenshot_html.jpg)
 
 ### Integration with [Stent](https://github.com/krasimir/stent)
