@@ -9,6 +9,7 @@ Kuker :heart:
 <a href="#integration-with-vue">Vue & Vuex</a>, 
 <a href="#integration-with-redux">Redux</a>, 
 <a href="#integration-with-redux-saga">redux-saga</a>, 
+<a href="#html-emitter">HTML</a>, 
 <a href="#integration-with-stent">Stent</a>, 
 <a href="#integration-with-machinajs">Machina.js</a>, 
 <a href="#integration-with-mobx">MobX</a>
@@ -67,6 +68,7 @@ To make the extension work you have to *instrument* your application. You have t
 * [Vue and Vuex](#integration-with-vue)
 * [Redux](#integration-with-redux)
 * [redux-saga](#integration-with-redux-saga)
+* [HTML](#html-emitter)
 * [Stent](#integration-with-stent)
 * [Machina.js](#integration-with-machinajs)
 * [MobX](#integration-with-mobx)
@@ -156,6 +158,16 @@ sagaMiddleware.run(rootSaga)
 * [jsFiddle example](http://jsfiddle.net/726o9zp2/1/)
 
 ![screenshot redux-saga](./img/kuker-emitters/screenshot_reduxsaga.jpg)
+
+### HTML emitter
+
+```js
+import { HTMLEmitter } from 'kuker-emitters';
+
+HTMLEmitter();
+```
+
+![screenshot redux-saga](./img/kuker-emitters/screenshot_html.jpg)
 
 ### Integration with [Stent](https://github.com/krasimir/stent)
 
