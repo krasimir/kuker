@@ -45,14 +45,7 @@ function enhanceEvent(message) {
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   log('-> DevTools', message);
   if (message && message.type) {
-    switch (message.type) {
-      case 'console.log':
-        console.log.apply(console, message.data);
-        break;
-      case 'get-page-url':
-        sendResponse(getOrigin());
-        break;
-    }
+    switch (message.type) {}
   }
 });
 

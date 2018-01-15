@@ -12,29 +12,6 @@ const bridge = {
 const notify = function (message) {
   listeners.forEach(f => f(message));
 };
-const getActiveTabId = function (callback) {
-  try {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      if (!tabs || tabs.length === 0) {
-        callback(); return;
-      }
-      callback(tabs[0].id);
-    });
-  } catch (error) {
-    console.log(error);
-    callback();
-  }
-};
-const sendMessageToCurrentTag = function (data, callback) {
-  getActiveTabId(function (id) {
-    if (!id) {
-      console.error('It can\'t get the current active tab.');
-      callback();
-      return;
-    }
-    chrome.tabs.sendMessage(id, data, callback);
-  });
-};
 const wire = function () {
   if (!isInDevTools()) return;
 
@@ -47,6 +24,8 @@ const wire = function () {
   });
 };
 const wireWithSockets = function () {
+  var timeoutInterval = null;
+
   function fail(socket) {
     try {
       if (socket) {
@@ -56,7 +35,8 @@ const wireWithSockets = function () {
     } catch (error) {
       console.log('Error closing the socket', error);
     }
-    setTimeout(init, socketRetryInterval);
+    clearTimeout(timeoutInterval);
+    timeoutInterval = setTimeout(init, socketRetryInterval);
   }
   function listen(serverURL, noRetry) {
     const URL = serverURL + ':' + KUKER_EMITTER_SOCKET_PORT;
@@ -85,9 +65,14 @@ const wireWithSockets = function () {
     }
   }
   function init() {
+    console.log('Bridge init');
     if (isInDevTools()) {
-      sendMessageToCurrentTag({ type: 'get-page-url' }, u => {
-        u ? listen(u, false) : fail();
+      chrome.devtools.inspectedWindow.eval(`;(${ getOrigin.toString() })()`, function (u) {
+        if (u) {
+          listen(u, false);
+        } else {
+          fail();
+        }
       });
     } else {
       listen('http://localhost', true);
@@ -101,3 +86,11 @@ wire();
 wireWithSockets();
 
 export default bridge;
+
+// helpers
+function getOrigin() {
+  if (typeof location !== 'undefined' && location.protocol && location.host) {
+    return location.protocol + '//' + location.host;
+  }
+  return '';
+}

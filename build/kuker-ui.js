@@ -38122,7 +38122,7 @@ module.exports={
   "manifest_version": 2,
   "name": "Kuker",
   "description": "Debug applications made with React, Redux, Angular, Vue and many more",
-  "version": "5.4.2",
+  "version": "5.4.3",
   "icons": { "16": "img/icon16.png", "48": "img/icon48.png", "128": "img/icon128.png" },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "devtools_page": "devtools.html",
@@ -43498,29 +43498,6 @@ var notify = function notify(message) {
     return f(message);
   });
 };
-var getActiveTabId = function getActiveTabId(callback) {
-  try {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      if (!tabs || tabs.length === 0) {
-        callback();return;
-      }
-      callback(tabs[0].id);
-    });
-  } catch (error) {
-    console.log(error);
-    callback();
-  }
-};
-var sendMessageToCurrentTag = function sendMessageToCurrentTag(data, callback) {
-  getActiveTabId(function (id) {
-    if (!id) {
-      console.error('It can\'t get the current active tab.');
-      callback();
-      return;
-    }
-    chrome.tabs.sendMessage(id, data, callback);
-  });
-};
 var wire = function wire() {
   if (!(0, _isInDevTools2.default)()) return;
 
@@ -43533,6 +43510,8 @@ var wire = function wire() {
   });
 };
 var wireWithSockets = function wireWithSockets() {
+  var timeoutInterval = null;
+
   function fail(socket) {
     try {
       if (socket) {
@@ -43542,7 +43521,8 @@ var wireWithSockets = function wireWithSockets() {
     } catch (error) {
       console.log('Error closing the socket', error);
     }
-    setTimeout(init, socketRetryInterval);
+    clearTimeout(timeoutInterval);
+    timeoutInterval = setTimeout(init, socketRetryInterval);
   }
   function listen(serverURL, noRetry) {
     var URL = serverURL + ':' + _constants.KUKER_EMITTER_SOCKET_PORT;
@@ -43581,9 +43561,14 @@ var wireWithSockets = function wireWithSockets() {
     }
   }
   function init() {
+    console.log('Bridge init');
     if ((0, _isInDevTools2.default)()) {
-      sendMessageToCurrentTag({ type: 'get-page-url' }, function (u) {
-        u ? listen(u, false) : fail();
+      chrome.devtools.inspectedWindow.eval(';(' + getOrigin.toString() + ')()', function (u) {
+        if (u) {
+          listen(u, false);
+        } else {
+          fail();
+        }
       });
     } else {
       listen('http://localhost', true);
@@ -43597,6 +43582,15 @@ wire();
 wireWithSockets();
 
 exports.default = bridge;
+
+// helpers
+
+function getOrigin() {
+  if (typeof location !== 'undefined' && location.protocol && location.host) {
+    return location.protocol + '//' + location.host;
+  }
+  return '';
+}
 
 },{"../constants":496,"../helpers/isInDevTools":507}],517:[function(require,module,exports){
 'use strict';
