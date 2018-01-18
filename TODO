@@ -1,6 +1,5 @@
-* Watch a node in html tree
-* High cpu (probably on pages that has no supported framework)
+* When clear flush the last selected state
 * build for firefox
-* create css and dom emitter
+* create css emitter
 * import export of events
 * in the diff section - the strike-through line doesn't look good when the text is more then one line

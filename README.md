@@ -86,7 +86,8 @@ import { ReactEmitter } from 'kuker-emitters';
 ReactEmitter();
 ```
 
-[TodoMVC example](http://work.krasimirtsonev.com/git/redux-react-todomvc/)
+* [TodoMVC example](http://work.krasimirtsonev.com/git/redux-react-todomvc/)
+* [TodoMVC example using Redux and redux-saga](http://work.krasimirtsonev.com/git/redux-react-saga-todomvc)
 
 ![screenshot react emitter](./img/kuker-emitters/screenshot_reactemitter.jpg)
 
@@ -132,6 +133,7 @@ const store = createStore(<reducer>, applyMiddleware(middleware));
 
 * [Codepen example](https://codepen.io/krasimir/pen/vpYrqw)
 * [TodoMVC example](http://work.krasimirtsonev.com/git/redux-react-todomvc/)
+* [TodoMVC example using redux-saga and ReactEmitter](http://work.krasimirtsonev.com/git/redux-react-saga-todomvc)
 
 ![screenshot redux emitter](./img/kuker-emitters/screenshot_redux.jpg)
 
@@ -156,6 +158,7 @@ sagaMiddleware.run(rootSaga)
 
 * [Codepen example](https://codepen.io/krasimir/pen/vpYrqw)
 * [jsFiddle example](http://jsfiddle.net/726o9zp2/1/)
+* [TodoMVC example](http://work.krasimirtsonev.com/git/redux-react-saga-todomvc)
 
 ![screenshot redux-saga](./img/kuker-emitters/screenshot_reduxsaga.jpg)
 
