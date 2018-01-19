@@ -379,11 +379,31 @@ p {
 .pinned svg {
   fill: #FFF !important;
 }
-.mutatingState {
-  border-right: solid 4px #fff;
+.mutatingState::after {
+  display: block;
+  content: " ";
+  width: 5px;
+  background: #FFF;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
-.mutationExplorer {
-  border-right: solid 10px #f00;
+.mutationExplorer::after {
+  display: block;
+  content: " ";
+  width: 10px;
+  background: #F00;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.mutatingState .timeDiff {
+  right: 5px;
+}
+.mutationExplorer .timeDiff {
+  right: 10px;
 }
 .sagaParentEffect {
   font-size: 0.7em;
