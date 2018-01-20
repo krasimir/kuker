@@ -1,4 +1,5 @@
 * When clear flush the last selected state
+* When a new session starts flush the last selected state
 * build for firefox
 * create css emitter
 * import export of events

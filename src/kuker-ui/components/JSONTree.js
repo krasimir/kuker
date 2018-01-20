@@ -63,7 +63,7 @@ class JSONTree extends React.Component {
     }
 
     return (
-      <div className={ 'logRightContentWrapper' + (mutationExplorerPath ? ' withDetails' : '') }>
+      <div className='logRightContentWrapper'>
         <div className='logTree'>
           {
             trees.map((tree, i) =>

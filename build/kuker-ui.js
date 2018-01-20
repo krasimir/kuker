@@ -42132,7 +42132,7 @@ var JSONTree = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'logRightContentWrapper' + (mutationExplorerPath ? ' withDetails' : '') },
+        { className: 'logRightContentWrapper' },
         _react2.default.createElement(
           'div',
           { className: 'logTree' },
