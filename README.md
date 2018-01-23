@@ -76,7 +76,7 @@ To make the extension work you have to *instrument* your application. You have t
 
 ### Installing emitters
 
-`yarn add kuker-emitters` or `npm install kuker-emitters`. There're also standalone versions in [here](./standalone). You may grab the file, include it in your page and you'll a global like `ReduxEmitter`, `ReduxSagaEmitter` or `ReactEmitter`.
+`yarn add kuker-emitters` or `npm install kuker-emitters`. There're also standalone versions in [here](https://github.com/krasimir/kuker-emitters/tree/master/standalone). You may grab the file, include it in your page and you'll a global like `ReduxEmitter`, `ReduxSagaEmitter` or `ReactEmitter`.
 
 ### Integration with [React](https://reactjs.org/)
 
