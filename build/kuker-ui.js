@@ -38122,7 +38122,7 @@ module.exports={
   "manifest_version": 2,
   "name": "Kuker",
   "description": "Debug applications made with React, Redux, Angular, Vue and many more",
-  "version": "5.4.3",
+  "version": "5.4.4",
   "icons": { "16": "img/icon16.png", "48": "img/icon48.png", "128": "img/icon128.png" },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "devtools_page": "devtools.html",
@@ -43617,8 +43617,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
+var ls = null;
+
+(function () {
+  var test = 'test';
+
+  try {
+    localStorage.setItem(test, test);
+    localStorage.removeItem(test);
+    ls = localStorage;
+  } catch (e) {
+    ls = false;
+  }
+})();
+
+var getLocalStorage = function getLocalStorage() {
+  return ls ? ls : {
+    getItem: function getItem() {
+      return null;
+    },
+    setItem: function setItem() {
+      return null;
+    }
+  };
+};
+
 var getFilterTypes = function getFilterTypes() {
-  var types = localStorage.getItem('kuker_filterTypes');
+  var types = getLocalStorage().getItem('kuker_filterTypes');
 
   if (types !== null) {
     try {
@@ -43630,7 +43655,7 @@ var getFilterTypes = function getFilterTypes() {
   return _constants.DEFAULT_FILTER_TYPES;
 };
 var getSources = function getSources() {
-  var sources = localStorage.getItem('kuker_sources');
+  var sources = getLocalStorage().getItem('kuker_sources');
 
   if (sources !== null) {
     try {
@@ -43643,14 +43668,14 @@ var getSources = function getSources() {
 };
 var setFilterTypes = function setFilterTypes(types) {
   try {
-    return localStorage.setItem('kuker_filterTypes', JSON.stringify(types));
+    return getLocalStorage().setItem('kuker_filterTypes', JSON.stringify(types));
   } catch (error) {
     return {};
   }
 };
 var setSources = function setSources(sources) {
   try {
-    return localStorage.setItem('kuker_sources', JSON.stringify(sources));
+    return getLocalStorage().setItem('kuker_sources', JSON.stringify(sources));
   } catch (error) {
     return {};
   }

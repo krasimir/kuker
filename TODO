@@ -1,6 +1,8 @@
 * When clear flush the last selected state
 * When a new session starts flush the last selected state
 * build for firefox
+* support of Preact
+* npm package that extracts the common bits of react-devtools
 * create css emitter
 * import export of events
 * in the diff section - the strike-through line doesn't look good when the text is more then one line

@@ -3,8 +3,29 @@ import { PAGES, DEFAULT_FILTER_TYPES } from '../constants';
 import { enhanceEvent } from '../helpers/enhanceEvent';
 import calculateMutationExplorer from '../helpers/calculateMutationExplorer';
 
+var ls = null;
+
+(function () {
+  var test = 'test';
+
+  try {
+    localStorage.setItem(test, test);
+    localStorage.removeItem(test);
+    ls = localStorage;
+  } catch (e) {
+    ls = false;
+  }
+})();
+
+const getLocalStorage = function () {
+  return ls ? ls : {
+    getItem: () => null,
+    setItem: () => null
+  };
+};
+
 const getFilterTypes = function () {
-  const types = localStorage.getItem('kuker_filterTypes');
+  const types = getLocalStorage().getItem('kuker_filterTypes');
 
   if (types !== null) {
     try {
@@ -16,7 +37,7 @@ const getFilterTypes = function () {
   return DEFAULT_FILTER_TYPES;
 };
 const getSources = function () {
-  const sources = localStorage.getItem('kuker_sources');
+  const sources = getLocalStorage().getItem('kuker_sources');
 
   if (sources !== null) {
     try {
@@ -29,14 +50,14 @@ const getSources = function () {
 };
 const setFilterTypes = function (types) {
   try {
-    return localStorage.setItem('kuker_filterTypes', JSON.stringify(types));
+    return getLocalStorage().setItem('kuker_filterTypes', JSON.stringify(types));
   } catch (error) {
     return {};
   }
 };
 const setSources = function (sources) {
   try {
-    return localStorage.setItem('kuker_sources', JSON.stringify(sources));
+    return getLocalStorage().setItem('kuker_sources', JSON.stringify(sources));
   } catch (error) {
     return {};
   }
