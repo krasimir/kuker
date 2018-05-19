@@ -5,4 +5,7 @@
 * npm package that extracts the common bits of react-devtools
 * create css emitter
 * import export of events
+* support DOM and CSS selection from the the devtools ui
 * in the diff section - the strike-through line doesn't look good when the text is more then one line
+* the filter should not be considered when watching bits of the state. Something's wrong with the mutation path in this case.
+* Integrate https://cerebraljs.com/
