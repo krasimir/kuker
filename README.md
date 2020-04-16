@@ -4,7 +4,7 @@
 
 <p align="center">
 Kuker :heart:
-<a href="#integration-with-react">React</a>, 
+<a href="#integration-with-react">React (Supports only React 14.x.x. Sorry!)</a>,
 <a href="#integration-with-angular">Angular</a>, 
 <a href="#integration-with-vue">Vue & Vuex</a>, 
 <a href="#integration-with-redux">Redux</a>, 
@@ -55,24 +55,32 @@ The following screenshot demonstrate how the extension works with [React emitter
 
 ![Kuker](./img/screenshot_reactredux2.jpg)
 
-*(The screenshots are made of [this TodoMVC example](http://work.krasimirtsonev.com/git/redux-react-todomvc/). If you install the extension and open the app you'll see a similar result.)*
-
 ## Instrumentation
 
 To make the extension work you have to *instrument* your application. You have to add an [_emitter_](https://github.com/krasimir/kuker-emitters) which listens for actions/events on your side and sends them to [Kuker](https://chrome.google.com/webstore/detail/glgnienmpgmfpkigngkmieconbnkmlcn).
 
 ## Emitters
 
-* [React](#integration-with-react)
-* [Angular](#integration-with-angular)
-* [Vue and Vuex](#integration-with-vue)
-* [Redux](#integration-with-redux)
-* [redux-saga](#integration-with-redux-saga)
-* [HTML](#html-emitter)
-* [Stent](#integration-with-stent)
-* [Machina.js](#integration-with-machinajs)
-* [MobX](#integration-with-mobx)
-* [Base emitter](#baseemitter)
+- [How to use it](#how-to-use-it)
+- [Features](#features)
+- [Philosophy](#philosophy)
+- [Instrumentation](#instrumentation)
+- [Emitters](#emitters)
+  - [Installing emitters](#installing-emitters)
+  - [Integration with React](#integration-with-react)
+  - [Integration with Angular](#integration-with-angular)
+  - [Integration with Vue](#integration-with-vue)
+  - [Integration with Redux](#integration-with-redux)
+  - [Integration with redux-saga](#integration-with-redux-saga)
+  - [HTML emitter](#html-emitter)
+  - [Integration with Stent](#integration-with-stent)
+  - [Integration with Machina.js](#integration-with-machinajs)
+  - [Integration with MobX](#integration-with-mobx)
+  - [BaseEmitter](#baseemitter)
+  - [Writing your own Emitter](#writing-your-own-emitter)
+- [In production](#in-production)
+- [How it works](#how-it-works)
+- [Misc](#misc)
 
 ### Installing emitters
 
@@ -86,8 +94,7 @@ import { ReactEmitter } from 'kuker-emitters';
 ReactEmitter();
 ```
 
-* [TodoMVC example](http://work.krasimirtsonev.com/git/redux-react-todomvc/)
-* [TodoMVC example using Redux and redux-saga](http://work.krasimirtsonev.com/git/redux-react-saga-todomvc)
+* [Example](https://kuker-example.krasimir.now.sh/)
 
 ![screenshot react emitter](./img/kuker-emitters/screenshot_reactemitter.jpg)
 
@@ -101,8 +108,6 @@ AngularEmitter();
 
 `AngularEmitter` accepts a single parameter `options` which by default is equal to `{ rootSelector: 'app-root' }`. The root element in a Angular app is usually `app-root` (at least in the latest versions). If it happens to be a different one set the proper selector. Also you should compile your app in a development mode. Otherwise `ng.probe` is not available and the emitter can not send events.
 
-[Simple Angular application](http://work.krasimirtsonev.com/angular-test/)
-
 ![screenshot angular emitter](./img/kuker-emitters/screenshot_angular.jpg)
 
 ### Integration with [Vue](https://github.com/vuejs/)
@@ -115,7 +120,6 @@ VueEmitter();
 
 The same `VueEmitter` works for [Vuex](https://github.com/vuejs/vuex) too.
 
-* [TodoMVC example](http://work.krasimirtsonev.com/git/vuex-vue-todomvc/)
 * [Codepen example](https://codepen.io/krasimir/pen/EoLddv?editors=1010)
 
 ![screenshot vue emitter](./img/kuker-emitters/screenshot_vue.jpg)
@@ -132,8 +136,7 @@ const store = createStore(<reducer>, applyMiddleware(middleware));
 ```
 
 * [Codepen example](https://codepen.io/krasimir/pen/vpYrqw)
-* [TodoMVC example](http://work.krasimirtsonev.com/git/redux-react-todomvc/)
-* [TodoMVC example using redux-saga and ReactEmitter](http://work.krasimirtsonev.com/git/redux-react-saga-todomvc)
+* [Example](https://kuker-example.krasimir.now.sh/)
 
 ![screenshot redux emitter](./img/kuker-emitters/screenshot_redux.jpg)
 
@@ -158,7 +161,7 @@ sagaMiddleware.run(rootSaga)
 
 * [Codepen example](https://codepen.io/krasimir/pen/vpYrqw)
 * [jsFiddle example](http://jsfiddle.net/726o9zp2/1/)
-* [TodoMVC example](http://work.krasimirtsonev.com/git/redux-react-saga-todomvc)
+* [Example](https://kuker-example.krasimir.now.sh/)
 
 ![screenshot redux-saga](./img/kuker-emitters/screenshot_reduxsaga.jpg)
 
